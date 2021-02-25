@@ -79,3 +79,5 @@ The first step for all three of these strategies is to [publish to NPM](https://
 # Ref
 
 https://mc706.io/2020/01/27/stencil-storybook-typescript/
+
+[starting templates](https://github.com/shoelace-style/shoelace)

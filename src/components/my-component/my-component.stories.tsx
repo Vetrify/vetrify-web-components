@@ -1,8 +1,8 @@
 export default {
-    title: 'MyComponent'
+    title: 'Vetrify/Sketch/MyComponent'
 }
 
-export const Basic = () => `<my-component first="stencil" middle="storybook" last="typescript"></my-component>`
+export const Basic = () => `test<my-component first="stencil" middle="storybook" last="typescript"></my-component>`
 
 Basic.args = { 
     first: 'stencil', 

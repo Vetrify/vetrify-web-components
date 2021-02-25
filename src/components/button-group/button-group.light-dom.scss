@@ -1,0 +1,62 @@
+//
+// In general, we should avoid placing styles in the light DOM. However, we don't have a way to target slotted element
+// parts, e.g. `::slotted(v-button)::part(base)`, so we need these styles to make buttons groups work.
+//
+// The alternative approach is to set the styles with JavaScript, but this is more expensive because it requires
+// multiple listeners + DOM traversals.
+//
+v-button-group {
+  // First
+  > v-button:first-child::part(base),
+  > v-dropdown:first-child > v-button[slot='trigger']::part(base),
+  > v-tooltip:first-child > v-button::part(base) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  // Last
+  > v-button:last-child::part(base),
+  > v-dropdown:last-child > v-button[slot='trigger']::part(base),
+  > v-tooltip:last-child > v-button::part(base) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  // Interior
+  > v-button:not(:first-child):not(:last-child)::part(base),
+  > v-dropdown:not(:first-child):not(:last-child) > v-button[slot='trigger']::part(base),
+  > v-tooltip:not(:first-child):not(:last-child) > v-button::part(base) {
+    border-radius: 0;
+  }
+
+  // All except the first
+  > v-button:not(:first-child),
+  > v-dropdown:not(:first-child) > v-button[slot='trigger'],
+  > v-tooltip:not(:first-child) > v-button {
+    margin-left: calc(-1 * var(--v-input-border-width));
+
+    // Add a visual separator between solid buttons
+    &:not([type='default'])::part(base):not(:hover):not(:active):not(:focus)::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      border-left: solid 1px #ffffff40;
+    }
+  }
+
+  // Hover
+  > v-button:hover,
+  > v-dropdown:hover > v-button[slot='trigger'],
+  > v-tooltip:hover > v-button {
+    z-index: 1;
+  }
+
+  // Focus
+  > v-button.v-focus,
+  > v-dropdown > v-button[slot='trigger'].v-focus,
+  > v-tooltip > v-button.v-focus {
+    z-index: 2;
+  }
+}
