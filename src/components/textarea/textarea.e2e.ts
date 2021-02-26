@@ -5,7 +5,7 @@ describe('<v-textarea>', () => {
     const page = await newE2EPage({
       html: `
         <v-textarea></v-textarea>
-      `
+      `,
     });
     const textarea = await page.find('v-textarea');
     const slFocus = await textarea.spyOnEvent('v-focus');
@@ -20,7 +20,7 @@ describe('<v-textarea>', () => {
       html: `
         <v-textarea></v-textarea>
         <button>Other Element</button>
-      `
+      `,
     });
     const textarea = await page.find('v-textarea');
     const button = await page.find('button');
@@ -36,7 +36,7 @@ describe('<v-textarea>', () => {
     const page = await newE2EPage({
       html: `
         <v-textarea></v-textarea>
-      `
+      `,
     });
     const textarea = await page.find('v-textarea');
     const slFocus = await textarea.spyOnEvent('v-focus');
@@ -50,7 +50,7 @@ describe('<v-textarea>', () => {
     const page = await newE2EPage({
       html: `
         <v-textarea></v-textarea>
-      `
+      `,
     });
     const textarea = await page.find('v-textarea');
     const slBlur = await textarea.spyOnEvent('v-blur');
@@ -65,7 +65,7 @@ describe('<v-textarea>', () => {
     const page = await newE2EPage({
       html: `
         <v-textarea></v-textarea>
-      `
+      `,
     });
     const textarea = await page.find('v-textarea');
     const textareaControl = await page.find('v-textarea >>> .textarea__control');
@@ -81,7 +81,7 @@ describe('<v-textarea>', () => {
     const page = await newE2EPage({
       html: `
         <v-textarea></v-textarea>
-      `
+      `,
     });
     const textarea = await page.find('v-textarea');
     const textareaControl = await page.find('v-textarea >>> .textarea__control');
@@ -97,7 +97,7 @@ describe('<v-textarea>', () => {
       html: `
         <v-textarea></v-textarea>
         <button>Other Element</button>
-      `
+      `,
     });
     const textarea = await page.find('v-textarea');
     const textareaControl = await page.find('v-textarea >>> .textarea__control');
@@ -111,7 +111,7 @@ describe('<v-textarea>', () => {
     const page = await newE2EPage({
       html: `
         <v-textarea></v-textarea>
-      `
+      `,
     });
     const textarea = await page.find('v-textarea');
     const textareaControl = await page.find('v-textarea >>> .textarea__control');
@@ -131,7 +131,7 @@ describe('<v-textarea>', () => {
     const page = await newE2EPage({
       html: `
         <v-textarea></v-textarea>
-      `
+      `,
     });
     const textarea = await page.find('v-textarea');
     const textareaControl = await page.find('v-textarea >>> .textarea__control');
@@ -151,7 +151,7 @@ describe('<v-textarea>', () => {
     const page = await newE2EPage({
       html: `
         <v-textarea></v-textarea>
-      `
+      `,
     });
     const textarea = await page.find('v-textarea');
     const textareaControl = await page.find('v-textarea >>> .textarea__control');

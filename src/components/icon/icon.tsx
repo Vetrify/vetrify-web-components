@@ -15,7 +15,7 @@ const parser = new DOMParser();
   tag: 'v-icon',
   styleUrl: 'icon.scss',
   shadow: true,
-  assetsDirs: ['icons']
+  assetsDirs: ['icons'],
 })
 export class Icon {
   @Element() host: HTMLVIconElement;

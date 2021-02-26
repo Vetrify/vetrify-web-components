@@ -12,7 +12,7 @@ import { clamp } from '../../utilities/math';
 @Component({
   tag: 'v-rating',
   styleUrl: 'rating.scss',
-  shadow: true
+  shadow: true,
 })
 export class Rating {
   rating: HTMLElement;
@@ -81,11 +81,7 @@ export class Rating {
   getValueFromMousePosition(event: MouseEvent) {
     const containerLeft = this.rating.getBoundingClientRect().left;
     const containerWidth = this.rating.getBoundingClientRect().width;
-    return clamp(
-      this.roundToPrecision(((event.clientX - containerLeft) / containerWidth) * this.max, this.precision),
-      0,
-      this.max
-    );
+    return clamp(this.roundToPrecision(((event.clientX - containerLeft) / containerWidth) * this.max, this.precision), 0, this.max);
   }
 
   handleClick(event: MouseEvent) {
@@ -159,9 +155,9 @@ export class Rating {
         ref={el => (this.rating = el)}
         part="base"
         class={{
-          rating: true,
+          'rating': true,
           'rating--readonly': this.readonly,
-          'rating--disabled': this.disabled
+          'rating--disabled': this.disabled,
         }}
         aria-disabled={this.disabled ? 'true' : 'false'}
         aria-readonly={this.readonly ? 'true' : 'false'}
@@ -179,8 +175,8 @@ export class Rating {
           {counter.map(index => (
             <span
               class={{
-                rating__symbol: true,
-                'rating__symbol--hover': this.isHovering && Math.ceil(displayValue) === index + 1
+                'rating__symbol': true,
+                'rating__symbol--hover': this.isHovering && Math.ceil(displayValue) === index + 1,
               }}
               role="presentation"
               // Users can click the current value to clear the rating. When this happens, we set this.isHovering to
@@ -196,11 +192,11 @@ export class Rating {
           {counter.map(index => (
             <span
               class={{
-                rating__symbol: true,
-                'rating__symbol--hover': this.isHovering && Math.ceil(displayValue) === index + 1
+                'rating__symbol': true,
+                'rating__symbol--hover': this.isHovering && Math.ceil(displayValue) === index + 1,
               }}
               style={{
-                clipPath: displayValue > index + 1 ? null : `inset(0 ${100 - ((displayValue - index) / 1) * 100}% 0 0)`
+                clipPath: displayValue > index + 1 ? null : `inset(0 ${100 - ((displayValue - index) / 1) * 100}% 0 0)`,
               }}
               role="presentation"
               innerHTML={this.getSymbol(index + 1)}

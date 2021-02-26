@@ -5,7 +5,7 @@ describe('<v-rating>', () => {
     const page = await newE2EPage({
       html: `
         <v-rating></v-rating>>
-      `
+      `,
     });
     const rating = await page.find('v-rating');
     const slChange = await rating.spyOnEvent('v-change');
@@ -19,7 +19,7 @@ describe('<v-rating>', () => {
     const page = await newE2EPage({
       html: `
         <v-rating></v-rating>>
-      `
+      `,
     });
     const rating = await page.find('v-rating');
 
@@ -32,7 +32,7 @@ describe('<v-rating>', () => {
     const page = await newE2EPage({
       html: `
         <v-rating value="3"></v-rating>>
-      `
+      `,
     });
     const rating = await page.find('v-rating');
 

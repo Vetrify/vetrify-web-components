@@ -21,7 +21,7 @@ import { focusVisible } from '../../utilities/focus-visible';
 @Component({
   tag: 'v-tab-group',
   styleUrl: 'tab-group.scss',
-  shadow: true
+  shadow: true,
 })
 export class TabGroup {
   activeTab: HTMLVTabElement;
@@ -118,17 +118,13 @@ export class TabGroup {
     const slot = this.tabs.querySelector('slot');
 
     return [...slot.assignedElements()].filter((el: any) => {
-      return includeDisabled
-        ? el.tagName.toLowerCase() === 'v-tab'
-        : el.tagName.toLowerCase() === 'v-tab' && !el.disabled;
+      return includeDisabled ? el.tagName.toLowerCase() === 'v-tab' : el.tagName.toLowerCase() === 'v-tab' && !el.disabled;
     }) as [HTMLVTabElement];
   }
 
   getAllPanels() {
     const slot = this.body.querySelector('slot');
-    return [...slot.assignedElements()].filter((el: any) => el.tagName.toLowerCase() === 'v-tab-panel') as [
-      HTMLVTabPanelElement
-    ];
+    return [...slot.assignedElements()].filter((el: any) => el.tagName.toLowerCase() === 'v-tab-panel') as [HTMLVTabPanelElement];
   }
 
   getActiveTab() {
@@ -200,14 +196,14 @@ export class TabGroup {
   handleScrollLeft() {
     this.nav.scroll({
       left: this.nav.scrollLeft - this.nav.clientWidth,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   }
 
   handleScrollRight() {
     this.nav.scroll({
       left: this.nav.scrollLeft + this.nav.clientWidth,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   }
 
@@ -215,8 +211,7 @@ export class TabGroup {
     if (this.noScrollControls) {
       this.hasScrollControls = false;
     } else {
-      this.hasScrollControls =
-        ['top', 'bottom'].includes(this.placement) && this.nav.scrollWidth > this.nav.clientWidth;
+      this.hasScrollControls = ['top', 'bottom'].includes(this.placement) && this.nav.scrollWidth > this.nav.clientWidth;
     }
   }
 
@@ -306,27 +301,18 @@ export class TabGroup {
           'tab-group--left': this.placement === 'left',
           'tab-group--right': this.placement === 'right',
 
-          'tab-group--has-scroll-controls': this.hasScrollControls
+          'tab-group--has-scroll-controls': this.hasScrollControls,
         }}
         onClick={this.handleClick}
         onKeyDown={this.handleKeyDown}
       >
         <div class="tab-group__nav-container">
           {this.hasScrollControls && (
-            <v-icon-button
-              class="tab-group__scroll-button tab-group__scroll-button--left"
-              exportparts="base:scroll-button"
-              name="chevron-left"
-              onClick={this.handleScrollLeft}
-            />
+            <v-icon-button class="tab-group__scroll-button tab-group__scroll-button--left" exportparts="base:scroll-button" name="chevron-left" onClick={this.handleScrollLeft} />
           )}
           <div ref={el => (this.nav = el)} key="nav" part="nav" class="tab-group__nav">
             <div ref={el => (this.tabs = el)} part="tabs" class="tab-group__tabs" role="tablist">
-              <div
-                ref={el => (this.activeTabIndicator = el)}
-                part="active-tab-indicator"
-                class="tab-group__active-tab-indicator"
-              />
+              <div ref={el => (this.activeTabIndicator = el)} part="active-tab-indicator" class="tab-group__active-tab-indicator" />
               <slot name="nav" onSlotchange={this.syncActiveTabIndicator} />
             </div>
           </div>

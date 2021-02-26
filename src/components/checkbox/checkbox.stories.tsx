@@ -1,5 +1,5 @@
 export default {
-    title: 'Vetrify/Checkbox'
-}
+  title: 'Vetrify/Checkbox',
+};
 
-export const Basic = () => ``
+export const Basic = () => ``;

@@ -30,7 +30,7 @@ let id = 0;
 @Component({
   tag: 'v-input',
   styleUrl: 'input.scss',
-  shadow: true
+  shadow: true,
 })
 export class Input {
   inputId = `input-${++id}`;
@@ -194,22 +194,13 @@ export class Input {
 
   /** Sets the start and end positions of the text selection (0-based). */
   @Method()
-  async setSelectionRange(
-    selectionStart: number,
-    selectionEnd: number,
-    selectionDirection: 'forward' | 'backward' | 'none' = 'none'
-  ) {
+  async setSelectionRange(selectionStart: number, selectionEnd: number, selectionDirection: 'forward' | 'backward' | 'none' = 'none') {
     return this.input.setSelectionRange(selectionStart, selectionEnd, selectionDirection);
   }
 
   /** Replaces a range of text with a new string. */
   @Method()
-  async setRangeText(
-    replacement: string,
-    start: number,
-    end: number,
-    selectMode: 'select' | 'start' | 'end' | 'preserve' = 'preserve'
-  ) {
+  async setRangeText(replacement: string, start: number, end: number, selectMode: 'select' | 'start' | 'end' | 'preserve' = 'preserve') {
     this.input.setRangeText(replacement, start, end, selectMode);
 
     if (this.value !== this.input.value) {
@@ -290,7 +281,7 @@ export class Input {
         <div
           part="base"
           class={{
-            input: true,
+            'input': true,
 
             // Sizes
             'input--small': this.size === 'small',
@@ -302,7 +293,7 @@ export class Input {
             'input--disabled': this.disabled,
             'input--focused': this.hasFocus,
             'input--empty': this.value?.length === 0,
-            'input--invalid': this.invalid
+            'input--invalid': this.invalid,
           }}
         >
           <span part="prefix" class="input__prefix">
@@ -344,13 +335,7 @@ export class Input {
           />
 
           {this.clearable && (
-            <button
-              part="clear-button"
-              class="input__clear"
-              type="button"
-              onClick={this.handleClearClick}
-              tabindex="-1"
-            >
+            <button part="clear-button" class="input__clear" type="button" onClick={this.handleClearClick} tabindex="-1">
               <slot name="clear-icon">
                 <v-icon name="x-circle" />
               </slot>
@@ -358,13 +343,7 @@ export class Input {
           )}
 
           {this.togglePassword && (
-            <button
-              part="password-toggle-button"
-              class="input__password-toggle"
-              type="button"
-              onClick={this.handlePasswordToggle}
-              tabindex="-1"
-            >
+            <button part="password-toggle-button" class="input__password-toggle" type="button" onClick={this.handlePasswordToggle} tabindex="-1">
               {this.isPasswordVisible ? (
                 <slot name="show-password-icon">
                   <v-icon name="eye-slash" />

@@ -10,7 +10,7 @@ describe('<v-dropdown>', () => {
             <v-menu-item>Dropdown Item</v-menu-item>
           </v-menu>
         </v-dropdown>
-      `
+      `,
     });
     const dropdown = await page.find('v-dropdown');
     const panel = await page.find('v-dropdown >>> .dropdown__panel');
@@ -38,7 +38,7 @@ describe('<v-dropdown>', () => {
             <v-menu-item>Dropdown Item</v-menu-item>
           </v-menu>
         </v-dropdown>
-      `
+      `,
     });
     const dropdown = await page.find('v-dropdown');
     const panel = await page.find('v-dropdown >>> .dropdown__panel');
@@ -66,7 +66,7 @@ describe('<v-dropdown>', () => {
             <v-menu-item>Dropdown Item</v-menu-item>
           </v-menu>
         </v-dropdown>
-      `
+      `,
     });
     const dropdown = await page.find('v-dropdown');
     const panel = await page.find('v-dropdown >>> .dropdown__panel');
@@ -93,7 +93,7 @@ describe('<v-dropdown>', () => {
             <v-menu-item>Dropdown Item</v-menu-item>
           </v-menu>
         </v-dropdown>
-      `
+      `,
     });
 
     const dropdown = await page.find('v-dropdown');
@@ -121,7 +121,7 @@ describe('<v-dropdown>', () => {
             <v-menu-item>Dropdown Item</v-menu-item>
           </v-menu>
         </v-dropdown>
-      `
+      `,
     });
     const dropdown = await page.find('v-dropdown');
     const panel = await page.find('v-dropdown >>> .dropdown__panel');
@@ -148,7 +148,7 @@ describe('<v-dropdown>', () => {
             <v-menu-item>Dropdown Item</v-menu-item>
           </v-menu>
         </v-dropdown>
-      `
+      `,
     });
     const dropdown = await page.find('v-dropdown');
     const panel = await page.find('v-dropdown >>> .dropdown__panel');
@@ -175,7 +175,7 @@ describe('<v-dropdown>', () => {
             <v-menu-item>Dropdown Item</v-menu-item>
           </v-menu>
         </v-dropdown>
-      `
+      `,
     });
     const dropdown = await page.find('v-dropdown');
     const panel = await page.find('v-dropdown >>> .dropdown__panel');
@@ -198,7 +198,7 @@ describe('<v-dropdown>', () => {
               <v-menu-item>Dropdown Item</v-menu-item>
             </v-menu>
           </v-dropdown>
-        `
+        `,
     });
     const dropdown = await page.find('v-dropdown');
     const panel = await page.find('v-dropdown >>> .dropdown__panel');

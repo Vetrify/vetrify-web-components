@@ -8,7 +8,7 @@ import { Component, Element, Event, EventEmitter, h } from '@stencil/core';
 @Component({
   tag: 'v-resize-observer',
   styleUrl: 'resize-observer.scss',
-  shadow: true
+  shadow: true,
 })
 export class ResizeObserverUtility {
   resizeObserver: ResizeObserver;

@@ -437,18 +437,7 @@ export namespace Components {
         /**
           * The preferred placement of the dropdown panel. Note that the actual placement may vary as needed to keep the panel inside of the viewport.
          */
-        "placement": | 'top'
-    | 'top-start'
-    | 'top-end'
-    | 'bottom'
-    | 'bottom-start'
-    | 'bottom-end'
-    | 'right'
-    | 'right-start'
-    | 'right-end'
-    | 'left'
-    | 'left-start'
-    | 'left-end';
+        "placement": 'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'right' | 'right-start' | 'right-end' | 'left' | 'left-start' | 'left-end';
         /**
           * Forces the dropdown's menu to reposition.
          */
@@ -1343,18 +1332,7 @@ export namespace Components {
         /**
           * The preferred placement of the tooltip. Note that the actual placement may vary as needed to keep the tooltip inside of the viewport.
          */
-        "placement": | 'top'
-    | 'top-start'
-    | 'top-end'
-    | 'right'
-    | 'right-start'
-    | 'right-end'
-    | 'bottom'
-    | 'bottom-start'
-    | 'bottom-end'
-    | 'left'
-    | 'left-start'
-    | 'left-end';
+        "placement": 'top' | 'top-start' | 'top-end' | 'right' | 'right-start' | 'right-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end';
         /**
           * Shows the tooltip.
          */
@@ -2181,18 +2159,7 @@ declare namespace LocalJSX {
         /**
           * The preferred placement of the dropdown panel. Note that the actual placement may vary as needed to keep the panel inside of the viewport.
          */
-        "placement"?: | 'top'
-    | 'top-start'
-    | 'top-end'
-    | 'bottom'
-    | 'bottom-start'
-    | 'bottom-end'
-    | 'right'
-    | 'right-start'
-    | 'right-end'
-    | 'left'
-    | 'left-start'
-    | 'left-end';
+        "placement"?: 'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'right' | 'right-start' | 'right-end' | 'left' | 'left-start' | 'left-end';
         /**
           * The distance in pixels from which to offset the panel along its trigger.
          */
@@ -3074,18 +3041,7 @@ declare namespace LocalJSX {
         /**
           * The preferred placement of the tooltip. Note that the actual placement may vary as needed to keep the tooltip inside of the viewport.
          */
-        "placement"?: | 'top'
-    | 'top-start'
-    | 'top-end'
-    | 'right'
-    | 'right-start'
-    | 'right-end'
-    | 'bottom'
-    | 'bottom-start'
-    | 'bottom-end'
-    | 'left'
-    | 'left-start'
-    | 'left-end';
+        "placement"?: 'top' | 'top-start' | 'top-end' | 'right' | 'right-start' | 'right-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end';
         /**
           * The distance in pixels from which to offset the tooltip along its target.
          */

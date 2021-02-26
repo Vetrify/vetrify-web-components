@@ -15,7 +15,7 @@ const testTabGroup = `
 describe('<v-tab group>', () => {
   it('should only show first panel by default', async () => {
     const page = await newE2EPage({
-      html: testTabGroup
+      html: testTabGroup,
     });
     const firstPanelName = 'general';
     const firstPanel = await page.find(`v-tab-panel[name=${firstPanelName}]`);
@@ -30,7 +30,7 @@ describe('<v-tab group>', () => {
 
   it('should have first tab activated by default', async () => {
     const page = await newE2EPage({
-      html: testTabGroup
+      html: testTabGroup,
     });
     const firstPanelName = 'general';
     const tab = await page.find(`v-tab[panel=${firstPanelName}] >>> .tab`);
@@ -40,7 +40,7 @@ describe('<v-tab group>', () => {
 
   it('should show appropriate panel when tab is selected by clicking', async () => {
     const page = await newE2EPage({
-      html: testTabGroup
+      html: testTabGroup,
     });
     const selectedPanelName = 'custom';
     const selectedTab = await page.find(`v-tab[panel=${selectedPanelName}]`);
@@ -58,7 +58,7 @@ describe('<v-tab group>', () => {
 
   it('should have appropriate tab activated when selected by clicking', async () => {
     const page = await newE2EPage({
-      html: testTabGroup
+      html: testTabGroup,
     });
     const selectedPanelName = 'advanced';
     const selectedTab = await page.find(`v-tab[panel=${selectedPanelName}]`);
@@ -71,7 +71,7 @@ describe('<v-tab group>', () => {
 
   it('should show appropriate panel when show() is called', async () => {
     const page = await newE2EPage({
-      html: testTabGroup
+      html: testTabGroup,
     });
     const selectedPanelName = 'custom';
     const tabGroup = await page.find('v-tab-group');
@@ -87,7 +87,7 @@ describe('<v-tab group>', () => {
 
   it('should emit v-tab-hide and v-tab-show events when tab is changed', async () => {
     const page = await newE2EPage({
-      html: testTabGroup
+      html: testTabGroup,
     });
     const tabGroup = await page.find('v-tab-group');
     const slTabHide = await tabGroup.spyOnEvent('v-tab-hide');
@@ -105,7 +105,7 @@ describe('<v-tab group>', () => {
 
   it('should change tabs when show() is called', async () => {
     const page = await newE2EPage({
-      html: testTabGroup
+      html: testTabGroup,
     });
     const tabGroup = await page.find('v-tab-group');
     const slTabHide = await tabGroup.spyOnEvent('v-tab-hide');
@@ -138,7 +138,7 @@ describe('<v-tab group>', () => {
           </v-tab-panel>
           <v-tab-panel name="b">Panel B</v-tab-panel>
         </v-tab-group>
-      `
+      `,
     });
     const nestedTabGroup = await page.find('v-tab-group v-tab-group');
     const tab = await page.find(`v-tab[panel="d"]`);

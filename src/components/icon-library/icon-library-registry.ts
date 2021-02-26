@@ -11,8 +11,8 @@ interface IconLibraryRegistry {
 let registry: IconLibraryRegistry[] = [
   {
     name: 'default',
-    resolver: name => getAssetPath(`./icons/${name}.svg`)
-  }
+    resolver: name => getAssetPath(`./icons/${name}.svg`),
+  },
 ];
 let watchedIcons: HTMLVIconElement[] = [];
 

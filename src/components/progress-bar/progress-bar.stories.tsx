@@ -1,5 +1,5 @@
 export default {
-    title: 'Vetrify/ProgressBar'
-}
+  title: 'Vetrify/ProgressBar',
+};
 
-export const Basic = () => ``
+export const Basic = () => ``;

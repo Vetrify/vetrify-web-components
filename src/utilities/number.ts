@@ -5,9 +5,9 @@ export function formatBytes(bytes: number, options: FormatBytesOptions) {
   options = Object.assign(
     {
       unit: 'bytes',
-      locale: undefined
+      locale: undefined,
     },
-    options
+    options,
   );
 
   const byteUnits = ['B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];

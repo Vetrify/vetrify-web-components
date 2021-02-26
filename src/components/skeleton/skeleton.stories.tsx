@@ -1,5 +1,5 @@
 export default {
-    title: 'Vetrify/Skeleton'
-}
+  title: 'Vetrify/Skeleton',
+};
 
-export const Basic = () => ``
+export const Basic = () => ``;

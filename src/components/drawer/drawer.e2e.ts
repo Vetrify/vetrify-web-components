@@ -5,7 +5,7 @@ describe('<v-drawer>', () => {
     const page = await newE2EPage({
       html: `
         <v-drawer>This is a drawer.</v-drawer>
-      `
+      `,
     });
     const drawer = await page.find('v-drawer');
     const base = await page.find('v-drawer >>> .drawer');
@@ -28,7 +28,7 @@ describe('<v-drawer>', () => {
     const page = await newE2EPage({
       html: `
         <v-drawer open>This is a drawer.</v-drawer>
-      `
+      `,
     });
     const drawer = await page.find('v-drawer');
     const base = await page.find('v-drawer >>> .drawer');
@@ -51,7 +51,7 @@ describe('<v-drawer>', () => {
     const page = await newE2EPage({
       html: `
         <v-drawer>This is a drawer.</v-drawer>
-      `
+      `,
     });
     const drawer = await page.find('v-drawer');
     const base = await page.find('v-drawer >>> .drawer');
@@ -73,7 +73,7 @@ describe('<v-drawer>', () => {
     const page = await newE2EPage({
       html: `
         <v-drawer open>This is a drawer.</v-drawer>
-      `
+      `,
     });
     const drawer = await page.find('v-drawer');
     const base = await page.find('v-drawer >>> .drawer');
@@ -95,7 +95,7 @@ describe('<v-drawer>', () => {
     const page = await newE2EPage({
       html: `
         <v-drawer open>This is a drawer.</v-drawer>
-      `
+      `,
     });
     const drawer = await page.find('v-drawer');
     const slOverlayDismiss = await drawer.spyOnEvent('sl-overlay-dismiss');

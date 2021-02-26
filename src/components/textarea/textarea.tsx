@@ -21,7 +21,7 @@ let id = 0;
 @Component({
   tag: 'v-textarea',
   styleUrl: 'textarea.scss',
-  shadow: true
+  shadow: true,
 })
 export class Textarea {
   inputId = `textarea-${++id}`;
@@ -173,22 +173,13 @@ export class Textarea {
 
   /** Sets the start and end positions of the text selection (0-based). */
   @Method()
-  async setSelectionRange(
-    selectionStart: number,
-    selectionEnd: number,
-    selectionDirection: 'forward' | 'backward' | 'none' = 'none'
-  ) {
+  async setSelectionRange(selectionStart: number, selectionEnd: number, selectionDirection: 'forward' | 'backward' | 'none' = 'none') {
     return this.textarea.setSelectionRange(selectionStart, selectionEnd, selectionDirection);
   }
 
   /** Replaces a range of text with a new string. */
   @Method()
-  async setRangeText(
-    replacement: string,
-    start: number,
-    end: number,
-    selectMode: 'select' | 'start' | 'end' | 'preserve' = 'preserve'
-  ) {
+  async setRangeText(replacement: string, start: number, end: number, selectMode: 'select' | 'start' | 'end' | 'preserve' = 'preserve') {
     this.textarea.setRangeText(replacement, start, end, selectMode);
 
     if (this.value !== this.textarea.value) {
@@ -261,7 +252,7 @@ export class Textarea {
         <div
           part="base"
           class={{
-            textarea: true,
+            'textarea': true,
 
             // Sizes
             'textarea--small': this.size === 'small',
@@ -277,7 +268,7 @@ export class Textarea {
             // Modifiers
             'textarea--resize-none': this.resize === 'none',
             'textarea--resize-vertical': this.resize === 'vertical',
-            'textarea--resize-auto': this.resize === 'auto'
+            'textarea--resize-auto': this.resize === 'auto',
           }}
         >
           <textarea

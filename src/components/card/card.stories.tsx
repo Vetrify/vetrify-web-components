@@ -1,5 +1,5 @@
 export default {
-    title: 'Vetrify/Card'
-}
+  title: 'Vetrify/Card',
+};
 
-export const Basic = () => ``
+export const Basic = () => ``;

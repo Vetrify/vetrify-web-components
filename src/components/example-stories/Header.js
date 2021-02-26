@@ -35,7 +35,7 @@ export const createHeader = ({ user, onLogout, onLogin, onCreateAccount }) => {
         label: 'Sign up',
         onClick: onCreateAccount,
         primary: true,
-      })
+      }),
     );
   }
   wrapper.appendChild(account);

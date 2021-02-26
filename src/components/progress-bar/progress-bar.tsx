@@ -14,7 +14,7 @@ import { Component, Prop, h } from '@stencil/core';
 @Component({
   tag: 'v-progress-bar',
   styleUrl: 'progress-bar.scss',
-  shadow: true
+  shadow: true,
 })
 export class ProgressBar {
   /** The progress bar's percentage, 0 to 100. */
@@ -29,7 +29,7 @@ export class ProgressBar {
         part="base"
         class={{
           'progress-bar': true,
-          'progress-bar--indeterminate': this.indeterminate
+          'progress-bar--indeterminate': this.indeterminate,
         }}
         role="progressbar"
         aria-valuemin="0"
@@ -40,7 +40,7 @@ export class ProgressBar {
           part="indicator"
           class="progress-bar__indicator"
           style={{
-            width: `${this.percentage}%`
+            width: `${this.percentage}%`,
           }}
         >
           {!this.indeterminate && (

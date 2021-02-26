@@ -34,5 +34,5 @@ export function unobserve(el: HTMLElement) {
 
 export const focusVisible = {
   observe,
-  unobserve
+  unobserve,
 };

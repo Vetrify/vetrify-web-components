@@ -5,7 +5,7 @@ describe('<v-range>', () => {
     const page = await newE2EPage({
       html: `
         <v-range min="0" max="100" step="1"></v-range>
-      `
+      `,
     });
     const range = await page.find('v-range');
     const slFocus = await range.spyOnEvent('v-focus');
@@ -20,7 +20,7 @@ describe('<v-range>', () => {
       html: `
         <v-range min="0" max="100" step="1"></v-range>
         <button>Other Element</button>
-      `
+      `,
     });
     const range = await page.find('v-range');
     const button = await page.find('button');
@@ -36,7 +36,7 @@ describe('<v-range>', () => {
     const page = await newE2EPage({
       html: `
         <v-range min="0" max="100" step="1"></v-range>
-      `
+      `,
     });
     const range = await page.find('v-range');
     const slFocus = await range.spyOnEvent('v-focus');
@@ -50,7 +50,7 @@ describe('<v-range>', () => {
     const page = await newE2EPage({
       html: `
         <v-range min="0" max="100" step="1"></v-range>
-      `
+      `,
     });
     const range = await page.find('v-range');
     const slBlur = await range.spyOnEvent('v-blur');
@@ -65,7 +65,7 @@ describe('<v-range>', () => {
     const page = await newE2EPage({
       html: `
         <v-range min="0" max="100" step="1"></v-range>
-      `
+      `,
     });
     const range = await page.find('v-range');
     const slChange = await range.spyOnEvent('v-change');
@@ -79,7 +79,7 @@ describe('<v-range>', () => {
     const page = await newE2EPage({
       html: `
         <v-range min="0" max="100" step="1"></v-range>
-      `
+      `,
     });
     const range = await page.find('v-range');
 

@@ -11,7 +11,7 @@ import { focusVisible } from '../../utilities/focus-visible';
 @Component({
   tag: 'v-icon-button',
   styleUrl: 'icon-button.scss',
-  shadow: true
+  shadow: true,
 })
 export class IconButton {
   button: HTMLButtonElement;
@@ -49,7 +49,7 @@ export class IconButton {
         part="base"
         class={{
           'icon-button': true,
-          'icon-button--disabled': this.disabled
+          'icon-button--disabled': this.disabled,
         }}
         type="button"
         aria-label={this.label}

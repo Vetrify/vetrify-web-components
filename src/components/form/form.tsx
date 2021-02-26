@@ -19,7 +19,7 @@ interface FormControl {
 @Component({
   tag: 'v-form',
   styleUrl: 'form.scss',
-  shadow: true
+  shadow: true,
 })
 export class Form {
   form: HTMLElement;
@@ -40,14 +40,13 @@ export class Form {
     this.formControls = [
       {
         tag: 'button',
-        serialize: (el: HTMLButtonElement, formData) =>
-          el.name && !el.disabled ? formData.append(el.name, el.value) : null,
+        serialize: (el: HTMLButtonElement, formData) => (el.name && !el.disabled ? formData.append(el.name, el.value) : null),
         click: event => {
           const target = event.target as HTMLButtonElement;
           if (target.type === 'submit') {
             this.submit();
           }
-        }
+        },
       },
       {
         tag: 'input',
@@ -75,14 +74,10 @@ export class Form {
         },
         keyDown: event => {
           const target = event.target as HTMLInputElement;
-          if (
-            event.key === 'Enter' &&
-            !event.defaultPrevented &&
-            !['checkbox', 'file', 'radio'].includes(target.type)
-          ) {
+          if (event.key === 'Enter' && !event.defaultPrevented && !['checkbox', 'file', 'radio'].includes(target.type)) {
             this.submit();
           }
-        }
+        },
       },
       {
         tag: 'select',
@@ -99,43 +94,38 @@ export class Form {
               formData.append(el.name, el.value);
             }
           }
-        }
+        },
       },
       {
         tag: 'v-button',
-        serialize: (el: HTMLVButtonElement, formData) =>
-          el.name && !el.disabled ? formData.append(el.name, el.value) : null,
+        serialize: (el: HTMLVButtonElement, formData) => (el.name && !el.disabled ? formData.append(el.name, el.value) : null),
         click: event => {
           const target = event.target as HTMLVButtonElement;
           if (target.submit) {
             this.submit();
           }
-        }
+        },
       },
       {
         tag: 'v-checkbox',
-        serialize: (el: HTMLVCheckboxElement, formData) =>
-          el.name && el.checked && !el.disabled ? formData.append(el.name, el.value) : null
+        serialize: (el: HTMLVCheckboxElement, formData) => (el.name && el.checked && !el.disabled ? formData.append(el.name, el.value) : null),
       },
       {
         tag: 'v-color-picker',
-        serialize: (el: HTMLVCheckboxElement, formData) =>
-          el.name && !el.disabled ? formData.append(el.name, el.value) : null
+        serialize: (el: HTMLVCheckboxElement, formData) => (el.name && !el.disabled ? formData.append(el.name, el.value) : null),
       },
       {
         tag: 'v-input',
-        serialize: (el: HTMLVInputElement, formData) =>
-          el.name && !el.disabled ? formData.append(el.name, el.value) : null,
+        serialize: (el: HTMLVInputElement, formData) => (el.name && !el.disabled ? formData.append(el.name, el.value) : null),
         keyDown: event => {
           if (event.key === 'Enter' && !event.defaultPrevented) {
             this.submit();
           }
-        }
+        },
       },
       {
         tag: 'v-radio',
-        serialize: (el: HTMLVRadioElement, formData) =>
-          el.name && el.checked && !el.disabled ? formData.append(el.name, el.value) : null
+        serialize: (el: HTMLVRadioElement, formData) => (el.name && el.checked && !el.disabled ? formData.append(el.name, el.value) : null),
       },
       {
         tag: 'v-range',
@@ -143,7 +133,7 @@ export class Form {
           if (el.name && !el.disabled) {
             formData.append(el.name, el.value + '');
           }
-        }
+        },
       },
       {
         tag: 'v-select',
@@ -160,23 +150,20 @@ export class Form {
               formData.append(el.name, el.value + '');
             }
           }
-        }
+        },
       },
       {
         tag: 'v-switch',
-        serialize: (el: HTMLVSwitchElement, formData) =>
-          el.name && el.checked && !el.disabled ? formData.append(el.name, el.value) : null
+        serialize: (el: HTMLVSwitchElement, formData) => (el.name && el.checked && !el.disabled ? formData.append(el.name, el.value) : null),
       },
       {
         tag: 'v-textarea',
-        serialize: (el: HTMLVTextareaElement, formData) =>
-          el.name && !el.disabled ? formData.append(el.name, el.value) : null
+        serialize: (el: HTMLVTextareaElement, formData) => (el.name && !el.disabled ? formData.append(el.name, el.value) : null),
       },
       {
         tag: 'textarea',
-        serialize: (el: HTMLTextAreaElement, formData) =>
-          el.name && !el.disabled ? formData.append(el.name, el.value) : null
-      }
+        serialize: (el: HTMLTextAreaElement, formData) => (el.name && !el.disabled ? formData.append(el.name, el.value) : null),
+      },
     ];
 
     this.handleClick = this.handleClick.bind(this);
@@ -266,14 +253,7 @@ export class Form {
 
   render() {
     return (
-      <div
-        ref={el => (this.form = el)}
-        part="base"
-        class="form"
-        role="form"
-        onClick={this.handleClick}
-        onKeyDown={this.handleKeyDown}
-      >
+      <div ref={el => (this.form = el)} part="base" class="form" role="form" onClick={this.handleClick} onKeyDown={this.handleKeyDown}>
         <slot />
       </div>
     );

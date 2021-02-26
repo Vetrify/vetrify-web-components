@@ -27,7 +27,7 @@ let id = 0;
 @Component({
   tag: 'v-select',
   styleUrl: 'select.scss',
-  shadow: true
+  shadow: true,
 })
 export class Select {
   box: HTMLElement;
@@ -263,9 +263,7 @@ export class Select {
     const item = event.detail.item;
 
     if (this.multiple) {
-      this.value = this.value.includes(item.value)
-        ? (this.value as []).filter(v => v !== item.value)
-        : [...this.value, item.value];
+      this.value = this.value.includes(item.value) ? (this.value as []).filter(v => v !== item.value) : [...this.value, item.value];
     } else {
       this.value = item.value;
     }
@@ -368,7 +366,7 @@ export class Select {
         this.displayTags.push(
           <v-tag exportparts="base:tag" type="info" size={this.size}>
             +{total - this.maxTagsVisible}
-          </v-tag>
+          </v-tag>,
         );
       }
     } else {
@@ -412,7 +410,7 @@ export class Select {
           closeOnSelect={!this.multiple}
           containingElement={this.host}
           class={{
-            select: true,
+            'select': true,
             'select--open': this.isOpen,
             'select--empty': this.value?.length === 0,
             'select--focused': this.hasFocus,
@@ -425,7 +423,7 @@ export class Select {
             'select--medium': this.size === 'medium',
             'select--large': this.size === 'large',
             'select--pill': this.pill,
-            'select--invalid': this.invalid
+            'select--invalid': this.invalid,
           }}
           onSl-show={this.handleMenuShow}
           onSl-hide={this.handleMenuHide}
@@ -456,13 +454,7 @@ export class Select {
             </div>
 
             {this.clearable && hasSelection && (
-              <v-icon-button
-                exportparts="base:clear-button"
-                class="select__clear"
-                name="x-circle"
-                onClick={this.handleClearClick}
-                tabindex="-1"
-              />
+              <v-icon-button exportparts="base:clear-button" class="select__clear" name="x-circle" onClick={this.handleClearClick} tabindex="-1" />
             )}
 
             <span part="icon" class="select__icon">
@@ -473,14 +465,7 @@ export class Select {
               The hidden input tricks the browser's built-in validation so it works as expected. We use an input instead
               of a select because, otherwise, iOS will show a list of options during validation.
             */}
-            <input
-              ref={el => (this.input = el)}
-              class="select__hidden-select"
-              aria-hidden="true"
-              required={this.required}
-              value={hasSelection ? '1' : ''}
-              tabIndex={-1}
-            />
+            <input ref={el => (this.input = el)} class="select__hidden-select" aria-hidden="true" required={this.required} value={hasSelection ? '1' : ''} tabIndex={-1} />
           </div>
 
           <v-menu ref={el => (this.menu = el)} part="menu" class="select__menu" onv-select={this.handleMenuSelect}>

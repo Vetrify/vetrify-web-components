@@ -1,5 +1,5 @@
 export default {
-    title: 'Vetrify/RelativeTime'
-}
+  title: 'Vetrify/RelativeTime',
+};
 
-export const Basic = () => ``
+export const Basic = () => ``;

@@ -15,7 +15,7 @@ import { Component, Prop, State, h } from '@stencil/core';
 @Component({
   tag: 'v-avatar',
   styleUrl: 'avatar.scss',
-  shadow: true
+  shadow: true,
 })
 export class Avatar {
   @State() hasError = false;
@@ -45,10 +45,10 @@ export class Avatar {
       <div
         part="base"
         class={{
-          avatar: true,
+          'avatar': true,
           'avatar--circle': this.shape === 'circle',
           'avatar--rounded': this.shape === 'rounded',
-          'avatar--square': this.shape === 'square'
+          'avatar--square': this.shape === 'square',
         }}
         role="image"
         aria-label={this.alt}
@@ -67,9 +67,7 @@ export class Avatar {
           </div>
         )}
 
-        {this.image && !this.hasError && (
-          <img part="image" class="avatar__image" src={this.image} onError={this.handleImageError} />
-        )}
+        {this.image && !this.hasError && <img part="image" class="avatar__image" src={this.image} onError={this.handleImageError} />}
       </div>
     );
   }

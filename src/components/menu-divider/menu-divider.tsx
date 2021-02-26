@@ -10,7 +10,7 @@ import { Component, h } from '@stencil/core';
 @Component({
   tag: 'v-menu-divider',
   styleUrl: 'menu-divider.scss',
-  shadow: true
+  shadow: true,
 })
 export class MenuDivider {
   render() {

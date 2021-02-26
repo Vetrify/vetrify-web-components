@@ -12,7 +12,7 @@ import { Component, h } from '@stencil/core';
 @Component({
   tag: 'v-menu-label',
   styleUrl: 'menu-label.scss',
-  shadow: true
+  shadow: true,
 })
 export class MenuLabel {
   render() {

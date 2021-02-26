@@ -5,7 +5,7 @@ describe('<v-dialog>', () => {
     const page = await newE2EPage({
       html: `
         <v-dialog>This is a dialog.</v-dialog>
-      `
+      `,
     });
     const dialog = await page.find('v-dialog');
     const base = await page.find('v-dialog >>> .dialog');
@@ -28,7 +28,7 @@ describe('<v-dialog>', () => {
     const page = await newE2EPage({
       html: `
         <v-dialog open>This is a dialog.</v-dialog>
-      `
+      `,
     });
     const dialog = await page.find('v-dialog');
     const base = await page.find('v-dialog >>> .dialog');
@@ -51,7 +51,7 @@ describe('<v-dialog>', () => {
     const page = await newE2EPage({
       html: `
         <v-dialog>This is a dialog.</v-dialog>
-      `
+      `,
     });
     const dialog = await page.find('v-dialog');
     const base = await page.find('v-dialog >>> .dialog');
@@ -73,7 +73,7 @@ describe('<v-dialog>', () => {
     const page = await newE2EPage({
       html: `
         <v-dialog open>This is a dialog.</v-dialog>
-      `
+      `,
     });
     const dialog = await page.find('v-dialog');
     const base = await page.find('v-dialog >>> .dialog');
@@ -95,7 +95,7 @@ describe('<v-dialog>', () => {
     const page = await newE2EPage({
       html: `
         <v-dialog open>This is a dialog.</v-dialog>
-      `
+      `,
     });
     const dialog = await page.find('v-dialog');
     const slOverlayDismiss = await dialog.spyOnEvent('sl-overlay-dismiss');

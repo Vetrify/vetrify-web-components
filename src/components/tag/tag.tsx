@@ -14,7 +14,7 @@ import { Component, Event, EventEmitter, Prop, h } from '@stencil/core';
 @Component({
   tag: 'v-tag',
   styleUrl: 'tag.scss',
-  shadow: true
+  shadow: true,
 })
 export class Tag {
   tag: HTMLElement;
@@ -48,7 +48,7 @@ export class Tag {
         ref={el => (this.tag = el)}
         part="base"
         class={{
-          tag: true,
+          'tag': true,
 
           // Types
           'tag--primary': this.type === 'primary',
@@ -65,16 +65,14 @@ export class Tag {
 
           // Modifers
           'tag--pill': this.pill,
-          'tag--clearable': this.clearable
+          'tag--clearable': this.clearable,
         }}
       >
         <span part="content" class="tag__content">
           <slot />
         </span>
 
-        {this.clearable && (
-          <v-icon-button exportparts="base:clear-button" name="x" class="tag__clear" onClick={this.handleClearClick} />
-        )}
+        {this.clearable && <v-icon-button exportparts="base:clear-button" name="x" class="tag__clear" onClick={this.handleClearClick} />}
       </span>
     );
   }

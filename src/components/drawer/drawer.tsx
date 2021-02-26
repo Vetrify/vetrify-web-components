@@ -28,7 +28,7 @@ let id = 0;
 @Component({
   tag: 'v-drawer',
   styleUrl: 'drawer.scss',
-  shadow: true
+  shadow: true,
 })
 export class Drawer {
   componentId = `drawer-${++id}`;
@@ -101,7 +101,7 @@ export class Drawer {
     this.handleSlotChange = this.handleSlotChange.bind(this);
 
     this.modal = new Modal(this.host, {
-      onFocusOut: () => (this.contained ? null : this.panel.focus())
+      onFocusOut: () => (this.contained ? null : this.panel.focus()),
     });
   }
 
@@ -166,7 +166,7 @@ export class Drawer {
               this.panel.focus();
             }
           },
-          { once: true }
+          { once: true },
         );
       }
     }
@@ -232,7 +232,7 @@ export class Drawer {
         ref={el => (this.drawer = el)}
         part="base"
         class={{
-          drawer: true,
+          'drawer': true,
           'drawer--open': this.open,
           'drawer--visible': this.isVisible,
           'drawer--top': this.placement === 'top',
@@ -241,7 +241,7 @@ export class Drawer {
           'drawer--left': this.placement === 'left',
           'drawer--contained': this.contained,
           'drawer--fixed': !this.contained,
-          'drawer--has-footer': this.hasFooter
+          'drawer--has-footer': this.hasFooter,
         }}
         onKeyDown={this.handleKeyDown}
         onTransitionEnd={this.handleTransitionEnd}
@@ -267,12 +267,7 @@ export class Drawer {
                   {this.label || String.fromCharCode(65279)}
                 </slot>
               </span>
-              <v-icon-button
-                exportparts="base:close-button"
-                class="drawer__close"
-                name="x"
-                onClick={this.handleCloseClick}
-              />
+              <v-icon-button exportparts="base:close-button" class="drawer__close" name="x" onClick={this.handleCloseClick} />
             </header>
           )}
 

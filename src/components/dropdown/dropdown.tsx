@@ -20,7 +20,7 @@ let id = 0;
 @Component({
   tag: 'v-dropdown',
   styleUrl: 'dropdown.scss',
-  shadow: true
+  shadow: true,
 })
 export class Dropdown {
   accessibleTrigger: HTMLElement;
@@ -40,19 +40,8 @@ export class Dropdown {
    * The preferred placement of the dropdown panel. Note that the actual placement may vary as needed to keep the panel
    * inside of the viewport.
    */
-  @Prop() placement:
-    | 'top'
-    | 'top-start'
-    | 'top-end'
-    | 'bottom'
-    | 'bottom-start'
-    | 'bottom-end'
-    | 'right'
-    | 'right-start'
-    | 'right-end'
-    | 'left'
-    | 'left-start'
-    | 'left-end' = 'bottom-start';
+  @Prop() placement: 'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'right' | 'right-start' | 'right-end' | 'left' | 'left-start' | 'left-end' =
+    'bottom-start';
 
   /** Determines whether the dropdown should hide when a menu item is selected. */
   @Prop() closeOnSelect = true;
@@ -99,7 +88,7 @@ export class Dropdown {
       strategy: this.hoist ? 'fixed' : 'absolute',
       placement: this.placement,
       distance: this.distance,
-      skidding: this.skidding
+      skidding: this.skidding,
     });
   }
 
@@ -131,7 +120,7 @@ export class Dropdown {
         if (!this.open) {
           this.panel.scrollTop = 0;
         }
-      }
+      },
     });
 
     // Show on init if open
@@ -245,10 +234,7 @@ export class Dropdown {
       // If the dropdown is used within a shadow DOM, we need to obtain the activeElement within that shadowRoot,
       // otherwise `document.activeElement` will only return the name of the parent shadow DOM element.
       setTimeout(() => {
-        const activeElement =
-          this.containingElement.getRootNode() instanceof ShadowRoot
-            ? document.activeElement.shadowRoot?.activeElement
-            : document.activeElement;
+        const activeElement = this.containingElement.getRootNode() instanceof ShadowRoot ? document.activeElement.shadowRoot?.activeElement : document.activeElement;
 
         if (activeElement?.closest(this.containingElement.tagName.toLowerCase()) !== this.containingElement) {
           this.hide();
@@ -376,8 +362,8 @@ export class Dropdown {
         part="base"
         id={this.componentId}
         class={{
-          dropdown: true,
-          'dropdown--open': this.open
+          'dropdown': true,
+          'dropdown--open': this.open,
         }}
       >
         <span
@@ -394,14 +380,7 @@ export class Dropdown {
         {/* Position the panel with a wrapper since the popover makes use of `translate`. This let's us add transitions
         on the panel without interfering with the position. */}
         <div ref={el => (this.positioner = el)} class="dropdown__positioner">
-          <div
-            ref={el => (this.panel = el)}
-            part="panel"
-            class="dropdown__panel"
-            role="menu"
-            aria-hidden={this.open ? 'false' : 'true'}
-            aria-labelledby={this.componentId}
-          >
+          <div ref={el => (this.panel = el)} part="panel" class="dropdown__panel" role="menu" aria-hidden={this.open ? 'false' : 'true'} aria-labelledby={this.componentId}>
             <slot />
           </div>
         </div>

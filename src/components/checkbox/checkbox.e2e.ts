@@ -5,7 +5,7 @@ describe('<v-checkbox>', () => {
     const page = await newE2EPage({
       html: `
         <v-checkbox>Checkbox</v-checkbox>
-      `
+      `,
     });
     const checkbox = await page.find('v-checkbox');
     const slFocus = await checkbox.spyOnEvent('v-focus');
@@ -20,7 +20,7 @@ describe('<v-checkbox>', () => {
       html: `
         <v-checkbox>Checkbox</v-checkbox>
         <button>Native Button</button>
-      `
+      `,
     });
     const checkbox = await page.find('v-checkbox');
     const nativeButton = await page.find('button');
@@ -36,7 +36,7 @@ describe('<v-checkbox>', () => {
     const page = await newE2EPage({
       html: `
         <v-checkbox>Checkbox</v-checkbox>
-      `
+      `,
     });
     const checkbox = await page.find('v-checkbox');
     const slFocus = await checkbox.spyOnEvent('v-focus');
@@ -50,7 +50,7 @@ describe('<v-checkbox>', () => {
     const page = await newE2EPage({
       html: `
         <v-checkbox>Checkbox</v-checkbox>
-      `
+      `,
     });
     const checkbox = await page.find('v-checkbox');
     const slBlur = await checkbox.spyOnEvent('v-blur');
@@ -65,7 +65,7 @@ describe('<v-checkbox>', () => {
     const page = await newE2EPage({
       html: `
         <v-checkbox>Checkbox</v-checkbox>
-      `
+      `,
     });
     const checkbox = await page.find('v-checkbox');
     const slChange = await checkbox.spyOnEvent('v-change');
@@ -79,7 +79,7 @@ describe('<v-checkbox>', () => {
     const page = await newE2EPage({
       html: `
         <v-checkbox>Checkbox</v-checkbox>
-      `
+      `,
     });
     const checkbox = await page.find('v-checkbox');
     const slChange = await checkbox.spyOnEvent('v-change');
@@ -94,7 +94,7 @@ describe('<v-checkbox>', () => {
     const page = await newE2EPage({
       html: `
         <v-checkbox checked>Checkbox</v-checkbox>
-      `
+      `,
     });
     const checkbox = await page.find('v-checkbox');
     const slChange = await checkbox.spyOnEvent('v-change');
@@ -109,7 +109,7 @@ describe('<v-checkbox>', () => {
     const page = await newE2EPage({
       html: `
         <v-checkbox>Checkbox</v-checkbox>
-      `
+      `,
     });
     const checkbox = await page.find('v-checkbox');
     const slChange = await checkbox.spyOnEvent('v-change');
@@ -125,7 +125,7 @@ describe('<v-checkbox>', () => {
       html: `
       <v-checkbox checked>Checkbox</v-checkbox>
       <button>Native Button</button>
-      `
+      `,
     });
     const checkbox = await page.find('v-checkbox');
     const slChange = await checkbox.spyOnEvent('v-change');

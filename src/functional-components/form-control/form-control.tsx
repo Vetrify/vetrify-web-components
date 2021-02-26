@@ -42,28 +42,16 @@ const FormControl = (props: FormControlProps, children) => {
         'form-control--medium': props.size === 'medium',
         'form-control--large': props.size === 'large',
         'form-control--has-label': hasLabel,
-        'form-control--has-help-text': hasHelpText
+        'form-control--has-help-text': hasHelpText,
       }}
     >
-      <label
-        part="label"
-        id={props.labelId}
-        class="form-control__label"
-        htmlFor={props.inputId}
-        aria-hidden={hasLabel ? 'false' : 'true'}
-        onClick={props.onLabelClick}
-      >
+      <label part="label" id={props.labelId} class="form-control__label" htmlFor={props.inputId} aria-hidden={hasLabel ? 'false' : 'true'} onClick={props.onLabelClick}>
         <slot name="label">{props.label}</slot>
       </label>
 
       <div class="form-control__input">{children}</div>
 
-      <div
-        part="help-text"
-        id={props.helpTextId}
-        class="form-control__help-text"
-        aria-hidden={hasHelpText ? 'false' : 'true'}
-      >
+      <div part="help-text" id={props.helpTextId} class="form-control__help-text" aria-hidden={hasHelpText ? 'false' : 'true'}>
         <slot name="help-text">{props.helpText}</slot>
       </div>
     </div>

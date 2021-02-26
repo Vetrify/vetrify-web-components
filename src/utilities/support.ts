@@ -8,7 +8,7 @@ export function isPreventScrollSupported() {
     get preventScroll() {
       supported = true;
       return false;
-    }
+    },
   });
 
   return supported;

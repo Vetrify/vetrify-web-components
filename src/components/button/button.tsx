@@ -19,7 +19,7 @@ import { hasSlot } from '../../utilities/slot';
 @Component({
   tag: 'v-button',
   styleUrl: 'button.scss',
-  shadow: true
+  shadow: true,
 })
 export class Button {
   button: HTMLButtonElement;
@@ -132,7 +132,7 @@ export class Button {
         ref={el => (this.button = el)}
         part="base"
         class={{
-          button: true,
+          'button': true,
 
           // Types
           'button--default': this.type === 'default',
@@ -157,7 +157,7 @@ export class Button {
           'button--pill': this.pill,
           'button--has-label': this.hasLabel,
           'button--has-prefix': this.hasPrefix,
-          'button--has-suffix': this.hasSuffix
+          'button--has-suffix': this.hasSuffix,
         }}
         disabled={isButton ? this.disabled : null}
         type={isButton ? (this.submit ? 'submit' : 'button') : null}
@@ -182,14 +182,7 @@ export class Button {
         </span>
         {this.caret && (
           <span part="caret" class="button__caret">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </span>

@@ -8,7 +8,7 @@ import { formatBytes } from '../../utilities/number';
 
 @Component({
   tag: 'v-format-bytes',
-  shadow: true
+  shadow: true,
 })
 export class FormatBytes {
   /** The number to format in bytes. */
@@ -23,7 +23,7 @@ export class FormatBytes {
   render() {
     return formatBytes(this.value, {
       unit: this.unit,
-      locale: this.locale
+      locale: this.locale,
     });
   }
 }

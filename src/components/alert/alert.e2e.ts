@@ -5,7 +5,7 @@ describe('<v-alert>', () => {
     const page = await newE2EPage({
       html: `
         <v-alert>This is an alert</v-alert>
-      `
+      `,
     });
     const alert = await page.find('v-alert');
     const base = await page.find('v-alert >>> .alert');
@@ -28,7 +28,7 @@ describe('<v-alert>', () => {
     const page = await newE2EPage({
       html: `
         <v-alert open>This is an alert</v-alert>
-      `
+      `,
     });
     const alert = await page.find('v-alert');
     const base = await page.find('v-alert >>> .alert');
@@ -51,7 +51,7 @@ describe('<v-alert>', () => {
     const page = await newE2EPage({
       html: `
         <v-alert>This is an alert</v-alert>
-      `
+      `,
     });
     const alert = await page.find('v-alert');
     const base = await page.find('v-alert >>> .alert');
@@ -73,7 +73,7 @@ describe('<v-alert>', () => {
     const page = await newE2EPage({
       html: `
         <v-alert open>This is an alert</v-alert>
-      `
+      `,
     });
     const alert = await page.find('v-alert');
     const base = await page.find('v-alert >>> .alert');

@@ -5,7 +5,7 @@ describe('<v-tag>', () => {
     const page = await newE2EPage({
       html: `
         <v-tag clearable>Tag</v-input>
-      `
+      `,
     });
     const tag = await page.find('v-tag');
     const tagClear = await page.find('v-tag >>> .tag__clear');

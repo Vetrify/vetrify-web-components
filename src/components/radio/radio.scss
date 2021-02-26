@@ -38,8 +38,7 @@
   border-radius: 50%;
   background-color: var(--v-input-background-color);
   color: transparent;
-  transition: var(--v-transition-fast) border-color, var(--v-transition-fast) background-color,
-    var(--v-transition-fast) color, var(--v-transition-fast) box-shadow;
+  transition: var(--v-transition-fast) border-color, var(--v-transition-fast) background-color, var(--v-transition-fast) color, var(--v-transition-fast) box-shadow;
 
   input[type='radio'] {
     position: absolute;

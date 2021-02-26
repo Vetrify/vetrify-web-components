@@ -9,7 +9,7 @@ describe('<v-select>', () => {
           <v-menu-item value="option-2">Option 2</v-menu-item>
           <v-menu-item value="option-3">Option 3</v-menu-item>
         </v-select>
-      `
+      `,
     });
     const select = await page.find('v-select');
     const slFocus = await select.spyOnEvent('v-focus');
@@ -28,7 +28,7 @@ describe('<v-select>', () => {
           <v-menu-item value="option-2">Option 2</v-menu-item>
           <v-menu-item value="option-3">Option 3</v-menu-item>
         </v-select>
-      `
+      `,
     });
     const select = await page.find('v-select');
     const button = await page.find('button');
@@ -48,7 +48,7 @@ describe('<v-select>', () => {
           <v-menu-item value="option-2">Option 2</v-menu-item>
           <v-menu-item value="option-3">Option 3</v-menu-item>
         </v-select>
-      `
+      `,
     });
     const select = await page.find('v-select');
     const menuItem = await page.find('v-menu-item');
@@ -68,7 +68,7 @@ describe('<v-select>', () => {
           <v-menu-item value="option-2">Option 2</v-menu-item>
           <v-menu-item value="option-3">Option 3</v-menu-item>
         </v-select>
-      `
+      `,
     });
     const select = await page.find('v-select');
     const menuItem = await page.find('v-menu-item');

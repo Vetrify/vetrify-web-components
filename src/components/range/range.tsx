@@ -19,7 +19,7 @@ let id = 0;
 @Component({
   tag: 'v-range',
   styleUrl: 'range.scss',
-  shadow: true
+  shadow: true,
 })
 export class Range {
   input: HTMLInputElement;
@@ -190,14 +190,14 @@ export class Range {
         <div
           part="base"
           class={{
-            range: true,
+            'range': true,
 
             // States
             'range--disabled': this.disabled,
             'range--focused': this.hasFocus,
             'range--tooltip-visible': this.hasTooltip,
             'range--tooltip-top': this.tooltip === 'top',
-            'range--tooltip-bottom': this.tooltip === 'bottom'
+            'range--tooltip-bottom': this.tooltip === 'bottom',
           }}
           onTouchStart={this.handleTouchStart}
         >

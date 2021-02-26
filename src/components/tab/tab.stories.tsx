@@ -1,5 +1,5 @@
 export default {
-    title: 'Vetrify/Tab'
-}
+  title: 'Vetrify/Tab',
+};
 
-export const Basic = () => ``
+export const Basic = () => ``;

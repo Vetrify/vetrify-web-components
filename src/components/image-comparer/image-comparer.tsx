@@ -19,7 +19,7 @@ import { clamp } from '../../utilities/math';
 @Component({
   tag: 'v-image-comparer',
   styleUrl: 'image-comparer.scss',
-  shadow: true
+  shadow: true,
 })
 export class ImageComparer {
   base: HTMLElement;
@@ -109,7 +109,7 @@ export class ImageComparer {
             part="after"
             class="image-comparer__after"
             style={{
-              clipPath: `inset(0 ${100 - this.position}% 0 0)`
+              clipPath: `inset(0 ${100 - this.position}% 0 0)`,
             }}
           >
             <slot name="after" />
@@ -121,7 +121,7 @@ export class ImageComparer {
           part="divider"
           class="image-comparer__divider"
           style={{
-            left: `${this.position}%`
+            left: `${this.position}%`,
           }}
           onMouseDown={this.handleDrag}
           onTouchStart={this.handleDrag}

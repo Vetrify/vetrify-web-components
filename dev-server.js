@@ -32,8 +32,8 @@ app.use(
   createProxyMiddleware({
     target: `http://localhost:${stencilPort}`,
     changeOrigin: true,
-    ws: true
-  })
+    ws: true,
+  }),
 );
 
 // Inject Stencil's dev server iframe into the main entry point
@@ -41,10 +41,7 @@ app.use(/^\/$/, async (req, res, next) => {
   let index = await fs.readFile('./docs/index.html', 'utf8');
   index = index
     .replace('<head>', '<head><script>window.ShoelaceDevServer = true;</script>')
-    .replace(
-      '</body>',
-      '<iframe src="/~dev-server" style="display: block; width: 0; height: 0; border: 0;"></iframe></body>'
-    );
+    .replace('</body>', '<iframe src="/~dev-server" style="display: block; width: 0; height: 0; border: 0;"></iframe></body>');
   res.type('html').send(index);
 });
 app.use('/dist', express.static('./dist'));
@@ -61,13 +58,13 @@ setTimeout(() => {
     port: browserPort,
     proxy: {
       target: `http://localhost:${proxyPort}`,
-      ws: true
+      ws: true,
     },
     logLevel: 'silent',
     notify: false,
     snippetOptions: {
-      ignorePaths: '/~dev-server'
-    }
+      ignorePaths: '/~dev-server',
+    },
   });
 
   // Reload when docs or themes change

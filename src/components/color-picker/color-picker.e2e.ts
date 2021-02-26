@@ -5,7 +5,7 @@ describe('<v-color-picker>', () => {
     const page = await newE2EPage({
       html: `
         <v-color-picker></v-color-picker>
-      `
+      `,
     });
     const colorPicker = await page.find('v-color-picker');
     const slShow = await colorPicker.spyOnEvent('sl-show');
@@ -23,7 +23,7 @@ describe('<v-color-picker>', () => {
     const page = await newE2EPage({
       html: `
         <v-color-picker></v-color-picker>
-      `
+      `,
     });
     const colorPicker = await page.find('v-color-picker');
     const slHide = await colorPicker.spyOnEvent('sl-hide');
@@ -42,7 +42,7 @@ describe('<v-color-picker>', () => {
     const page = await newE2EPage({
       html: `
         <v-color-picker></v-color-picker>
-      `
+      `,
     });
     const colorPicker = await page.find('v-color-picker');
     const colorPickerPicker = await page.find('v-color-picker >>> .color-picker');
@@ -58,7 +58,7 @@ describe('<v-color-picker>', () => {
     const page = await newE2EPage({
       html: `
         <v-color-picker></v-color-picker>
-      `
+      `,
     });
     const colorPicker = await page.find('v-color-picker');
     const colorPickerPicker = await page.find('v-color-picker >>> .color-picker');

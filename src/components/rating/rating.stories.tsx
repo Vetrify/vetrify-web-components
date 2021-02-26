@@ -1,5 +1,5 @@
 export default {
-    title: 'Vetrify/Rating'
-}
+  title: 'Vetrify/Rating',
+};
 
-export const Basic = () => ``
+export const Basic = () => ``;

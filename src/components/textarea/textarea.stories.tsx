@@ -1,5 +1,5 @@
 export default {
-    title: 'Vetrify/TextArea'
-}
+  title: 'Vetrify/TextArea',
+};
 
-export const Basic = () => ``
+export const Basic = () => ``;

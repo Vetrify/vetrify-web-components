@@ -1,5 +1,5 @@
 export default {
-    title: 'Vetrify/TabPanel'
-}
+  title: 'Vetrify/TabPanel',
+};
 
-export const Basic = () => ``
+export const Basic = () => ``;

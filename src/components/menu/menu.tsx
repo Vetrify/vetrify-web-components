@@ -13,7 +13,7 @@ import { getTextContent } from '../../utilities/slot';
 @Component({
   tag: 'v-menu',
   styleUrl: 'menu.scss',
-  shadow: true
+  shadow: true,
 })
 export class Menu {
   menu: HTMLElement;
@@ -54,9 +54,7 @@ export class Menu {
 
   getItems() {
     const slot = this.menu.querySelector('slot');
-    return [...slot.assignedElements({ flatten: true })].filter(
-      (el: any) => el.tagName.toLowerCase() === 'v-menu-item' && !el.disabled
-    ) as [HTMLVMenuItemElement];
+    return [...slot.assignedElements({ flatten: true })].filter((el: any) => el.tagName.toLowerCase() === 'v-menu-item' && !el.disabled) as [HTMLVMenuItemElement];
   }
 
   getActiveItem() {
@@ -125,15 +123,7 @@ export class Menu {
 
   render() {
     return (
-      <div
-        ref={el => (this.menu = el)}
-        part="base"
-        class="menu"
-        role="menu"
-        onClick={this.handleClick}
-        onKeyDown={this.handleKeyDown}
-        tabIndex={0}
-      >
+      <div ref={el => (this.menu = el)} part="base" class="menu" role="menu" onClick={this.handleClick} onKeyDown={this.handleKeyDown} tabIndex={0}>
         <slot />
       </div>
     );

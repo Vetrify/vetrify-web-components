@@ -14,7 +14,7 @@ export const requestInclude = async (src: string, mode: 'cors' | 'no-cors' | 'sa
       return {
         ok: response.ok,
         status: response.status,
-        html: await response.text()
+        html: await response.text(),
       };
     });
     includeFiles.set(src, request);

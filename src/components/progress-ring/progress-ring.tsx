@@ -13,7 +13,7 @@ import { Component, Prop, Watch, h } from '@stencil/core';
 @Component({
   tag: 'v-progress-ring',
   styleUrl: 'progress-ring.scss',
-  shadow: true
+  shadow: true,
 })
 export class Progress {
   indicator: SVGCircleElement;

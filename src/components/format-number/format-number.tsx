@@ -7,7 +7,7 @@ import { Component, Prop } from '@stencil/core';
 
 @Component({
   tag: 'v-format-number',
-  shadow: true
+  shadow: true,
 })
 export class FormatBytes {
   /** The number to format. */
@@ -57,7 +57,7 @@ export class FormatBytes {
       minimumFractionDigits: this.minimumFractionDigits,
       maximumFractionDigits: this.maximumFractionDigits,
       minimumSignificantDigits: this.minimumSignificantDigits,
-      maximumSignificantDigits: this.maximumSignificantDigits
+      maximumSignificantDigits: this.maximumSignificantDigits,
     }).format(this.value);
   }
 }

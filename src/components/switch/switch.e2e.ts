@@ -5,7 +5,7 @@ describe('<v-switch>', () => {
     const page = await newE2EPage({
       html: `
         <v-switch>Switch</v-switch>
-      `
+      `,
     });
     const switchEl = await page.find('v-switch');
     const slFocus = await switchEl.spyOnEvent('v-focus');
@@ -20,7 +20,7 @@ describe('<v-switch>', () => {
       html: `
         <v-switch>Switch</v-switch>
         <button>Native Button</button>
-      `
+      `,
     });
     const switchEl = await page.find('v-switch');
     const nativeButton = await page.find('button');
@@ -36,7 +36,7 @@ describe('<v-switch>', () => {
     const page = await newE2EPage({
       html: `
         <v-switch>Switch</v-switch>
-      `
+      `,
     });
     const switchEl = await page.find('v-switch');
     const slFocus = await switchEl.spyOnEvent('v-focus');
@@ -50,7 +50,7 @@ describe('<v-switch>', () => {
     const page = await newE2EPage({
       html: `
         <v-switch>Switch</v-switch>
-      `
+      `,
     });
     const switchEl = await page.find('v-switch');
     const slBlur = await switchEl.spyOnEvent('v-blur');
@@ -65,7 +65,7 @@ describe('<v-switch>', () => {
     const page = await newE2EPage({
       html: `
         <v-switch>Switch</v-switch>
-      `
+      `,
     });
     const switchEl = await page.find('v-switch');
     const slChange = await switchEl.spyOnEvent('v-change');
@@ -79,7 +79,7 @@ describe('<v-switch>', () => {
     const page = await newE2EPage({
       html: `
         <v-switch>Switch</v-switch>
-      `
+      `,
     });
     const switchEl = await page.find('v-switch');
     const slChange = await switchEl.spyOnEvent('v-change');
@@ -94,7 +94,7 @@ describe('<v-switch>', () => {
     const page = await newE2EPage({
       html: `
         <v-switch checked>Switch</v-switch>
-      `
+      `,
     });
     const switchEl = await page.find('v-switch');
     const slChange = await switchEl.spyOnEvent('v-change');
@@ -109,7 +109,7 @@ describe('<v-switch>', () => {
     const page = await newE2EPage({
       html: `
         <v-switch>Switch</v-switch>
-      `
+      `,
     });
     const switchEl = await page.find('v-switch');
     const slChange = await switchEl.spyOnEvent('v-change');
@@ -125,7 +125,7 @@ describe('<v-switch>', () => {
       html: `
       <v-switch checked>Switch</v-switch>
       <button>Native Button</button>
-      `
+      `,
     });
     const switchEl = await page.find('v-switch');
     const slChange = await switchEl.spyOnEvent('v-change');

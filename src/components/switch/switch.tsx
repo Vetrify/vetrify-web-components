@@ -17,7 +17,7 @@ let id = 0;
 @Component({
   tag: 'v-switch',
   styleUrl: 'switch.scss',
-  shadow: true
+  shadow: true,
 })
 export class Switch {
   switchId = `switch-${++id}`;
@@ -130,10 +130,10 @@ export class Switch {
         part="base"
         htmlFor={this.switchId}
         class={{
-          switch: true,
+          'switch': true,
           'switch--checked': this.checked,
           'switch--disabled': this.disabled,
-          'switch--focused': this.hasFocus
+          'switch--focused': this.hasFocus,
         }}
         onMouseDown={this.handleMouseDown}
       >

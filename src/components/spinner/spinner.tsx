@@ -10,7 +10,7 @@ import { Component, h } from '@stencil/core';
 @Component({
   tag: 'v-spinner',
   styleUrl: 'spinner.scss',
-  shadow: true
+  shadow: true,
 })
 export class Spinner {
   render() {

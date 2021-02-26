@@ -20,7 +20,7 @@ import { hasSlot } from '../../utilities/slot';
 @Component({
   tag: 'v-card',
   styleUrl: 'card.scss',
-  shadow: true
+  shadow: true,
 })
 export class Card {
   @Element() host: HTMLVCardElement;
@@ -48,10 +48,10 @@ export class Card {
       <div
         part="base"
         class={{
-          card: true,
+          'card': true,
           'card--has-footer': this.hasFooter,
           'card--has-image': this.hasImage,
-          'card--has-header': this.hasHeader
+          'card--has-header': this.hasHeader,
         }}
       >
         <div part="image" class="card__image">

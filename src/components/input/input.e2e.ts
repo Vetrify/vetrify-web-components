@@ -5,7 +5,7 @@ describe('<v-input>', () => {
     const page = await newE2EPage({
       html: `
         <v-input></v-input>
-      `
+      `,
     });
     const input = await page.find('v-input');
     const slFocus = await input.spyOnEvent('v-focus');
@@ -20,7 +20,7 @@ describe('<v-input>', () => {
       html: `
         <v-input></v-input>
         <button>Other Element</button>
-      `
+      `,
     });
     const input = await page.find('v-input');
     const button = await page.find('button');
@@ -36,7 +36,7 @@ describe('<v-input>', () => {
     const page = await newE2EPage({
       html: `
         <v-input></v-input>
-      `
+      `,
     });
     const input = await page.find('v-input');
     const slFocus = await input.spyOnEvent('v-focus');
@@ -50,7 +50,7 @@ describe('<v-input>', () => {
     const page = await newE2EPage({
       html: `
         <v-input></v-input>
-      `
+      `,
     });
     const input = await page.find('v-input');
     const slBlur = await input.spyOnEvent('v-blur');
@@ -65,7 +65,7 @@ describe('<v-input>', () => {
     const page = await newE2EPage({
       html: `
         <v-input></v-input>
-      `
+      `,
     });
     const input = await page.find('v-input');
     const inputControl = await page.find('v-input >>> .input__control');
@@ -81,7 +81,7 @@ describe('<v-input>', () => {
     const page = await newE2EPage({
       html: `
         <v-input></v-input>
-      `
+      `,
     });
     const input = await page.find('v-input');
     const inputControl = await page.find('v-input >>> .input__control');
@@ -97,7 +97,7 @@ describe('<v-input>', () => {
       html: `
         <v-input></v-input>
         <button>Other Element</button>
-      `
+      `,
     });
     const input = await page.find('v-input');
     const inputControl = await page.find('v-input >>> .input__control');
@@ -111,7 +111,7 @@ describe('<v-input>', () => {
     const page = await newE2EPage({
       html: `
         <v-input clearable></v-input>
-      `
+      `,
     });
     const input = await page.find('v-input');
     const inputControl = await page.find('v-input >>> .input__control');
@@ -128,7 +128,7 @@ describe('<v-input>', () => {
     const page = await newE2EPage({
       html: `
         <v-input></v-input>
-      `
+      `,
     });
     const input = await page.find('v-input');
     const inputControl = await page.find('v-input >>> .input__control');
@@ -147,7 +147,7 @@ describe('<v-input>', () => {
     const page = await newE2EPage({
       html: `
         <v-input></v-input>
-      `
+      `,
     });
     const input = await page.find('v-input');
     const inputControl = await page.find('v-input >>> .input__control');
@@ -166,7 +166,7 @@ describe('<v-input>', () => {
     const page = await newE2EPage({
       html: `
         <v-input></v-input>
-      `
+      `,
     });
     const input = await page.find('v-input');
     const inputControl = await page.find('v-input >>> .input__control');

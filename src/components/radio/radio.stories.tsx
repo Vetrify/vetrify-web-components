@@ -1,5 +1,5 @@
 export default {
-    title: 'Vetrify/Radio'
-}
+  title: 'Vetrify/Radio',
+};
 
-export const Basic = () => ``
+export const Basic = () => ``;

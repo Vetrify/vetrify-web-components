@@ -15,7 +15,7 @@ let id = 0;
 @Component({
   tag: 'v-tab',
   styleUrl: 'tab.scss',
-  shadow: true
+  shadow: true,
 })
 export class Tab {
   componentId = `tab-${++id}`;
@@ -66,12 +66,12 @@ export class Tab {
           part="base"
           ref={el => (this.tab = el)}
           class={{
-            tab: true,
+            'tab': true,
 
             // States
             'tab--active': this.active,
             'tab--closable': this.closable,
-            'tab--disabled': this.disabled
+            'tab--disabled': this.disabled,
           }}
           role="tab"
           aria-disabled={this.disabled ? 'true' : 'false'}
@@ -79,16 +79,7 @@ export class Tab {
           tabindex={this.disabled || !this.active ? '-1' : '0'}
         >
           <slot />
-          {this.closable && (
-            <v-icon-button
-              name="x"
-              exportparts="base:close-button"
-              class="tab__close-button"
-              onClick={this.handleCloseClick}
-              tabIndex={-1}
-              aria-hidden="true"
-            />
-          )}
+          {this.closable && <v-icon-button name="x" exportparts="base:close-button" class="tab__close-button" onClick={this.handleCloseClick} tabIndex={-1} aria-hidden="true" />}
         </div>
       </Host>
     );

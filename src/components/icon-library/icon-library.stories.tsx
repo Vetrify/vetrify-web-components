@@ -1,5 +1,5 @@
 export default {
-    title: 'Vetrify/IconLibrary'
-}
+  title: 'Vetrify/IconLibrary',
+};
 
-export const Basic = () => ``
+export const Basic = () => ``;

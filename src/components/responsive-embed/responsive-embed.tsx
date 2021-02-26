@@ -10,7 +10,7 @@ import { Component, Prop, Watch, h } from '@stencil/core';
 @Component({
   tag: 'v-responsive-embed',
   styleUrl: 'responsive-embed.scss',
-  shadow: true
+  shadow: true,
 })
 export class ResponsiveEmbed {
   base: HTMLElement;

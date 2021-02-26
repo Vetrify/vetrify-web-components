@@ -9,7 +9,7 @@ describe('<v-menu>', () => {
           <v-menu-item value="2">Item 2</v-menu-item>
           <v-menu-item value="3">Item 3</v-menu-item>
         </v-menu>
-      `
+      `,
     });
     const menu = await page.find('v-menu');
     const menuItem = await page.find('v-menu-item');
@@ -20,7 +20,7 @@ describe('<v-menu>', () => {
 
     expect(slSelect).toHaveReceivedEventTimes(1);
     expect(slSelect).toHaveReceivedEventDetail({
-      item: menuItemEl
+      item: menuItemEl,
     });
   });
 });

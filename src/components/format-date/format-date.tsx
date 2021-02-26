@@ -7,7 +7,7 @@ import { Component, Prop } from '@stencil/core';
 
 @Component({
   tag: 'v-format-date',
-  shadow: true
+  shadow: true,
 })
 export class FormatBytes {
   /** The date/time to format. If not set, the current date and time will be used. */
@@ -69,7 +69,7 @@ export class FormatBytes {
       second: this.second,
       timeZoneName: this.timeZoneName,
       timeZone: this.timeZone,
-      hour12: hour12
+      hour12: hour12,
     }).format(date);
   }
 }

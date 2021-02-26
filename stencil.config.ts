@@ -18,11 +18,11 @@ export const config: Config = {
     },
     {
       type: 'docs-json',
-      file: './dist/components.json'
+      file: './dist/components.json',
     },
     {
       type: 'docs-vscode',
-      file: './dist/custom-elements.json'
+      file: './dist/custom-elements.json',
     },
     {
       type: 'www',
@@ -31,7 +31,7 @@ export const config: Config = {
   ],
   plugins: [
     sass({
-      includePaths: ['./node_modules', './src/styles']
-    })
-  ]
+      includePaths: ['./node_modules', './src/styles'],
+    }),
+  ],
 };

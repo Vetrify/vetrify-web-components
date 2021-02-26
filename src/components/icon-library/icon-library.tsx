@@ -9,7 +9,7 @@ import { registerLibrary, unregisterLibrary, IconLibraryResolver, IconLibraryMut
 @Component({
   tag: 'v-icon-library',
   styleUrl: 'icon-library.scss',
-  shadow: true
+  shadow: true,
 })
 export class IconLibrary {
   /** The name of the icon library. */

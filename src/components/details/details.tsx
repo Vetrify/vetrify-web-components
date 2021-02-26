@@ -20,7 +20,7 @@ let id = 0;
 @Component({
   tag: 'v-details',
   styleUrl: 'details.scss',
-  shadow: true
+  shadow: true,
 })
 export class Details {
   body: HTMLElement;
@@ -175,9 +175,9 @@ export class Details {
         ref={el => (this.details = el)}
         part="base"
         class={{
-          details: true,
+          'details': true,
           'details--open': this.open,
-          'details--disabled': this.disabled
+          'details--disabled': this.disabled,
         }}
       >
         <header
@@ -203,13 +203,7 @@ export class Details {
         </header>
 
         <div ref={el => (this.body = el)} class="details__body" onTransitionEnd={this.handleBodyTransitionEnd}>
-          <div
-            part="content"
-            id={`${this.componentId}-content`}
-            class="details__content"
-            role="region"
-            aria-labelledby={`${this.componentId}-header`}
-          >
+          <div part="content" id={`${this.componentId}-content`} class="details__content" role="region" aria-labelledby={`${this.componentId}-header`}>
             <slot />
           </div>
         </div>

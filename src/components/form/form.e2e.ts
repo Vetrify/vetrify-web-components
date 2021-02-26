@@ -21,7 +21,7 @@ const testForm = `
 describe('<v-form>', () => {
   it('should emit sl-submit when submit button clicked', async () => {
     const page = await newE2EPage({
-      html: testForm
+      html: testForm,
     });
     const form = await page.find('v-form');
     const button = await page.find('v-button');
@@ -34,7 +34,7 @@ describe('<v-form>', () => {
 
   it('should emit sl-submit when submit method called', async () => {
     const page = await newE2EPage({
-      html: testForm
+      html: testForm,
     });
     const form = await page.find('v-form');
     const slSubmit = await form.spyOnEvent('sl-submit');
@@ -46,7 +46,7 @@ describe('<v-form>', () => {
 
   it('should emit sl-submit when enter pressed inside an input', async () => {
     const page = await newE2EPage({
-      html: testForm
+      html: testForm,
     });
     const form = await page.find('v-form');
     const inputControl = await page.find('v-input >>> .input__control');
@@ -59,7 +59,7 @@ describe('<v-form>', () => {
 
   it('should return array of form elements when getFormControls() is called', async () => {
     const page = await newE2EPage({
-      html: testForm
+      html: testForm,
     });
     const form = await page.find('v-form');
     const inputEl = await page.$eval('v-input', el => el);
@@ -73,16 +73,14 @@ describe('<v-form>', () => {
 
   it('should return FormData object when getFormData() is called', async () => {
     const page = await newE2EPage({
-      html: testForm
+      html: testForm,
     });
-    const formData = await page.$eval('v-form', async (el: HTMLVFormElement) => [
-      ...(await el.getFormData()).entries()
-    ]);
+    const formData = await page.$eval('v-form', async (el: HTMLVFormElement) => [...(await el.getFormData()).entries()]);
 
     expect(formData).toEqual([
       ['name', 'Mr. Meow'],
       ['favorite', 'cats'],
-      ['agree', 'yes']
+      ['agree', 'yes'],
     ]);
   });
 });

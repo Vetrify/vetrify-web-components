@@ -1,5 +1,5 @@
 export default {
-    title: 'Vetrify/Spinner'
-}
+  title: 'Vetrify/Spinner',
+};
 
-export const Basic = () => ``
+export const Basic = () => ``;

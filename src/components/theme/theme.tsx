@@ -8,7 +8,7 @@ import { Component, Host, Prop, h } from '@stencil/core';
 @Component({
   tag: 'v-theme',
   styleUrl: 'theme.scss',
-  shadow: true
+  shadow: true,
 })
 export class Theme {
   /**

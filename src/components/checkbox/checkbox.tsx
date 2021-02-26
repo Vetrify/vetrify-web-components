@@ -18,7 +18,7 @@ let id = 0;
 @Component({
   tag: 'v-checkbox',
   styleUrl: 'checkbox.scss',
-  shadow: true
+  shadow: true,
 })
 export class Checkbox {
   inputId = `checkbox-${++id}`;
@@ -127,11 +127,11 @@ export class Checkbox {
       <label
         part="base"
         class={{
-          checkbox: true,
+          'checkbox': true,
           'checkbox--checked': this.checked,
           'checkbox--disabled': this.disabled,
           'checkbox--focused': this.hasFocus,
-          'checkbox--indeterminate': this.indeterminate
+          'checkbox--indeterminate': this.indeterminate,
         }}
         htmlFor={this.inputId}
         onMouseDown={this.handleMouseDown}

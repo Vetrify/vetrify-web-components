@@ -12,7 +12,7 @@ import { Component, Prop, h } from '@stencil/core';
 @Component({
   tag: 'v-button-group',
   styleUrl: 'button-group.scss',
-  shadow: true
+  shadow: true,
 })
 export class ButtonGroup {
   buttonGroup: HTMLElement;

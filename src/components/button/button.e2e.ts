@@ -5,7 +5,7 @@ describe('<v-button>', () => {
     const page = await newE2EPage({
       html: `
         <v-button>Button</v-button>
-      `
+      `,
     });
     const button = await page.find('v-button');
     const slFocus = await button.spyOnEvent('v-focus');
@@ -20,7 +20,7 @@ describe('<v-button>', () => {
       html: `
         <v-button>Button</v-button>
         <button>Native Button</button>
-      `
+      `,
     });
     const button = await page.find('v-button');
     const nativeButton = await page.find('button');
@@ -36,7 +36,7 @@ describe('<v-button>', () => {
     const page = await newE2EPage({
       html: `
         <v-button>Button</v-button>
-      `
+      `,
     });
     const button = await page.find('v-button');
     const slFocus = await button.spyOnEvent('v-focus');
@@ -50,7 +50,7 @@ describe('<v-button>', () => {
     const page = await newE2EPage({
       html: `
         <v-button>Button</v-button>
-      `
+      `,
     });
     const button = await page.find('v-button');
     const slBlur = await button.spyOnEvent('v-blur');

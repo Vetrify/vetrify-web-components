@@ -11,7 +11,7 @@ import { Component, Prop, h } from '@stencil/core';
 @Component({
   tag: 'v-skeleton',
   styleUrl: 'skeleton.scss',
-  shadow: true
+  shadow: true,
 })
 export class Skeleton {
   /** Determines which effect the skeleton will use. */
@@ -22,9 +22,9 @@ export class Skeleton {
       <div
         part="base"
         class={{
-          skeleton: true,
+          'skeleton': true,
           'skeleton--pulse': this.effect === 'pulse',
-          'skeleton--sheen': this.effect === 'sheen'
+          'skeleton--sheen': this.effect === 'sheen',
         }}
         aria-busy="true"
         aria-live="polite"

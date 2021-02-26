@@ -18,7 +18,7 @@ const toastStack = Object.assign(document.createElement('div'), { className: 'sl
 @Component({
   tag: 'v-alert',
   styleUrl: 'alert.scss',
-  shadow: true
+  shadow: true,
 })
 export class Alert {
   alert: HTMLElement;
@@ -145,7 +145,7 @@ export class Alert {
             toastStack.remove();
           }
         },
-        { once: true }
+        { once: true },
       );
     });
   }
@@ -181,7 +181,7 @@ export class Alert {
         ref={el => (this.alert = el)}
         part="base"
         class={{
-          alert: true,
+          'alert': true,
           'alert--open': this.open,
           'alert--visible': this.isVisible,
           'alert--closable': this.closable,
@@ -189,7 +189,7 @@ export class Alert {
           'alert--success': this.type === 'success',
           'alert--info': this.type === 'info',
           'alert--warning': this.type === 'warning',
-          'alert--danger': this.type === 'danger'
+          'alert--danger': this.type === 'danger',
         }}
         role="alert"
         aria-live="assertive"

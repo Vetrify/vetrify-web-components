@@ -11,7 +11,7 @@ import { easings } from './easings';
 @Component({
   tag: 'v-animation',
   styleUrl: 'animation.scss',
-  shadow: true
+  shadow: true,
 })
 export class Animate {
   animation: Animation;
@@ -146,7 +146,7 @@ export class Animate {
       endDelay: this.endDelay,
       fill: this.fill,
       iterationStart: this.iterationStart,
-      iterations: this.iterations
+      iterations: this.iterations,
     });
     this.animation.playbackRate = this.playbackRate;
     this.animation.addEventListener('cancel', this.handleAnimationCancel);

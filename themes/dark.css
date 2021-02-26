@@ -75,8 +75,7 @@
   background-color: var(--v-color-primary-950);
   border-color: var(--v-color-primary-800);
   color: var(--v-color-primary-400);
-  box-shadow: 0 0 0 var(--v-focus-ring-width)
-    hsla(var(--v-color-primary-hue), var(--v-color-primary-saturation), 50%, var(--v-focus-ring-alpha));
+  box-shadow: 0 0 0 var(--v-focus-ring-width) hsla(var(--v-color-primary-hue), var(--v-color-primary-saturation), 50%, var(--v-focus-ring-alpha));
 }
 
 .sl-theme-dark sl-button[type='default']:not([disabled])::part(base):active {
@@ -114,8 +113,7 @@
   background-color: var(--v-color-primary-950);
   border-color: var(--v-color-primary-800);
   color: var(--v-color-primary-400);
-  box-shadow: 0 0 0 var(--v-focus-ring-width)
-    hsla(var(--v-color-primary-hue), var(--v-color-primary-saturation), 50%, var(--v-focus-ring-alpha));
+  box-shadow: 0 0 0 var(--v-focus-ring-width) hsla(var(--v-color-primary-hue), var(--v-color-primary-saturation), 50%, var(--v-focus-ring-alpha));
 }
 
 .sl-theme-dark sl-color-picker::part(format-button):active {
@@ -145,8 +143,8 @@
 .sl-theme-dark sl-color-picker::part(preview),
 .sl-theme-dark sl-color-picker::part(opacity-slider),
 .sl-theme-dark sl-color-picker::part(trigger) {
-  background-image: linear-gradient(45deg, #333 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #333 75%),
-    linear-gradient(45deg, transparent 75%, #333 75%), linear-gradient(45deg, #333 25%, transparent 25%);
+  background-image: linear-gradient(45deg, #333 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #333 75%), linear-gradient(45deg, transparent 75%, #333 75%),
+    linear-gradient(45deg, #333 25%, transparent 25%);
 }
 
 .sl-theme-dark sl-color-picker::part(swatches) {

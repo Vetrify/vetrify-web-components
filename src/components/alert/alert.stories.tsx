@@ -1,8 +1,8 @@
 export default {
-    title: 'Vetrify/Alert'
-}
+  title: 'Vetrify/Alert',
+};
 
-export const Basic = () => `<v-alert message="ok"></v-alert>`
+export const Basic = () => `<v-alert message="ok"></v-alert>`;
 
 export const Types = () => `
 <v-alert type="primary" open>
@@ -42,7 +42,7 @@ export const Types = () => `
     <strong>Your account has been deleted</strong><br>
     We're very sorry to see you go!
 </v-alert>
-`
+`;
 
 export const Closable = () => `
 <v-alert type="primary" open closable class="alert-closable">
@@ -56,13 +56,13 @@ export const Closable = () => `
     setTimeout(() => alert.open = true, 2000);
   });
 </script>
-` 
+`;
 
 export const WithoutIcons = () => `
 <v-alert type="primary" open>
   Nothing fancy here, just a simple alert.
 </v-alert>
-`
+`;
 
 export const Duration = () => `
 <div class="alert-duration">
@@ -87,7 +87,7 @@ export const Duration = () => `
     margin-top: var(--v-spacing-medium);
   }
 </style>
-`
+`;
 
 export const ToastNotifications = () => `
 <div class="alert-toast">
@@ -137,7 +137,7 @@ export const ToastNotifications = () => `
 
     button.addEventListener('click', () => alert.toast());
   });
-</script>`
+</script>`;
 
 export const ImperativeToast = () => `
 <div class="alert-toast-wrapper">
@@ -176,9 +176,10 @@ export const ImperativeToast = () => `
     notify(\`This is custom toast #\${++count}\`);
   });
 </script>
-`
+`;
 
-Basic.args = { 
-    first: 'a', 
-    middle:'b',
-    last: 'c'}
+Basic.args = {
+  first: 'a',
+  middle: 'b',
+  last: 'c',
+};

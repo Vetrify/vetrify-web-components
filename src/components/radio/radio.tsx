@@ -17,7 +17,7 @@ let id = 0;
 @Component({
   tag: 'v-radio',
   styleUrl: 'radio.scss',
-  shadow: true
+  shadow: true,
 })
 export class Radio {
   inputId = `radio-${++id}`;
@@ -102,9 +102,7 @@ export class Radio {
 
     if (!this.name) return [];
 
-    return [...form.querySelectorAll('v-radio')].filter(
-      (radio: HTMLVRadioElement) => radio.name === this.name
-    ) as HTMLVRadioElement[];
+    return [...form.querySelectorAll('v-radio')].filter((radio: HTMLVRadioElement) => radio.name === this.name) as HTMLVRadioElement[];
   }
 
   getSiblingRadios() {
@@ -152,10 +150,10 @@ export class Radio {
       <label
         part="base"
         class={{
-          radio: true,
+          'radio': true,
           'radio--checked': this.checked,
           'radio--disabled': this.disabled,
-          'radio--focused': this.hasFocus
+          'radio--focused': this.hasFocus,
         }}
         htmlFor={this.inputId}
         onKeyDown={this.handleKeyDown}

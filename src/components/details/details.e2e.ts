@@ -8,7 +8,7 @@ describe('<v-details>', () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
           aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </v-details>
-      `
+      `,
     });
     const details = await page.find('v-details');
     const header = await page.find('v-details >>> header');
@@ -37,7 +37,7 @@ describe('<v-details>', () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
           aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </v-details>
-      `
+      `,
     });
     const details = await page.find('v-details');
     const base = await page.find('v-details >>> .details__body');
@@ -65,7 +65,7 @@ describe('<v-details>', () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
           aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </v-details>
-      `
+      `,
     });
     const details = await page.find('v-details');
     const base = await page.find('v-details >>> .details__body');
@@ -95,7 +95,7 @@ describe('<v-details>', () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
           aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </v-details>
-      `
+      `,
     });
     const details = await page.find('v-details');
     const slShow = await details.spyOnEvent('sl-show');
@@ -116,7 +116,7 @@ describe('<v-details>', () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
           aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </v-details>
-      `
+      `,
     });
     const details = await page.find('v-details');
     const slHide = await details.spyOnEvent('sl-hide');

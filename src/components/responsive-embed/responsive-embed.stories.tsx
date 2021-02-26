@@ -1,5 +1,5 @@
 export default {
-    title: 'Vetrify/ResponsiveEmbed'
-}
+  title: 'Vetrify/ResponsiveEmbed',
+};
 
-export const Basic = () => ``
+export const Basic = () => ``;

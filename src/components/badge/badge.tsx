@@ -12,7 +12,7 @@ import { Component, Prop, h } from '@stencil/core';
 @Component({
   tag: 'v-badge',
   styleUrl: 'badge.scss',
-  shadow: true
+  shadow: true,
 })
 export class Badge {
   badge: HTMLElement;
@@ -32,7 +32,7 @@ export class Badge {
         ref={el => (this.badge = el)}
         part="base"
         class={{
-          badge: true,
+          'badge': true,
 
           // Types
           'badge--primary': this.type === 'primary',
@@ -41,7 +41,7 @@ export class Badge {
           'badge--warning': this.type === 'warning',
           'badge--danger': this.type === 'danger',
           'badge--pill': this.pill,
-          'badge--pulse': this.pulse
+          'badge--pulse': this.pulse,
         }}
         role="status"
       >

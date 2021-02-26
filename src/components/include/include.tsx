@@ -9,7 +9,7 @@ import { requestInclude } from './request';
 @Component({
   tag: 'v-include',
   styleUrl: 'include.scss',
-  shadow: true
+  shadow: true,
 })
 export class Include {
   @Element() host: HTMLVIncludeElement;

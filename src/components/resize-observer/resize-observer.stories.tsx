@@ -1,5 +1,5 @@
 export default {
-    title: 'Vetrify/ResizeObserver'
-}
+  title: 'Vetrify/ResizeObserver',
+};
 
-export const Basic = () => ``
+export const Basic = () => ``;

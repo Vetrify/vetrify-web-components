@@ -29,7 +29,7 @@ let id = 0;
 @Component({
   tag: 'v-dialog',
   styleUrl: 'dialog.scss',
-  shadow: true
+  shadow: true,
 })
 export class Dialog {
   componentId = `dialog-${++id}`;
@@ -93,7 +93,7 @@ export class Dialog {
     this.handleSlotChange = this.handleSlotChange.bind(this);
 
     this.modal = new Modal(this.host, {
-      onFocusOut: () => this.panel.focus()
+      onFocusOut: () => this.panel.focus(),
     });
   }
 
@@ -155,7 +155,7 @@ export class Dialog {
               this.panel.focus();
             }
           },
-          { once: true }
+          { once: true },
         );
       }
     }
@@ -221,10 +221,10 @@ export class Dialog {
         ref={el => (this.dialog = el)}
         part="base"
         class={{
-          dialog: true,
+          'dialog': true,
           'dialog--open': this.open,
           'dialog--visible': this.isVisible,
-          'dialog--has-footer': this.hasFooter
+          'dialog--has-footer': this.hasFooter,
         }}
         onKeyDown={this.handleKeyDown}
         onTransitionEnd={this.handleTransitionEnd}
@@ -250,12 +250,7 @@ export class Dialog {
                   {this.label || String.fromCharCode(65279)}
                 </slot>
               </span>
-              <v-icon-button
-                exportparts="base:close-button"
-                class="dialog__close"
-                name="x"
-                onClick={this.handleCloseClick}
-              />
+              <v-icon-button exportparts="base:close-button" class="dialog__close" name="x" onClick={this.handleCloseClick} />
             </header>
           )}
 

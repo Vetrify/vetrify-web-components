@@ -16,7 +16,7 @@ let id = 0;
 @Component({
   tag: 'v-tooltip',
   styleUrl: 'tooltip.scss',
-  shadow: true
+  shadow: true,
 })
 export class Tooltip {
   componentId = `tooltip-${++id}`;
@@ -35,19 +35,8 @@ export class Tooltip {
    * The preferred placement of the tooltip. Note that the actual placement may vary as needed to keep the tooltip
    * inside of the viewport.
    */
-  @Prop() placement:
-    | 'top'
-    | 'top-start'
-    | 'top-end'
-    | 'right'
-    | 'right-start'
-    | 'right-end'
-    | 'bottom'
-    | 'bottom-start'
-    | 'bottom-end'
-    | 'left'
-    | 'left-start'
-    | 'left-end' = 'top';
+  @Prop() placement: 'top' | 'top-start' | 'top-end' | 'right' | 'right-start' | 'right-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end' =
+    'top';
 
   /** Set to true to disable the tooltip so it won't show when triggered. */
   @Prop() disabled = false;
@@ -163,9 +152,7 @@ export class Tooltip {
 
   getTarget() {
     // Get the first child that isn't a <style> or content slot
-    const target = [...this.host.children].find(
-      el => el.tagName.toLowerCase() !== 'style' && el.getAttribute('slot') !== 'content'
-    ) as HTMLElement;
+    const target = [...this.host.children].find(el => el.tagName.toLowerCase() !== 'style' && el.getAttribute('slot') !== 'content') as HTMLElement;
 
     if (!target) {
       throw new Error('Invalid tooltip target: no child element was found.');
@@ -236,7 +223,7 @@ export class Tooltip {
       skidding: this.skidding,
       transitionElement: this.tooltip,
       onAfterHide: () => this.slAfterHide.emit(),
-      onAfterShow: () => this.slAfterShow.emit()
+      onAfterShow: () => this.slAfterShow.emit(),
     });
   }
 
@@ -252,8 +239,8 @@ export class Tooltip {
               ref={el => (this.tooltip = el)}
               id={this.componentId}
               class={{
-                tooltip: true,
-                'tooltip--open': this.open
+                'tooltip': true,
+                'tooltip--open': this.open,
               }}
               role="tooltip"
               aria-hidden={this.open ? 'false' : 'true'}

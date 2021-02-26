@@ -18,7 +18,7 @@ import { Component, Method, Prop, State, h } from '@stencil/core';
 @Component({
   tag: 'v-menu-item',
   styleUrl: 'menu-item.scss',
-  shadow: true
+  shadow: true,
 })
 export class MenuItem {
   menuItem: HTMLElement;
@@ -78,7 +78,7 @@ export class MenuItem {
           'menu-item': true,
           'menu-item--checked': this.checked,
           'menu-item--disabled': this.disabled,
-          'menu-item--focused': this.hasFocus
+          'menu-item--focused': this.hasFocus,
         }}
         role="menuitem"
         aria-disabled={this.disabled ? 'true' : 'false'}

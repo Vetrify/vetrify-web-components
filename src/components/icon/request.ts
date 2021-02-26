@@ -19,13 +19,13 @@ export const requestIcon = (url: string) => {
         return {
           ok: response.ok,
           status: response.status,
-          svg: svg && svg.tagName.toLowerCase() === 'svg' ? svg.outerHTML : ''
+          svg: svg && svg.tagName.toLowerCase() === 'svg' ? svg.outerHTML : '',
         };
       } else {
         return {
           ok: response.ok,
           status: response.status,
-          svg: null
+          svg: null,
         };
       }
     });

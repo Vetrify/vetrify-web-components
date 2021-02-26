@@ -7,7 +7,7 @@ import { Component, Prop, State, Watch, h } from '@stencil/core';
 
 @Component({
   tag: 'v-relative-time',
-  shadow: true
+  shadow: true,
 })
 export class RelativeTime {
   updateTimeout: any;
@@ -65,7 +65,7 @@ export class RelativeTime {
       { max: 518400000, value: 86400000, unit: 'day' }, // max 6 days
       { max: 2419200000, value: 604800000, unit: 'week' }, // max 28 days
       { max: 28512000000, value: 2592000000, unit: 'month' }, // max 11 months
-      { max: Infinity, value: 31536000000, unit: 'year' }
+      { max: Infinity, value: 31536000000, unit: 'year' },
     ];
     const { unit, value } = availableUnits.find(unit => Math.abs(diff) < unit.max);
 
@@ -76,13 +76,13 @@ export class RelativeTime {
       day: 'numeric',
       hour: 'numeric',
       minute: 'numeric',
-      timeZoneName: 'short'
+      timeZoneName: 'short',
     }).format(date);
 
     // @ts-ignore - https://github.com/microsoft/TypeScript/issues/29129
     this.relativeTime = new Intl.RelativeTimeFormat(this.locale, {
       numeric: this.numeric,
-      style: this.format
+      style: this.format,
     }).format(Math.round(diff / value), unit);
 
     // If sync is enabled, update as time passes

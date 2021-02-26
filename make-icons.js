@@ -32,7 +32,7 @@ let numIcons = 0;
     await Promise.all([
       copy(`${srcPath}/icons`, './src/components/icon/icons'),
       copy(`${srcPath}/LICENSE.md`, './src/components/icon/icons/LICENSE.md'),
-      copy(`${srcPath}/bootstrap-icons.svg`, './docs/assets/icons/sprite.svg', { overwrite: true })
+      copy(`${srcPath}/bootstrap-icons.svg`, './docs/assets/icons/sprite.svg', { overwrite: true }),
     ]);
 
     // Generate metadata
@@ -48,7 +48,7 @@ let numIcons = 0;
         name,
         title: data.title,
         categories: data.categories,
-        tags: data.tags
+        tags: data.tags,
       };
     });
 

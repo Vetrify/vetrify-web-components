@@ -39,8 +39,8 @@
       border: solid var(--v-input-border-width) var(--v-color-primary-500);
       -webkit-appearance: none;
       margin-top: calc(var(--thumb-size) / -2 + var(--track-height) / 2);
-      transition: var(--v-transition-fast) border-color, var(--v-transition-fast) background-color,
-        var(--v-transition-fast) color, var(--v-transition-fast) box-shadow, var(--v-transition-fast) transform;
+      transition: var(--v-transition-fast) border-color, var(--v-transition-fast) background-color, var(--v-transition-fast) color, var(--v-transition-fast) box-shadow,
+        var(--v-transition-fast) transform;
       cursor: pointer;
     }
 
@@ -81,8 +81,8 @@
       border-radius: 50%;
       background-color: var(--v-color-primary-500);
       border-color: var(--v-color-primary-500);
-      transition: var(--v-transition-fast) border-color, var(--v-transition-fast) background-color,
-        var(--v-transition-fast) color, var(--v-transition-fast) box-shadow, var(--v-transition-fast) transform;
+      transition: var(--v-transition-fast) border-color, var(--v-transition-fast) background-color, var(--v-transition-fast) color, var(--v-transition-fast) box-shadow,
+        var(--v-transition-fast) transform;
       cursor: pointer;
     }
 

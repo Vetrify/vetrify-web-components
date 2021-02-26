@@ -24,7 +24,7 @@ import { clamp } from '../../utilities/math';
 @Component({
   tag: 'v-color-picker',
   styleUrl: 'color-picker.scss',
-  shadow: true
+  shadow: true,
 })
 export class ColorPicker {
   bypassValueParse = false;
@@ -107,7 +107,7 @@ export class ColorPicker {
     '#444',
     '#888',
     '#ccc',
-    '#fff'
+    '#fff',
   ];
 
   /** Emitted when the color picker's value changes. */
@@ -193,9 +193,7 @@ export class ColorPicker {
   /** Returns the current value as a string in the specified format. */
   @Method()
   async getFormattedValue(format: 'hex' | 'hexa' | 'rgb' | 'rgba' | 'hsl' | 'hsla' = 'hex') {
-    const currentColor = this.parseColor(
-      `hsla(${this.hue}, ${this.saturation}%, ${this.lightness}%, ${this.alpha / 100})`
-    );
+    const currentColor = this.parseColor(`hsla(${this.hue}, ${this.saturation}%, ${this.lightness}%, ${this.alpha / 100})`);
 
     if (!currentColor) {
       return '';
@@ -231,7 +229,7 @@ export class ColorPicker {
             this.input.reportValidity();
             resolve();
           },
-          { once: true }
+          { once: true },
         );
         this.dropdown.show();
       });
@@ -556,21 +554,21 @@ export class ColorPicker {
       h: parsed.hsl().color[0],
       s: parsed.hsl().color[1],
       l: parsed.hsl().color[2],
-      a: parsed.hsl().valpha
+      a: parsed.hsl().valpha,
     };
 
     const rgb = {
       r: parsed.rgb().color[0],
       g: parsed.rgb().color[1],
       b: parsed.rgb().color[2],
-      a: parsed.rgb().valpha
+      a: parsed.rgb().valpha,
     };
 
     const hex = {
       r: toHex(parsed.rgb().color[0]),
       g: toHex(parsed.rgb().color[1]),
       b: toHex(parsed.rgb().color[2]),
-      a: toHex(parsed.rgb().valpha * 255)
+      a: toHex(parsed.rgb().valpha * 255),
     };
 
     return {
@@ -578,38 +576,30 @@ export class ColorPicker {
         h: hsl.h,
         s: hsl.s,
         l: hsl.l,
-        string: this.setLetterCase(`hsl(${Math.round(hsl.h)}, ${Math.round(hsl.s)}%, ${Math.round(hsl.l)}%)`)
+        string: this.setLetterCase(`hsl(${Math.round(hsl.h)}, ${Math.round(hsl.s)}%, ${Math.round(hsl.l)}%)`),
       },
       hsla: {
         h: hsl.h,
         s: hsl.s,
         l: hsl.l,
         a: hsl.a,
-        string: this.setLetterCase(
-          `hsla(${Math.round(hsl.h)}, ${Math.round(hsl.s)}%, ${Math.round(hsl.l)}%, ${Number(
-            hsl.a.toFixed(2).toString()
-          )})`
-        )
+        string: this.setLetterCase(`hsla(${Math.round(hsl.h)}, ${Math.round(hsl.s)}%, ${Math.round(hsl.l)}%, ${Number(hsl.a.toFixed(2).toString())})`),
       },
       rgb: {
         r: rgb.r,
         g: rgb.g,
         b: rgb.b,
-        string: this.setLetterCase(`rgb(${Math.round(rgb.r)}, ${Math.round(rgb.g)}, ${Math.round(rgb.b)})`)
+        string: this.setLetterCase(`rgb(${Math.round(rgb.r)}, ${Math.round(rgb.g)}, ${Math.round(rgb.b)})`),
       },
       rgba: {
         r: rgb.r,
         g: rgb.g,
         b: rgb.b,
         a: rgb.a,
-        string: this.setLetterCase(
-          `rgba(${Math.round(rgb.r)}, ${Math.round(rgb.g)}, ${Math.round(rgb.b)}, ${Number(
-            rgb.a.toFixed(2).toString()
-          )})`
-        )
+        string: this.setLetterCase(`rgba(${Math.round(rgb.r)}, ${Math.round(rgb.g)}, ${Math.round(rgb.b)}, ${Number(rgb.a.toFixed(2).toString())})`),
       },
       hex: this.setLetterCase(`#${hex.r}${hex.g}${hex.b}`),
-      hexa: this.setLetterCase(`#${hex.r}${hex.g}${hex.b}${hex.a}`)
+      hexa: this.setLetterCase(`#${hex.r}${hex.g}${hex.b}${hex.a}`),
     };
   }
 
@@ -636,9 +626,7 @@ export class ColorPicker {
   }
 
   syncValues() {
-    const currentColor = this.parseColor(
-      `hsla(${this.hue}, ${this.saturation}%, ${this.lightness}%, ${this.alpha / 100})`
-    );
+    const currentColor = this.parseColor(`hsla(${this.hue}, ${this.saturation}%, ${this.lightness}%, ${this.alpha / 100})`);
 
     if (!currentColor) {
       return false;
@@ -671,7 +659,7 @@ export class ColorPicker {
           class={{
             'color-picker': true,
             'color-picker--inline': this.inline,
-            'color-picker--disabled': this.disabled
+            'color-picker--disabled': this.disabled,
           }}
           aria-disabled={this.disabled ? 'true' : 'false'}
         >
@@ -679,7 +667,7 @@ export class ColorPicker {
             part="grid"
             class="color-picker__grid"
             style={{
-              backgroundColor: `hsl(${this.hue}deg, 100%, 50%)`
+              backgroundColor: `hsl(${this.hue}deg, 100%, 50%)`,
             }}
             onMouseDown={this.handleGridDrag}
             onTouchStart={this.handleGridDrag}
@@ -690,13 +678,11 @@ export class ColorPicker {
               style={{
                 top: `${y}%`,
                 left: `${x}%`,
-                backgroundColor: `hsla(${this.hue}deg, ${this.saturation}%, ${this.lightness}%)`
+                backgroundColor: `hsla(${this.hue}deg, ${this.saturation}%, ${this.lightness}%)`,
               }}
               role="slider"
               aria-label="HSL"
-              aria-valuetext={`hsl(${Math.round(this.hue)}, ${Math.round(this.saturation)}%, ${Math.round(
-                this.lightness
-              )}%)`}
+              aria-valuetext={`hsl(${Math.round(this.hue)}, ${Math.round(this.saturation)}%, ${Math.round(this.lightness)}%)`}
               tabIndex={this.disabled ? null : 0}
               onKeyDown={this.handleGridKeyDown}
             />
@@ -704,17 +690,12 @@ export class ColorPicker {
 
           <div class="color-picker__controls">
             <div class="color-picker__sliders">
-              <div
-                part="slider hue-slider"
-                class="color-picker__hue color-picker__slider"
-                onMouseDown={this.handleHueDrag}
-                onTouchStart={this.handleHueDrag}
-              >
+              <div part="slider hue-slider" class="color-picker__hue color-picker__slider" onMouseDown={this.handleHueDrag} onTouchStart={this.handleHueDrag}>
                 <span
                   part="slider-handle"
                   class="color-picker__slider-handle"
                   style={{
-                    left: `${this.hue === 0 ? 0 : 100 / (360 / this.hue)}%`
+                    left: `${this.hue === 0 ? 0 : 100 / (360 / this.hue)}%`,
                   }}
                   role="slider"
                   aria-label="hue"
@@ -741,14 +722,14 @@ export class ColorPicker {
                       to right,
                       hsl(${this.hue}deg, ${this.saturation}%, ${this.lightness}%, 0%) 0%,
                       hsl(${this.hue}deg, ${this.saturation}%, ${this.lightness}%) 100%
-                      )`
+                      )`,
                     }}
                   />
                   <span
                     part="slider-handle"
                     class="color-picker__slider-handle"
                     style={{
-                      left: `${this.alpha}%`
+                      left: `${this.alpha}%`,
                     }}
                     role="slider"
                     aria-label="alpha"
@@ -769,7 +750,7 @@ export class ColorPicker {
               part="preview"
               class="color-picker__preview color-picker__transparent-bg"
               style={{
-                '--preview-color': `hsla(${this.hue}deg, ${this.saturation}%, ${this.lightness}%, ${this.alpha / 100})`
+                '--preview-color': `hsla(${this.hue}deg, ${this.saturation}%, ${this.lightness}%, ${this.alpha / 100})`,
               }}
               onClick={this.handleCopy}
             >
@@ -778,7 +759,7 @@ export class ColorPicker {
                 class={{
                   'color-picker__copy-feedback': true,
                   'color-picker__copy-feedback--visible': this.showCopyFeedback,
-                  'color-picker__copy-feedback--dark': this.lightness > 50
+                  'color-picker__copy-feedback--dark': this.lightness > 50,
                 }}
               />
             </button>
@@ -857,10 +838,10 @@ export class ColorPicker {
             'color-dropdown__trigger--small': this.size === 'small',
             'color-dropdown__trigger--medium': this.size === 'medium',
             'color-dropdown__trigger--large': this.size === 'large',
-            'color-picker__transparent-bg': true
+            'color-picker__transparent-bg': true,
           }}
           style={{
-            color: `hsla(${this.hue}deg, ${this.saturation}%, ${this.lightness}%, ${this.alpha / 100})`
+            color: `hsla(${this.hue}deg, ${this.saturation}%, ${this.lightness}%, ${this.alpha / 100})`,
           }}
           type="button"
         />

@@ -38,9 +38,9 @@ export default class Popover {
         visibleClass: 'popover-visible',
         onAfterShow: () => {},
         onAfterHide: () => {},
-        onTransitionEnd: () => {}
+        onTransitionEnd: () => {},
       },
-      options
+      options,
     );
 
     this.isVisible = false;
@@ -94,16 +94,16 @@ export default class Popover {
         {
           name: 'flip',
           options: {
-            boundary: 'viewport'
-          }
+            boundary: 'viewport',
+          },
         },
         {
           name: 'offset',
           options: {
-            offset: [this.options.skidding, this.options.distance]
-          }
-        }
-      ]
+            offset: [this.options.skidding, this.options.distance],
+          },
+        },
+      ],
     });
 
     this.popover.addEventListener('transitionend', () => this.options.onAfterShow.call(this), { once: true });
@@ -124,15 +124,13 @@ export default class Popover {
 
   setOptions(options: PopoverOptions) {
     this.options = Object.assign(this.options, options);
-    this.isVisible
-      ? this.popover.classList.add(this.options.visibleClass)
-      : this.popover.classList.remove(this.options.visibleClass);
+    this.isVisible ? this.popover.classList.add(this.options.visibleClass) : this.popover.classList.remove(this.options.visibleClass);
 
     // Update popper options
     if (this.popper) {
       this.popper.setOptions({
         placement: this.options.placement,
-        strategy: this.options.strategy
+        strategy: this.options.strategy,
       });
 
       requestAnimationFrame(() => this.popper.update());

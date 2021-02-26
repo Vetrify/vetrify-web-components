@@ -5,7 +5,7 @@ describe('<v-radio>', () => {
     const page = await newE2EPage({
       html: `
         <v-radio>Radio</v-radio>
-      `
+      `,
     });
     const radio = await page.find('v-radio');
     const slFocus = await radio.spyOnEvent('v-focus');
@@ -20,7 +20,7 @@ describe('<v-radio>', () => {
       html: `
         <v-radio>Radio</v-radio>
         <button>Button</button>
-        `
+        `,
     });
     const radio = await page.find('v-radio');
     const button = await page.find('button');
@@ -36,7 +36,7 @@ describe('<v-radio>', () => {
     const page = await newE2EPage({
       html: `
         <v-radio>Radio</v-radio>
-      `
+      `,
     });
     const radio = await page.find('v-radio');
     const slFocus = await radio.spyOnEvent('v-focus');
@@ -50,7 +50,7 @@ describe('<v-radio>', () => {
     const page = await newE2EPage({
       html: `
         <v-radio>Radio</v-radio>
-      `
+      `,
     });
     const radio = await page.find('v-radio');
     const slBlur = await radio.spyOnEvent('v-blur');
@@ -65,7 +65,7 @@ describe('<v-radio>', () => {
     const page = await newE2EPage({
       html: `
         <v-radio>Radio</v-radio>
-      `
+      `,
     });
     const radio = await page.find('v-radio');
     const slChange = await radio.spyOnEvent('v-change');
@@ -79,7 +79,7 @@ describe('<v-radio>', () => {
     const page = await newE2EPage({
       html: `
         <v-radio>Radio</v-radio>
-      `
+      `,
     });
     const radio = await page.find('v-radio');
     const slChange = await radio.spyOnEvent('v-change');
@@ -95,7 +95,7 @@ describe('<v-radio>', () => {
       html: `
         <v-radio checked>Radio</v-radio>
         <button>Button</button>
-      `
+      `,
     });
     const radio = await page.find('v-radio');
     const slChange = await radio.spyOnEvent('v-change');
@@ -110,7 +110,7 @@ describe('<v-radio>', () => {
     const page = await newE2EPage({
       html: `
         <v-radio>Radio</v-radio>
-      `
+      `,
     });
     const radio = await page.find('v-radio');
     const slChange = await radio.spyOnEvent('v-change');
@@ -126,7 +126,7 @@ describe('<v-radio>', () => {
       html: `
         <v-radio checked>Radio</v-radio>
         <button>Button</button>
-      `
+      `,
     });
     const radio = await page.find('v-radio');
     const slChange = await radio.spyOnEvent('v-change');

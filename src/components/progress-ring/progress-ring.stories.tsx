@@ -1,5 +1,5 @@
 export default {
-    title: 'Vetrify/ProgressRing'
-}
+  title: 'Vetrify/ProgressRing',
+};
 
-export const Basic = () => ``
+export const Basic = () => ``;
