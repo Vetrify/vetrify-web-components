@@ -1,4 +1,5 @@
 const path = require('path');
+const includePath = path.resolve(__dirname, '..');
 
 module.exports = {
   "stories": [
@@ -16,11 +17,19 @@ module.exports = {
       loader: require.resolve('babel-loader'),
     });
 
+    // config.module.rules.push({
+    //   test: /\.css$/,
+    //   use: ['style-loader', 'css-loader'],
+    //   include: includePath,
+    // });
+
     config.module.rules.push({
       test: /\.scss$/,
       use: ['style-loader', 'css-loader', 'sass-loader'],
-      include: path.resolve(__dirname, '../'),
+      include: includePath,
     });
+
+
 
     config.resolve.extensions.push('.ts', '.tsx');
     return config;
