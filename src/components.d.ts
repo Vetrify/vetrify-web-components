@@ -465,7 +465,7 @@ export namespace Components {
          */
         "novalidate": boolean;
         /**
-          * Submits the form. If all controls are valid, the `sl-submit` event will be emitted and the promise will resolve with `true`. If any form control is invalid, the promise will resolve with `false` and no event will be emitted.
+          * Submits the form. If all controls are valid, the `v-submit` event will be emitted and the promise will resolve with `true`. If any form control is invalid, the promise will resolve with `false` and no event will be emitted.
          */
         "submit": () => Promise<boolean>;
     }
@@ -1707,19 +1707,19 @@ declare namespace LocalJSX {
         /**
           * Emitted after the alert closes and all transitions are complete.
          */
-        "onSl-after-hide"?: (event: CustomEvent<any>) => void;
+        "onV-after-hide"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted after the alert opens and all transitions are complete.
          */
-        "onSl-after-show"?: (event: CustomEvent<any>) => void;
+        "onV-after-show"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the alert closes. Calling `event.preventDefault()` will prevent it from being closed.
          */
-        "onSl-hide"?: (event: CustomEvent<any>) => void;
+        "onV-hide"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the alert opens. Calling `event.preventDefault()` will prevent it from being opened.
          */
-        "onSl-show"?: (event: CustomEvent<any>) => void;
+        "onV-show"?: (event: CustomEvent<any>) => void;
         /**
           * Indicates whether or not the alert is open. You can use this in lieu of the show/hide methods.
          */
@@ -1773,15 +1773,15 @@ declare namespace LocalJSX {
         /**
           * Emitted when the animation is canceled.
          */
-        "onSl-cancel"?: (event: CustomEvent<any>) => void;
+        "onV-cancel"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the animation finishes.
          */
-        "onSl-finish"?: (event: CustomEvent<any>) => void;
+        "onV-finish"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the animation starts or restarts.
          */
-        "onSl-start"?: (event: CustomEvent<any>) => void;
+        "onV-start"?: (event: CustomEvent<any>) => void;
         /**
           * Pauses the animation. The animation will resume when this prop is removed.
          */
@@ -1967,23 +1967,23 @@ declare namespace LocalJSX {
         /**
           * Emitted after the color picker closes and all transitions are complete.
          */
-        "onSl-after-hide"?: (event: CustomEvent<any>) => void;
+        "onV-after-hide"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted after the color picker opens and all transitions are complete.
          */
-        "onSl-after-show"?: (event: CustomEvent<any>) => void;
-        /**
-          * Emitted when the color picker closes. Calling `event.preventDefault()` will prevent it from being closed.
-         */
-        "onSl-hide"?: (event: CustomEvent<any>) => void;
-        /**
-          * Emitted when the color picker opens. Calling `event.preventDefault()` will prevent it from being opened.
-         */
-        "onSl-show"?: (event: CustomEvent<any>) => void;
+        "onV-after-show"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the color picker's value changes.
          */
         "onV-change"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the color picker closes. Calling `event.preventDefault()` will prevent it from being closed.
+         */
+        "onV-hide"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the color picker opens. Calling `event.preventDefault()` will prevent it from being opened.
+         */
+        "onV-show"?: (event: CustomEvent<any>) => void;
         /**
           * Whether to show the opacity slider.
          */
@@ -2013,19 +2013,19 @@ declare namespace LocalJSX {
         /**
           * Emitted after the details closes and all transitions are complete.
          */
-        "onSl-after-hide"?: (event: CustomEvent<any>) => void;
+        "onV-after-hide"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted after the details opens and all transitions are complete.
          */
-        "onSl-after-show"?: (event: CustomEvent<any>) => void;
+        "onV-after-show"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the details closes. Calling `event.preventDefault()` will prevent it from being closed.
          */
-        "onSl-hide"?: (event: CustomEvent<any>) => void;
+        "onV-hide"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the details opens. Calling `event.preventDefault()` will prevent it from being opened.
          */
-        "onSl-show"?: (event: CustomEvent<any>) => void;
+        "onV-show"?: (event: CustomEvent<any>) => void;
         /**
           * Indicates whether or not the details is open. You can use this in lieu of the show/hide methods.
          */
@@ -2047,27 +2047,27 @@ declare namespace LocalJSX {
         /**
           * Emitted after the dialog closes and all transitions are complete.
          */
-        "onSl-after-hide"?: (event: CustomEvent<any>) => void;
+        "onV-after-hide"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted after the dialog opens and all transitions are complete.
          */
-        "onSl-after-show"?: (event: CustomEvent<any>) => void;
+        "onV-after-show"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the dialog closes. Calling `event.preventDefault()` will prevent it from being closed.
          */
-        "onSl-hide"?: (event: CustomEvent<any>) => void;
+        "onV-hide"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the dialog opens and the panel gains focus. Calling `event.preventDefault()` will prevent focus and allow you to set it on a different element in the dialog, such as an input or button.
          */
-        "onSl-initial-focus"?: (event: CustomEvent<any>) => void;
+        "onV-initial-focus"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the overlay is clicked. Calling `event.preventDefault()` will prevent the dialog from closing.
          */
-        "onSl-overlay-dismiss"?: (event: CustomEvent<any>) => void;
+        "onV-overlay-dismiss"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the dialog opens. Calling `event.preventDefault()` will prevent it from being opened.
          */
-        "onSl-show"?: (event: CustomEvent<any>) => void;
+        "onV-show"?: (event: CustomEvent<any>) => void;
         /**
           * Indicates whether or not the dialog is open. You can use this in lieu of the show/hide methods.
          */
@@ -2089,27 +2089,27 @@ declare namespace LocalJSX {
         /**
           * Emitted after the drawer closes and all transitions are complete.
          */
-        "onSl-after-hide"?: (event: CustomEvent<any>) => void;
+        "onV-after-hide"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted after the drawer opens and all transitions are complete.
          */
-        "onSl-after-show"?: (event: CustomEvent<any>) => void;
+        "onV-after-show"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the drawer closes. Calling `event.preventDefault()` will prevent it from being closed.
          */
-        "onSl-hide"?: (event: CustomEvent<any>) => void;
+        "onV-hide"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the drawer opens and the panel gains focus. Calling `event.preventDefault()` will prevent focus and allow you to set it on a different element in the drawer, such as an input or button.
          */
-        "onSl-initial-focus"?: (event: CustomEvent<any>) => void;
+        "onV-initial-focus"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the overlay is clicked. Calling `event.preventDefault()` will prevent the drawer from closing.
          */
-        "onSl-overlay-dismiss"?: (event: CustomEvent<any>) => void;
+        "onV-overlay-dismiss"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the drawer opens. Calling `event.preventDefault()` will prevent it from being opened.
          */
-        "onSl-show"?: (event: CustomEvent<any>) => void;
+        "onV-show"?: (event: CustomEvent<any>) => void;
         /**
           * Indicates whether or not the drawer is open. You can use this in lieu of the show/hide methods.
          */
@@ -2139,19 +2139,19 @@ declare namespace LocalJSX {
         /**
           * Emitted after the dropdown closes and all transitions are complete.
          */
-        "onSl-after-hide"?: (event: CustomEvent<any>) => void;
+        "onV-after-hide"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted after the dropdown opens and all transitions are complete.
          */
-        "onSl-after-show"?: (event: CustomEvent<any>) => void;
+        "onV-after-show"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed.
          */
-        "onSl-hide"?: (event: CustomEvent<any>) => void;
+        "onV-hide"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened.
          */
-        "onSl-show"?: (event: CustomEvent<any>) => void;
+        "onV-show"?: (event: CustomEvent<any>) => void;
         /**
           * Indicates whether or not the dropdown is open. You can use this in lieu of the show/hide methods.
          */
@@ -2173,7 +2173,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the form is submitted. This event will not be emitted if any form control inside of it is in an invalid state, unless the form has the `novalidate` attribute. Note that there is never a need to prevent this event, since it doen't send a GET or POST request like native forms. To "prevent" submission, use a conditional around the XHR request you use to submit the form's data with.
          */
-        "onSl-submit"?: (event: CustomEvent<{ formData: FormData; formControls: HTMLElement[] }>) => void;
+        "onV-submit"?: (event: CustomEvent<{ formData: FormData; formControls: HTMLElement[] }>) => void;
     }
     interface VFormatBytes {
         /**
@@ -2305,11 +2305,11 @@ declare namespace LocalJSX {
         /**
           * Emitted when the icon failed to load.
          */
-        "onSl-error"?: (event: CustomEvent<{ status?: number }>) => void;
+        "onV-error"?: (event: CustomEvent<{ status?: number }>) => void;
         /**
           * Emitted when the icon has loaded.
          */
-        "onSl-load"?: (event: CustomEvent<any>) => void;
+        "onV-load"?: (event: CustomEvent<any>) => void;
         /**
           * An external URL of an SVG file.
          */
@@ -2373,11 +2373,11 @@ declare namespace LocalJSX {
         /**
           * Emitted when the included file fails to load due to an error.
          */
-        "onSl-error"?: (event: CustomEvent<{ status?: number }>) => void;
+        "onV-error"?: (event: CustomEvent<{ status?: number }>) => void;
         /**
           * Emitted when the included file is loaded.
          */
-        "onSl-load"?: (event: CustomEvent<any>) => void;
+        "onV-load"?: (event: CustomEvent<any>) => void;
         /**
           * The location of the HTML file to include.
          */
@@ -2845,7 +2845,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the tab is closable and the close button is activated.
          */
-        "onSl-close"?: (event: CustomEvent<any>) => void;
+        "onV-close"?: (event: CustomEvent<any>) => void;
         /**
           * The name of the tab panel the tab will control. The panel must be located in the same tab group.
          */
@@ -3021,19 +3021,19 @@ declare namespace LocalJSX {
         /**
           * Emitted after the tooltip has hidden and all transitions are complete.
          */
-        "onSl-after-hide"?: (event: CustomEvent<any>) => void;
+        "onV-after-hide"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted after the tooltip has shown and all transitions are complete.
          */
-        "onSl-aftershow"?: (event: CustomEvent<any>) => void;
+        "onV-aftershow"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the tooltip begins to hide. Calling `event.preventDefault()` will prevent it from being hidden.
          */
-        "onSl-hide"?: (event: CustomEvent<any>) => void;
+        "onV-hide"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the tooltip begins to show. Calling `event.preventDefault()` will prevent it from being shown.
          */
-        "onSl-show"?: (event: CustomEvent<any>) => void;
+        "onV-show"?: (event: CustomEvent<any>) => void;
         /**
           * Indicates whether or not the tooltip is open. You can use this in lieu of the show/hide methods.
          */

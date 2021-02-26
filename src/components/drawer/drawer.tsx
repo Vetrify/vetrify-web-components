@@ -73,25 +73,25 @@ export class Drawer {
   }
 
   /** Emitted when the drawer opens. Calling `event.preventDefault()` will prevent it from being opened. */
-  @Event({ eventName: 'sl-show' }) slShow: EventEmitter;
+  @Event({ eventName: 'v-show' }) slShow: EventEmitter;
 
   /** Emitted after the drawer opens and all transitions are complete. */
-  @Event({ eventName: 'sl-after-show' }) slAfterShow: EventEmitter;
+  @Event({ eventName: 'v-after-show' }) slAfterShow: EventEmitter;
 
   /** Emitted when the drawer closes. Calling `event.preventDefault()` will prevent it from being closed. */
-  @Event({ eventName: 'sl-hide' }) slHide: EventEmitter;
+  @Event({ eventName: 'v-hide' }) slHide: EventEmitter;
 
   /** Emitted after the drawer closes and all transitions are complete. */
-  @Event({ eventName: 'sl-after-hide' }) slAfterHide: EventEmitter;
+  @Event({ eventName: 'v-after-hide' }) slAfterHide: EventEmitter;
 
   /**
    * Emitted when the drawer opens and the panel gains focus. Calling `event.preventDefault()` will prevent focus and
    * allow you to set it on a different element in the drawer, such as an input or button.
    */
-  @Event({ eventName: 'sl-initial-focus' }) slInitialFocus: EventEmitter;
+  @Event({ eventName: 'v-initial-focus' }) slInitialFocus: EventEmitter;
 
   /** Emitted when the overlay is clicked. Calling `event.preventDefault()` will prevent the drawer from closing. */
-  @Event({ eventName: 'sl-overlay-dismiss' }) slOverlayDismiss: EventEmitter;
+  @Event({ eventName: 'v-overlay-dismiss' }) slOverlayDismiss: EventEmitter;
 
   connectedCallback() {
     this.handleCloseClick = this.handleCloseClick.bind(this);

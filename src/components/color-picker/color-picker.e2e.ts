@@ -1,16 +1,16 @@
 import { newE2EPage } from '@stencil/core/testing';
 
 describe('<v-color-picker>', () => {
-  it('should emit sl-show and sl-after-show events when opened', async () => {
+  it('should emit v-show and v-after-show events when opened', async () => {
     const page = await newE2EPage({
       html: `
         <v-color-picker></v-color-picker>
       `,
     });
     const colorPicker = await page.find('v-color-picker');
-    const slShow = await colorPicker.spyOnEvent('sl-show');
-    const slAfterShow = await colorPicker.spyOnEvent('sl-after-show');
-    const eventHappened = colorPicker.waitForEvent('sl-after-show');
+    const slShow = await colorPicker.spyOnEvent('v-show');
+    const slAfterShow = await colorPicker.spyOnEvent('v-after-show');
+    const eventHappened = colorPicker.waitForEvent('v-after-show');
 
     await colorPicker.click();
     await eventHappened;
@@ -19,16 +19,16 @@ describe('<v-color-picker>', () => {
     expect(slAfterShow).toHaveReceivedEventTimes(1);
   });
 
-  it('should emit sl-hide and sl-after-hide events when closed', async () => {
+  it('should emit v-hide and v-after-hide events when closed', async () => {
     const page = await newE2EPage({
       html: `
         <v-color-picker></v-color-picker>
       `,
     });
     const colorPicker = await page.find('v-color-picker');
-    const slHide = await colorPicker.spyOnEvent('sl-hide');
-    const slAfterHide = await colorPicker.spyOnEvent('sl-after-hide');
-    const eventHappened = colorPicker.waitForEvent('sl-after-hide');
+    const slHide = await colorPicker.spyOnEvent('v-hide');
+    const slAfterHide = await colorPicker.spyOnEvent('v-after-hide');
+    const eventHappened = colorPicker.waitForEvent('v-after-hide');
 
     await colorPicker.click(); // open
     await colorPicker.click(); // close

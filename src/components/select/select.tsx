@@ -425,8 +425,8 @@ export class Select {
             'select--pill': this.pill,
             'select--invalid': this.invalid,
           }}
-          onSl-show={this.handleMenuShow}
-          onSl-hide={this.handleMenuHide}
+          onV-show={this.handleMenuShow}
+          onV-hide={this.handleMenuHide}
         >
           <div
             slot="trigger"

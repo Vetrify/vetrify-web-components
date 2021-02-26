@@ -9,12 +9,12 @@ describe('<v-alert>', () => {
     });
     const alert = await page.find('v-alert');
     const base = await page.find('v-alert >>> .alert');
-    const slShow = await alert.spyOnEvent('sl-show');
-    const slAfterShow = await alert.spyOnEvent('sl-after-show');
+    const slShow = await alert.spyOnEvent('v-show');
+    const slAfterShow = await alert.spyOnEvent('v-after-show');
 
     expect(await base.isVisible()).toBe(false);
 
-    const showEventHappened = alert.waitForEvent('sl-after-show');
+    const showEventHappened = alert.waitForEvent('v-after-show');
     alert.setAttribute('open', '');
     await page.waitForChanges();
     await showEventHappened;
@@ -32,12 +32,12 @@ describe('<v-alert>', () => {
     });
     const alert = await page.find('v-alert');
     const base = await page.find('v-alert >>> .alert');
-    const slHide = await alert.spyOnEvent('sl-hide');
-    const slAfterHide = await alert.spyOnEvent('sl-after-hide');
+    const slHide = await alert.spyOnEvent('v-hide');
+    const slAfterHide = await alert.spyOnEvent('v-after-hide');
 
     expect(await base.isVisible()).toBe(true);
 
-    const hideEventHappened = alert.waitForEvent('sl-after-hide');
+    const hideEventHappened = alert.waitForEvent('v-after-hide');
     alert.removeAttribute('open');
     await page.waitForChanges();
     await hideEventHappened;
@@ -55,12 +55,12 @@ describe('<v-alert>', () => {
     });
     const alert = await page.find('v-alert');
     const base = await page.find('v-alert >>> .alert');
-    const slShow = await alert.spyOnEvent('sl-show');
-    const slAfterShow = await alert.spyOnEvent('sl-after-show');
+    const slShow = await alert.spyOnEvent('v-show');
+    const slAfterShow = await alert.spyOnEvent('v-after-show');
 
     expect(await base.isVisible()).toBe(false);
 
-    const showEventHappened = alert.waitForEvent('sl-after-show');
+    const showEventHappened = alert.waitForEvent('v-after-show');
     await alert.callMethod('show');
     await showEventHappened;
 
@@ -77,12 +77,12 @@ describe('<v-alert>', () => {
     });
     const alert = await page.find('v-alert');
     const base = await page.find('v-alert >>> .alert');
-    const slHide = await alert.spyOnEvent('sl-hide');
-    const slAfterHide = await alert.spyOnEvent('sl-after-hide');
+    const slHide = await alert.spyOnEvent('v-hide');
+    const slAfterHide = await alert.spyOnEvent('v-after-hide');
 
     expect(await base.isVisible()).toBe(true);
 
-    const hideEventHappened = alert.waitForEvent('sl-after-hide');
+    const hideEventHappened = alert.waitForEvent('v-after-hide');
     await alert.callMethod('hide');
     await hideEventHappened;
 

@@ -1,6 +1,6 @@
 import { Component, Element, Event, EventEmitter, Method, Prop, State, Watch, h } from '@stencil/core';
 
-const toastStack = Object.assign(document.createElement('div'), { className: 'sl-toast-stack' });
+const toastStack = Object.assign(document.createElement('div'), { className: 'v-toast-stack' });
 
 /**
  * @since 2.0
@@ -54,16 +54,16 @@ export class Alert {
   }
 
   /** Emitted when the alert opens. Calling `event.preventDefault()` will prevent it from being opened. */
-  @Event({ eventName: 'sl-show' }) slShow: EventEmitter;
+  @Event({ eventName: 'v-show' }) slShow: EventEmitter;
 
   /** Emitted after the alert opens and all transitions are complete. */
-  @Event({ eventName: 'sl-after-show' }) slAfterShow: EventEmitter;
+  @Event({ eventName: 'v-after-show' }) slAfterShow: EventEmitter;
 
   /** Emitted when the alert closes. Calling `event.preventDefault()` will prevent it from being closed. */
-  @Event({ eventName: 'sl-hide' }) slHide: EventEmitter;
+  @Event({ eventName: 'v-hide' }) slHide: EventEmitter;
 
   /** Emitted after the alert closes and all transitions are complete. */
-  @Event({ eventName: 'sl-after-hide' }) slAfterHide: EventEmitter;
+  @Event({ eventName: 'v-after-hide' }) slAfterHide: EventEmitter;
 
   connectedCallback() {
     this.handleCloseClick = this.handleCloseClick.bind(this);
@@ -135,7 +135,7 @@ export class Alert {
       requestAnimationFrame(() => this.show());
 
       this.host.addEventListener(
-        'sl-after-hide',
+        'v-after-hide',
         () => {
           this.host.remove();
           resolve();

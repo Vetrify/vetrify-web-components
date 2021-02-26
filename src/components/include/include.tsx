@@ -29,10 +29,10 @@ export class Include {
   @Prop() allowScripts = false;
 
   /** Emitted when the included file is loaded. */
-  @Event({ eventName: 'sl-load' }) slLoad: EventEmitter;
+  @Event({ eventName: 'v-load' }) slLoad: EventEmitter;
 
   /** Emitted when the included file fails to load due to an error. */
-  @Event({ eventName: 'sl-error' }) slError: EventEmitter<{ status?: number }>;
+  @Event({ eventName: 'v-error' }) slError: EventEmitter<{ status?: number }>;
 
   @Watch('src')
   handleSrcChange() {

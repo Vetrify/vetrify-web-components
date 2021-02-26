@@ -36,7 +36,7 @@ export class Tab {
   @Prop({ reflect: true }) disabled = false;
 
   /** Emitted when the tab is closable and the close button is activated. */
-  @Event({ eventName: 'sl-close' }) slClose: EventEmitter;
+  @Event({ eventName: 'v-close' }) slClose: EventEmitter;
 
   connectedCallback() {
     this.handleCloseClick = this.handleCloseClick.bind(this);

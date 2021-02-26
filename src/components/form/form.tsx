@@ -34,7 +34,7 @@ export class Form {
    * event, since it doen't send a GET or POST request like native forms. To "prevent" submission, use a conditional
    * around the XHR request you use to submit the form's data with.
    */
-  @Event({ eventName: 'sl-submit' }) slSubmit: EventEmitter<{ formData: FormData; formControls: HTMLElement[] }>;
+  @Event({ eventName: 'v-submit' }) slSubmit: EventEmitter<{ formData: FormData; formControls: HTMLElement[] }>;
 
   connectedCallback() {
     this.formControls = [
@@ -193,7 +193,7 @@ export class Form {
   }
 
   /**
-   * Submits the form. If all controls are valid, the `sl-submit` event will be emitted and the promise will resolve
+   * Submits the form. If all controls are valid, the `v-submit` event will be emitted and the promise will resolve
    * with `true`. If any form control is invalid, the promise will resolve with `false` and no event will be emitted.
    */
   @Method()

@@ -19,38 +19,38 @@ const testForm = `
 `;
 
 describe('<v-form>', () => {
-  it('should emit sl-submit when submit button clicked', async () => {
+  it('should emit v-submit when submit button clicked', async () => {
     const page = await newE2EPage({
       html: testForm,
     });
     const form = await page.find('v-form');
     const button = await page.find('v-button');
-    const slSubmit = await form.spyOnEvent('sl-submit');
+    const slSubmit = await form.spyOnEvent('v-submit');
 
     await button.click();
 
     expect(slSubmit).toHaveReceivedEventTimes(1);
   });
 
-  it('should emit sl-submit when submit method called', async () => {
+  it('should emit v-submit when submit method called', async () => {
     const page = await newE2EPage({
       html: testForm,
     });
     const form = await page.find('v-form');
-    const slSubmit = await form.spyOnEvent('sl-submit');
+    const slSubmit = await form.spyOnEvent('v-submit');
 
     await form.callMethod('submit');
 
     expect(slSubmit).toHaveReceivedEventTimes(1);
   });
 
-  it('should emit sl-submit when enter pressed inside an input', async () => {
+  it('should emit v-submit when enter pressed inside an input', async () => {
     const page = await newE2EPage({
       html: testForm,
     });
     const form = await page.find('v-form');
     const inputControl = await page.find('v-input >>> .input__control');
-    const slSubmit = await form.spyOnEvent('sl-submit');
+    const slSubmit = await form.spyOnEvent('v-submit');
 
     await inputControl.press('Enter');
 
