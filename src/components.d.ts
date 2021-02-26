@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { IconLibraryMutator, IconLibraryResolver } from "./components/icon-library/icon-library-registry";
 export namespace Components {
     interface MyComponent {
         /**
@@ -20,6 +21,1331 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface VAlert {
+        /**
+          * Set to true to make the alert closable.
+         */
+        "closable": boolean;
+        /**
+          * The length of time, in milliseconds, the alert will show before closing itself. If the user interacts with the alert before it closes (e.g. moves the mouse over it), the timer will restart.
+         */
+        "duration": number;
+        /**
+          * Hides the alert
+         */
+        "hide": () => Promise<void>;
+        /**
+          * Indicates whether or not the alert is open. You can use this in lieu of the show/hide methods.
+         */
+        "open": boolean;
+        /**
+          * Shows the alert.
+         */
+        "show": () => Promise<void>;
+        /**
+          * Displays the alert as a toast notification. This will move the alert out of its position in the DOM and, when dismissed, it will be removed from the DOM completely. By storing a reference to the alert, you can reuse it by calling this method again. The returned promise will resolve after the alert is hidden.
+         */
+        "toast": () => Promise<void>;
+        /**
+          * The type of alert.
+         */
+        "type": 'primary' | 'success' | 'info' | 'warning' | 'danger';
+    }
+    interface VAnimation {
+        /**
+          * Clears all KeyframeEffects caused by this animation and aborts its playback.
+         */
+        "cancel": () => Promise<void>;
+        /**
+          * The number of milliseconds to delay the start of the animation.
+         */
+        "delay": number;
+        /**
+          * Determines the direction of playback as well as the behavior when reaching the end of an iteration.
+         */
+        "direction": PlaybackDirection;
+        /**
+          * The number of milliseconds each iteration of the animation takes to complete.
+         */
+        "duration": number;
+        /**
+          * The easing function to use for the animation. This can be a Shoelace easing function or a custom easing function such as `cubic-bezier(0, 1, .76, 1.14)`.
+         */
+        "easing": string;
+        /**
+          * The number of milliseconds to delay after the active period of an animation sequence.
+         */
+        "endDelay": number;
+        /**
+          * Sets how the animation applies styles to its target before and after its execution.
+         */
+        "fill": FillMode;
+        /**
+          * Sets the playback time to the end of the animation corresponding to the current playback direction.
+         */
+        "finish": () => Promise<void>;
+        /**
+          * Gets a list of all supported animation names.
+         */
+        "getAnimationNames": () => Promise<string[]>;
+        /**
+          * Gets the current time of the animation in milliseconds.
+         */
+        "getCurrentTime": () => Promise<number>;
+        /**
+          * Gets a list of all supported easing function names.
+         */
+        "getEasingNames": () => Promise<string[]>;
+        /**
+          * The offset at which to start the animation, usually between 0 (start) and 1 (end).
+         */
+        "iterationStart": number;
+        /**
+          * The number of iterations to run before the animation completes. Defaults to `Infinity`, which loops.
+         */
+        "iterations": number;
+        /**
+          * The keyframes to use for the animation. If this is set, `name` will be ignored.
+         */
+        "keyframes": Keyframe[];
+        /**
+          * The name of the built-in animation to use. For custom animations, use the `keyframes` prop.
+         */
+        "name": string;
+        /**
+          * Pauses the animation. The animation will resume when this prop is removed.
+         */
+        "pause": boolean;
+        /**
+          * Sets the animation's playback rate. The default is `1`, which plays the animation at a normal speed. Setting this to `2`, for example, will double the animation's speed. A negative value can be used to reverse the animation. This value can be changed without causing the animation to restart.
+         */
+        "playbackRate": number;
+        /**
+          * Sets the current time of the animation in milliseconds.
+         */
+        "setCurrentTime": (time: number) => Promise<void>;
+    }
+    interface VAvatar {
+        /**
+          * Alternative text for the image.
+         */
+        "alt": string;
+        /**
+          * The image source to use for the avatar.
+         */
+        "image": string;
+        /**
+          * Initials to use as a fallback when no image is available (1-2 characters max recommended).
+         */
+        "initials": string;
+        /**
+          * The shape of the avatar.
+         */
+        "shape": 'circle' | 'square' | 'rounded';
+    }
+    interface VBadge {
+        /**
+          * Set to true to draw a pill-style badge with rounded edges.
+         */
+        "pill": boolean;
+        /**
+          * Set to true to make the badge pulsate to draw attention.
+         */
+        "pulse": boolean;
+        /**
+          * The badge's type.
+         */
+        "type": 'primary' | 'success' | 'info' | 'warning' | 'danger';
+    }
+    interface VButton {
+        /**
+          * Set to true to draw the button with a caret for use with dropdowns, popovers, etc.
+         */
+        "caret": boolean;
+        /**
+          * Set to true to draw a circle button.
+         */
+        "circle": boolean;
+        /**
+          * Set to true to disable the button.
+         */
+        "disabled": boolean;
+        /**
+          * Tells the browser to download the linked file as this filename. Only used when `href` is set.
+         */
+        "download": string;
+        /**
+          * When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`.
+         */
+        "href": string;
+        /**
+          * Set to true to draw the button in a loading state.
+         */
+        "loading": boolean;
+        /**
+          * An optional name for the button. Ignored when `href` is set.
+         */
+        "name": string;
+        /**
+          * Set to true to draw a pill-style button with rounded edges.
+         */
+        "pill": boolean;
+        /**
+          * Removes focus from the button.
+         */
+        "removeFocus": () => Promise<void>;
+        /**
+          * Sets focus on the button.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * The button's size.
+         */
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * Indicates if activating the button should submit the form. Ignored when `href` is set.
+         */
+        "submit": boolean;
+        /**
+          * Tells the browser where to open the link. Only used when `href` is set.
+         */
+        "target": '_blank' | '_parent' | '_self' | '_top';
+        /**
+          * The button's type.
+         */
+        "type": 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'text';
+        /**
+          * An optional value for the button. Ignored when `href` is set.
+         */
+        "value": string;
+    }
+    interface VButtonGroup {
+        /**
+          * A label to use for the button group's `aria-label` attribute.
+         */
+        "label": string;
+    }
+    interface VCard {
+    }
+    interface VCheckbox {
+        /**
+          * Set to true to draw the checkbox in a checked state.
+         */
+        "checked": boolean;
+        /**
+          * Set to true to disable the checkbox.
+         */
+        "disabled": boolean;
+        /**
+          * Set to true to draw the checkbox in an indeterminate state.
+         */
+        "indeterminate": boolean;
+        /**
+          * This will be true when the control is in an invalid state. Validity is determined by the `required` prop.
+         */
+        "invalid": boolean;
+        /**
+          * The checkbox's name attribute.
+         */
+        "name": string;
+        /**
+          * Removes focus from the checkbox.
+         */
+        "removeFocus": () => Promise<void>;
+        /**
+          * Checks for validity and shows the browser's validation message if the control is invalid.
+         */
+        "reportValidity": () => Promise<boolean>;
+        /**
+          * Set to true to make the checkbox a required field.
+         */
+        "required": boolean;
+        /**
+          * Sets a custom validation message. If `message` is not empty, the field will be considered invalid.
+         */
+        "setCustomValidity": (message: string) => Promise<void>;
+        /**
+          * Sets focus on the checkbox.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * The checkbox's value attribute.
+         */
+        "value": string;
+    }
+    interface VColorPicker {
+        /**
+          * Set to true to disable the color picker.
+         */
+        "disabled": boolean;
+        /**
+          * The format to use for the display value. If opacity is enabled, these will translate to HEXA, RGBA, and HSLA respectively. The color picker will always accept user input in any format (including CSS color names) and convert it to the desired format.
+         */
+        "format": 'hex' | 'rgb' | 'hsl';
+        /**
+          * Returns the current value as a string in the specified format.
+         */
+        "getFormattedValue": (format?: 'hex' | 'hexa' | 'rgb' | 'rgba' | 'hsl' | 'hsla') => Promise<string>;
+        /**
+          * Enable this option to prevent the panel from being clipped when the component is placed inside a container with `overflow: auto|scroll`.
+         */
+        "hoist": boolean;
+        /**
+          * Set to true to render the color picker inline rather than inside a dropdown.
+         */
+        "inline": boolean;
+        /**
+          * This will be true when the control is in an invalid state. Validity is determined by the `setCustomValidity()` method using the browser's constraint validation API.
+         */
+        "invalid": boolean;
+        /**
+          * The input's name attribute.
+         */
+        "name": string;
+        /**
+          * Removes the format toggle.
+         */
+        "noFormatToggle": boolean;
+        /**
+          * Whether to show the opacity slider.
+         */
+        "opacity": boolean;
+        /**
+          * Checks for validity and shows the browser's validation message if the control is invalid.
+         */
+        "reportValidity": () => Promise<boolean | void>;
+        /**
+          * Sets a custom validation message. If `message` is not empty, the field will be considered invalid.
+         */
+        "setCustomValidity": (message: string) => Promise<void>;
+        /**
+          * Determines the size of the color picker's trigger. This has no effect on inline color pickers.
+         */
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * An array of predefined color swatches to display. Can include any format the color picker can parse, including HEX(A), RGB(A), HSL(A), and CSS color names.
+         */
+        "swatches": string[];
+        /**
+          * By default, the value will be set in lowercase. Set this to true to set it in uppercase instead.
+         */
+        "uppercase": boolean;
+        /**
+          * The current color.
+         */
+        "value": string;
+    }
+    interface VDetails {
+        /**
+          * Set to true to prevent the user from toggling the details.
+         */
+        "disabled": boolean;
+        /**
+          * Hides the alert
+         */
+        "hide": () => Promise<void>;
+        /**
+          * Indicates whether or not the details is open. You can use this in lieu of the show/hide methods.
+         */
+        "open": boolean;
+        /**
+          * Shows the alert.
+         */
+        "show": () => Promise<void>;
+        /**
+          * The summary to show in the details header. If you need to display HTML, use the `summary` slot instead.
+         */
+        "summary": string;
+    }
+    interface VDialog {
+        /**
+          * Hides the dialog
+         */
+        "hide": () => Promise<void>;
+        /**
+          * The dialog's label as displayed in the header. You should always include a relevant label even when using `no-header`, as it is required for proper accessibility.
+         */
+        "label": string;
+        /**
+          * Set to true to disable the header. This will also remove the default close button, so please ensure you provide an easy, accessible way for users to dismiss the dialog.
+         */
+        "noHeader": boolean;
+        /**
+          * Indicates whether or not the dialog is open. You can use this in lieu of the show/hide methods.
+         */
+        "open": boolean;
+        /**
+          * Shows the dialog
+         */
+        "show": () => Promise<void>;
+    }
+    interface VDrawer {
+        /**
+          * By default, the drawer slides out of its containing block (usually the viewport). To make the drawer slide out of its parent element, set this prop and add `position: relative` to the parent.
+         */
+        "contained": boolean;
+        /**
+          * Hides the drawer
+         */
+        "hide": () => Promise<void>;
+        /**
+          * The drawer's label as displayed in the header. You should always include a relevant label even when using `no-header`, as it is required for proper accessibility.
+         */
+        "label": string;
+        /**
+          * Removes the header. This will also remove the default close button, so please ensure you provide an easy, accessible way for users to dismiss the drawer.
+         */
+        "noHeader": boolean;
+        /**
+          * Indicates whether or not the drawer is open. You can use this in lieu of the show/hide methods.
+         */
+        "open": boolean;
+        /**
+          * The direction from which the drawer will open.
+         */
+        "placement": 'top' | 'right' | 'bottom' | 'left';
+        /**
+          * Shows the drawer
+         */
+        "show": () => Promise<void>;
+    }
+    interface VDropdown {
+        /**
+          * Determines whether the dropdown should hide when a menu item is selected.
+         */
+        "closeOnSelect": boolean;
+        /**
+          * The dropdown will close when the user interacts outside of this element (e.g. clicking).
+         */
+        "containingElement": HTMLElement;
+        /**
+          * The distance in pixels from which to offset the panel away from its trigger.
+         */
+        "distance": number;
+        /**
+          * Hides the dropdown panel
+         */
+        "hide": () => Promise<void>;
+        /**
+          * Enable this option to prevent the panel from being clipped when the component is placed inside a container with `overflow: auto|scroll`.
+         */
+        "hoist": boolean;
+        /**
+          * Indicates whether or not the dropdown is open. You can use this in lieu of the show/hide methods.
+         */
+        "open": boolean;
+        /**
+          * The preferred placement of the dropdown panel. Note that the actual placement may vary as needed to keep the panel inside of the viewport.
+         */
+        "placement": 'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'right' | 'right-start' | 'right-end' | 'left' | 'left-start' | 'left-end';
+        /**
+          * Forces the dropdown's menu to reposition.
+         */
+        "reposition": () => Promise<void>;
+        /**
+          * Shows the dropdown panel
+         */
+        "show": () => Promise<void>;
+        /**
+          * The distance in pixels from which to offset the panel along its trigger.
+         */
+        "skidding": number;
+    }
+    interface VForm {
+        /**
+          * Gets all form control elements (native and custom).
+         */
+        "getFormControls": () => Promise<HTMLElement[]>;
+        /**
+          * Serializes all form controls elements and returns a `FormData` object.
+         */
+        "getFormData": () => Promise<FormData>;
+        /**
+          * Prevent the form from validating inputs before submitting.
+         */
+        "novalidate": boolean;
+        /**
+          * Submits the form. If all controls are valid, the `sl-submit` event will be emitted and the promise will resolve with `true`. If any form control is invalid, the promise will resolve with `false` and no event will be emitted.
+         */
+        "submit": () => Promise<boolean>;
+    }
+    interface VFormatBytes {
+        /**
+          * The locale to use when formatting the number.
+         */
+        "locale": string;
+        /**
+          * The unit to display.
+         */
+        "unit": 'bytes' | 'bits';
+        /**
+          * The number to format in bytes.
+         */
+        "value": number;
+    }
+    interface VFormatDate {
+        /**
+          * The date/time to format. If not set, the current date and time will be used.
+         */
+        "date": Date | string;
+        /**
+          * The format for displaying the day.
+         */
+        "day": 'numeric' | '2-digit';
+        /**
+          * The format for displaying the era.
+         */
+        "era": 'narrow' | 'short' | 'long';
+        /**
+          * The format for displaying the hour.
+         */
+        "hour": 'numeric' | '2-digit';
+        /**
+          * When set, 24 hour time will always be used.
+         */
+        "hourFormat": 'auto' | '12' | '24';
+        /**
+          * The locale to use when formatting the date/time.
+         */
+        "locale": string;
+        /**
+          * The format for displaying the minute.
+         */
+        "minute": 'numeric' | '2-digit';
+        /**
+          * The format for displaying the month.
+         */
+        "month": 'numeric' | '2-digit' | 'narrow' | 'short' | 'long';
+        /**
+          * The format for displaying the second.
+         */
+        "second": 'numeric' | '2-digit';
+        /**
+          * The time zone to express the time in.
+         */
+        "timeZone": string;
+        /**
+          * The format for displaying the time.
+         */
+        "timeZoneName": 'short' | 'long';
+        /**
+          * The format for displaying the weekday.
+         */
+        "weekday": 'narrow' | 'short' | 'long';
+        /**
+          * The format for displaying the year.
+         */
+        "year": 'numeric' | '2-digit';
+    }
+    interface VFormatNumber {
+        /**
+          * The currency to use when formatting. Must be an ISO 4217 currency code such as `USD` or `EUR`.
+         */
+        "currency": string;
+        /**
+          * How to display the currency.
+         */
+        "currencyDisplay": 'symbol' | 'narrowSymbol' | 'code' | 'name';
+        /**
+          * The locale to use when formatting the number.
+         */
+        "locale": string;
+        /**
+          * The maximum number of fraction digits to use. Possible values are 0 - 20.
+         */
+        "maximumFractionDigits": number;
+        /**
+          * The maximum number of significant digits to use,. Possible values are 1 - 21.
+         */
+        "maximumSignificantDigits": number;
+        /**
+          * The minimum number of fraction digits to use. Possible values are 0 - 20.
+         */
+        "minimumFractionDigits": number;
+        /**
+          * The minimum number of integer digits to use. Possible values are 1 - 21.
+         */
+        "minimumIntegerDigits": number;
+        /**
+          * The minimum number of significant digits to use. Possible values are 1 - 21.
+         */
+        "minimumSignificantDigits": number;
+        /**
+          * Turns off grouping separators.
+         */
+        "noGrouping": boolean;
+        /**
+          * The formatting style to use.
+         */
+        "type": 'currency' | 'decimal' | 'percent';
+        /**
+          * The number to format.
+         */
+        "value": number;
+    }
+    interface VIcon {
+        /**
+          * An alternative description to use for accessibility. If omitted, the name or src will be used to generate it.
+         */
+        "label": string;
+        /**
+          * The name of a registered custom icon library.
+         */
+        "library": string;
+        /**
+          * The name of the icon to draw.
+         */
+        "name": string;
+        "redraw": () => Promise<void>;
+        /**
+          * An external URL of an SVG file.
+         */
+        "src": string;
+    }
+    interface VIconButton {
+        /**
+          * Set to true to disable the button.
+         */
+        "disabled": boolean;
+        /**
+          * A description that gets read by screen readers and other assistive devices. For optimal accessibility, you should always include a label that describes what the icon button does.
+         */
+        "label": string;
+        /**
+          * The name of a registered custom icon library.
+         */
+        "library": string;
+        /**
+          * The name of the icon to draw.
+         */
+        "name": string;
+        /**
+          * An external URL of an SVG file.
+         */
+        "src": string;
+    }
+    interface VIconLibrary {
+        /**
+          * A function that mutates the SVG element before it renders.
+         */
+        "mutator": IconLibraryMutator;
+        /**
+          * The name of the icon library.
+         */
+        "name": string;
+        /**
+          * A function that translates an icon name to a URL where the corresponding SVG file exists The URL can be local or a CORS-enabled endpoint.
+         */
+        "resolver": IconLibraryResolver;
+    }
+    interface VImageComparer {
+        /**
+          * The position of the divider as a percentage.
+         */
+        "position": number;
+    }
+    interface VInclude {
+        /**
+          * Allows included scripts to be executed. You must ensure the content you're including is trusted, otherwise this option can lead to XSS vulnerabilities in your app!
+         */
+        "allowScripts": boolean;
+        /**
+          * The fetch mode to use.
+         */
+        "mode": 'cors' | 'no-cors' | 'same-origin';
+        /**
+          * The location of the HTML file to include.
+         */
+        "src": string;
+    }
+    interface VInput {
+        /**
+          * The input's autocaptialize attribute.
+         */
+        "autocapitalize": string;
+        /**
+          * The input's autocomplete attribute.
+         */
+        "autocomplete": string;
+        /**
+          * The input's autocorrect attribute.
+         */
+        "autocorrect": string;
+        /**
+          * The input's autofocus attribute.
+         */
+        "autofocus": boolean;
+        /**
+          * Set to true to add a clear button when the input is populated.
+         */
+        "clearable": boolean;
+        /**
+          * Set to true to disable the input.
+         */
+        "disabled": boolean;
+        /**
+          * The input's help text. Alternatively, you can use the help-text slot.
+         */
+        "helpText": string;
+        /**
+          * The input's inputmode attribute.
+         */
+        "inputmode": 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url';
+        /**
+          * This will be true when the control is in an invalid state. Validity is determined by props such as `type`, `required`, `minlength`, `maxlength`, and `pattern` using the browser's constraint validation API.
+         */
+        "invalid": boolean;
+        /**
+          * The input's label. Alternatively, you can use the label slot.
+         */
+        "label": string;
+        /**
+          * The input's maximum value.
+         */
+        "max": number;
+        /**
+          * The maximum length of input that will be considered valid.
+         */
+        "maxlength": number;
+        /**
+          * The input's minimum value.
+         */
+        "min": number;
+        /**
+          * The minimum length of input that will be considered valid.
+         */
+        "minlength": number;
+        /**
+          * The input's name attribute.
+         */
+        "name": string;
+        /**
+          * A pattern to validate input against.
+         */
+        "pattern": string;
+        /**
+          * Set to true to draw a pill-style input with rounded edges.
+         */
+        "pill": boolean;
+        /**
+          * The input's placeholder text.
+         */
+        "placeholder": string;
+        /**
+          * Set to true to make the input readonly.
+         */
+        "readonly": boolean;
+        /**
+          * Removes focus from the input.
+         */
+        "removeFocus": () => Promise<void>;
+        /**
+          * Checks for validity and shows the browser's validation message if the control is invalid.
+         */
+        "reportValidity": () => Promise<boolean>;
+        /**
+          * Set to true to make the input a required field.
+         */
+        "required": boolean;
+        /**
+          * Selects all the text in the input.
+         */
+        "select": () => Promise<void>;
+        /**
+          * Sets a custom validation message. If `message` is not empty, the field will be considered invalid.
+         */
+        "setCustomValidity": (message: string) => Promise<void>;
+        /**
+          * Sets focus on the input.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * Replaces a range of text with a new string.
+         */
+        "setRangeText": (replacement: string, start: number, end: number, selectMode?: 'select' | 'start' | 'end' | 'preserve') => Promise<void>;
+        /**
+          * Sets the start and end positions of the text selection (0-based).
+         */
+        "setSelectionRange": (selectionStart: number, selectionEnd: number, selectionDirection?: 'forward' | 'backward' | 'none') => Promise<void>;
+        /**
+          * The input's size.
+         */
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * Enables spell checking on the input.
+         */
+        "spellcheck": boolean;
+        /**
+          * The input's step attribute.
+         */
+        "step": number;
+        /**
+          * Set to true to add a password toggle button for password inputs.
+         */
+        "togglePassword": boolean;
+        /**
+          * The input's type.
+         */
+        "type": 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url';
+        /**
+          * The input's value attribute.
+         */
+        "value": string;
+    }
+    interface VMenu {
+        /**
+          * Initiates type-to-select logic, which automatically selects an option based on what the user is currently typing. The key passed will be appended to the internal query and the selection will be updated. After a brief period, the internal query is cleared automatically. This method is intended to be used with the keydown event. Useful for enabling type-to-select when the menu doesn't have focus.
+         */
+        "typeToSelect": (key: string) => Promise<void>;
+    }
+    interface VMenuDivider {
+    }
+    interface VMenuItem {
+        /**
+          * Set to true to draw the item in a checked state.
+         */
+        "checked": boolean;
+        /**
+          * Set to true to draw the menu item in a disabled state.
+         */
+        "disabled": boolean;
+        /**
+          * Removes focus from the button.
+         */
+        "removeFocus": () => Promise<void>;
+        /**
+          * Sets focus on the button.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * A unique value to store in the menu item. This can be used as a way to identify menu items when selected.
+         */
+        "value": string;
+    }
+    interface VMenuLabel {
+    }
+    interface VProgressBar {
+        /**
+          * When true, percentage is ignored, the label is hidden, and the progress bar is drawn in an indeterminate state.
+         */
+        "indeterminate": boolean;
+        /**
+          * The progress bar's percentage, 0 to 100.
+         */
+        "percentage": number;
+    }
+    interface VProgressRing {
+        /**
+          * The current progress percentage, 0 - 100.
+         */
+        "percentage": number;
+        /**
+          * The size of the progress ring in pixels.
+         */
+        "size": number;
+        /**
+          * The stroke width of the progress ring in pixels.
+         */
+        "strokeWidth": number;
+    }
+    interface VRadio {
+        /**
+          * Set to true to draw the radio in a checked state.
+         */
+        "checked": boolean;
+        /**
+          * Set to true to disable the radio.
+         */
+        "disabled": boolean;
+        /**
+          * This will be true when the control is in an invalid state. Validity in range inputs is determined by the message provided by the `setCustomValidity` method.
+         */
+        "invalid": boolean;
+        /**
+          * The radio's name attribute.
+         */
+        "name": string;
+        /**
+          * Removes focus from the radio.
+         */
+        "removeFocus": () => Promise<void>;
+        /**
+          * Checks for validity and shows the browser's validation message if the control is invalid.
+         */
+        "reportValidity": () => Promise<boolean>;
+        /**
+          * Sets a custom validation message. If `message` is not empty, the field will be considered invalid.
+         */
+        "setCustomValidity": (message: string) => Promise<void>;
+        /**
+          * Sets focus on the radio.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * The radio's value attribute.
+         */
+        "value": string;
+    }
+    interface VRange {
+        /**
+          * Set to true to disable the input.
+         */
+        "disabled": boolean;
+        /**
+          * The range's help text. Alternatively, you can use the help-text slot.
+         */
+        "helpText": string;
+        /**
+          * This will be true when the control is in an invalid state. Validity in range inputs is determined by the message provided by the `setCustomValidity` method.
+         */
+        "invalid": boolean;
+        /**
+          * The range's label. Alternatively, you can use the label slot.
+         */
+        "label": string;
+        /**
+          * The input's max attribute.
+         */
+        "max": number;
+        /**
+          * The input's min attribute.
+         */
+        "min": number;
+        /**
+          * The input's name attribute.
+         */
+        "name": string;
+        /**
+          * Removes focus from the input.
+         */
+        "removeFocus": () => Promise<void>;
+        /**
+          * Sets a custom validation message. If `message` is not empty, the field will be considered invalid.
+         */
+        "setCustomValidity": (message: string) => Promise<void>;
+        /**
+          * Sets focus on the input.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * The input's step attribute.
+         */
+        "step": number;
+        /**
+          * The preferred placedment of the tooltip.
+         */
+        "tooltip": 'top' | 'bottom' | 'none';
+        /**
+          * A function used to format the tooltip's value.
+         */
+        "tooltipFormatter": (value: number) => string;
+        /**
+          * The input's value attribute.
+         */
+        "value": number;
+    }
+    interface VRating {
+        /**
+          * Disables the rating.
+         */
+        "disabled": boolean;
+        /**
+          * A function that returns the symbols to display. Accepts an option `value` parameter you can use to map a specific symbol to a value.
+         */
+        "getSymbol": (value?: number) => string;
+        /**
+          * The highest rating to show.
+         */
+        "max": number;
+        /**
+          * The minimum increment value allowed by the control.
+         */
+        "precision": number;
+        /**
+          * Makes the rating readonly.
+         */
+        "readonly": boolean;
+        /**
+          * Removes focus from the rating.
+         */
+        "removeFocus": () => Promise<void>;
+        /**
+          * Sets focus on the rating.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * The current rating.
+         */
+        "value": number;
+    }
+    interface VRelativeTime {
+        /**
+          * The date from which to calculate time from.
+         */
+        "date": Date | string;
+        /**
+          * The formatting style to use.
+         */
+        "format": 'long' | 'short' | 'narrow';
+        /**
+          * The locale to use when formatting the number.
+         */
+        "locale": string;
+        /**
+          * When `auto`, values such as "yesterday" and "tomorrow" will be shown when possible. When `always`, values such as "1 day ago" and "in 1 day" will be shown.
+         */
+        "numeric": 'always' | 'auto';
+        /**
+          * Keep the displayed value up to date as time passes.
+         */
+        "sync": boolean;
+    }
+    interface VResizeObserver {
+    }
+    interface VResponsiveEmbed {
+        /**
+          * The aspect ratio of the embedded media in the format of `width:height`, e.g. `16:9`, `4:3`, or `1:1`. Ratios not in this format will be ignored.
+         */
+        "aspectRatio": string;
+    }
+    interface VSelect {
+        /**
+          * Set to true to add a clear button when the select is populated.
+         */
+        "clearable": boolean;
+        /**
+          * Set to true to disable the select control.
+         */
+        "disabled": boolean;
+        /**
+          * The select's help text. Alternatively, you can use the help-text slot.
+         */
+        "helpText": string;
+        /**
+          * Enable this option to prevent the panel from being clipped when the component is placed inside a container with `overflow: auto|scroll`.
+         */
+        "hoist": boolean;
+        /**
+          * This will be true when the control is in an invalid state. Validity is determined by the `required` prop.
+         */
+        "invalid": boolean;
+        /**
+          * The select's label. Alternatively, you can use the label slot.
+         */
+        "label": string;
+        /**
+          * The maximum number of tags to show when `multiple` is true. After the maximum, "+n" will be shown to indicate the number of additional items that are selected. Set to -1 to remove the limit.
+         */
+        "maxTagsVisible": number;
+        /**
+          * Set to true to enable multiselect.
+         */
+        "multiple": boolean;
+        /**
+          * The select's name.
+         */
+        "name": string;
+        /**
+          * Set to true to draw a pill-style select with rounded edges.
+         */
+        "pill": boolean;
+        /**
+          * The select's placeholder text.
+         */
+        "placeholder": string;
+        /**
+          * Checks for validity and shows the browser's validation message if the control is invalid.
+         */
+        "reportValidity": () => Promise<boolean>;
+        /**
+          * The select's required attribute.
+         */
+        "required": boolean;
+        /**
+          * Sets a custom validation message. If `message` is not empty, the field will be considered invalid.
+         */
+        "setCustomValidity": (message: string) => Promise<void>;
+        /**
+          * The select's size.
+         */
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * The value of the control. This will be a string or an array depending on `multiple`.
+         */
+        "value": string | Array<string>;
+    }
+    interface VSkeleton {
+        /**
+          * Determines which effect the skeleton will use.
+         */
+        "effect": 'pulse' | 'sheen' | 'none';
+    }
+    interface VSpinner {
+    }
+    interface VSwitch {
+        /**
+          * Set to true to draw the switch in a checked state.
+         */
+        "checked": boolean;
+        /**
+          * Set to true to disable the switch.
+         */
+        "disabled": boolean;
+        /**
+          * This will be true when the control is in an invalid state. Validity is determined by the `required` prop.
+         */
+        "invalid": boolean;
+        /**
+          * The switch's name attribute.
+         */
+        "name": string;
+        /**
+          * Removes focus from the switch.
+         */
+        "removeFocus": () => Promise<void>;
+        /**
+          * Checks for validity and shows the browser's validation message if the control is invalid.
+         */
+        "reportValidity": () => Promise<boolean>;
+        /**
+          * Set to true to make the switch a required field.
+         */
+        "required": boolean;
+        /**
+          * Sets a custom validation message. If `message` is not empty, the field will be considered invalid.
+         */
+        "setCustomValidity": (message: string) => Promise<void>;
+        /**
+          * Sets focus on the switch.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * The switch's value attribute.
+         */
+        "value": string;
+    }
+    interface VTab {
+        /**
+          * Set to true to draw the tab in an active state.
+         */
+        "active": boolean;
+        /**
+          * When true, the tab will be rendered with a close icon.
+         */
+        "closable": boolean;
+        /**
+          * Set to true to draw the tab in a disabled state.
+         */
+        "disabled": boolean;
+        /**
+          * The name of the tab panel the tab will control. The panel must be located in the same tab group.
+         */
+        "panel": string;
+        /**
+          * Removes focus from the tab.
+         */
+        "removeFocus": () => Promise<void>;
+        /**
+          * Sets focus to the tab.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+    }
+    interface VTabGroup {
+        /**
+          * Disables the scroll arrows that appear when tabs overflow.
+         */
+        "noScrollControls": boolean;
+        /**
+          * The placement of the tabs.
+         */
+        "placement": 'top' | 'bottom' | 'left' | 'right';
+        /**
+          * Shows the specified tab panel.
+         */
+        "show": (panel: string) => Promise<void>;
+    }
+    interface VTabPanel {
+        /**
+          * When true, the tab panel will be shown.
+         */
+        "active": boolean;
+        /**
+          * The tab panel's name.
+         */
+        "name": string;
+    }
+    interface VTag {
+        /**
+          * Set to true to make the tag clearable.
+         */
+        "clearable": boolean;
+        /**
+          * Set to true to draw a pill-style tag with rounded edges.
+         */
+        "pill": boolean;
+        /**
+          * The tag's size.
+         */
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * The tag's type.
+         */
+        "type": 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'text';
+    }
+    interface VTextarea {
+        /**
+          * The textarea's autocaptialize attribute.
+         */
+        "autocapitalize": string;
+        /**
+          * The textarea's autocomplete attribute.
+         */
+        "autocomplete": string;
+        /**
+          * The textarea's autocorrect attribute.
+         */
+        "autocorrect": string;
+        /**
+          * The textarea's autofocus attribute.
+         */
+        "autofocus": boolean;
+        /**
+          * Set to true to disable the textarea.
+         */
+        "disabled": boolean;
+        /**
+          * The textarea's help text. Alternatively, you can use the help-text slot.
+         */
+        "helpText": string;
+        /**
+          * The textarea's inputmode attribute.
+         */
+        "inputmode": 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url';
+        /**
+          * This will be true when the control is in an invalid state. Validity is determined by props such as `required`, `minlength`, and `maxlength` using the browser's constraint validation API.
+         */
+        "invalid": boolean;
+        /**
+          * The textarea's label. Alternatively, you can use the label slot.
+         */
+        "label": string;
+        /**
+          * The maximum length of input that will be considered valid.
+         */
+        "maxlength": number;
+        /**
+          * The minimum length of input that will be considered valid.
+         */
+        "minlength": number;
+        /**
+          * The textarea's name attribute.
+         */
+        "name": string;
+        /**
+          * The textarea's placeholder text.
+         */
+        "placeholder": string;
+        /**
+          * Set to true for a readonly textarea.
+         */
+        "readonly": boolean;
+        /**
+          * Removes focus fromt the textarea.
+         */
+        "removeFocus": () => Promise<void>;
+        /**
+          * Checks for validity and shows the browser's validation message if the control is invalid.
+         */
+        "reportValidity": () => Promise<boolean>;
+        /**
+          * The textarea's required attribute.
+         */
+        "required": boolean;
+        /**
+          * Controls how the textarea can be resized.
+         */
+        "resize": 'none' | 'vertical' | 'auto';
+        /**
+          * The number of rows to display by default.
+         */
+        "rows": number;
+        /**
+          * Selects all the text in the input.
+         */
+        "select": () => Promise<void>;
+        /**
+          * Sets a custom validation message. If `message` is not empty, the field will be considered invalid.
+         */
+        "setCustomValidity": (message: string) => Promise<void>;
+        /**
+          * Sets focus on the textarea.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * Replaces a range of text with a new string.
+         */
+        "setRangeText": (replacement: string, start: number, end: number, selectMode?: 'select' | 'start' | 'end' | 'preserve') => Promise<void>;
+        /**
+          * Sets the start and end positions of the text selection (0-based).
+         */
+        "setSelectionRange": (selectionStart: number, selectionEnd: number, selectionDirection?: 'forward' | 'backward' | 'none') => Promise<void>;
+        /**
+          * The textarea's size.
+         */
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * The textarea's spellcheck attribute.
+         */
+        "spellcheck": boolean;
+        /**
+          * The textarea's value attribute.
+         */
+        "value": string;
+    }
+    interface VTheme {
+        /**
+          * The name of the theme to use. The user is responsible for including the associated stylesheet(s). Supportive themes must adhere to theme guidelines by exposing a class that follows the `v-theme-{name}` convention.
+         */
+        "name": string;
+    }
+    interface VTooltip {
+        /**
+          * The tooltip's content. Alternatively, you can use the content slot.
+         */
+        "content": string;
+        /**
+          * Set to true to disable the tooltip so it won't show when triggered.
+         */
+        "disabled": boolean;
+        /**
+          * The distance in pixels from which to offset the tooltip away from its target.
+         */
+        "distance": number;
+        /**
+          * Shows the tooltip.
+         */
+        "hide": () => Promise<void>;
+        /**
+          * Indicates whether or not the tooltip is open. You can use this in lieu of the show/hide methods.
+         */
+        "open": boolean;
+        /**
+          * The preferred placement of the tooltip. Note that the actual placement may vary as needed to keep the tooltip inside of the viewport.
+         */
+        "placement": 'top' | 'top-start' | 'top-end' | 'right' | 'right-start' | 'right-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end';
+        /**
+          * Shows the tooltip.
+         */
+        "show": () => Promise<void>;
+        /**
+          * The distance in pixels from which to offset the tooltip along its target.
+         */
+        "skidding": number;
+        /**
+          * Controls how the tooltip is activated. Possible options include `click`, `hover`, `focus`, and `manual`. Multiple options can be passed by separating them with a space. When manual is used, the tooltip must be activated programmatically.
+         */
+        "trigger": string;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +1354,330 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLVAlertElement extends Components.VAlert, HTMLStencilElement {
+    }
+    var HTMLVAlertElement: {
+        prototype: HTMLVAlertElement;
+        new (): HTMLVAlertElement;
+    };
+    interface HTMLVAnimationElement extends Components.VAnimation, HTMLStencilElement {
+    }
+    var HTMLVAnimationElement: {
+        prototype: HTMLVAnimationElement;
+        new (): HTMLVAnimationElement;
+    };
+    interface HTMLVAvatarElement extends Components.VAvatar, HTMLStencilElement {
+    }
+    var HTMLVAvatarElement: {
+        prototype: HTMLVAvatarElement;
+        new (): HTMLVAvatarElement;
+    };
+    interface HTMLVBadgeElement extends Components.VBadge, HTMLStencilElement {
+    }
+    var HTMLVBadgeElement: {
+        prototype: HTMLVBadgeElement;
+        new (): HTMLVBadgeElement;
+    };
+    interface HTMLVButtonElement extends Components.VButton, HTMLStencilElement {
+    }
+    var HTMLVButtonElement: {
+        prototype: HTMLVButtonElement;
+        new (): HTMLVButtonElement;
+    };
+    interface HTMLVButtonGroupElement extends Components.VButtonGroup, HTMLStencilElement {
+    }
+    var HTMLVButtonGroupElement: {
+        prototype: HTMLVButtonGroupElement;
+        new (): HTMLVButtonGroupElement;
+    };
+    interface HTMLVCardElement extends Components.VCard, HTMLStencilElement {
+    }
+    var HTMLVCardElement: {
+        prototype: HTMLVCardElement;
+        new (): HTMLVCardElement;
+    };
+    interface HTMLVCheckboxElement extends Components.VCheckbox, HTMLStencilElement {
+    }
+    var HTMLVCheckboxElement: {
+        prototype: HTMLVCheckboxElement;
+        new (): HTMLVCheckboxElement;
+    };
+    interface HTMLVColorPickerElement extends Components.VColorPicker, HTMLStencilElement {
+    }
+    var HTMLVColorPickerElement: {
+        prototype: HTMLVColorPickerElement;
+        new (): HTMLVColorPickerElement;
+    };
+    interface HTMLVDetailsElement extends Components.VDetails, HTMLStencilElement {
+    }
+    var HTMLVDetailsElement: {
+        prototype: HTMLVDetailsElement;
+        new (): HTMLVDetailsElement;
+    };
+    interface HTMLVDialogElement extends Components.VDialog, HTMLStencilElement {
+    }
+    var HTMLVDialogElement: {
+        prototype: HTMLVDialogElement;
+        new (): HTMLVDialogElement;
+    };
+    interface HTMLVDrawerElement extends Components.VDrawer, HTMLStencilElement {
+    }
+    var HTMLVDrawerElement: {
+        prototype: HTMLVDrawerElement;
+        new (): HTMLVDrawerElement;
+    };
+    interface HTMLVDropdownElement extends Components.VDropdown, HTMLStencilElement {
+    }
+    var HTMLVDropdownElement: {
+        prototype: HTMLVDropdownElement;
+        new (): HTMLVDropdownElement;
+    };
+    interface HTMLVFormElement extends Components.VForm, HTMLStencilElement {
+    }
+    var HTMLVFormElement: {
+        prototype: HTMLVFormElement;
+        new (): HTMLVFormElement;
+    };
+    interface HTMLVFormatBytesElement extends Components.VFormatBytes, HTMLStencilElement {
+    }
+    var HTMLVFormatBytesElement: {
+        prototype: HTMLVFormatBytesElement;
+        new (): HTMLVFormatBytesElement;
+    };
+    interface HTMLVFormatDateElement extends Components.VFormatDate, HTMLStencilElement {
+    }
+    var HTMLVFormatDateElement: {
+        prototype: HTMLVFormatDateElement;
+        new (): HTMLVFormatDateElement;
+    };
+    interface HTMLVFormatNumberElement extends Components.VFormatNumber, HTMLStencilElement {
+    }
+    var HTMLVFormatNumberElement: {
+        prototype: HTMLVFormatNumberElement;
+        new (): HTMLVFormatNumberElement;
+    };
+    interface HTMLVIconElement extends Components.VIcon, HTMLStencilElement {
+    }
+    var HTMLVIconElement: {
+        prototype: HTMLVIconElement;
+        new (): HTMLVIconElement;
+    };
+    interface HTMLVIconButtonElement extends Components.VIconButton, HTMLStencilElement {
+    }
+    var HTMLVIconButtonElement: {
+        prototype: HTMLVIconButtonElement;
+        new (): HTMLVIconButtonElement;
+    };
+    interface HTMLVIconLibraryElement extends Components.VIconLibrary, HTMLStencilElement {
+    }
+    var HTMLVIconLibraryElement: {
+        prototype: HTMLVIconLibraryElement;
+        new (): HTMLVIconLibraryElement;
+    };
+    interface HTMLVImageComparerElement extends Components.VImageComparer, HTMLStencilElement {
+    }
+    var HTMLVImageComparerElement: {
+        prototype: HTMLVImageComparerElement;
+        new (): HTMLVImageComparerElement;
+    };
+    interface HTMLVIncludeElement extends Components.VInclude, HTMLStencilElement {
+    }
+    var HTMLVIncludeElement: {
+        prototype: HTMLVIncludeElement;
+        new (): HTMLVIncludeElement;
+    };
+    interface HTMLVInputElement extends Components.VInput, HTMLStencilElement {
+    }
+    var HTMLVInputElement: {
+        prototype: HTMLVInputElement;
+        new (): HTMLVInputElement;
+    };
+    interface HTMLVMenuElement extends Components.VMenu, HTMLStencilElement {
+    }
+    var HTMLVMenuElement: {
+        prototype: HTMLVMenuElement;
+        new (): HTMLVMenuElement;
+    };
+    interface HTMLVMenuDividerElement extends Components.VMenuDivider, HTMLStencilElement {
+    }
+    var HTMLVMenuDividerElement: {
+        prototype: HTMLVMenuDividerElement;
+        new (): HTMLVMenuDividerElement;
+    };
+    interface HTMLVMenuItemElement extends Components.VMenuItem, HTMLStencilElement {
+    }
+    var HTMLVMenuItemElement: {
+        prototype: HTMLVMenuItemElement;
+        new (): HTMLVMenuItemElement;
+    };
+    interface HTMLVMenuLabelElement extends Components.VMenuLabel, HTMLStencilElement {
+    }
+    var HTMLVMenuLabelElement: {
+        prototype: HTMLVMenuLabelElement;
+        new (): HTMLVMenuLabelElement;
+    };
+    interface HTMLVProgressBarElement extends Components.VProgressBar, HTMLStencilElement {
+    }
+    var HTMLVProgressBarElement: {
+        prototype: HTMLVProgressBarElement;
+        new (): HTMLVProgressBarElement;
+    };
+    interface HTMLVProgressRingElement extends Components.VProgressRing, HTMLStencilElement {
+    }
+    var HTMLVProgressRingElement: {
+        prototype: HTMLVProgressRingElement;
+        new (): HTMLVProgressRingElement;
+    };
+    interface HTMLVRadioElement extends Components.VRadio, HTMLStencilElement {
+    }
+    var HTMLVRadioElement: {
+        prototype: HTMLVRadioElement;
+        new (): HTMLVRadioElement;
+    };
+    interface HTMLVRangeElement extends Components.VRange, HTMLStencilElement {
+    }
+    var HTMLVRangeElement: {
+        prototype: HTMLVRangeElement;
+        new (): HTMLVRangeElement;
+    };
+    interface HTMLVRatingElement extends Components.VRating, HTMLStencilElement {
+    }
+    var HTMLVRatingElement: {
+        prototype: HTMLVRatingElement;
+        new (): HTMLVRatingElement;
+    };
+    interface HTMLVRelativeTimeElement extends Components.VRelativeTime, HTMLStencilElement {
+    }
+    var HTMLVRelativeTimeElement: {
+        prototype: HTMLVRelativeTimeElement;
+        new (): HTMLVRelativeTimeElement;
+    };
+    interface HTMLVResizeObserverElement extends Components.VResizeObserver, HTMLStencilElement {
+    }
+    var HTMLVResizeObserverElement: {
+        prototype: HTMLVResizeObserverElement;
+        new (): HTMLVResizeObserverElement;
+    };
+    interface HTMLVResponsiveEmbedElement extends Components.VResponsiveEmbed, HTMLStencilElement {
+    }
+    var HTMLVResponsiveEmbedElement: {
+        prototype: HTMLVResponsiveEmbedElement;
+        new (): HTMLVResponsiveEmbedElement;
+    };
+    interface HTMLVSelectElement extends Components.VSelect, HTMLStencilElement {
+    }
+    var HTMLVSelectElement: {
+        prototype: HTMLVSelectElement;
+        new (): HTMLVSelectElement;
+    };
+    interface HTMLVSkeletonElement extends Components.VSkeleton, HTMLStencilElement {
+    }
+    var HTMLVSkeletonElement: {
+        prototype: HTMLVSkeletonElement;
+        new (): HTMLVSkeletonElement;
+    };
+    interface HTMLVSpinnerElement extends Components.VSpinner, HTMLStencilElement {
+    }
+    var HTMLVSpinnerElement: {
+        prototype: HTMLVSpinnerElement;
+        new (): HTMLVSpinnerElement;
+    };
+    interface HTMLVSwitchElement extends Components.VSwitch, HTMLStencilElement {
+    }
+    var HTMLVSwitchElement: {
+        prototype: HTMLVSwitchElement;
+        new (): HTMLVSwitchElement;
+    };
+    interface HTMLVTabElement extends Components.VTab, HTMLStencilElement {
+    }
+    var HTMLVTabElement: {
+        prototype: HTMLVTabElement;
+        new (): HTMLVTabElement;
+    };
+    interface HTMLVTabGroupElement extends Components.VTabGroup, HTMLStencilElement {
+    }
+    var HTMLVTabGroupElement: {
+        prototype: HTMLVTabGroupElement;
+        new (): HTMLVTabGroupElement;
+    };
+    interface HTMLVTabPanelElement extends Components.VTabPanel, HTMLStencilElement {
+    }
+    var HTMLVTabPanelElement: {
+        prototype: HTMLVTabPanelElement;
+        new (): HTMLVTabPanelElement;
+    };
+    interface HTMLVTagElement extends Components.VTag, HTMLStencilElement {
+    }
+    var HTMLVTagElement: {
+        prototype: HTMLVTagElement;
+        new (): HTMLVTagElement;
+    };
+    interface HTMLVTextareaElement extends Components.VTextarea, HTMLStencilElement {
+    }
+    var HTMLVTextareaElement: {
+        prototype: HTMLVTextareaElement;
+        new (): HTMLVTextareaElement;
+    };
+    interface HTMLVThemeElement extends Components.VTheme, HTMLStencilElement {
+    }
+    var HTMLVThemeElement: {
+        prototype: HTMLVThemeElement;
+        new (): HTMLVThemeElement;
+    };
+    interface HTMLVTooltipElement extends Components.VTooltip, HTMLStencilElement {
+    }
+    var HTMLVTooltipElement: {
+        prototype: HTMLVTooltipElement;
+        new (): HTMLVTooltipElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "v-alert": HTMLVAlertElement;
+        "v-animation": HTMLVAnimationElement;
+        "v-avatar": HTMLVAvatarElement;
+        "v-badge": HTMLVBadgeElement;
+        "v-button": HTMLVButtonElement;
+        "v-button-group": HTMLVButtonGroupElement;
+        "v-card": HTMLVCardElement;
+        "v-checkbox": HTMLVCheckboxElement;
+        "v-color-picker": HTMLVColorPickerElement;
+        "v-details": HTMLVDetailsElement;
+        "v-dialog": HTMLVDialogElement;
+        "v-drawer": HTMLVDrawerElement;
+        "v-dropdown": HTMLVDropdownElement;
+        "v-form": HTMLVFormElement;
+        "v-format-bytes": HTMLVFormatBytesElement;
+        "v-format-date": HTMLVFormatDateElement;
+        "v-format-number": HTMLVFormatNumberElement;
+        "v-icon": HTMLVIconElement;
+        "v-icon-button": HTMLVIconButtonElement;
+        "v-icon-library": HTMLVIconLibraryElement;
+        "v-image-comparer": HTMLVImageComparerElement;
+        "v-include": HTMLVIncludeElement;
+        "v-input": HTMLVInputElement;
+        "v-menu": HTMLVMenuElement;
+        "v-menu-divider": HTMLVMenuDividerElement;
+        "v-menu-item": HTMLVMenuItemElement;
+        "v-menu-label": HTMLVMenuLabelElement;
+        "v-progress-bar": HTMLVProgressBarElement;
+        "v-progress-ring": HTMLVProgressRingElement;
+        "v-radio": HTMLVRadioElement;
+        "v-range": HTMLVRangeElement;
+        "v-rating": HTMLVRatingElement;
+        "v-relative-time": HTMLVRelativeTimeElement;
+        "v-resize-observer": HTMLVResizeObserverElement;
+        "v-responsive-embed": HTMLVResponsiveEmbedElement;
+        "v-select": HTMLVSelectElement;
+        "v-skeleton": HTMLVSkeletonElement;
+        "v-spinner": HTMLVSpinnerElement;
+        "v-switch": HTMLVSwitchElement;
+        "v-tab": HTMLVTabElement;
+        "v-tab-group": HTMLVTabGroupElement;
+        "v-tab-panel": HTMLVTabPanelElement;
+        "v-tag": HTMLVTagElement;
+        "v-textarea": HTMLVTextareaElement;
+        "v-theme": HTMLVThemeElement;
+        "v-tooltip": HTMLVTooltipElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +1695,1410 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface VAlert {
+        /**
+          * Set to true to make the alert closable.
+         */
+        "closable"?: boolean;
+        /**
+          * The length of time, in milliseconds, the alert will show before closing itself. If the user interacts with the alert before it closes (e.g. moves the mouse over it), the timer will restart.
+         */
+        "duration"?: number;
+        /**
+          * Emitted after the alert closes and all transitions are complete.
+         */
+        "onSl-after-hide"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted after the alert opens and all transitions are complete.
+         */
+        "onSl-after-show"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the alert closes. Calling `event.preventDefault()` will prevent it from being closed.
+         */
+        "onSl-hide"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the alert opens. Calling `event.preventDefault()` will prevent it from being opened.
+         */
+        "onSl-show"?: (event: CustomEvent<any>) => void;
+        /**
+          * Indicates whether or not the alert is open. You can use this in lieu of the show/hide methods.
+         */
+        "open"?: boolean;
+        /**
+          * The type of alert.
+         */
+        "type"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
+    }
+    interface VAnimation {
+        /**
+          * The number of milliseconds to delay the start of the animation.
+         */
+        "delay"?: number;
+        /**
+          * Determines the direction of playback as well as the behavior when reaching the end of an iteration.
+         */
+        "direction"?: PlaybackDirection;
+        /**
+          * The number of milliseconds each iteration of the animation takes to complete.
+         */
+        "duration"?: number;
+        /**
+          * The easing function to use for the animation. This can be a Shoelace easing function or a custom easing function such as `cubic-bezier(0, 1, .76, 1.14)`.
+         */
+        "easing"?: string;
+        /**
+          * The number of milliseconds to delay after the active period of an animation sequence.
+         */
+        "endDelay"?: number;
+        /**
+          * Sets how the animation applies styles to its target before and after its execution.
+         */
+        "fill"?: FillMode;
+        /**
+          * The offset at which to start the animation, usually between 0 (start) and 1 (end).
+         */
+        "iterationStart"?: number;
+        /**
+          * The number of iterations to run before the animation completes. Defaults to `Infinity`, which loops.
+         */
+        "iterations"?: number;
+        /**
+          * The keyframes to use for the animation. If this is set, `name` will be ignored.
+         */
+        "keyframes"?: Keyframe[];
+        /**
+          * The name of the built-in animation to use. For custom animations, use the `keyframes` prop.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the animation is canceled.
+         */
+        "onSl-cancel"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the animation finishes.
+         */
+        "onSl-finish"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the animation starts or restarts.
+         */
+        "onSl-start"?: (event: CustomEvent<any>) => void;
+        /**
+          * Pauses the animation. The animation will resume when this prop is removed.
+         */
+        "pause"?: boolean;
+        /**
+          * Sets the animation's playback rate. The default is `1`, which plays the animation at a normal speed. Setting this to `2`, for example, will double the animation's speed. A negative value can be used to reverse the animation. This value can be changed without causing the animation to restart.
+         */
+        "playbackRate"?: number;
+    }
+    interface VAvatar {
+        /**
+          * Alternative text for the image.
+         */
+        "alt"?: string;
+        /**
+          * The image source to use for the avatar.
+         */
+        "image"?: string;
+        /**
+          * Initials to use as a fallback when no image is available (1-2 characters max recommended).
+         */
+        "initials"?: string;
+        /**
+          * The shape of the avatar.
+         */
+        "shape"?: 'circle' | 'square' | 'rounded';
+    }
+    interface VBadge {
+        /**
+          * Set to true to draw a pill-style badge with rounded edges.
+         */
+        "pill"?: boolean;
+        /**
+          * Set to true to make the badge pulsate to draw attention.
+         */
+        "pulse"?: boolean;
+        /**
+          * The badge's type.
+         */
+        "type"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
+    }
+    interface VButton {
+        /**
+          * Set to true to draw the button with a caret for use with dropdowns, popovers, etc.
+         */
+        "caret"?: boolean;
+        /**
+          * Set to true to draw a circle button.
+         */
+        "circle"?: boolean;
+        /**
+          * Set to true to disable the button.
+         */
+        "disabled"?: boolean;
+        /**
+          * Tells the browser to download the linked file as this filename. Only used when `href` is set.
+         */
+        "download"?: string;
+        /**
+          * When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`.
+         */
+        "href"?: string;
+        /**
+          * Set to true to draw the button in a loading state.
+         */
+        "loading"?: boolean;
+        /**
+          * An optional name for the button. Ignored when `href` is set.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the button loses focus.
+         */
+        "onV-blur"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the button gains focus.
+         */
+        "onV-focus"?: (event: CustomEvent<any>) => void;
+        /**
+          * Set to true to draw a pill-style button with rounded edges.
+         */
+        "pill"?: boolean;
+        /**
+          * The button's size.
+         */
+        "size"?: 'small' | 'medium' | 'large';
+        /**
+          * Indicates if activating the button should submit the form. Ignored when `href` is set.
+         */
+        "submit"?: boolean;
+        /**
+          * Tells the browser where to open the link. Only used when `href` is set.
+         */
+        "target"?: '_blank' | '_parent' | '_self' | '_top';
+        /**
+          * The button's type.
+         */
+        "type"?: 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'text';
+        /**
+          * An optional value for the button. Ignored when `href` is set.
+         */
+        "value"?: string;
+    }
+    interface VButtonGroup {
+        /**
+          * A label to use for the button group's `aria-label` attribute.
+         */
+        "label"?: string;
+    }
+    interface VCard {
+    }
+    interface VCheckbox {
+        /**
+          * Set to true to draw the checkbox in a checked state.
+         */
+        "checked"?: boolean;
+        /**
+          * Set to true to disable the checkbox.
+         */
+        "disabled"?: boolean;
+        /**
+          * Set to true to draw the checkbox in an indeterminate state.
+         */
+        "indeterminate"?: boolean;
+        /**
+          * This will be true when the control is in an invalid state. Validity is determined by the `required` prop.
+         */
+        "invalid"?: boolean;
+        /**
+          * The checkbox's name attribute.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the control loses focus.
+         */
+        "onV-blur"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the control's checked state changes.
+         */
+        "onV-change"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the control gains focus.
+         */
+        "onV-focus"?: (event: CustomEvent<any>) => void;
+        /**
+          * Set to true to make the checkbox a required field.
+         */
+        "required"?: boolean;
+        /**
+          * The checkbox's value attribute.
+         */
+        "value"?: string;
+    }
+    interface VColorPicker {
+        /**
+          * Set to true to disable the color picker.
+         */
+        "disabled"?: boolean;
+        /**
+          * The format to use for the display value. If opacity is enabled, these will translate to HEXA, RGBA, and HSLA respectively. The color picker will always accept user input in any format (including CSS color names) and convert it to the desired format.
+         */
+        "format"?: 'hex' | 'rgb' | 'hsl';
+        /**
+          * Enable this option to prevent the panel from being clipped when the component is placed inside a container with `overflow: auto|scroll`.
+         */
+        "hoist"?: boolean;
+        /**
+          * Set to true to render the color picker inline rather than inside a dropdown.
+         */
+        "inline"?: boolean;
+        /**
+          * This will be true when the control is in an invalid state. Validity is determined by the `setCustomValidity()` method using the browser's constraint validation API.
+         */
+        "invalid"?: boolean;
+        /**
+          * The input's name attribute.
+         */
+        "name"?: string;
+        /**
+          * Removes the format toggle.
+         */
+        "noFormatToggle"?: boolean;
+        /**
+          * Emitted after the color picker closes and all transitions are complete.
+         */
+        "onSl-after-hide"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted after the color picker opens and all transitions are complete.
+         */
+        "onSl-after-show"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the color picker closes. Calling `event.preventDefault()` will prevent it from being closed.
+         */
+        "onSl-hide"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the color picker opens. Calling `event.preventDefault()` will prevent it from being opened.
+         */
+        "onSl-show"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the color picker's value changes.
+         */
+        "onV-change"?: (event: CustomEvent<any>) => void;
+        /**
+          * Whether to show the opacity slider.
+         */
+        "opacity"?: boolean;
+        /**
+          * Determines the size of the color picker's trigger. This has no effect on inline color pickers.
+         */
+        "size"?: 'small' | 'medium' | 'large';
+        /**
+          * An array of predefined color swatches to display. Can include any format the color picker can parse, including HEX(A), RGB(A), HSL(A), and CSS color names.
+         */
+        "swatches"?: string[];
+        /**
+          * By default, the value will be set in lowercase. Set this to true to set it in uppercase instead.
+         */
+        "uppercase"?: boolean;
+        /**
+          * The current color.
+         */
+        "value"?: string;
+    }
+    interface VDetails {
+        /**
+          * Set to true to prevent the user from toggling the details.
+         */
+        "disabled"?: boolean;
+        /**
+          * Emitted after the details closes and all transitions are complete.
+         */
+        "onSl-after-hide"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted after the details opens and all transitions are complete.
+         */
+        "onSl-after-show"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the details closes. Calling `event.preventDefault()` will prevent it from being closed.
+         */
+        "onSl-hide"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the details opens. Calling `event.preventDefault()` will prevent it from being opened.
+         */
+        "onSl-show"?: (event: CustomEvent<any>) => void;
+        /**
+          * Indicates whether or not the details is open. You can use this in lieu of the show/hide methods.
+         */
+        "open"?: boolean;
+        /**
+          * The summary to show in the details header. If you need to display HTML, use the `summary` slot instead.
+         */
+        "summary"?: string;
+    }
+    interface VDialog {
+        /**
+          * The dialog's label as displayed in the header. You should always include a relevant label even when using `no-header`, as it is required for proper accessibility.
+         */
+        "label"?: string;
+        /**
+          * Set to true to disable the header. This will also remove the default close button, so please ensure you provide an easy, accessible way for users to dismiss the dialog.
+         */
+        "noHeader"?: boolean;
+        /**
+          * Emitted after the dialog closes and all transitions are complete.
+         */
+        "onSl-after-hide"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted after the dialog opens and all transitions are complete.
+         */
+        "onSl-after-show"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the dialog closes. Calling `event.preventDefault()` will prevent it from being closed.
+         */
+        "onSl-hide"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the dialog opens and the panel gains focus. Calling `event.preventDefault()` will prevent focus and allow you to set it on a different element in the dialog, such as an input or button.
+         */
+        "onSl-initial-focus"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the overlay is clicked. Calling `event.preventDefault()` will prevent the dialog from closing.
+         */
+        "onSl-overlay-dismiss"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the dialog opens. Calling `event.preventDefault()` will prevent it from being opened.
+         */
+        "onSl-show"?: (event: CustomEvent<any>) => void;
+        /**
+          * Indicates whether or not the dialog is open. You can use this in lieu of the show/hide methods.
+         */
+        "open"?: boolean;
+    }
+    interface VDrawer {
+        /**
+          * By default, the drawer slides out of its containing block (usually the viewport). To make the drawer slide out of its parent element, set this prop and add `position: relative` to the parent.
+         */
+        "contained"?: boolean;
+        /**
+          * The drawer's label as displayed in the header. You should always include a relevant label even when using `no-header`, as it is required for proper accessibility.
+         */
+        "label"?: string;
+        /**
+          * Removes the header. This will also remove the default close button, so please ensure you provide an easy, accessible way for users to dismiss the drawer.
+         */
+        "noHeader"?: boolean;
+        /**
+          * Emitted after the drawer closes and all transitions are complete.
+         */
+        "onSl-after-hide"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted after the drawer opens and all transitions are complete.
+         */
+        "onSl-after-show"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the drawer closes. Calling `event.preventDefault()` will prevent it from being closed.
+         */
+        "onSl-hide"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the drawer opens and the panel gains focus. Calling `event.preventDefault()` will prevent focus and allow you to set it on a different element in the drawer, such as an input or button.
+         */
+        "onSl-initial-focus"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the overlay is clicked. Calling `event.preventDefault()` will prevent the drawer from closing.
+         */
+        "onSl-overlay-dismiss"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the drawer opens. Calling `event.preventDefault()` will prevent it from being opened.
+         */
+        "onSl-show"?: (event: CustomEvent<any>) => void;
+        /**
+          * Indicates whether or not the drawer is open. You can use this in lieu of the show/hide methods.
+         */
+        "open"?: boolean;
+        /**
+          * The direction from which the drawer will open.
+         */
+        "placement"?: 'top' | 'right' | 'bottom' | 'left';
+    }
+    interface VDropdown {
+        /**
+          * Determines whether the dropdown should hide when a menu item is selected.
+         */
+        "closeOnSelect"?: boolean;
+        /**
+          * The dropdown will close when the user interacts outside of this element (e.g. clicking).
+         */
+        "containingElement"?: HTMLElement;
+        /**
+          * The distance in pixels from which to offset the panel away from its trigger.
+         */
+        "distance"?: number;
+        /**
+          * Enable this option to prevent the panel from being clipped when the component is placed inside a container with `overflow: auto|scroll`.
+         */
+        "hoist"?: boolean;
+        /**
+          * Emitted after the dropdown closes and all transitions are complete.
+         */
+        "onSl-after-hide"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted after the dropdown opens and all transitions are complete.
+         */
+        "onSl-after-show"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed.
+         */
+        "onSl-hide"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened.
+         */
+        "onSl-show"?: (event: CustomEvent<any>) => void;
+        /**
+          * Indicates whether or not the dropdown is open. You can use this in lieu of the show/hide methods.
+         */
+        "open"?: boolean;
+        /**
+          * The preferred placement of the dropdown panel. Note that the actual placement may vary as needed to keep the panel inside of the viewport.
+         */
+        "placement"?: 'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'right' | 'right-start' | 'right-end' | 'left' | 'left-start' | 'left-end';
+        /**
+          * The distance in pixels from which to offset the panel along its trigger.
+         */
+        "skidding"?: number;
+    }
+    interface VForm {
+        /**
+          * Prevent the form from validating inputs before submitting.
+         */
+        "novalidate"?: boolean;
+        /**
+          * Emitted when the form is submitted. This event will not be emitted if any form control inside of it is in an invalid state, unless the form has the `novalidate` attribute. Note that there is never a need to prevent this event, since it doen't send a GET or POST request like native forms. To "prevent" submission, use a conditional around the XHR request you use to submit the form's data with.
+         */
+        "onSl-submit"?: (event: CustomEvent<{ formData: FormData; formControls: HTMLElement[] }>) => void;
+    }
+    interface VFormatBytes {
+        /**
+          * The locale to use when formatting the number.
+         */
+        "locale"?: string;
+        /**
+          * The unit to display.
+         */
+        "unit"?: 'bytes' | 'bits';
+        /**
+          * The number to format in bytes.
+         */
+        "value"?: number;
+    }
+    interface VFormatDate {
+        /**
+          * The date/time to format. If not set, the current date and time will be used.
+         */
+        "date"?: Date | string;
+        /**
+          * The format for displaying the day.
+         */
+        "day"?: 'numeric' | '2-digit';
+        /**
+          * The format for displaying the era.
+         */
+        "era"?: 'narrow' | 'short' | 'long';
+        /**
+          * The format for displaying the hour.
+         */
+        "hour"?: 'numeric' | '2-digit';
+        /**
+          * When set, 24 hour time will always be used.
+         */
+        "hourFormat"?: 'auto' | '12' | '24';
+        /**
+          * The locale to use when formatting the date/time.
+         */
+        "locale"?: string;
+        /**
+          * The format for displaying the minute.
+         */
+        "minute"?: 'numeric' | '2-digit';
+        /**
+          * The format for displaying the month.
+         */
+        "month"?: 'numeric' | '2-digit' | 'narrow' | 'short' | 'long';
+        /**
+          * The format for displaying the second.
+         */
+        "second"?: 'numeric' | '2-digit';
+        /**
+          * The time zone to express the time in.
+         */
+        "timeZone"?: string;
+        /**
+          * The format for displaying the time.
+         */
+        "timeZoneName"?: 'short' | 'long';
+        /**
+          * The format for displaying the weekday.
+         */
+        "weekday"?: 'narrow' | 'short' | 'long';
+        /**
+          * The format for displaying the year.
+         */
+        "year"?: 'numeric' | '2-digit';
+    }
+    interface VFormatNumber {
+        /**
+          * The currency to use when formatting. Must be an ISO 4217 currency code such as `USD` or `EUR`.
+         */
+        "currency"?: string;
+        /**
+          * How to display the currency.
+         */
+        "currencyDisplay"?: 'symbol' | 'narrowSymbol' | 'code' | 'name';
+        /**
+          * The locale to use when formatting the number.
+         */
+        "locale"?: string;
+        /**
+          * The maximum number of fraction digits to use. Possible values are 0 - 20.
+         */
+        "maximumFractionDigits"?: number;
+        /**
+          * The maximum number of significant digits to use,. Possible values are 1 - 21.
+         */
+        "maximumSignificantDigits"?: number;
+        /**
+          * The minimum number of fraction digits to use. Possible values are 0 - 20.
+         */
+        "minimumFractionDigits"?: number;
+        /**
+          * The minimum number of integer digits to use. Possible values are 1 - 21.
+         */
+        "minimumIntegerDigits"?: number;
+        /**
+          * The minimum number of significant digits to use. Possible values are 1 - 21.
+         */
+        "minimumSignificantDigits"?: number;
+        /**
+          * Turns off grouping separators.
+         */
+        "noGrouping"?: boolean;
+        /**
+          * The formatting style to use.
+         */
+        "type"?: 'currency' | 'decimal' | 'percent';
+        /**
+          * The number to format.
+         */
+        "value"?: number;
+    }
+    interface VIcon {
+        /**
+          * An alternative description to use for accessibility. If omitted, the name or src will be used to generate it.
+         */
+        "label"?: string;
+        /**
+          * The name of a registered custom icon library.
+         */
+        "library"?: string;
+        /**
+          * The name of the icon to draw.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the icon failed to load.
+         */
+        "onSl-error"?: (event: CustomEvent<{ status?: number }>) => void;
+        /**
+          * Emitted when the icon has loaded.
+         */
+        "onSl-load"?: (event: CustomEvent<any>) => void;
+        /**
+          * An external URL of an SVG file.
+         */
+        "src"?: string;
+    }
+    interface VIconButton {
+        /**
+          * Set to true to disable the button.
+         */
+        "disabled"?: boolean;
+        /**
+          * A description that gets read by screen readers and other assistive devices. For optimal accessibility, you should always include a label that describes what the icon button does.
+         */
+        "label"?: string;
+        /**
+          * The name of a registered custom icon library.
+         */
+        "library"?: string;
+        /**
+          * The name of the icon to draw.
+         */
+        "name"?: string;
+        /**
+          * An external URL of an SVG file.
+         */
+        "src"?: string;
+    }
+    interface VIconLibrary {
+        /**
+          * A function that mutates the SVG element before it renders.
+         */
+        "mutator"?: IconLibraryMutator;
+        /**
+          * The name of the icon library.
+         */
+        "name"?: string;
+        /**
+          * A function that translates an icon name to a URL where the corresponding SVG file exists The URL can be local or a CORS-enabled endpoint.
+         */
+        "resolver"?: IconLibraryResolver;
+    }
+    interface VImageComparer {
+        /**
+          * Emitted when the slider position changes.
+         */
+        "onV-change"?: (event: CustomEvent<any>) => void;
+        /**
+          * The position of the divider as a percentage.
+         */
+        "position"?: number;
+    }
+    interface VInclude {
+        /**
+          * Allows included scripts to be executed. You must ensure the content you're including is trusted, otherwise this option can lead to XSS vulnerabilities in your app!
+         */
+        "allowScripts"?: boolean;
+        /**
+          * The fetch mode to use.
+         */
+        "mode"?: 'cors' | 'no-cors' | 'same-origin';
+        /**
+          * Emitted when the included file fails to load due to an error.
+         */
+        "onSl-error"?: (event: CustomEvent<{ status?: number }>) => void;
+        /**
+          * Emitted when the included file is loaded.
+         */
+        "onSl-load"?: (event: CustomEvent<any>) => void;
+        /**
+          * The location of the HTML file to include.
+         */
+        "src"?: string;
+    }
+    interface VInput {
+        /**
+          * The input's autocaptialize attribute.
+         */
+        "autocapitalize"?: string;
+        /**
+          * The input's autocomplete attribute.
+         */
+        "autocomplete"?: string;
+        /**
+          * The input's autocorrect attribute.
+         */
+        "autocorrect"?: string;
+        /**
+          * The input's autofocus attribute.
+         */
+        "autofocus"?: boolean;
+        /**
+          * Set to true to add a clear button when the input is populated.
+         */
+        "clearable"?: boolean;
+        /**
+          * Set to true to disable the input.
+         */
+        "disabled"?: boolean;
+        /**
+          * The input's help text. Alternatively, you can use the help-text slot.
+         */
+        "helpText"?: string;
+        /**
+          * The input's inputmode attribute.
+         */
+        "inputmode"?: 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url';
+        /**
+          * This will be true when the control is in an invalid state. Validity is determined by props such as `type`, `required`, `minlength`, `maxlength`, and `pattern` using the browser's constraint validation API.
+         */
+        "invalid"?: boolean;
+        /**
+          * The input's label. Alternatively, you can use the label slot.
+         */
+        "label"?: string;
+        /**
+          * The input's maximum value.
+         */
+        "max"?: number;
+        /**
+          * The maximum length of input that will be considered valid.
+         */
+        "maxlength"?: number;
+        /**
+          * The input's minimum value.
+         */
+        "min"?: number;
+        /**
+          * The minimum length of input that will be considered valid.
+         */
+        "minlength"?: number;
+        /**
+          * The input's name attribute.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the control loses focus.
+         */
+        "onV-blur"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the control's value changes.
+         */
+        "onV-change"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the clear button is activated.
+         */
+        "onV-clear"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the control gains focus.
+         */
+        "onV-focus"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the control receives input.
+         */
+        "onV-input"?: (event: CustomEvent<any>) => void;
+        /**
+          * A pattern to validate input against.
+         */
+        "pattern"?: string;
+        /**
+          * Set to true to draw a pill-style input with rounded edges.
+         */
+        "pill"?: boolean;
+        /**
+          * The input's placeholder text.
+         */
+        "placeholder"?: string;
+        /**
+          * Set to true to make the input readonly.
+         */
+        "readonly"?: boolean;
+        /**
+          * Set to true to make the input a required field.
+         */
+        "required"?: boolean;
+        /**
+          * The input's size.
+         */
+        "size"?: 'small' | 'medium' | 'large';
+        /**
+          * Enables spell checking on the input.
+         */
+        "spellcheck"?: boolean;
+        /**
+          * The input's step attribute.
+         */
+        "step"?: number;
+        /**
+          * Set to true to add a password toggle button for password inputs.
+         */
+        "togglePassword"?: boolean;
+        /**
+          * The input's type.
+         */
+        "type"?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url';
+        /**
+          * The input's value attribute.
+         */
+        "value"?: string;
+    }
+    interface VMenu {
+        /**
+          * Emitted when a menu item is selected.
+         */
+        "onV-select"?: (event: CustomEvent<{ item: HTMLVMenuItemElement }>) => void;
+    }
+    interface VMenuDivider {
+    }
+    interface VMenuItem {
+        /**
+          * Set to true to draw the item in a checked state.
+         */
+        "checked"?: boolean;
+        /**
+          * Set to true to draw the menu item in a disabled state.
+         */
+        "disabled"?: boolean;
+        /**
+          * A unique value to store in the menu item. This can be used as a way to identify menu items when selected.
+         */
+        "value"?: string;
+    }
+    interface VMenuLabel {
+    }
+    interface VProgressBar {
+        /**
+          * When true, percentage is ignored, the label is hidden, and the progress bar is drawn in an indeterminate state.
+         */
+        "indeterminate"?: boolean;
+        /**
+          * The progress bar's percentage, 0 to 100.
+         */
+        "percentage"?: number;
+    }
+    interface VProgressRing {
+        /**
+          * The current progress percentage, 0 - 100.
+         */
+        "percentage"?: number;
+        /**
+          * The size of the progress ring in pixels.
+         */
+        "size"?: number;
+        /**
+          * The stroke width of the progress ring in pixels.
+         */
+        "strokeWidth"?: number;
+    }
+    interface VRadio {
+        /**
+          * Set to true to draw the radio in a checked state.
+         */
+        "checked"?: boolean;
+        /**
+          * Set to true to disable the radio.
+         */
+        "disabled"?: boolean;
+        /**
+          * This will be true when the control is in an invalid state. Validity in range inputs is determined by the message provided by the `setCustomValidity` method.
+         */
+        "invalid"?: boolean;
+        /**
+          * The radio's name attribute.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the control loses focus.
+         */
+        "onV-blur"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the control's checked state changes.
+         */
+        "onV-change"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the control gains focus.
+         */
+        "onV-focus"?: (event: CustomEvent<any>) => void;
+        /**
+          * The radio's value attribute.
+         */
+        "value"?: string;
+    }
+    interface VRange {
+        /**
+          * Set to true to disable the input.
+         */
+        "disabled"?: boolean;
+        /**
+          * The range's help text. Alternatively, you can use the help-text slot.
+         */
+        "helpText"?: string;
+        /**
+          * This will be true when the control is in an invalid state. Validity in range inputs is determined by the message provided by the `setCustomValidity` method.
+         */
+        "invalid"?: boolean;
+        /**
+          * The range's label. Alternatively, you can use the label slot.
+         */
+        "label"?: string;
+        /**
+          * The input's max attribute.
+         */
+        "max"?: number;
+        /**
+          * The input's min attribute.
+         */
+        "min"?: number;
+        /**
+          * The input's name attribute.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the control loses focus.
+         */
+        "onV-blur"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the control's value changes.
+         */
+        "onV-change"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the control gains focus.
+         */
+        "onV-focus"?: (event: CustomEvent<any>) => void;
+        /**
+          * The input's step attribute.
+         */
+        "step"?: number;
+        /**
+          * The preferred placedment of the tooltip.
+         */
+        "tooltip"?: 'top' | 'bottom' | 'none';
+        /**
+          * A function used to format the tooltip's value.
+         */
+        "tooltipFormatter"?: (value: number) => string;
+        /**
+          * The input's value attribute.
+         */
+        "value"?: number;
+    }
+    interface VRating {
+        /**
+          * Disables the rating.
+         */
+        "disabled"?: boolean;
+        /**
+          * A function that returns the symbols to display. Accepts an option `value` parameter you can use to map a specific symbol to a value.
+         */
+        "getSymbol"?: (value?: number) => string;
+        /**
+          * The highest rating to show.
+         */
+        "max"?: number;
+        /**
+          * Emitted when the rating's value changes.
+         */
+        "onV-change"?: (event: CustomEvent<any>) => void;
+        /**
+          * The minimum increment value allowed by the control.
+         */
+        "precision"?: number;
+        /**
+          * Makes the rating readonly.
+         */
+        "readonly"?: boolean;
+        /**
+          * The current rating.
+         */
+        "value"?: number;
+    }
+    interface VRelativeTime {
+        /**
+          * The date from which to calculate time from.
+         */
+        "date"?: Date | string;
+        /**
+          * The formatting style to use.
+         */
+        "format"?: 'long' | 'short' | 'narrow';
+        /**
+          * The locale to use when formatting the number.
+         */
+        "locale"?: string;
+        /**
+          * When `auto`, values such as "yesterday" and "tomorrow" will be shown when possible. When `always`, values such as "1 day ago" and "in 1 day" will be shown.
+         */
+        "numeric"?: 'always' | 'auto';
+        /**
+          * Keep the displayed value up to date as time passes.
+         */
+        "sync"?: boolean;
+    }
+    interface VResizeObserver {
+        /**
+          * Emitted when the element is resized.
+         */
+        "onV-resize"?: (event: CustomEvent<readonly ResizeObserverEntry[]>) => void;
+    }
+    interface VResponsiveEmbed {
+        /**
+          * The aspect ratio of the embedded media in the format of `width:height`, e.g. `16:9`, `4:3`, or `1:1`. Ratios not in this format will be ignored.
+         */
+        "aspectRatio"?: string;
+    }
+    interface VSelect {
+        /**
+          * Set to true to add a clear button when the select is populated.
+         */
+        "clearable"?: boolean;
+        /**
+          * Set to true to disable the select control.
+         */
+        "disabled"?: boolean;
+        /**
+          * The select's help text. Alternatively, you can use the help-text slot.
+         */
+        "helpText"?: string;
+        /**
+          * Enable this option to prevent the panel from being clipped when the component is placed inside a container with `overflow: auto|scroll`.
+         */
+        "hoist"?: boolean;
+        /**
+          * This will be true when the control is in an invalid state. Validity is determined by the `required` prop.
+         */
+        "invalid"?: boolean;
+        /**
+          * The select's label. Alternatively, you can use the label slot.
+         */
+        "label"?: string;
+        /**
+          * The maximum number of tags to show when `multiple` is true. After the maximum, "+n" will be shown to indicate the number of additional items that are selected. Set to -1 to remove the limit.
+         */
+        "maxTagsVisible"?: number;
+        /**
+          * Set to true to enable multiselect.
+         */
+        "multiple"?: boolean;
+        /**
+          * The select's name.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the control loses focus.
+         */
+        "onV-blur"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the control's value changes.
+         */
+        "onV-change"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the control gains focus.
+         */
+        "onV-focus"?: (event: CustomEvent<any>) => void;
+        /**
+          * Set to true to draw a pill-style select with rounded edges.
+         */
+        "pill"?: boolean;
+        /**
+          * The select's placeholder text.
+         */
+        "placeholder"?: string;
+        /**
+          * The select's required attribute.
+         */
+        "required"?: boolean;
+        /**
+          * The select's size.
+         */
+        "size"?: 'small' | 'medium' | 'large';
+        /**
+          * The value of the control. This will be a string or an array depending on `multiple`.
+         */
+        "value"?: string | Array<string>;
+    }
+    interface VSkeleton {
+        /**
+          * Determines which effect the skeleton will use.
+         */
+        "effect"?: 'pulse' | 'sheen' | 'none';
+    }
+    interface VSpinner {
+    }
+    interface VSwitch {
+        /**
+          * Set to true to draw the switch in a checked state.
+         */
+        "checked"?: boolean;
+        /**
+          * Set to true to disable the switch.
+         */
+        "disabled"?: boolean;
+        /**
+          * This will be true when the control is in an invalid state. Validity is determined by the `required` prop.
+         */
+        "invalid"?: boolean;
+        /**
+          * The switch's name attribute.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the control loses focus.
+         */
+        "onV-blur"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the control's checked state changes.
+         */
+        "onV-change"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the control gains focus.
+         */
+        "onV-focus"?: (event: CustomEvent<any>) => void;
+        /**
+          * Set to true to make the switch a required field.
+         */
+        "required"?: boolean;
+        /**
+          * The switch's value attribute.
+         */
+        "value"?: string;
+    }
+    interface VTab {
+        /**
+          * Set to true to draw the tab in an active state.
+         */
+        "active"?: boolean;
+        /**
+          * When true, the tab will be rendered with a close icon.
+         */
+        "closable"?: boolean;
+        /**
+          * Set to true to draw the tab in a disabled state.
+         */
+        "disabled"?: boolean;
+        /**
+          * Emitted when the tab is closable and the close button is activated.
+         */
+        "onSl-close"?: (event: CustomEvent<any>) => void;
+        /**
+          * The name of the tab panel the tab will control. The panel must be located in the same tab group.
+         */
+        "panel"?: string;
+    }
+    interface VTabGroup {
+        /**
+          * Disables the scroll arrows that appear when tabs overflow.
+         */
+        "noScrollControls"?: boolean;
+        /**
+          * Emitted when a tab is hidden.
+         */
+        "onV-tab-hide"?: (event: CustomEvent<{ name: string }>) => void;
+        /**
+          * Emitted when a tab is shown.
+         */
+        "onV-tab-show"?: (event: CustomEvent<{ name: string }>) => void;
+        /**
+          * The placement of the tabs.
+         */
+        "placement"?: 'top' | 'bottom' | 'left' | 'right';
+    }
+    interface VTabPanel {
+        /**
+          * When true, the tab panel will be shown.
+         */
+        "active"?: boolean;
+        /**
+          * The tab panel's name.
+         */
+        "name"?: string;
+    }
+    interface VTag {
+        /**
+          * Set to true to make the tag clearable.
+         */
+        "clearable"?: boolean;
+        /**
+          * Emitted when the clear button is activated.
+         */
+        "onV-clear"?: (event: CustomEvent<any>) => void;
+        /**
+          * Set to true to draw a pill-style tag with rounded edges.
+         */
+        "pill"?: boolean;
+        /**
+          * The tag's size.
+         */
+        "size"?: 'small' | 'medium' | 'large';
+        /**
+          * The tag's type.
+         */
+        "type"?: 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'text';
+    }
+    interface VTextarea {
+        /**
+          * The textarea's autocaptialize attribute.
+         */
+        "autocapitalize"?: string;
+        /**
+          * The textarea's autocomplete attribute.
+         */
+        "autocomplete"?: string;
+        /**
+          * The textarea's autocorrect attribute.
+         */
+        "autocorrect"?: string;
+        /**
+          * The textarea's autofocus attribute.
+         */
+        "autofocus"?: boolean;
+        /**
+          * Set to true to disable the textarea.
+         */
+        "disabled"?: boolean;
+        /**
+          * The textarea's help text. Alternatively, you can use the help-text slot.
+         */
+        "helpText"?: string;
+        /**
+          * The textarea's inputmode attribute.
+         */
+        "inputmode"?: 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url';
+        /**
+          * This will be true when the control is in an invalid state. Validity is determined by props such as `required`, `minlength`, and `maxlength` using the browser's constraint validation API.
+         */
+        "invalid"?: boolean;
+        /**
+          * The textarea's label. Alternatively, you can use the label slot.
+         */
+        "label"?: string;
+        /**
+          * The maximum length of input that will be considered valid.
+         */
+        "maxlength"?: number;
+        /**
+          * The minimum length of input that will be considered valid.
+         */
+        "minlength"?: number;
+        /**
+          * The textarea's name attribute.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the control loses focus.
+         */
+        "onV-blur"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the control's value changes.
+         */
+        "onV-change"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the control gains focus.
+         */
+        "onV-focus"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the control receives input.
+         */
+        "onV-input"?: (event: CustomEvent<any>) => void;
+        /**
+          * The textarea's placeholder text.
+         */
+        "placeholder"?: string;
+        /**
+          * Set to true for a readonly textarea.
+         */
+        "readonly"?: boolean;
+        /**
+          * The textarea's required attribute.
+         */
+        "required"?: boolean;
+        /**
+          * Controls how the textarea can be resized.
+         */
+        "resize"?: 'none' | 'vertical' | 'auto';
+        /**
+          * The number of rows to display by default.
+         */
+        "rows"?: number;
+        /**
+          * The textarea's size.
+         */
+        "size"?: 'small' | 'medium' | 'large';
+        /**
+          * The textarea's spellcheck attribute.
+         */
+        "spellcheck"?: boolean;
+        /**
+          * The textarea's value attribute.
+         */
+        "value"?: string;
+    }
+    interface VTheme {
+        /**
+          * The name of the theme to use. The user is responsible for including the associated stylesheet(s). Supportive themes must adhere to theme guidelines by exposing a class that follows the `v-theme-{name}` convention.
+         */
+        "name"?: string;
+    }
+    interface VTooltip {
+        /**
+          * The tooltip's content. Alternatively, you can use the content slot.
+         */
+        "content"?: string;
+        /**
+          * Set to true to disable the tooltip so it won't show when triggered.
+         */
+        "disabled"?: boolean;
+        /**
+          * The distance in pixels from which to offset the tooltip away from its target.
+         */
+        "distance"?: number;
+        /**
+          * Emitted after the tooltip has hidden and all transitions are complete.
+         */
+        "onSl-after-hide"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted after the tooltip has shown and all transitions are complete.
+         */
+        "onSl-aftershow"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the tooltip begins to hide. Calling `event.preventDefault()` will prevent it from being hidden.
+         */
+        "onSl-hide"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the tooltip begins to show. Calling `event.preventDefault()` will prevent it from being shown.
+         */
+        "onSl-show"?: (event: CustomEvent<any>) => void;
+        /**
+          * Indicates whether or not the tooltip is open. You can use this in lieu of the show/hide methods.
+         */
+        "open"?: boolean;
+        /**
+          * The preferred placement of the tooltip. Note that the actual placement may vary as needed to keep the tooltip inside of the viewport.
+         */
+        "placement"?: 'top' | 'top-start' | 'top-end' | 'right' | 'right-start' | 'right-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end';
+        /**
+          * The distance in pixels from which to offset the tooltip along its target.
+         */
+        "skidding"?: number;
+        /**
+          * Controls how the tooltip is activated. Possible options include `click`, `hover`, `focus`, and `manual`. Multiple options can be passed by separating them with a space. When manual is used, the tooltip must be activated programmatically.
+         */
+        "trigger"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "v-alert": VAlert;
+        "v-animation": VAnimation;
+        "v-avatar": VAvatar;
+        "v-badge": VBadge;
+        "v-button": VButton;
+        "v-button-group": VButtonGroup;
+        "v-card": VCard;
+        "v-checkbox": VCheckbox;
+        "v-color-picker": VColorPicker;
+        "v-details": VDetails;
+        "v-dialog": VDialog;
+        "v-drawer": VDrawer;
+        "v-dropdown": VDropdown;
+        "v-form": VForm;
+        "v-format-bytes": VFormatBytes;
+        "v-format-date": VFormatDate;
+        "v-format-number": VFormatNumber;
+        "v-icon": VIcon;
+        "v-icon-button": VIconButton;
+        "v-icon-library": VIconLibrary;
+        "v-image-comparer": VImageComparer;
+        "v-include": VInclude;
+        "v-input": VInput;
+        "v-menu": VMenu;
+        "v-menu-divider": VMenuDivider;
+        "v-menu-item": VMenuItem;
+        "v-menu-label": VMenuLabel;
+        "v-progress-bar": VProgressBar;
+        "v-progress-ring": VProgressRing;
+        "v-radio": VRadio;
+        "v-range": VRange;
+        "v-rating": VRating;
+        "v-relative-time": VRelativeTime;
+        "v-resize-observer": VResizeObserver;
+        "v-responsive-embed": VResponsiveEmbed;
+        "v-select": VSelect;
+        "v-skeleton": VSkeleton;
+        "v-spinner": VSpinner;
+        "v-switch": VSwitch;
+        "v-tab": VTab;
+        "v-tab-group": VTabGroup;
+        "v-tab-panel": VTabPanel;
+        "v-tag": VTag;
+        "v-textarea": VTextarea;
+        "v-theme": VTheme;
+        "v-tooltip": VTooltip;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +3106,52 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "v-alert": LocalJSX.VAlert & JSXBase.HTMLAttributes<HTMLVAlertElement>;
+            "v-animation": LocalJSX.VAnimation & JSXBase.HTMLAttributes<HTMLVAnimationElement>;
+            "v-avatar": LocalJSX.VAvatar & JSXBase.HTMLAttributes<HTMLVAvatarElement>;
+            "v-badge": LocalJSX.VBadge & JSXBase.HTMLAttributes<HTMLVBadgeElement>;
+            "v-button": LocalJSX.VButton & JSXBase.HTMLAttributes<HTMLVButtonElement>;
+            "v-button-group": LocalJSX.VButtonGroup & JSXBase.HTMLAttributes<HTMLVButtonGroupElement>;
+            "v-card": LocalJSX.VCard & JSXBase.HTMLAttributes<HTMLVCardElement>;
+            "v-checkbox": LocalJSX.VCheckbox & JSXBase.HTMLAttributes<HTMLVCheckboxElement>;
+            "v-color-picker": LocalJSX.VColorPicker & JSXBase.HTMLAttributes<HTMLVColorPickerElement>;
+            "v-details": LocalJSX.VDetails & JSXBase.HTMLAttributes<HTMLVDetailsElement>;
+            "v-dialog": LocalJSX.VDialog & JSXBase.HTMLAttributes<HTMLVDialogElement>;
+            "v-drawer": LocalJSX.VDrawer & JSXBase.HTMLAttributes<HTMLVDrawerElement>;
+            "v-dropdown": LocalJSX.VDropdown & JSXBase.HTMLAttributes<HTMLVDropdownElement>;
+            "v-form": LocalJSX.VForm & JSXBase.HTMLAttributes<HTMLVFormElement>;
+            "v-format-bytes": LocalJSX.VFormatBytes & JSXBase.HTMLAttributes<HTMLVFormatBytesElement>;
+            "v-format-date": LocalJSX.VFormatDate & JSXBase.HTMLAttributes<HTMLVFormatDateElement>;
+            "v-format-number": LocalJSX.VFormatNumber & JSXBase.HTMLAttributes<HTMLVFormatNumberElement>;
+            "v-icon": LocalJSX.VIcon & JSXBase.HTMLAttributes<HTMLVIconElement>;
+            "v-icon-button": LocalJSX.VIconButton & JSXBase.HTMLAttributes<HTMLVIconButtonElement>;
+            "v-icon-library": LocalJSX.VIconLibrary & JSXBase.HTMLAttributes<HTMLVIconLibraryElement>;
+            "v-image-comparer": LocalJSX.VImageComparer & JSXBase.HTMLAttributes<HTMLVImageComparerElement>;
+            "v-include": LocalJSX.VInclude & JSXBase.HTMLAttributes<HTMLVIncludeElement>;
+            "v-input": LocalJSX.VInput & JSXBase.HTMLAttributes<HTMLVInputElement>;
+            "v-menu": LocalJSX.VMenu & JSXBase.HTMLAttributes<HTMLVMenuElement>;
+            "v-menu-divider": LocalJSX.VMenuDivider & JSXBase.HTMLAttributes<HTMLVMenuDividerElement>;
+            "v-menu-item": LocalJSX.VMenuItem & JSXBase.HTMLAttributes<HTMLVMenuItemElement>;
+            "v-menu-label": LocalJSX.VMenuLabel & JSXBase.HTMLAttributes<HTMLVMenuLabelElement>;
+            "v-progress-bar": LocalJSX.VProgressBar & JSXBase.HTMLAttributes<HTMLVProgressBarElement>;
+            "v-progress-ring": LocalJSX.VProgressRing & JSXBase.HTMLAttributes<HTMLVProgressRingElement>;
+            "v-radio": LocalJSX.VRadio & JSXBase.HTMLAttributes<HTMLVRadioElement>;
+            "v-range": LocalJSX.VRange & JSXBase.HTMLAttributes<HTMLVRangeElement>;
+            "v-rating": LocalJSX.VRating & JSXBase.HTMLAttributes<HTMLVRatingElement>;
+            "v-relative-time": LocalJSX.VRelativeTime & JSXBase.HTMLAttributes<HTMLVRelativeTimeElement>;
+            "v-resize-observer": LocalJSX.VResizeObserver & JSXBase.HTMLAttributes<HTMLVResizeObserverElement>;
+            "v-responsive-embed": LocalJSX.VResponsiveEmbed & JSXBase.HTMLAttributes<HTMLVResponsiveEmbedElement>;
+            "v-select": LocalJSX.VSelect & JSXBase.HTMLAttributes<HTMLVSelectElement>;
+            "v-skeleton": LocalJSX.VSkeleton & JSXBase.HTMLAttributes<HTMLVSkeletonElement>;
+            "v-spinner": LocalJSX.VSpinner & JSXBase.HTMLAttributes<HTMLVSpinnerElement>;
+            "v-switch": LocalJSX.VSwitch & JSXBase.HTMLAttributes<HTMLVSwitchElement>;
+            "v-tab": LocalJSX.VTab & JSXBase.HTMLAttributes<HTMLVTabElement>;
+            "v-tab-group": LocalJSX.VTabGroup & JSXBase.HTMLAttributes<HTMLVTabGroupElement>;
+            "v-tab-panel": LocalJSX.VTabPanel & JSXBase.HTMLAttributes<HTMLVTabPanelElement>;
+            "v-tag": LocalJSX.VTag & JSXBase.HTMLAttributes<HTMLVTagElement>;
+            "v-textarea": LocalJSX.VTextarea & JSXBase.HTMLAttributes<HTMLVTextareaElement>;
+            "v-theme": LocalJSX.VTheme & JSXBase.HTMLAttributes<HTMLVThemeElement>;
+            "v-tooltip": LocalJSX.VTooltip & JSXBase.HTMLAttributes<HTMLVTooltipElement>;
         }
     }
 }

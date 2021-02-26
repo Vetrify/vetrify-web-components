@@ -1,0 +1,135 @@
+@import 'component';
+@import '../../functional-components/form-control/form-control';
+
+:host {
+  display: block;
+}
+
+.textarea {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  font-family: var(--v-input-font-family);
+  font-weight: var(--v-input-font-weight);
+  line-height: var(--v-line-height-normal);
+  letter-spacing: var(--v-input-letter-spacing);
+  background-color: var(--v-input-background-color);
+  border: solid var(--v-input-border-width) var(--v-input-border-color);
+  vertical-align: middle;
+  transition: var(--v-transition-fast) color, var(--v-transition-fast) border, var(--v-transition-fast) box-shadow;
+  cursor: text;
+
+  &:hover:not(.textarea--disabled) {
+    background-color: var(--v-input-background-color-hover);
+    border-color: var(--v-input-border-color-hover);
+
+    .textarea__control {
+      color: var(--v-input-color-hover);
+    }
+  }
+
+  &.textarea--focused:not(.textarea--disabled) {
+    background-color: var(--v-input-background-color-focus);
+    border-color: var(--v-input-border-color-focus);
+    box-shadow: 0 0 0 var(--v-focus-ring-width) var(--v-focus-ring-color-primary);
+    color: var(--v-input-color-focus);
+
+    .textarea__control {
+      color: var(--v-input-color-focus);
+    }
+  }
+
+  &.textarea--disabled {
+    background-color: var(--v-input-background-color-disabled);
+    border-color: var(--v-input-border-color-disabled);
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    .textarea__control {
+      color: var(--v-input-color-disabled);
+
+      &::placeholder {
+        color: var(--v-input-placeholder-color-disabled);
+      }
+    }
+  }
+}
+
+.textarea__control {
+  flex: 1 1 auto;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: 1.4;
+  color: var(--v-input-color);
+  border: none;
+  background: none;
+  box-shadow: none;
+  cursor: inherit;
+  -webkit-appearance: none;
+
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
+
+  &::placeholder {
+    color: var(--v-input-placeholder-color);
+    user-select: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Size modifiers
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.textarea--small {
+  border-radius: var(--v-input-border-radius-small);
+  font-size: var(--v-input-font-size-small);
+
+  .textarea__control {
+    padding: 0.5em var(--v-input-spacing-small);
+  }
+}
+
+.textarea--medium {
+  border-radius: var(--v-input-border-radius-medium);
+  font-size: var(--v-input-font-size-medium);
+
+  .textarea__control {
+    padding: 0.5em var(--v-input-spacing-medium);
+  }
+}
+
+.textarea--large {
+  border-radius: var(--v-input-border-radius-large);
+  font-size: var(--v-input-font-size-large);
+
+  .textarea__control {
+    padding: 0.5em var(--v-input-spacing-large);
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Resize types
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.textarea--resize-none .textarea__control {
+  resize: none;
+}
+
+.textarea--resize-vertical .textarea__control {
+  resize: vertical;
+}
+
+.textarea--resize-auto .textarea__control {
+  height: auto;
+  resize: none;
+}

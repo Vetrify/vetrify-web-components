@@ -1,0 +1,105 @@
+@import 'component';
+
+:host {
+  display: inline-block;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  border: solid 1px;
+  line-height: 1;
+  white-space: nowrap;
+  user-select: none;
+  cursor: default;
+}
+
+.tag__clear::part(base) {
+  color: inherit;
+  padding: 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Type modifiers
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.tag--primary {
+  background-color: var(--v-color-primary-100);
+  border-color: var(--v-color-primary-200);
+  color: var(--v-color-primary-700);
+}
+
+.tag--success {
+  background-color: var(--v-color-success-100);
+  border-color: var(--v-color-success-200);
+  color: var(--v-color-success-700);
+}
+
+.tag--info {
+  background-color: var(--v-color-info-100);
+  border-color: var(--v-color-info-200);
+  color: var(--v-color-info-700);
+}
+
+.tag--warning {
+  background-color: var(--v-color-warning-100);
+  border-color: var(--v-color-warning-200);
+  color: var(--v-color-warning-700);
+}
+
+.tag--danger {
+  background-color: var(--v-color-danger-100);
+  border-color: var(--v-color-danger-200);
+  color: var(--v-color-danger-700);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Size modifiers
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.tag--small {
+  font-size: var(--v-button-font-size-small);
+  height: calc(var(--v-input-height-small) * 0.8);
+  line-height: calc(var(--v-input-height-small) - var(--v-input-border-width) * 2);
+  border-radius: var(--v-input-border-radius-small);
+  padding: 0 var(--v-spacing-x-small);
+
+  .tag__clear {
+    margin-left: var(--v-spacing-xx-small);
+    margin-right: calc(-1 * var(--v-spacing-xxx-small));
+  }
+}
+
+.tag--medium {
+  font-size: var(--v-button-font-size-medium);
+  height: calc(var(--v-input-height-medium) * 0.8);
+  line-height: calc(var(--v-input-height-medium) - var(--v-input-border-width) * 2);
+  border-radius: var(--v-input-border-radius-medium);
+  padding: 0 var(--v-spacing-small);
+
+  .tag__clear {
+    margin-left: var(--v-spacing-xx-small);
+    margin-right: calc(-1 * var(--v-spacing-xx-small));
+  }
+}
+
+.tag--large {
+  font-size: var(--v-button-font-size-large);
+  height: calc(var(--v-input-height-large) * 0.8);
+  line-height: calc(var(--v-input-height-large) - var(--v-input-border-width) * 2);
+  border-radius: var(--v-input-border-radius-large);
+  padding: 0 var(--v-spacing-medium);
+
+  .tag__clear {
+    margin-left: var(--v-spacing-xx-small);
+    margin-right: calc(-1 * var(--v-spacing-x-small));
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Pill modifier
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.tag--pill {
+  border-radius: var(--v-border-radius-pill);
+}

@@ -1,0 +1,16 @@
+@import 'component';
+
+:host {
+  display: block;
+}
+
+.menu-label {
+  font-family: var(--v-font-sans);
+  font-size: var(--v-font-size-small);
+  font-weight: var(--v-font-weight-normal);
+  line-height: var(--v-line-height-normal);
+  letter-spacing: var(--v-letter-spacing-normal);
+  color: var(--v-color-gray-400);
+  padding: var(--v-spacing-xx-small) var(--v-spacing-x-large);
+  user-select: none;
+}

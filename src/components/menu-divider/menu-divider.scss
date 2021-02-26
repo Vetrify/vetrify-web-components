@@ -1,0 +1,10 @@
+@import 'component';
+
+:host {
+  display: block;
+}
+
+.menu-divider {
+  border-top: solid 1px var(--v-panel-border-color);
+  margin: var(--v-spacing-x-small) 0;
+}

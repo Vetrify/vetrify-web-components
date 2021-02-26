@@ -1,0 +1,60 @@
+@import 'component';
+
+/**
+ * @prop --focus-ring: The focus ring's box shadow.
+ */
+:host {
+  --focus-ring: inset 0 0 0 var(--v-focus-ring-width) var(--v-focus-ring-color-primary);
+
+  display: inline-block;
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--v-font-sans);
+  font-size: var(--v-font-size-small);
+  font-weight: var(--v-font-weight-semibold);
+  border-radius: 4px;
+  color: var(--v-color-gray-600);
+  padding: var(--v-spacing-medium) var(--v-spacing-large);
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+  transition: var(--transition-speed) box-shadow, var(--transition-speed) color;
+
+  &:hover:not(.tab--disabled) {
+    color: var(--v-color-primary-500);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus:not(.tab--disabled) {
+    color: var(--v-color-primary-500);
+    box-shadow: var(--focus-ring);
+  }
+
+  &.tab--active:not(.tab--disabled) {
+    color: var(--v-color-primary-500);
+  }
+
+  &.tab--closable {
+    padding-right: var(--v-spacing-small);
+  }
+
+  &.tab--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.tab__close-button {
+  font-size: var(--v-font-size-large);
+  margin-left: var(--v-spacing-xx-small);
+
+  &::part(base) {
+    padding: var(--v-spacing-xxx-small);
+  }
+}

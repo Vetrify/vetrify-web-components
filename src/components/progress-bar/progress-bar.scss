@@ -1,0 +1,57 @@
+@import 'component';
+
+/**
+ * @prop --height: The progress bar's height.
+ * @prop --track-color: The track color.
+ * @prop --indicator-color: The indicator color.
+ * @prop --label-color: The label color.
+ */
+:host {
+  --height: 16px;
+  --track-color: var(--v-color-gray-200);
+  --indicator-color: var(--v-color-primary-500);
+  --label-color: var(--v-color-white);
+
+  display: block;
+}
+
+.progress-bar {
+  position: relative;
+  background-color: var(--track-color);
+  height: var(--height);
+  border-radius: var(--v-border-radius-pill);
+  overflow: hidden;
+}
+
+.progress-bar__indicator {
+  height: 100%;
+  font-family: var(--v-font-sans);
+  font-size: 12px;
+  font-weight: var(--v-font-weight-normal);
+  background-color: var(--indicator-color);
+  color: var(--label-color);
+  text-align: center;
+  line-height: var(--height);
+  white-space: nowrap;
+  overflow: hidden;
+  transition: 400ms width, 400ms background-color;
+  user-select: none;
+}
+
+// Indeterminate
+.progress-bar--indeterminate .progress-bar__indicator {
+  position: absolute;
+  animation: indeterminate 2.5s infinite cubic-bezier(0.37, 0, 0.63, 1);
+}
+
+@keyframes indeterminate {
+  0% {
+    left: -50%;
+    width: 50%;
+  }
+  75%,
+  100% {
+    left: 100%;
+    width: 50%;
+  }
+}

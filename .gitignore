@@ -1,6 +1,14 @@
+src/components/*/readme.md
+src/components/icon/icons
+docs/assets/data/custom.json
+docs/assets/icons/sprite.svg
+
 dist/
+docs/dist/
+docs/themes/
 www/
 loader/
+temp/
 
 *~
 *.sw[mnpcod]
