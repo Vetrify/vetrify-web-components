@@ -47,7 +47,7 @@ export class Dropdown {
   @Prop() closeOnSelect = true;
 
   /** The dropdown will close when the user interacts outside of this element (e.g. clicking). */
-  @Prop() containingElement: HTMLElement;
+  @Prop({ mutable: true }) containingElement: HTMLElement;
 
   /** The distance in pixels from which to offset the panel away from its trigger. */
   @Prop() distance = 2;
