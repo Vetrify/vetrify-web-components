@@ -5,7 +5,7 @@
  * @prop --tabs-border-color: The color of the border that separates tabs.
  */
 :host {
-  --tabs-border-color: var(--sl-color-gray-200);
+  --tabs-border-color: var(--v-color-gray-200);
 
   display: block;
 }
@@ -22,7 +22,7 @@
 
   .tab-group__active-tab-indicator {
     position: absolute;
-    transition: var(--sl-transition-fast) transform ease, var(--sl-transition-fast) width ease;
+    transition: var(--v-transition-fast) transform ease, var(--v-transition-fast) width ease;
   }
 
   // Remove the focus ring when the user isn't interacting with a keyboard
@@ -33,7 +33,7 @@
 
 .tab-group--has-scroll-controls .tab-group__nav-container {
   position: relative;
-  padding: 0 var(--sl-spacing-x-large);
+  padding: 0 var(--v-spacing-x-large);
 }
 
 .tab-group__scroll-button {
@@ -43,7 +43,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: var(--sl-spacing-x-large);
+  width: var(--v-spacing-x-large);
 }
 
 .tab-group__scroll-button--left {
@@ -80,7 +80,7 @@
 
   .tab-group__active-tab-indicator {
     bottom: -2px;
-    border-bottom: solid 2px var(--sl-color-primary-500);
+    border-bottom: solid 2px var(--v-color-primary-500);
   }
 
   .tab-group__body {
@@ -114,7 +114,7 @@
 
   .tab-group__active-tab-indicator {
     top: calc(-1 * 2px);
-    border-top: solid 2px var(--sl-color-primary-500);
+    border-top: solid 2px var(--v-color-primary-500);
   }
 
   .tab-group__body {
@@ -141,7 +141,7 @@
 
   .tab-group__active-tab-indicator {
     right: calc(-1 * 2px);
-    border-right: solid 2px var(--sl-color-primary-500);
+    border-right: solid 2px var(--v-color-primary-500);
   }
 
   .tab-group__body {
@@ -169,7 +169,7 @@
 
   .tab-group__active-tab-indicator {
     left: calc(-1 * 2px);
-    border-left: solid 2px var(--sl-color-primary-500);
+    border-left: solid 2px var(--v-color-primary-500);
   }
 
   .tab-group__body {

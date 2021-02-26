@@ -13,7 +13,7 @@
   .form-control__label {
     display: inline-block;
     color: var(--v-input-label-color);
-    margin-bottom: var(--sl-spacing-xxx-small);
+    margin-bottom: var(--v-spacing-xxx-small);
   }
 
   &.form-control--small .form-control__label {
@@ -36,7 +36,7 @@
     color: var(--v-input-help-text-color);
 
     ::slotted(*) {
-      margin-top: var(--sl-spacing-xxx-small);
+      margin-top: var(--v-spacing-xxx-small);
     }
   }
 

@@ -10,21 +10,21 @@
   align-items: center;
   background: none;
   border: none;
-  border-radius: var(--sl-border-radius-medium);
+  border-radius: var(--v-border-radius-medium);
   font-size: inherit;
-  color: var(--sl-color-gray-500);
-  padding: var(--sl-spacing-x-small);
+  color: var(--v-color-gray-500);
+  padding: var(--v-spacing-x-small);
   cursor: pointer;
-  transition: var(--sl-transition-medium) color;
+  transition: var(--v-transition-medium) color;
   -webkit-appearance: none;
 
   &:hover:not(.icon-button--disabled),
   &:focus:not(.icon-button--disabled) {
-    color: var(--sl-color-primary-500);
+    color: var(--v-color-primary-500);
   }
 
   &:active:not(.icon-button--disabled) {
-    color: var(--sl-color-primary-600);
+    color: var(--v-color-primary-600);
   }
 
   &:focus {

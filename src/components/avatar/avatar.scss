@@ -16,22 +16,22 @@
   position: relative;
   width: var(--size);
   height: var(--size);
-  background-color: var(--sl-color-gray-300);
-  font-family: var(--sl-font-sans);
+  background-color: var(--v-color-gray-300);
+  font-family: var(--v-font-sans);
   font-size: calc(var(--size) * 0.5);
-  font-weight: var(--sl-font-weight-normal);
-  color: var(--sl-color-white);
+  font-weight: var(--v-font-weight-normal);
+  color: var(--v-color-white);
   overflow: hidden;
   user-select: none;
   vertical-align: middle;
 }
 
 .avatar--circle {
-  border-radius: var(--sl-border-radius-circle);
+  border-radius: var(--v-border-radius-circle);
 }
 
 .avatar--rounded {
-  border-radius: var(--sl-border-radius-medium);
+  border-radius: var(--v-border-radius-medium);
 }
 
 .avatar--square {

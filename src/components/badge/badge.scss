@@ -8,11 +8,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--sl-font-size-x-small);
-  font-weight: var(--sl-font-weight-semibold);
-  letter-spacing: var(--sl-letter-spacing-normal);
+  font-size: var(--v-font-size-x-small);
+  font-weight: var(--v-font-weight-semibold);
+  letter-spacing: var(--v-letter-spacing-normal);
   line-height: 1;
-  border-radius: var(--sl-border-radius-small);
+  border-radius: var(--v-border-radius-small);
   white-space: nowrap;
   padding: 3px 6px;
   user-select: none;
@@ -24,28 +24,28 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 .badge--primary {
-  background-color: var(--sl-color-primary-500);
-  color: var(--sl-color-white);
+  background-color: var(--v-color-primary-500);
+  color: var(--v-color-white);
 }
 
 .badge--success {
-  background-color: var(--sl-color-success-500);
-  color: var(--sl-color-white);
+  background-color: var(--v-color-success-500);
+  color: var(--v-color-white);
 }
 
 .badge--info {
-  background-color: var(--sl-color-info-500);
-  color: var(--sl-color-white);
+  background-color: var(--v-color-info-500);
+  color: var(--v-color-white);
 }
 
 .badge--warning {
-  background-color: var(--sl-color-warning-500);
-  color: var(--sl-color-white);
+  background-color: var(--v-color-warning-500);
+  color: var(--v-color-white);
 }
 
 .badge--danger {
-  background-color: var(--sl-color-danger-500);
-  color: var(--sl-color-white);
+  background-color: var(--v-color-danger-500);
+  color: var(--v-color-white);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -53,7 +53,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 .badge--pill {
-  border-radius: var(--sl-border-radius-pill);
+  border-radius: var(--v-border-radius-pill);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -65,23 +65,23 @@
 }
 
 .badge--pulse.badge--primary {
-  --pulse-color: var(--sl-color-primary-500);
+  --pulse-color: var(--v-color-primary-500);
 }
 
 .badge--pulse.badge--success {
-  --pulse-color: var(--sl-color-success-500);
+  --pulse-color: var(--v-color-success-500);
 }
 
 .badge--pulse.badge--info {
-  --pulse-color: var(--sl-color-info-500);
+  --pulse-color: var(--v-color-info-500);
 }
 
 .badge--pulse.badge--warning {
-  --pulse-color: var(--sl-color-warning-500);
+  --pulse-color: var(--v-color-warning-500);
 }
 
 .badge--pulse.badge--danger {
-  --pulse-color: var(--sl-color-danger-500);
+  --pulse-color: var(--v-color-danger-500);
 }
 
 @keyframes pulse {

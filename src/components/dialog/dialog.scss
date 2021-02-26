@@ -19,7 +19,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: var(--sl-z-index-dialog);
+  z-index: var(--v-z-index-dialog);
 
   &:not(.dialog--visible) {
     @include hidden;
@@ -31,14 +31,14 @@
   flex-direction: column;
   z-index: 2;
   width: var(--width);
-  max-width: calc(100% - var(--sl-spacing-xx-large));
-  max-height: calc(100% - var(--sl-spacing-xx-large));
-  background-color: var(--sl-panel-background-color);
-  border-radius: var(--sl-border-radius-medium);
-  box-shadow: var(--sl-shadow-x-large);
+  max-width: calc(100% - var(--v-spacing-xx-large));
+  max-height: calc(100% - var(--v-spacing-xx-large));
+  background-color: var(--v-panel-background-color);
+  border-radius: var(--v-border-radius-medium);
+  box-shadow: var(--v-shadow-x-large);
   opacity: 0;
   transform: scale(0.8);
-  transition: var(--sl-transition-medium) opacity, var(--sl-transition-medium) transform;
+  transition: var(--v-transition-medium) opacity, var(--v-transition-medium) transform;
 
   &:focus {
     outline: none;
@@ -65,22 +65,22 @@
 
 .dialog__title {
   flex: 1 1 auto;
-  font-size: var(--sl-font-size-large);
-  line-height: var(--sl-line-height-dense);
-  padding: var(--sl-spacing-large);
+  font-size: var(--v-font-size-large);
+  line-height: var(--v-line-height-dense);
+  padding: var(--v-spacing-large);
 }
 
 .dialog__close {
   flex: 0 0 auto;
   display: flex;
   align-items: center;
-  font-size: var(--sl-font-size-x-large);
-  padding: 0 var(--sl-spacing-large);
+  font-size: var(--v-font-size-x-large);
+  padding: 0 var(--v-spacing-large);
 }
 
 .dialog__body {
   flex: 1 1 auto;
-  padding: var(--sl-spacing-large);
+  padding: var(--v-spacing-large);
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -88,10 +88,10 @@
 .dialog__footer {
   flex: 0 0 auto;
   text-align: right;
-  padding: var(--sl-spacing-large);
+  padding: var(--v-spacing-large);
 
   ::slotted(v-button:not(:first-of-type)) {
-    margin-left: var(--sl-spacing-x-small);
+    margin-left: var(--v-spacing-x-small);
   }
 }
 
@@ -105,9 +105,9 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: var(--sl-overlay-background-color);
+  background-color: var(--v-overlay-background-color);
   opacity: 0;
-  transition: var(--sl-transition-medium) opacity;
+  transition: var(--v-transition-medium) opacity;
 }
 
 .dialog--open .dialog__overlay {

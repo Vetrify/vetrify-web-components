@@ -12,12 +12,12 @@
   width: 100%;
   font-family: var(--v-input-font-family);
   font-weight: var(--v-input-font-weight);
-  line-height: var(--sl-line-height-normal);
+  line-height: var(--v-line-height-normal);
   letter-spacing: var(--v-input-letter-spacing);
   background-color: var(--v-input-background-color);
   border: solid var(--v-input-border-width) var(--v-input-border-color);
   vertical-align: middle;
-  transition: var(--sl-transition-fast) color, var(--sl-transition-fast) border, var(--sl-transition-fast) box-shadow;
+  transition: var(--v-transition-fast) color, var(--v-transition-fast) border, var(--v-transition-fast) box-shadow;
   cursor: text;
 
   &:hover:not(.textarea--disabled) {

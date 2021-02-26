@@ -6,8 +6,8 @@
  * @prop --thumb-size: The size of the thumb.
  */
 :host {
-  --height: var(--sl-toggle-size);
-  --thumb-size: calc(var(--sl-toggle-size) + 4px);
+  --height: var(--v-toggle-size);
+  --thumb-size: calc(var(--v-toggle-size) + 4px);
   --width: calc(var(--height) * 2);
 
   display: inline-block;
@@ -32,20 +32,20 @@
   justify-content: center;
   width: var(--width);
   height: var(--height);
-  background-color: var(--sl-color-gray-300);
-  border: solid var(--v-input-border-width) var(--sl-color-gray-300);
+  background-color: var(--v-color-gray-300);
+  border: solid var(--v-input-border-width) var(--v-color-gray-300);
   border-radius: var(--height);
-  transition: var(--sl-transition-fast) border-color, var(--sl-transition-fast) background-color;
+  transition: var(--v-transition-fast) border-color, var(--v-transition-fast) background-color;
 
   .switch__thumb {
     width: var(--thumb-size);
     height: var(--thumb-size);
-    background-color: var(--sl-color-white);
+    background-color: var(--v-color-white);
     border-radius: 50%;
     border: solid var(--v-input-border-width) var(--v-input-border-color);
     transform: translateX(calc(var(--width) / -2 + var(--thumb-size) / 2 - (var(--thumb-size) - var(--height)) / 2));
-    transition: var(--sl-transition-fast) transform ease, var(--sl-transition-fast) background-color,
-      var(--sl-transition-fast) border-color, var(--sl-transition-fast) box-shadow;
+    transition: var(--v-transition-fast) transform ease, var(--v-transition-fast) background-color,
+      var(--v-transition-fast) border-color, var(--v-transition-fast) box-shadow;
   }
 
   input[type='checkbox'] {
@@ -59,58 +59,58 @@
 
 // Hover
 .switch:not(.switch--checked):not(.switch--disabled) .switch__control:hover {
-  background-color: var(--sl-color-gray-200);
-  border-color: var(--sl-color-gray-200);
+  background-color: var(--v-color-gray-200);
+  border-color: var(--v-color-gray-200);
 
   .switch__thumb {
-    background-color: var(--sl-color-white);
+    background-color: var(--v-color-white);
     border-color: var(--v-input-border-color);
   }
 }
 
 // Focus
 .switch.switch--focused:not(.switch--checked):not(.switch--disabled) .switch__control {
-  background-color: var(--sl-color-gray-200);
-  border-color: var(--sl-color-gray-200);
+  background-color: var(--v-color-gray-200);
+  border-color: var(--v-color-gray-200);
 
   .switch__thumb {
-    background-color: var(--sl-color-white);
-    border-color: var(--sl-color-primary-500);
+    background-color: var(--v-color-white);
+    border-color: var(--v-color-primary-500);
     box-shadow: 0 0 0 var(--v-focus-ring-width) var(--v-focus-ring-color-primary);
   }
 }
 
 // Checked
 .switch--checked .switch__control {
-  background-color: var(--sl-color-primary-500);
-  border-color: var(--sl-color-primary-500);
+  background-color: var(--v-color-primary-500);
+  border-color: var(--v-color-primary-500);
 
   .switch__thumb {
-    background-color: var(--sl-color-white);
-    border-color: var(--sl-color-primary-500);
+    background-color: var(--v-color-white);
+    border-color: var(--v-color-primary-500);
     transform: translateX(calc(var(--width) / 2 - var(--thumb-size) / 2 + (var(--thumb-size) - var(--height)) / 2));
   }
 }
 
 // Checked + hover
 .switch.switch--checked:not(.switch--disabled) .switch__control:hover {
-  background-color: var(--sl-color-primary-400);
-  border-color: var(--sl-color-primary-400);
+  background-color: var(--v-color-primary-400);
+  border-color: var(--v-color-primary-400);
 
   .switch__thumb {
-    background-color: var(--sl-color-white);
-    border-color: var(--sl-color-primary-500);
+    background-color: var(--v-color-white);
+    border-color: var(--v-color-primary-500);
   }
 }
 
 // Checked + focus
 .switch.switch--checked:not(.switch--disabled).switch--focused .switch__control {
-  background-color: var(--sl-color-primary-400);
-  border-color: var(--sl-color-primary-400);
+  background-color: var(--v-color-primary-400);
+  border-color: var(--v-color-primary-400);
 
   .switch__thumb {
-    background-color: var(--sl-color-white);
-    border-color: var(--sl-color-primary-500);
+    background-color: var(--v-color-white);
+    border-color: var(--v-color-primary-500);
     box-shadow: 0 0 0 var(--v-focus-ring-width) var(--v-focus-ring-color-primary);
   }
 }

@@ -7,10 +7,10 @@
  * @prop --symbol-spacing: The spacing to use around symbols.
  */
 :host {
-  --symbol-color: var(--sl-color-gray-300);
+  --symbol-color: var(--v-color-gray-300);
   --symbol-color-active: #ffbe00;
   --symbol-size: 1.2rem;
-  --symbol-spacing: var(--sl-spacing-xxx-small);
+  --symbol-spacing: var(--v-spacing-xxx-small);
 
   display: inline-flex;
 }
@@ -18,7 +18,7 @@
 .rating {
   position: relative;
   display: inline-flex;
-  border-radius: var(--sl-border-radius-medium);
+  border-radius: var(--v-border-radius-medium);
   vertical-align: middle;
 
   &:focus {
@@ -53,7 +53,7 @@
 }
 
 .rating__symbol {
-  transition: var(--sl-transition-fast) transform;
+  transition: var(--v-transition-fast) transform;
 }
 
 .rating__symbol--hover {

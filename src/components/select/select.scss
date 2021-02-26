@@ -29,7 +29,7 @@
   border: solid var(--v-input-border-width) var(--v-input-border-color);
   vertical-align: middle;
   overflow: hidden;
-  transition: var(--sl-transition-fast) color, var(--sl-transition-fast) border, var(--sl-transition-fast) box-shadow;
+  transition: var(--v-transition-fast) color, var(--v-transition-fast) border, var(--v-transition-fast) box-shadow;
   cursor: pointer;
 }
 
@@ -82,7 +82,7 @@
 .select__icon {
   flex: 0 0 auto;
   display: inline-flex;
-  transition: var(--sl-transition-medium) transform ease;
+  transition: var(--v-transition-medium) transform ease;
 }
 
 .select--open .select__icon {
@@ -104,7 +104,7 @@
   align-items: center;
   flex-wrap: wrap;
   justify-content: left;
-  margin-left: var(--sl-spacing-xx-small);
+  margin-left: var(--v-spacing-xx-small);
 }
 
 // Hidden input (for form control validation to show)
@@ -148,7 +148,7 @@
     }
 
     v-tag:not(:last-of-type) {
-      margin-right: var(--sl-spacing-xx-small);
+      margin-right: var(--v-spacing-xx-small);
     }
   }
 
@@ -184,7 +184,7 @@
     }
 
     v-tag:not(:last-of-type) {
-      margin-right: var(--sl-spacing-xx-small);
+      margin-right: var(--v-spacing-xx-small);
     }
   }
 
@@ -220,7 +220,7 @@
     }
 
     v-tag:not(:last-of-type) {
-      margin-right: var(--sl-spacing-xx-small);
+      margin-right: var(--v-spacing-xx-small);
     }
   }
 

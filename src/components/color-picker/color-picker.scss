@@ -19,18 +19,18 @@
 
 .color-picker {
   width: var(--grid-width);
-  font-family: var(--sl-font-sans);
-  font-size: var(--sl-font-size-medium);
-  font-weight: var(--sl-font-weight-normal);
+  font-family: var(--v-font-sans);
+  font-size: var(--v-font-size-medium);
+  font-weight: var(--v-font-weight-normal);
   color: var(--color);
-  background-color: var(--sl-panel-background-color);
-  border-radius: var(--sl-border-radius-medium);
+  background-color: var(--v-panel-background-color);
+  border-radius: var(--v-border-radius-medium);
   user-select: none;
 }
 
 .color-picker--inline {
-  border: solid 1px var(--sl-panel-border-color);
-  box-shadow: var(--sl-shadow-small);
+  border: solid 1px var(--v-panel-border-color);
+  box-shadow: var(--v-shadow-small);
 }
 
 .color-picker__grid {
@@ -44,8 +44,8 @@
       hsl(0, 0%, 0%) 100%
     ),
     linear-gradient(to right, hsl(0, 0%, 50%) 0%, hsla(0, 0%, 50%, 0) 100%);
-  border-top-left-radius: var(--sl-border-radius-medium);
-  border-top-right-radius: var(--sl-border-radius-medium);
+  border-top-left-radius: var(--v-border-radius-medium);
+  border-top-right-radius: var(--v-border-radius-medium);
   cursor: crosshair;
 }
 
@@ -61,13 +61,13 @@
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 1px var(--sl-color-primary-500),
+    box-shadow: 0 0 0 1px var(--v-color-primary-500),
       0 0 0 var(--v-focus-ring-width) var(--v-focus-ring-color-primary);
   }
 }
 
 .color-picker__controls {
-  padding: var(--sl-spacing-small);
+  padding: var(--v-spacing-small);
   display: flex;
   align-items: center;
 }
@@ -79,11 +79,11 @@
 .color-picker__slider {
   position: relative;
   height: var(--slider-height);
-  border-radius: var(--sl-border-radius-pill);
+  border-radius: var(--v-border-radius-pill);
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
 
   &:not(:last-of-type) {
-    margin-bottom: var(--sl-spacing-small);
+    margin-bottom: var(--v-spacing-small);
   }
 }
 
@@ -99,7 +99,7 @@
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 1px var(--sl-color-primary-500),
+    box-shadow: 0 0 0 1px var(--v-color-primary-500),
       0 0 0 var(--v-focus-ring-width) var(--v-focus-ring-color-primary);
   }
 }
@@ -139,7 +139,7 @@
   border: none;
   border-radius: var(--v-input-border-radius-small);
   background: none;
-  margin-left: var(--sl-spacing-small);
+  margin-left: var(--v-spacing-small);
   cursor: copy;
 
   &::before {
@@ -176,7 +176,7 @@
   height: calc(var(--v-input-height-small) / 2);
   color: white;
   background-color: rgba(0, 0, 0, 0.33);
-  border-radius: var(--sl-border-radius-circle);
+  border-radius: var(--v-border-radius-circle);
   opacity: 0;
 
   &.color-picker__copy-feedback--visible {
@@ -208,7 +208,7 @@
 
 .color-picker__user-input {
   display: flex;
-  padding: 0 var(--sl-spacing-small) var(--sl-spacing-small) var(--sl-spacing-small);
+  padding: 0 var(--v-spacing-small) var(--v-spacing-small) var(--v-spacing-small);
 
   v-input {
     min-width: 0; // fix input width in Safari
@@ -219,7 +219,7 @@
     min-width: 3.125rem;
     max-width: 3.125rem;
     font-size: 1rem;
-    margin-left: var(--sl-spacing-small);
+    margin-left: var(--v-spacing-small);
   }
 }
 
@@ -228,8 +228,8 @@
   grid-template-columns: repeat(8, 1fr);
   grid-gap: 6px;
   justify-items: center;
-  border-top: solid 1px var(--sl-color-gray-200);
-  padding: var(--sl-spacing-small);
+  border-top: solid 1px var(--v-color-gray-200);
+  padding: var(--v-spacing-small);
 }
 
 .color-picker__swatch {
@@ -293,24 +293,24 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  transition: var(--sl-transition-fast) box-shadow;
+  transition: var(--v-transition-fast) box-shadow;
 
   &.color-dropdown__trigger--small {
     width: var(--v-input-height-small);
     height: var(--v-input-height-small);
-    border-radius: var(--sl-border-radius-circle);
+    border-radius: var(--v-border-radius-circle);
   }
 
   &.color-dropdown__trigger--medium {
     width: var(--v-input-height-medium);
     height: var(--v-input-height-medium);
-    border-radius: var(--sl-border-radius-circle);
+    border-radius: var(--v-border-radius-circle);
   }
 
   &.color-dropdown__trigger--large {
     width: var(--v-input-height-large);
     height: var(--v-input-height-large);
-    border-radius: var(--sl-border-radius-circle);
+    border-radius: var(--v-border-radius-circle);
   }
 
   &::before {
@@ -335,7 +335,7 @@
     outline: none;
 
     &::before {
-      box-shadow: inset 0 0 0 1px var(--sl-color-primary-500);
+      box-shadow: inset 0 0 0 1px var(--v-color-primary-500);
     }
   }
 

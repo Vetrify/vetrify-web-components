@@ -7,10 +7,10 @@
  * @prop --padding: The padding to use for card sections.
  */
 :host {
-  --border-color: var(--sl-color-gray-200);
-  --border-radius: var(--sl-border-radius-medium);
+  --border-color: var(--v-color-gray-200);
+  --border-radius: var(--v-border-radius-medium);
   --border-width: 1px;
-  --padding: var(--sl-spacing-large);
+  --padding: var(--v-spacing-large);
 
   display: inline-block;
 }
@@ -18,8 +18,8 @@
 .card {
   display: flex;
   flex-direction: column;
-  background-color: var(--sl-color-white);
-  box-shadow: var(--sl-shadow-x-small);
+  background-color: var(--v-color-white);
+  box-shadow: var(--v-shadow-x-small);
   border: solid var(--border-width) var(--border-color);
   border-radius: var(--border-radius);
 }

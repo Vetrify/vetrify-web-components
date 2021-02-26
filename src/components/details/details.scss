@@ -7,17 +7,17 @@
  * @prop --show-timing-function: The timing function (easing) to use for the show transition.
  */
 :host {
-  --hide-duration: var(--sl-transition-medium);
+  --hide-duration: var(--v-transition-medium);
   --hide-timing-function: ease;
-  --show-duration: var(--sl-transition-medium);
+  --show-duration: var(--v-transition-medium);
   --show-timing-function: ease;
 
   display: block;
 }
 
 .details {
-  border: solid 1px var(--sl-color-gray-200);
-  border-radius: var(--sl-border-radius-medium);
+  border: solid 1px var(--v-color-gray-200);
+  border-radius: var(--v-border-radius-medium);
   overflow-anchor: none;
 }
 
@@ -29,7 +29,7 @@
   display: flex;
   align-items: center;
   border-radius: inherit;
-  padding: var(--sl-spacing-medium);
+  padding: var(--v-spacing-medium);
   user-select: none;
   cursor: pointer;
 
@@ -61,7 +61,7 @@
   flex: 0 0 auto;
   display: flex;
   align-items: center;
-  transition: var(--sl-transition-medium) transform ease;
+  transition: var(--v-transition-medium) transform ease;
 }
 
 .details--open .details__summary-icon {
@@ -82,5 +82,5 @@
 }
 
 .details__content {
-  padding: var(--sl-spacing-medium);
+  padding: var(--v-spacing-medium);
 }

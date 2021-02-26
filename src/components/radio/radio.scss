@@ -17,8 +17,8 @@
 
 .radio__icon {
   display: inline-flex;
-  width: var(--sl-toggle-size);
-  height: var(--sl-toggle-size);
+  width: var(--v-toggle-size);
+  height: var(--v-toggle-size);
 
   svg {
     width: 100%;
@@ -32,14 +32,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: var(--sl-toggle-size);
-  height: var(--sl-toggle-size);
+  width: var(--v-toggle-size);
+  height: var(--v-toggle-size);
   border: solid var(--v-input-border-width) var(--v-input-border-color);
   border-radius: 50%;
   background-color: var(--v-input-background-color);
   color: transparent;
-  transition: var(--sl-transition-fast) border-color, var(--sl-transition-fast) background-color,
-    var(--sl-transition-fast) color, var(--sl-transition-fast) box-shadow;
+  transition: var(--v-transition-fast) border-color, var(--v-transition-fast) background-color,
+    var(--v-transition-fast) color, var(--v-transition-fast) box-shadow;
 
   input[type='radio'] {
     position: absolute;
@@ -65,21 +65,21 @@
 
 // Checked
 .radio--checked .radio__control {
-  color: var(--sl-color-white);
-  border-color: var(--sl-color-primary-500);
-  background-color: var(--sl-color-primary-500);
+  color: var(--v-color-white);
+  border-color: var(--v-color-primary-500);
+  background-color: var(--v-color-primary-500);
 }
 
 // Checked + hover
 .radio.radio--checked:not(.radio--disabled) .radio__control:hover {
-  border-color: var(--sl-color-primary-400);
-  background-color: var(--sl-color-primary-400);
+  border-color: var(--v-color-primary-400);
+  background-color: var(--v-color-primary-400);
 }
 
 // Checked + focus
 .radio.radio--checked:not(.radio--disabled).radio--focused .radio__control {
-  border-color: var(--sl-color-primary-400);
-  background-color: var(--sl-color-primary-400);
+  border-color: var(--v-color-primary-400);
+  background-color: var(--v-color-primary-400);
   box-shadow: 0 0 0 var(--v-focus-ring-width) var(--v-focus-ring-color-primary);
 }
 
@@ -90,7 +90,7 @@
 }
 
 .radio__label {
-  line-height: var(--sl-toggle-size);
+  line-height: var(--v-toggle-size);
   margin-left: 0.5em;
   user-select: none;
 }

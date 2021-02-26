@@ -8,9 +8,9 @@
  */
 :host {
   --height: 16px;
-  --track-color: var(--sl-color-gray-200);
-  --indicator-color: var(--sl-color-primary-500);
-  --label-color: var(--sl-color-white);
+  --track-color: var(--v-color-gray-200);
+  --indicator-color: var(--v-color-primary-500);
+  --label-color: var(--v-color-white);
 
   display: block;
 }
@@ -19,15 +19,15 @@
   position: relative;
   background-color: var(--track-color);
   height: var(--height);
-  border-radius: var(--sl-border-radius-pill);
+  border-radius: var(--v-border-radius-pill);
   overflow: hidden;
 }
 
 .progress-bar__indicator {
   height: 100%;
-  font-family: var(--sl-font-sans);
+  font-family: var(--v-font-sans);
   font-size: 12px;
-  font-weight: var(--sl-font-weight-normal);
+  font-weight: var(--v-font-weight-normal);
   background-color: var(--indicator-color);
   color: var(--label-color);
   text-align: center;

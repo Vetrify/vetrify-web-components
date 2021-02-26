@@ -14,25 +14,25 @@
 
 .dropdown__positioner {
   position: absolute;
-  z-index: var(--sl-z-index-dropdown);
+  z-index: var(--v-z-index-dropdown);
 }
 
 .dropdown__panel {
   max-height: 50vh;
-  font-family: var(--sl-font-sans);
-  font-size: var(--sl-font-size-medium);
-  font-weight: var(--sl-font-weight-normal);
+  font-family: var(--v-font-sans);
+  font-size: var(--v-font-size-medium);
+  font-weight: var(--v-font-weight-normal);
   color: var(--color);
-  background-color: var(--sl-panel-background-color);
-  border: solid 1px var(--sl-panel-border-color);
-  border-radius: var(--sl-border-radius-medium);
-  box-shadow: var(--sl-shadow-large);
+  background-color: var(--v-panel-background-color);
+  border: solid 1px var(--v-panel-border-color);
+  border-radius: var(--v-border-radius-medium);
+  box-shadow: var(--v-shadow-large);
   opacity: 0;
   overflow: auto;
   overscroll-behavior: none;
   pointer-events: none;
   transform: scale(0.9);
-  transition: var(--sl-transition-fast) opacity, var(--sl-transition-fast) transform;
+  transition: var(--v-transition-fast) opacity, var(--v-transition-fast) transform;
 }
 
 .dropdown__positioner {
