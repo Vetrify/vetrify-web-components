@@ -4,34 +4,39 @@
 
 # Vetrify Web Components
 
-This is the project for building a standalone Web Components using Stencil.
+Vetrify's standalone Web Components.
 
-Typescript should be the default language
+## Toolset
 
-# Stencil
+### Stencil
 
-Stencil is a compiler for building fast web apps using Web Components.
+[Stencil](https://stenciljs.com/) is a compiler for building fast web apps using Web Components.
 
 Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool. Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
 
 Stencil components are just Web Components, so they work in any major framework or with no framework at all.
 
-## To Run
+The core components are strongly influenced by the [Shoelace](https://shoelace.style/) library.
 
-in one shell start storybook:
+### Storybook
+
+[Storybook](https://storybook.js.org) is a development environment for UI components.
+It allows you to browse a component library, view the different states of each component, and interactively develop and test components. Find out more at https://storybook.js.org.
+
+## Operation
+
+### To Run
+
+For development using storybook, run:
 
 ```
-npm run storybook
-```
-
-in a separate shell run stencil:
-
-```bash
 npm install
-npm start
+npm run
 ```
 
-## To Build
+> note: this will start both stencil and storybook
+
+### To Build
 
 To build the component for production, run:
 
@@ -45,19 +50,23 @@ To run the unit tests for the components, run:
 npm test
 ```
 
-Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
+## Contributing
 
-## Naming Components
+### Language Convention
 
-When creating new component tags, we recommend _not_ using `stencil` in the component name (ex: `<stencil-datepicker>`). This is because the generated component has little to nothing to do with Stencil; it's just a web component!
+Typescript should be the default language used for defining components, tests, and stories.
 
-Instead, use a prefix that fits your company or any name for a group of related components. For example, all of the Ionic generated web components use the prefix `ion`.
+### Naming Convention
 
-## Using this component
+When creating new component tags, do _not_ use `stencil` in the component name (ex: `<stencil-datepicker>`). This is because the generated component has little to nothing to do with Stencil; it's just a web component!
 
-There are three strategies we recommend for using web components built with Stencil.
+Instead, use the prefix `v`.
 
-The first step for all three of these strategies is to [publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages).
+## Using Components
+
+There two strategies for using Vetrify web components.
+
+The first step is to [publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages).
 
 ### Script tag
 
@@ -70,14 +79,7 @@ The first step for all three of these strategies is to [publish to NPM](https://
 - Put a script tag similar to this `<script src='node_modules/my-component/dist/my-component.esm.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
-### In a stencil-starter app
+## Ref
 
-- Run `npm install my-component --save`
-- Add an import to the npm packages `import my-component;`
-- Then you can use the element anywhere in your template, JSX, html etc
-
-# Ref
-
-https://mc706.io/2020/01/27/stencil-storybook-typescript/
-
-[starting templates](https://github.com/shoelace-style/shoelace)
+- [article on getting Stencil to work with typescript](https://mc706.io/2020/01/27/stencil-storybook-typescript/)
+- [starting templates](https://github.com/shoelace-style/shoelace)
