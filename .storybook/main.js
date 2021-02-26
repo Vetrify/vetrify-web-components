@@ -9,6 +9,7 @@ module.exports = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
+    "@storybook/preset-scss"
   ],
   webpackFinal: async config => {
 
@@ -23,11 +24,11 @@ module.exports = {
     //   include: includePath,
     // });
 
-    config.module.rules.push({
-      test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
-      include: includePath,
-    });
+    // config.module.rules.push({
+    //   test: /\.scss$/,
+    //   use: ['style-loader', 'css-loader', 'sass-loader'],
+    //   include: includePath,
+    // });
 
 
 

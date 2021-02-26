@@ -51,6 +51,80 @@ export namespace Components {
          */
         "type": 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
+    interface VAnimation {
+        /**
+          * Clears all KeyframeEffects caused by this animation and aborts its playback.
+         */
+        "cancel": () => Promise<void>;
+        /**
+          * The number of milliseconds to delay the start of the animation.
+         */
+        "delay": number;
+        /**
+          * Determines the direction of playback as well as the behavior when reaching the end of an iteration.
+         */
+        "direction": PlaybackDirection;
+        /**
+          * The number of milliseconds each iteration of the animation takes to complete.
+         */
+        "duration": number;
+        /**
+          * The easing function to use for the animation. This can be a Shoelace easing function or a custom easing function such as `cubic-bezier(0, 1, .76, 1.14)`.
+         */
+        "easing": string;
+        /**
+          * The number of milliseconds to delay after the active period of an animation sequence.
+         */
+        "endDelay": number;
+        /**
+          * Sets how the animation applies styles to its target before and after its execution.
+         */
+        "fill": FillMode;
+        /**
+          * Sets the playback time to the end of the animation corresponding to the current playback direction.
+         */
+        "finish": () => Promise<void>;
+        /**
+          * Gets a list of all supported animation names.
+         */
+        "getAnimationNames": () => Promise<string[]>;
+        /**
+          * Gets the current time of the animation in milliseconds.
+         */
+        "getCurrentTime": () => Promise<number>;
+        /**
+          * Gets a list of all supported easing function names.
+         */
+        "getEasingNames": () => Promise<string[]>;
+        /**
+          * The offset at which to start the animation, usually between 0 (start) and 1 (end).
+         */
+        "iterationStart": number;
+        /**
+          * The number of iterations to run before the animation completes. Defaults to `Infinity`, which loops.
+         */
+        "iterations": number;
+        /**
+          * The keyframes to use for the animation. If this is set, `name` will be ignored.
+         */
+        "keyframes": Keyframe[];
+        /**
+          * The name of the built-in animation to use. For custom animations, use the `keyframes` prop.
+         */
+        "name": string;
+        /**
+          * Pauses the animation. The animation will resume when this prop is removed.
+         */
+        "pause": boolean;
+        /**
+          * Sets the animation's playback rate. The default is `1`, which plays the animation at a normal speed. Setting this to `2`, for example, will double the animation's speed. A negative value can be used to reverse the animation. This value can be changed without causing the animation to restart.
+         */
+        "playbackRate": number;
+        /**
+          * Sets the current time of the animation in milliseconds.
+         */
+        "setCurrentTime": (time: number) => Promise<void>;
+    }
     interface VAvatar {
         /**
           * Alternative text for the image.
@@ -1308,6 +1382,12 @@ declare global {
         prototype: HTMLVAlertElement;
         new (): HTMLVAlertElement;
     };
+    interface HTMLVAnimationElement extends Components.VAnimation, HTMLStencilElement {
+    }
+    var HTMLVAnimationElement: {
+        prototype: HTMLVAnimationElement;
+        new (): HTMLVAnimationElement;
+    };
     interface HTMLVAvatarElement extends Components.VAvatar, HTMLStencilElement {
     }
     var HTMLVAvatarElement: {
@@ -1575,6 +1655,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "v-alert": HTMLVAlertElement;
+        "v-animation": HTMLVAnimationElement;
         "v-avatar": HTMLVAvatarElement;
         "v-badge": HTMLVBadgeElement;
         "v-button": HTMLVButtonElement;
@@ -1669,6 +1750,68 @@ declare namespace LocalJSX {
           * The type of alert.
          */
         "type"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
+    }
+    interface VAnimation {
+        /**
+          * The number of milliseconds to delay the start of the animation.
+         */
+        "delay"?: number;
+        /**
+          * Determines the direction of playback as well as the behavior when reaching the end of an iteration.
+         */
+        "direction"?: PlaybackDirection;
+        /**
+          * The number of milliseconds each iteration of the animation takes to complete.
+         */
+        "duration"?: number;
+        /**
+          * The easing function to use for the animation. This can be a Shoelace easing function or a custom easing function such as `cubic-bezier(0, 1, .76, 1.14)`.
+         */
+        "easing"?: string;
+        /**
+          * The number of milliseconds to delay after the active period of an animation sequence.
+         */
+        "endDelay"?: number;
+        /**
+          * Sets how the animation applies styles to its target before and after its execution.
+         */
+        "fill"?: FillMode;
+        /**
+          * The offset at which to start the animation, usually between 0 (start) and 1 (end).
+         */
+        "iterationStart"?: number;
+        /**
+          * The number of iterations to run before the animation completes. Defaults to `Infinity`, which loops.
+         */
+        "iterations"?: number;
+        /**
+          * The keyframes to use for the animation. If this is set, `name` will be ignored.
+         */
+        "keyframes"?: Keyframe[];
+        /**
+          * The name of the built-in animation to use. For custom animations, use the `keyframes` prop.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the animation is canceled.
+         */
+        "onSl-cancel"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the animation finishes.
+         */
+        "onSl-finish"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the animation starts or restarts.
+         */
+        "onSl-start"?: (event: CustomEvent<any>) => void;
+        /**
+          * Pauses the animation. The animation will resume when this prop is removed.
+         */
+        "pause"?: boolean;
+        /**
+          * Sets the animation's playback rate. The default is `1`, which plays the animation at a normal speed. Setting this to `2`, for example, will double the animation's speed. A negative value can be used to reverse the animation. This value can be changed without causing the animation to restart.
+         */
+        "playbackRate"?: number;
     }
     interface VAvatar {
         /**
@@ -2955,6 +3098,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "my-component": MyComponent;
         "v-alert": VAlert;
+        "v-animation": VAnimation;
         "v-avatar": VAvatar;
         "v-badge": VBadge;
         "v-button": VButton;
@@ -3007,6 +3151,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "v-alert": LocalJSX.VAlert & JSXBase.HTMLAttributes<HTMLVAlertElement>;
+            "v-animation": LocalJSX.VAnimation & JSXBase.HTMLAttributes<HTMLVAnimationElement>;
             "v-avatar": LocalJSX.VAvatar & JSXBase.HTMLAttributes<HTMLVAvatarElement>;
             "v-badge": LocalJSX.VBadge & JSXBase.HTMLAttributes<HTMLVBadgeElement>;
             "v-button": LocalJSX.VButton & JSXBase.HTMLAttributes<HTMLVButtonElement>;
