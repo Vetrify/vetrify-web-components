@@ -7,7 +7,7 @@ export default {
     primary: { control: 'boolean' },
     backgroundColor: { control: 'color' },
     size: {
-      control: { type: 'select', options: ['small', 'medium', 'large'] },
+      control: { type: 'select', options: ['undefined', 'small', 'medium', 'large'] },
     },
     onClick: { action: 'onClick' },
   },

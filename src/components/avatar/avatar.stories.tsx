@@ -1,49 +1,45 @@
 export default {
   title: 'Vetrify/Avatar',
   argTypes: {
-      alt: { control: 'text' },
-      image: { control: 'text', default: 'https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80' },
-      initials: { control: 'text' },
-      shape: {
-          control: { type: 'select', options:['undefined', 'circle', 'rounded', 'square']}
-      },
-      icon: { control: 'text',  },
-  }
+    alt: { control: 'text' },
+    image: { control: 'text', default: 'https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80' },
+    initials: { control: 'text' },
+    shape: {
+      control: { type: 'select', options: ['undefined', 'circle', 'rounded', 'square'] },
+    },
+    icon: { control: 'text' },
+  },
 };
 
-export const Basic =  ({initials, image, shape, icon}) =>
-{ 
-    let myInitials = "";
-    let myImage = "";
-    let myShape = "";
-    let myIconTag = "";
-
-    if(initials)
-    {
-        myInitials = ` initials="${initials}"`
+export const Basic = ({ initials, image, shape, icon }) => {
+    let myInitials = '';
+    let myImage = '';
+    let myShape = '';
+    let myIconTag = '';
+  
+    if (initials) {
+      myInitials = ` initials="${initials}"`;
     }
-
-    if(image)
-    {
-        myImage = ` image="${image}"`;
+  
+    if (image) {
+      myImage = ` image="${image}"`;
     }
-
-    if(shape && shape != "undefined")
-    {
-        
-        myShape = ` shape="${shape}"`
+  
+    if (shape && shape != 'undefined') {
+      myShape = ` shape="${shape}"`;
     }
-
-    if(icon)
-    {
-        myIconTag = `<v-icon slot="icon" name="${icon}"></v-icon>`
+  
+    if (icon) {
+      myIconTag = `<v-icon slot="icon" name="${icon}"></v-icon>`;
     }
+  
+    let start = `<v-avatar ${myInitials}${myImage}${myShape}>${myIconTag}</v-avatar>`;
+  
+    return start;
+  };
 
-    let start = `<v-avatar ${myInitials}${myImage}${myShape}>${myIconTag}</v-avatar>`
 
-    return start
-}
-
+  
 export const Images = () => `<v-avatar
 image="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
 alt="Gray tabby kitten looking down"
@@ -61,8 +57,6 @@ export const CustomIcons = () => `<v-avatar>
 <v-icon slot="icon" name="briefcase"></v-icon>
 </v-avatar>
 `;
-
-
 
 export const Groups = () => `<div class="avatar-group">
 <v-avatar image="https://images.unsplash.com/photo-1490150028299-bf57d78394e0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80&crop=right"></v-avatar>
