@@ -1,14 +1,49 @@
 export default {
   title: 'Vetrify/Avatar',
+  argTypes: {
+    alt: { control: 'text' },
+    image: { control: 'text', default: 'https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80' },
+    initials: { control: 'text' },
+    shape: {
+      control: { type: 'select', options: ['undefined', 'circle', 'rounded', 'square'] },
+    },
+    icon: { control: 'text' },
+  },
 };
 
-export const Empty = () => `<v-avatar></v-avatar>`;
+export const Basic = ({ initials, image, shape, icon }) => {
+    let myInitials = '';
+    let myImage = '';
+    let myShape = '';
+    let myIconTag = '';
+  
+    if (initials) {
+      myInitials = ` initials="${initials}"`;
+    }
+  
+    if (image) {
+      myImage = ` image="${image}"`;
+    }
+  
+    if (shape && shape != 'undefined') {
+      myShape = ` shape="${shape}"`;
+    }
+  
+    if (icon) {
+      myIconTag = `<v-icon slot="icon" name="${icon}"></v-icon>`;
+    }
+  
+    let start = `<v-avatar ${myInitials}${myImage}${myShape}>${myIconTag}</v-avatar>`;
+  
+    return start;
+  };
+
+
+  
 export const Images = () => `<v-avatar
 image="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
 alt="Gray tabby kitten looking down"
 ></v-avatar>`;
-
-export const Initials = () => `<v-avatar initials="VE"></v-avatar>`;
 
 export const CustomIcons = () => `<v-avatar>
 <v-icon slot="icon" name="image"></v-icon>
@@ -21,13 +56,6 @@ export const CustomIcons = () => `<v-avatar>
 <v-avatar>
 <v-icon slot="icon" name="briefcase"></v-icon>
 </v-avatar>
-`;
-
-export const Shapes = () => `<v-avatar shape="square"></v-avatar>
-
-<v-avatar shape="rounded"></v-avatar>
-
-<v-avatar shape="circle"></v-avatar>
 `;
 
 export const Groups = () => `<div class="avatar-group">

@@ -14,12 +14,12 @@ describe('<v-dropdown>', () => {
     });
     const dropdown = await page.find('v-dropdown');
     const panel = await page.find('v-dropdown >>> .dropdown__panel');
-    const slShow = await dropdown.spyOnEvent('sl-show');
-    const slAfterShow = await dropdown.spyOnEvent('sl-after-show');
+    const slShow = await dropdown.spyOnEvent('v-show');
+    const slAfterShow = await dropdown.spyOnEvent('v-after-show');
 
     expect(await panel.isVisible()).toBe(false);
 
-    const showEventHappened = dropdown.waitForEvent('sl-after-show');
+    const showEventHappened = dropdown.waitForEvent('v-after-show');
     dropdown.setAttribute('open', '');
     await page.waitForChanges();
     await showEventHappened;
@@ -42,12 +42,12 @@ describe('<v-dropdown>', () => {
     });
     const dropdown = await page.find('v-dropdown');
     const panel = await page.find('v-dropdown >>> .dropdown__panel');
-    const slHide = await dropdown.spyOnEvent('sl-hide');
-    const slAfterHide = await dropdown.spyOnEvent('sl-after-hide');
+    const slHide = await dropdown.spyOnEvent('v-hide');
+    const slAfterHide = await dropdown.spyOnEvent('v-after-hide');
 
     expect(await panel.isVisible()).toBe(true);
 
-    const hideEventHappened = dropdown.waitForEvent('sl-after-hide');
+    const hideEventHappened = dropdown.waitForEvent('v-after-hide');
     dropdown.removeAttribute('open');
     await page.waitForChanges();
     await hideEventHappened;
@@ -70,12 +70,12 @@ describe('<v-dropdown>', () => {
     });
     const dropdown = await page.find('v-dropdown');
     const panel = await page.find('v-dropdown >>> .dropdown__panel');
-    const slShow = await dropdown.spyOnEvent('sl-show');
-    const slAfterShow = await dropdown.spyOnEvent('sl-after-show');
+    const slShow = await dropdown.spyOnEvent('v-show');
+    const slAfterShow = await dropdown.spyOnEvent('v-after-show');
 
     expect(await panel.isVisible()).toBe(false);
 
-    const showEventHappened = dropdown.waitForEvent('sl-after-show');
+    const showEventHappened = dropdown.waitForEvent('v-after-show');
     await dropdown.callMethod('show');
     await showEventHappened;
 
@@ -98,12 +98,12 @@ describe('<v-dropdown>', () => {
 
     const dropdown = await page.find('v-dropdown');
     const panel = await page.find('v-dropdown >>> .dropdown__panel');
-    const slHide = await dropdown.spyOnEvent('sl-hide');
-    const slAfterHide = await dropdown.spyOnEvent('sl-after-hide');
+    const slHide = await dropdown.spyOnEvent('v-hide');
+    const slAfterHide = await dropdown.spyOnEvent('v-after-hide');
 
     expect(await panel.isVisible()).toBe(true);
 
-    const hideEventHappened = dropdown.waitForEvent('sl-after-hide');
+    const hideEventHappened = dropdown.waitForEvent('v-after-hide');
     await dropdown.callMethod('hide');
     await hideEventHappened;
 
@@ -125,12 +125,12 @@ describe('<v-dropdown>', () => {
     });
     const dropdown = await page.find('v-dropdown');
     const panel = await page.find('v-dropdown >>> .dropdown__panel');
-    const slShow = await dropdown.spyOnEvent('sl-show');
-    const slAfterShow = await dropdown.spyOnEvent('sl-after-show');
+    const slShow = await dropdown.spyOnEvent('v-show');
+    const slAfterShow = await dropdown.spyOnEvent('v-after-show');
 
     expect(await panel.isVisible()).toBe(false);
 
-    const showEventHappened = dropdown.waitForEvent('sl-after-show');
+    const showEventHappened = dropdown.waitForEvent('v-after-show');
     await dropdown.click();
     await showEventHappened;
 
@@ -152,12 +152,12 @@ describe('<v-dropdown>', () => {
     });
     const dropdown = await page.find('v-dropdown');
     const panel = await page.find('v-dropdown >>> .dropdown__panel');
-    const slHide = await dropdown.spyOnEvent('sl-hide');
-    const slAfterHide = await dropdown.spyOnEvent('sl-after-hide');
+    const slHide = await dropdown.spyOnEvent('v-hide');
+    const slAfterHide = await dropdown.spyOnEvent('v-after-hide');
 
     expect(await panel.isVisible()).toBe(true);
 
-    const afterEventHappened = dropdown.waitForEvent('sl-after-hide');
+    const afterEventHappened = dropdown.waitForEvent('v-after-hide');
     await dropdown.click();
     await afterEventHappened;
 
@@ -182,7 +182,7 @@ describe('<v-dropdown>', () => {
 
     expect(await panel.isVisible()).toBe(true);
 
-    const eventHappened = dropdown.waitForEvent('sl-after-hide');
+    const eventHappened = dropdown.waitForEvent('v-after-hide');
     await panel.click();
     await eventHappened;
 

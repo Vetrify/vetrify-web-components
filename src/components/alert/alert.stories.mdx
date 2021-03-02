@@ -1,0 +1,24 @@
+<!--- Checkbox.stories.mdx --->
+
+<!--- This is your Story template function, shown here in React -->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Alert } from './alert.tsx';
+
+<Meta title="MDX/Alert" component={Alert} />
+
+# Checkbox
+
+With `MDX` we can define a story for `Alert` right in the middle of our Markdown documentation.
+
+<Canvas>
+  <Story name="all checkboxes">
+  
+    <form>
+      <v-alert type="primary" open closable class="alert-closable">
+        <v-icon slot="icon" name="info-circle"></v-icon>
+        You can close this alert any time!
+        </v-alert>
+    </form>
+  </Story>
+</Canvas>

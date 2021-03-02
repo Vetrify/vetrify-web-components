@@ -17,13 +17,13 @@ describe('<v-details>', () => {
     let style = await base.getComputedStyle();
     expect(style.height).toBe('0px');
 
-    const showEventHappened = details.waitForEvent('sl-after-show');
+    const showEventHappened = details.waitForEvent('v-after-show');
     await header.click();
     await showEventHappened;
     style = await base.getComputedStyle();
     expect(style.height).not.toBe('0px');
 
-    const hideEventHappened = details.waitForEvent('sl-after-hide');
+    const hideEventHappened = details.waitForEvent('v-after-hide');
     await header.click();
     await hideEventHappened;
     style = await base.getComputedStyle();
@@ -45,13 +45,13 @@ describe('<v-details>', () => {
     let style = await base.getComputedStyle();
     expect(style.height).toBe('0px');
 
-    const showEventHappened = details.waitForEvent('sl-after-show');
+    const showEventHappened = details.waitForEvent('v-after-show');
     await details.callMethod('show');
     await showEventHappened;
     style = await base.getComputedStyle();
     expect(style.height).not.toBe('0px');
 
-    const hideEventHappened = details.waitForEvent('sl-after-hide');
+    const hideEventHappened = details.waitForEvent('v-after-hide');
     await details.callMethod('hide');
     await hideEventHappened;
     style = await base.getComputedStyle();
@@ -73,14 +73,14 @@ describe('<v-details>', () => {
     let style = await base.getComputedStyle();
     expect(style.height).toBe('0px');
 
-    const showEventHappened = details.waitForEvent('sl-after-show');
+    const showEventHappened = details.waitForEvent('v-after-show');
     details.setAttribute('open', '');
     await page.waitForChanges();
     await showEventHappened;
     style = await base.getComputedStyle();
     expect(style.height).not.toBe('0px');
 
-    const hideEventHappened = details.waitForEvent('sl-after-hide');
+    const hideEventHappened = details.waitForEvent('v-after-hide');
     details.removeAttribute('open');
     await page.waitForChanges();
     await hideEventHappened;
@@ -88,7 +88,7 @@ describe('<v-details>', () => {
     expect(style.height).toBe('0px');
   });
 
-  it('should emit sl-show and sl-after-show events when opened', async () => {
+  it('should emit v-show and v-after-show events when opened', async () => {
     const page = await newE2EPage({
       html: `
         <v-details summary="Toggle Me">
@@ -98,9 +98,9 @@ describe('<v-details>', () => {
       `,
     });
     const details = await page.find('v-details');
-    const slShow = await details.spyOnEvent('sl-show');
-    const slAfterShow = await details.spyOnEvent('sl-after-show');
-    const showEventHappened = details.waitForEvent('sl-after-show');
+    const slShow = await details.spyOnEvent('v-show');
+    const slAfterShow = await details.spyOnEvent('v-after-show');
+    const showEventHappened = details.waitForEvent('v-after-show');
 
     await details.callMethod('show');
     await showEventHappened;
@@ -109,7 +109,7 @@ describe('<v-details>', () => {
     expect(slAfterShow).toHaveReceivedEventTimes(1);
   });
 
-  it('should emit sl-hide and sl-after-hide events when closed', async () => {
+  it('should emit v-hide and v-after-hide events when closed', async () => {
     const page = await newE2EPage({
       html: `
         <v-details summary="Toggle Me" open>
@@ -119,9 +119,9 @@ describe('<v-details>', () => {
       `,
     });
     const details = await page.find('v-details');
-    const slHide = await details.spyOnEvent('sl-hide');
-    const slAfterHide = await details.spyOnEvent('sl-after-hide');
-    const hideEventHappened = details.waitForEvent('sl-after-hide');
+    const slHide = await details.spyOnEvent('v-hide');
+    const slAfterHide = await details.spyOnEvent('v-after-hide');
+    const hideEventHappened = details.waitForEvent('v-after-hide');
 
     await details.callMethod('hide');
     await hideEventHappened;

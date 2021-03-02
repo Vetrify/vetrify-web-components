@@ -114,16 +114,16 @@ export class ColorPicker {
   @Event({ eventName: 'v-change' }) slChange: EventEmitter;
 
   /** Emitted when the color picker opens. Calling `event.preventDefault()` will prevent it from being opened. */
-  @Event({ eventName: 'sl-show' }) slShow: EventEmitter;
+  @Event({ eventName: 'v-show' }) slShow: EventEmitter;
 
   /** Emitted after the color picker opens and all transitions are complete. */
-  @Event({ eventName: 'sl-after-show' }) slAfterShow: EventEmitter;
+  @Event({ eventName: 'v-after-show' }) slAfterShow: EventEmitter;
 
   /** Emitted when the color picker closes. Calling `event.preventDefault()` will prevent it from being closed. */
-  @Event({ eventName: 'sl-hide' }) slHide: EventEmitter;
+  @Event({ eventName: 'v-hide' }) slHide: EventEmitter;
 
   /** Emitted after the color picker closes and all transitions are complete. */
-  @Event({ eventName: 'sl-after-hide' }) slAfterHide: EventEmitter;
+  @Event({ eventName: 'v-after-hide' }) slAfterHide: EventEmitter;
 
   @Watch('format')
   handleFormatChange() {
@@ -224,7 +224,7 @@ export class ColorPicker {
     if (!this.inline && this.input.invalid) {
       return new Promise<void>(resolve => {
         this.dropdown.addEventListener(
-          'sl-after-show',
+          'v-after-show',
           () => {
             this.input.reportValidity();
             resolve();
@@ -823,10 +823,10 @@ export class ColorPicker {
         aria-disabled={this.disabled ? 'true' : 'false'}
         containingElement={this.host}
         hoist={this.hoist}
-        onSl-show={this.handleDropdownShow}
-        onSl-after-show={this.handleDropdownAfterShow}
-        onSl-hide={this.handleDropdownHide}
-        onSl-after-hide={this.handleDropdownAfterHide}
+        onV-show={this.handleDropdownShow}
+        onv-after-show={this.handleDropdownAfterShow}
+        onV-hide={this.handleDropdownHide}
+        onv-after-hide={this.handleDropdownAfterHide}
       >
         <button
           ref={el => (this.trigger = el)}

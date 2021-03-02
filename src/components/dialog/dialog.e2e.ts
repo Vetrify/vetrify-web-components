@@ -9,12 +9,12 @@ describe('<v-dialog>', () => {
     });
     const dialog = await page.find('v-dialog');
     const base = await page.find('v-dialog >>> .dialog');
-    const slShow = await dialog.spyOnEvent('sl-show');
-    const slAfterShow = await dialog.spyOnEvent('sl-after-show');
+    const slShow = await dialog.spyOnEvent('v-show');
+    const slAfterShow = await dialog.spyOnEvent('v-after-show');
 
     expect(await base.isVisible()).toBe(false);
 
-    const showEventHappened = dialog.waitForEvent('sl-after-show');
+    const showEventHappened = dialog.waitForEvent('v-after-show');
     dialog.setAttribute('open', '');
     await page.waitForChanges();
     await showEventHappened;
@@ -32,12 +32,12 @@ describe('<v-dialog>', () => {
     });
     const dialog = await page.find('v-dialog');
     const base = await page.find('v-dialog >>> .dialog');
-    const slHide = await dialog.spyOnEvent('sl-hide');
-    const slAfterHide = await dialog.spyOnEvent('sl-after-hide');
+    const slHide = await dialog.spyOnEvent('v-hide');
+    const slAfterHide = await dialog.spyOnEvent('v-after-hide');
 
     expect(await base.isVisible()).toBe(true);
 
-    const hideEventHappened = dialog.waitForEvent('sl-after-hide');
+    const hideEventHappened = dialog.waitForEvent('v-after-hide');
     dialog.removeAttribute('open');
     await page.waitForChanges();
     await hideEventHappened;
@@ -55,12 +55,12 @@ describe('<v-dialog>', () => {
     });
     const dialog = await page.find('v-dialog');
     const base = await page.find('v-dialog >>> .dialog');
-    const slShow = await dialog.spyOnEvent('sl-show');
-    const slAfterShow = await dialog.spyOnEvent('sl-after-show');
+    const slShow = await dialog.spyOnEvent('v-show');
+    const slAfterShow = await dialog.spyOnEvent('v-after-show');
 
     expect(await base.isVisible()).toBe(false);
 
-    const showEventHappened = dialog.waitForEvent('sl-after-show');
+    const showEventHappened = dialog.waitForEvent('v-after-show');
     await dialog.callMethod('show');
     await showEventHappened;
 
@@ -77,12 +77,12 @@ describe('<v-dialog>', () => {
     });
     const dialog = await page.find('v-dialog');
     const base = await page.find('v-dialog >>> .dialog');
-    const slHide = await dialog.spyOnEvent('sl-hide');
-    const slAfterHide = await dialog.spyOnEvent('sl-after-hide');
+    const slHide = await dialog.spyOnEvent('v-hide');
+    const slAfterHide = await dialog.spyOnEvent('v-after-hide');
 
     expect(await base.isVisible()).toBe(true);
 
-    const hideEventHappened = dialog.waitForEvent('sl-after-hide');
+    const hideEventHappened = dialog.waitForEvent('v-after-hide');
     await dialog.callMethod('hide');
     await hideEventHappened;
 
@@ -91,14 +91,14 @@ describe('<v-dialog>', () => {
     expect(slAfterHide).toHaveReceivedEventTimes(1);
   });
 
-  it('should emit sl-overlay-dismiss when the overlay is clicked', async () => {
+  it('should emit v-overlay-dismiss when the overlay is clicked', async () => {
     const page = await newE2EPage({
       html: `
         <v-dialog open>This is a dialog.</v-dialog>
       `,
     });
     const dialog = await page.find('v-dialog');
-    const slOverlayDismiss = await dialog.spyOnEvent('sl-overlay-dismiss');
+    const slOverlayDismiss = await dialog.spyOnEvent('v-overlay-dismiss');
 
     // We can't use the click method on the overlay since the click is in the middle, which will be behind the panel
     await page.mouse.click(0, 0);
