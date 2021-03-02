@@ -10,7 +10,7 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/vetrify-web-components/vetrify-web-components.esm.js",
-  "repository" : {
+  "repository": {
     "type": "git",
     "url": "https://github.com/vetrify/vetrify-web-components.git"
   },
