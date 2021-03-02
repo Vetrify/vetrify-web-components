@@ -29,6 +29,7 @@ jobs:
   deploy:
     needs: build
     if: github.ref == 'refs/heads/main'
+    steps:
     # Setup .npmrc file to publish to GitHub Packages
     - name : delivery prep
       uses: actions/setup-node@v2
