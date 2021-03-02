@@ -13,7 +13,7 @@ const parser = new DOMParser();
 @Component({
   tag: 'v-logo',
   styleUrl: 'logo.scss',
-  shadow: true
+  shadow: true,
 })
 export class Logo {
   @Element() host: HTMLVLogoElement;
@@ -41,14 +41,12 @@ export class Logo {
   }
 
   async setLogo() {
-    
-    let url = "./vetrify-web-components/logos/vetrify.svg"; // this.src;
+    let url = './vetrify-web-components/logos/vetrify.svg'; // this.src;
 
     if (url) {
       try {
         const file = await requestLogo(url);
         if (file.ok) {
-
           const doc = parser.parseFromString(file.svg, 'text/html');
           const svg = doc.body.querySelector('svg');
 
@@ -72,6 +70,6 @@ export class Logo {
   }
 
   render() {
-    return <div part="base"  role="img" innerHTML={this.svg} />;
+    return <div part="base" role="img" innerHTML={this.svg} />;
   }
 }
