@@ -1,5 +1,5 @@
 {
-  "name": "vetrify-web-components",
+  "name": "@vetrify/vetrify-web-components",
   "version": "0.0.1",
   "description": "Vetrify Web Components",
   "main": "dist/index.cjs.js",
@@ -10,6 +10,10 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/vetrify-web-components/vetrify-web-components.esm.js",
+  "repository" : {
+    "type": "git",
+    "url": "https://github.com/vetrify/vetrify-web-components.git"
+  },
   "files": [
     "dist/",
     "loader/",

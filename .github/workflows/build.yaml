@@ -16,18 +16,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: prepare Node.js ${{ matrix.node-version }}
       run: |
         npm install babel-preset-typescript    
         npm install scss
         npm install @stencil/core
-    - name: build
-      run: |
         npm ci
-        npm run build --if-present
+    - name: build
+      run: npm run build --if-present
     - name: test
       run: npm test
-        # Setup .npmrc file to publish to GitHub Packages
+    # Setup .npmrc file to publish to GitHub Packages
     - name : delivery prep
       uses: actions/setup-node@v2
       with:
@@ -35,9 +34,7 @@ jobs:
         registry-url: 'https://npm.pkg.github.com'
         scope: '@vetrify'
     #if: github.ref == 'refs/heads/main'
-    - name: deliver
-      run: |
-        npm install
-        npm publish
+    - run: npm install
+    - run: npm publish
       env:
-        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
