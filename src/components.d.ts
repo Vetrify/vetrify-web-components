@@ -7,20 +7,6 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconLibraryMutator, IconLibraryResolver } from "./components/icon-library/icon-library-registry";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
     interface VAlert {
         /**
           * Set to true to make the alert closable.
@@ -792,6 +778,9 @@ export namespace Components {
          */
         "value": string;
     }
+    interface VLogo {
+        "redraw": () => Promise<void>;
+    }
     interface VMenu {
         /**
           * Initiates type-to-select logic, which automatically selects an option based on what the user is currently typing. The key passed will be appended to the internal query and the selection will be updated. After a brief period, the internal query is cleared automatically. This method is intended to be used with the keydown event. Useful for enabling type-to-select when the menu doesn't have focus.
@@ -1348,12 +1337,6 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLVAlertElement extends Components.VAlert, HTMLStencilElement {
     }
     var HTMLVAlertElement: {
@@ -1491,6 +1474,12 @@ declare global {
     var HTMLVInputElement: {
         prototype: HTMLVInputElement;
         new (): HTMLVInputElement;
+    };
+    interface HTMLVLogoElement extends Components.VLogo, HTMLStencilElement {
+    }
+    var HTMLVLogoElement: {
+        prototype: HTMLVLogoElement;
+        new (): HTMLVLogoElement;
     };
     interface HTMLVMenuElement extends Components.VMenu, HTMLStencilElement {
     }
@@ -1631,7 +1620,6 @@ declare global {
         new (): HTMLVTooltipElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
         "v-alert": HTMLVAlertElement;
         "v-animation": HTMLVAnimationElement;
         "v-avatar": HTMLVAvatarElement;
@@ -1655,6 +1643,7 @@ declare global {
         "v-image-comparer": HTMLVImageComparerElement;
         "v-include": HTMLVIncludeElement;
         "v-input": HTMLVInputElement;
+        "v-logo": HTMLVLogoElement;
         "v-menu": HTMLVMenuElement;
         "v-menu-divider": HTMLVMenuDividerElement;
         "v-menu-item": HTMLVMenuItemElement;
@@ -1681,20 +1670,6 @@ declare global {
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
     interface VAlert {
         /**
           * Set to true to make the alert closable.
@@ -2509,6 +2484,16 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface VLogo {
+        /**
+          * Emitted when the icon failed to load.
+         */
+        "onV-error"?: (event: CustomEvent<{ status?: number }>) => void;
+        /**
+          * Emitted when the icon has loaded.
+         */
+        "onV-load"?: (event: CustomEvent<any>) => void;
+    }
     interface VMenu {
         /**
           * Emitted when a menu item is selected.
@@ -3052,7 +3037,6 @@ declare namespace LocalJSX {
         "trigger"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
         "v-alert": VAlert;
         "v-animation": VAnimation;
         "v-avatar": VAvatar;
@@ -3076,6 +3060,7 @@ declare namespace LocalJSX {
         "v-image-comparer": VImageComparer;
         "v-include": VInclude;
         "v-input": VInput;
+        "v-logo": VLogo;
         "v-menu": VMenu;
         "v-menu-divider": VMenuDivider;
         "v-menu-item": VMenuItem;
@@ -3105,7 +3090,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "v-alert": LocalJSX.VAlert & JSXBase.HTMLAttributes<HTMLVAlertElement>;
             "v-animation": LocalJSX.VAnimation & JSXBase.HTMLAttributes<HTMLVAnimationElement>;
             "v-avatar": LocalJSX.VAvatar & JSXBase.HTMLAttributes<HTMLVAvatarElement>;
@@ -3129,6 +3113,7 @@ declare module "@stencil/core" {
             "v-image-comparer": LocalJSX.VImageComparer & JSXBase.HTMLAttributes<HTMLVImageComparerElement>;
             "v-include": LocalJSX.VInclude & JSXBase.HTMLAttributes<HTMLVIncludeElement>;
             "v-input": LocalJSX.VInput & JSXBase.HTMLAttributes<HTMLVInputElement>;
+            "v-logo": LocalJSX.VLogo & JSXBase.HTMLAttributes<HTMLVLogoElement>;
             "v-menu": LocalJSX.VMenu & JSXBase.HTMLAttributes<HTMLVMenuElement>;
             "v-menu-divider": LocalJSX.VMenuDivider & JSXBase.HTMLAttributes<HTMLVMenuDividerElement>;
             "v-menu-item": LocalJSX.VMenuItem & JSXBase.HTMLAttributes<HTMLVMenuItemElement>;
