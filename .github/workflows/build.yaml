@@ -26,6 +26,15 @@ jobs:
       run: npm run build --if-present
     - name: test
       run: npm test
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [15.x]
+    if: github.ref == 'refs/heads/main'
+    steps:
     # Setup .npmrc file to publish to GitHub Packages
     - name : delivery prep
       uses: actions/setup-node@v2
@@ -33,7 +42,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         registry-url: 'https://npm.pkg.github.com'
         scope: '@vetrify'
-    #if: github.ref == 'refs/heads/main'
     - run: npm install
     - run: npm publish
       env:
