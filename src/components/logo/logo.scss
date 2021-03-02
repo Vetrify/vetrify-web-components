@@ -1,0 +1,16 @@
+@import 'component';
+
+:host {
+  display: inline-block;
+  width: 20em;
+  height: 5em;
+  contain: strict;
+  box-sizing: content-box !important;
+}
+
+.icon,
+svg {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
