@@ -43,11 +43,11 @@ export class Logo {
 
   async setLogo() {
     let url = './vetrify-web-components/logos/vetrify.svg'; // this.src;
-  
+
     if (url) {
       try {
         const file = await requestLogo(url);
-        
+
         if (file.ok) {
           const doc = parser.parseFromString(file.svg, 'text/html');
           const svg = doc.body.querySelector('svg');

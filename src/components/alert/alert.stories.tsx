@@ -132,13 +132,12 @@ export const ToastNotifications = () => `
   const container = document.querySelector('.alert-toast');
 
   ['primary', 'success', 'info', 'warning', 'danger'].map(type => {
-    const button = container.querySelector("v-button[type=\${type}]
-    );
-    const alert = container.querySelector(\`v-alert[type="\${type}"]\`);
+    const button = container.querySelector(v-button[type=\${type}]);
+    const alert = container.querySelector(v-alert[type=\${type}]);
 
     button.addEventListener('click', () => alert.toast());
   });
-</script>`;
+</script>`
 
 export const ImperativeToast = () => `
 <div class="alert-toast-wrapper">
