@@ -62,16 +62,16 @@ export class Dropdown {
   @Prop() hoist = false;
 
   /** Emitted when the dropdown opens. Calling `event.preventDefault()` will prevent it from being opened. */
-  @Event({ eventName: 'v-show' }) slShow: EventEmitter;
+  @Event({ eventName: 'v-show' }) vShow: EventEmitter;
 
   /** Emitted after the dropdown opens and all transitions are complete. */
-  @Event({ eventName: 'v-after-show' }) slAfterShow: EventEmitter;
+  @Event({ eventName: 'v-after-show' }) vAfterShow: EventEmitter;
 
   /** Emitted when the dropdown closes. Calling `event.preventDefault()` will prevent it from being closed. */
-  @Event({ eventName: 'v-hide' }) slHide: EventEmitter;
+  @Event({ eventName: 'v-hide' }) vHide: EventEmitter;
 
   /** Emitted after the dropdown closes and all transitions are complete. */
-  @Event({ eventName: 'v-after-hide' }) slAfterHide: EventEmitter;
+  @Event({ eventName: 'v-after-hide' }) vAfterHide: EventEmitter;
 
   @Watch('open')
   handleOpenChange() {
@@ -114,8 +114,8 @@ export class Dropdown {
       distance: this.distance,
       skidding: this.skidding,
       transitionElement: this.panel,
-      onAfterHide: () => this.slAfterHide.emit(),
-      onAfterShow: () => this.slAfterShow.emit(),
+      onAfterHide: () => this.vAfterHide.emit(),
+      onAfterShow: () => this.vAfterShow.emit(),
       onTransitionEnd: () => {
         if (!this.open) {
           this.panel.scrollTop = 0;
@@ -142,8 +142,8 @@ export class Dropdown {
       return;
     }
 
-    const slShow = this.slShow.emit();
-    if (slShow.defaultPrevented) {
+    const vShow = this.vShow.emit();
+    if (vShow.defaultPrevented) {
       this.open = false;
       return;
     }
@@ -166,8 +166,8 @@ export class Dropdown {
       return;
     }
 
-    const slHide = this.slHide.emit();
-    if (slHide.defaultPrevented) {
+    const vHide = this.vHide.emit();
+    if (vHide.defaultPrevented) {
       this.open = true;
       return;
     }

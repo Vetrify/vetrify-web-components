@@ -63,16 +63,16 @@ export class Tooltip {
   }
 
   /** Emitted when the tooltip begins to show. Calling `event.preventDefault()` will prevent it from being shown. */
-  @Event({ eventName: 'v-show' }) slShow: EventEmitter;
+  @Event({ eventName: 'v-show' }) vShow: EventEmitter;
 
   /** Emitted after the tooltip has shown and all transitions are complete. */
-  @Event({ eventName: 'v-aftershow' }) slAfterShow: EventEmitter;
+  @Event({ eventName: 'v-aftershow' }) vAfterShow: EventEmitter;
 
   /** Emitted when the tooltip begins to hide. Calling `event.preventDefault()` will prevent it from being hidden. */
-  @Event({ eventName: 'v-hide' }) slHide: EventEmitter;
+  @Event({ eventName: 'v-hide' }) vHide: EventEmitter;
 
   /** Emitted after the tooltip has hidden and all transitions are complete. */
-  @Event({ eventName: 'v-after-hide' }) slAfterHide: EventEmitter;
+  @Event({ eventName: 'v-after-hide' }) vAfterHide: EventEmitter;
 
   connectedCallback() {
     this.handleBlur = this.handleBlur.bind(this);
@@ -120,8 +120,8 @@ export class Tooltip {
       return;
     }
 
-    const slShow = this.slShow.emit();
-    if (slShow.defaultPrevented) {
+    const vShow = this.vShow.emit();
+    if (vShow.defaultPrevented) {
       this.open = false;
       return;
     }
@@ -139,8 +139,8 @@ export class Tooltip {
       return;
     }
 
-    const slHide = this.slHide.emit();
-    if (slHide.defaultPrevented) {
+    const vHide = this.vHide.emit();
+    if (vHide.defaultPrevented) {
       this.open = true;
       return;
     }
@@ -222,8 +222,8 @@ export class Tooltip {
       distance: this.distance,
       skidding: this.skidding,
       transitionElement: this.tooltip,
-      onAfterHide: () => this.slAfterHide.emit(),
-      onAfterShow: () => this.slAfterShow.emit(),
+      onAfterHide: () => this.vAfterHide.emit(),
+      onAfterShow: () => this.vAfterShow.emit(),
     });
   }
 

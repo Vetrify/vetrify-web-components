@@ -44,11 +44,11 @@ export class Rating {
 
   @Watch('value')
   handleValueChange() {
-    this.slChange.emit();
+    this.vChange.emit();
   }
 
   /** Emitted when the rating's value changes. */
-  @Event({ eventName: 'v-change' }) slChange: EventEmitter;
+  @Event({ eventName: 'v-change' }) vChange: EventEmitter;
 
   connectedCallback() {
     this.handleClick = this.handleClick.bind(this);

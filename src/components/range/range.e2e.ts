@@ -8,11 +8,11 @@ describe('<v-range>', () => {
       `,
     });
     const range = await page.find('v-range');
-    const slFocus = await range.spyOnEvent('v-focus');
+    const vFocus = await range.spyOnEvent('v-focus');
 
     await range.click();
 
-    expect(slFocus).toHaveReceivedEventTimes(1);
+    expect(vFocus).toHaveReceivedEventTimes(1);
   });
 
   it('should emit v-blur when losing focus', async () => {
@@ -24,12 +24,12 @@ describe('<v-range>', () => {
     });
     const range = await page.find('v-range');
     const button = await page.find('button');
-    const slBlur = await range.spyOnEvent('v-blur');
+    const vBlur = await range.spyOnEvent('v-blur');
 
     await range.click();
     await button.click();
 
-    expect(slBlur).toHaveReceivedEventTimes(1);
+    expect(vBlur).toHaveReceivedEventTimes(1);
   });
 
   it('should emit v-focus when setFocus() is called', async () => {
@@ -39,11 +39,11 @@ describe('<v-range>', () => {
       `,
     });
     const range = await page.find('v-range');
-    const slFocus = await range.spyOnEvent('v-focus');
+    const vFocus = await range.spyOnEvent('v-focus');
 
     await range.callMethod('setFocus');
 
-    expect(slFocus).toHaveReceivedEventTimes(1);
+    expect(vFocus).toHaveReceivedEventTimes(1);
   });
 
   it('should emit v-blur when removeFocus() is called', async () => {
@@ -53,12 +53,12 @@ describe('<v-range>', () => {
       `,
     });
     const range = await page.find('v-range');
-    const slBlur = await range.spyOnEvent('v-blur');
+    const vBlur = await range.spyOnEvent('v-blur');
 
     await range.callMethod('setFocus');
     await range.callMethod('removeFocus');
 
-    expect(slBlur).toHaveReceivedEventTimes(1);
+    expect(vBlur).toHaveReceivedEventTimes(1);
   });
 
   it('should emit v-change when value changes with click', async () => {
@@ -68,11 +68,11 @@ describe('<v-range>', () => {
       `,
     });
     const range = await page.find('v-range');
-    const slChange = await range.spyOnEvent('v-change');
+    const vChange = await range.spyOnEvent('v-change');
 
     await range.click();
 
-    expect(slChange).toHaveReceivedEventTimes(1);
+    expect(vChange).toHaveReceivedEventTimes(1);
   });
 
   it('should sync value when changed with click', async () => {

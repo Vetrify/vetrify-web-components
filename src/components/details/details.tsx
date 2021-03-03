@@ -44,16 +44,16 @@ export class Details {
   }
 
   /** Emitted when the details opens. Calling `event.preventDefault()` will prevent it from being opened. */
-  @Event({ eventName: 'v-show' }) slShow: EventEmitter;
+  @Event({ eventName: 'v-show' }) vShow: EventEmitter;
 
   /** Emitted after the details opens and all transitions are complete. */
-  @Event({ eventName: 'v-after-show' }) slAfterShow: EventEmitter;
+  @Event({ eventName: 'v-after-show' }) vAfterShow: EventEmitter;
 
   /** Emitted when the details closes. Calling `event.preventDefault()` will prevent it from being closed. */
-  @Event({ eventName: 'v-hide' }) slHide: EventEmitter;
+  @Event({ eventName: 'v-hide' }) vHide: EventEmitter;
 
   /** Emitted after the details closes and all transitions are complete. */
-  @Event({ eventName: 'v-after-hide' }) slAfterHide: EventEmitter;
+  @Event({ eventName: 'v-after-hide' }) vAfterHide: EventEmitter;
 
   connectedCallback() {
     this.handleBodyTransitionEnd = this.handleBodyTransitionEnd.bind(this);
@@ -84,8 +84,8 @@ export class Details {
       return;
     }
 
-    const slShow = this.slShow.emit();
-    if (slShow.defaultPrevented) {
+    const vShow = this.vShow.emit();
+    if (vShow.defaultPrevented) {
       this.open = false;
       return;
     }
@@ -114,8 +114,8 @@ export class Details {
       return;
     }
 
-    const slHide = this.slHide.emit();
-    if (slHide.defaultPrevented) {
+    const vHide = this.vHide.emit();
+    if (vHide.defaultPrevented) {
       this.open = true;
       return;
     }
@@ -140,7 +140,7 @@ export class Details {
     if (event.propertyName === 'height' && target.classList.contains('details__body')) {
       this.body.style.overflow = this.open ? 'visible' : 'hidden';
       this.body.style.height = this.open ? 'auto' : '0';
-      this.open ? this.slAfterShow.emit() : this.slAfterHide.emit();
+      this.open ? this.vAfterShow.emit() : this.vAfterHide.emit();
       this.body.hidden = !this.open;
     }
   }

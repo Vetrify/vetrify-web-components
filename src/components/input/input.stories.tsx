@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Input',
+  title: 'Vetrify/Form/Input',
 };
 
 export const Basic = () => ``;

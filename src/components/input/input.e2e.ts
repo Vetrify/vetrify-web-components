@@ -8,11 +8,11 @@ describe('<v-input>', () => {
       `,
     });
     const input = await page.find('v-input');
-    const slFocus = await input.spyOnEvent('v-focus');
+    const vFocus = await input.spyOnEvent('v-focus');
 
     await input.click();
 
-    expect(slFocus).toHaveReceivedEventTimes(1);
+    expect(vFocus).toHaveReceivedEventTimes(1);
   });
 
   it('should emit v-blur when losing focus', async () => {
@@ -24,12 +24,12 @@ describe('<v-input>', () => {
     });
     const input = await page.find('v-input');
     const button = await page.find('button');
-    const slBlur = await input.spyOnEvent('v-blur');
+    const vBlur = await input.spyOnEvent('v-blur');
 
     await input.click();
     await button.click();
 
-    expect(slBlur).toHaveReceivedEventTimes(1);
+    expect(vBlur).toHaveReceivedEventTimes(1);
   });
 
   it('should emit v-focus when setFocus() is called', async () => {
@@ -39,11 +39,11 @@ describe('<v-input>', () => {
       `,
     });
     const input = await page.find('v-input');
-    const slFocus = await input.spyOnEvent('v-focus');
+    const vFocus = await input.spyOnEvent('v-focus');
 
     await input.callMethod('setFocus');
 
-    expect(slFocus).toHaveReceivedEventTimes(1);
+    expect(vFocus).toHaveReceivedEventTimes(1);
   });
 
   it('should emit v-blur when removeFocus() is called', async () => {
@@ -53,12 +53,12 @@ describe('<v-input>', () => {
       `,
     });
     const input = await page.find('v-input');
-    const slBlur = await input.spyOnEvent('v-blur');
+    const vBlur = await input.spyOnEvent('v-blur');
 
     await input.callMethod('setFocus');
     await input.callMethod('removeFocus');
 
-    expect(slBlur).toHaveReceivedEventTimes(1);
+    expect(vBlur).toHaveReceivedEventTimes(1);
   });
 
   it('should emit v-change when text is entered and focus is removed', async () => {
@@ -69,12 +69,12 @@ describe('<v-input>', () => {
     });
     const input = await page.find('v-input');
     const inputControl = await page.find('v-input >>> .input__control');
-    const slChange = await input.spyOnEvent('v-change');
+    const vChange = await input.spyOnEvent('v-change');
 
     await inputControl.press('A');
     await input.callMethod('removeFocus');
 
-    expect(slChange).toHaveReceivedEventTimes(1);
+    expect(vChange).toHaveReceivedEventTimes(1);
   });
 
   it('should emit v-input when text entered', async () => {
@@ -85,11 +85,11 @@ describe('<v-input>', () => {
     });
     const input = await page.find('v-input');
     const inputControl = await page.find('v-input >>> .input__control');
-    const slInput = await input.spyOnEvent('v-input');
+    const vInput = await input.spyOnEvent('v-input');
 
     await inputControl.press('A');
 
-    expect(slInput).toHaveReceivedEventTimes(1);
+    expect(vInput).toHaveReceivedEventTimes(1);
   });
 
   it('should sync value when text is entered', async () => {
@@ -116,12 +116,12 @@ describe('<v-input>', () => {
     const input = await page.find('v-input');
     const inputControl = await page.find('v-input >>> .input__control');
     const inputClear = await page.find('v-input >>> .input__clear');
-    const slClear = await input.spyOnEvent('v-clear');
+    const vClear = await input.spyOnEvent('v-clear');
 
     await inputControl.press('A');
     await inputClear.click();
 
-    expect(slClear).toHaveReceivedEventTimes(1);
+    expect(vClear).toHaveReceivedEventTimes(1);
   });
 
   it('should select all text when select() method is called', async () => {

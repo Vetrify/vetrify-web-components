@@ -813,6 +813,12 @@ export namespace Components {
     }
     interface VMenuLabel {
     }
+    interface VNetworkDiagram {
+        /**
+          * The network diagram's data
+         */
+        "data": any;
+    }
     interface VProgressBar {
         /**
           * When true, percentage is ignored, the label is hidden, and the progress bar is drawn in an indeterminate state.
@@ -1505,6 +1511,12 @@ declare global {
         prototype: HTMLVMenuLabelElement;
         new (): HTMLVMenuLabelElement;
     };
+    interface HTMLVNetworkDiagramElement extends Components.VNetworkDiagram, HTMLStencilElement {
+    }
+    var HTMLVNetworkDiagramElement: {
+        prototype: HTMLVNetworkDiagramElement;
+        new (): HTMLVNetworkDiagramElement;
+    };
     interface HTMLVProgressBarElement extends Components.VProgressBar, HTMLStencilElement {
     }
     var HTMLVProgressBarElement: {
@@ -1648,6 +1660,7 @@ declare global {
         "v-menu-divider": HTMLVMenuDividerElement;
         "v-menu-item": HTMLVMenuItemElement;
         "v-menu-label": HTMLVMenuLabelElement;
+        "v-network-diagram": HTMLVNetworkDiagramElement;
         "v-progress-bar": HTMLVProgressBarElement;
         "v-progress-ring": HTMLVProgressRingElement;
         "v-radio": HTMLVRadioElement;
@@ -2518,6 +2531,12 @@ declare namespace LocalJSX {
     }
     interface VMenuLabel {
     }
+    interface VNetworkDiagram {
+        /**
+          * The network diagram's data
+         */
+        "data"?: any;
+    }
     interface VProgressBar {
         /**
           * When true, percentage is ignored, the label is hidden, and the progress bar is drawn in an indeterminate state.
@@ -3065,6 +3084,7 @@ declare namespace LocalJSX {
         "v-menu-divider": VMenuDivider;
         "v-menu-item": VMenuItem;
         "v-menu-label": VMenuLabel;
+        "v-network-diagram": VNetworkDiagram;
         "v-progress-bar": VProgressBar;
         "v-progress-ring": VProgressRing;
         "v-radio": VRadio;
@@ -3118,6 +3138,7 @@ declare module "@stencil/core" {
             "v-menu-divider": LocalJSX.VMenuDivider & JSXBase.HTMLAttributes<HTMLVMenuDividerElement>;
             "v-menu-item": LocalJSX.VMenuItem & JSXBase.HTMLAttributes<HTMLVMenuItemElement>;
             "v-menu-label": LocalJSX.VMenuLabel & JSXBase.HTMLAttributes<HTMLVMenuLabelElement>;
+            "v-network-diagram": LocalJSX.VNetworkDiagram & JSXBase.HTMLAttributes<HTMLVNetworkDiagramElement>;
             "v-progress-bar": LocalJSX.VProgressBar & JSXBase.HTMLAttributes<HTMLVProgressBarElement>;
             "v-progress-ring": LocalJSX.VProgressRing & JSXBase.HTMLAttributes<HTMLVProgressRingElement>;
             "v-radio": LocalJSX.VRadio & JSXBase.HTMLAttributes<HTMLVRadioElement>;

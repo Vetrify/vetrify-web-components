@@ -12,11 +12,11 @@ describe('<v-select>', () => {
       `,
     });
     const select = await page.find('v-select');
-    const slFocus = await select.spyOnEvent('v-focus');
+    const vFocus = await select.spyOnEvent('v-focus');
 
     await select.click();
 
-    expect(slFocus).toHaveReceivedEventTimes(1);
+    expect(vFocus).toHaveReceivedEventTimes(1);
   });
 
   it('should emit v-blur when losing focus', async () => {
@@ -32,12 +32,12 @@ describe('<v-select>', () => {
     });
     const select = await page.find('v-select');
     const button = await page.find('button');
-    const slBlur = await select.spyOnEvent('v-blur');
+    const vBlur = await select.spyOnEvent('v-blur');
 
     await select.click();
     await button.click();
 
-    expect(slBlur).toHaveReceivedEventTimes(1);
+    expect(vBlur).toHaveReceivedEventTimes(1);
   });
 
   it('should emit v-change when a menu item is selected', async () => {
@@ -52,12 +52,12 @@ describe('<v-select>', () => {
     });
     const select = await page.find('v-select');
     const menuItem = await page.find('v-menu-item');
-    const slChange = await select.spyOnEvent('v-change');
+    const vChange = await select.spyOnEvent('v-change');
 
     await select.click();
     await menuItem.click();
 
-    expect(slChange).toHaveReceivedEventTimes(1);
+    expect(vChange).toHaveReceivedEventTimes(1);
   });
 
   it('should change value when menu item selected', async () => {

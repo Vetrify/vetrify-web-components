@@ -49,20 +49,20 @@ export class Checkbox {
   @Prop({ mutable: true, reflect: true }) invalid = false;
 
   /** Emitted when the control loses focus. */
-  @Event({ eventName: 'v-blur' }) slBlur: EventEmitter;
+  @Event({ eventName: 'v-blur' }) vBlur: EventEmitter;
 
   /** Emitted when the control's checked state changes. */
-  @Event({ eventName: 'v-change' }) slChange: EventEmitter;
+  @Event({ eventName: 'v-change' }) vChange: EventEmitter;
 
   /** Emitted when the control gains focus. */
-  @Event({ eventName: 'v-focus' }) slFocus: EventEmitter;
+  @Event({ eventName: 'v-focus' }) vFocus: EventEmitter;
 
   @Watch('checked')
   @Watch('indeterminate')
   handleCheckedChange() {
     this.input.checked = this.checked;
     this.input.indeterminate = this.indeterminate;
-    this.slChange.emit();
+    this.vChange.emit();
   }
 
   connectedCallback() {
@@ -108,12 +108,12 @@ export class Checkbox {
 
   handleBlur() {
     this.hasFocus = false;
-    this.slBlur.emit();
+    this.vBlur.emit();
   }
 
   handleFocus() {
     this.hasFocus = true;
-    this.slFocus.emit();
+    this.vFocus.emit();
   }
 
   handleMouseDown(event: MouseEvent) {

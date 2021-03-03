@@ -10,13 +10,13 @@ Vetrify's standalone Web Components.
 
 ### Stencil
 
-[Stencil](https://stenciljs.com/) is a compiler for building fast web apps using Web Components.
+[StencilJs](https://stenciljs.com/) is a compiler for building fast web apps using Web Components.
 
-Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool. Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
+Stencil combines the best concepts of the most popular front-end frameworks into a compile-time rather than run-time tool. Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
 
 Stencil components are just Web Components, so they work in any major framework or with no framework at all.
 
-The core components are strongly influenced by the [Shoelace](https://shoelace.style/) library.
+The core structure is strongly influenced by the [Shoelace](https://shoelace.style/) project.
 
 ### Storybook
 
@@ -35,7 +35,7 @@ num run-script build
 npm run
 ```
 
-> note: this will start both stencil and storybook
+> note: this will start both StencilJs and Storybook
 
 ### To Build
 
@@ -59,7 +59,7 @@ Typescript should be the default language used for defining components, tests, a
 
 ### Naming Convention
 
-When creating new component tags, do _not_ use `stencil` in the component name (ex: `<stencil-datepicker>`). This is because the generated component has little to nothing to do with Stencil; it's just a web component!
+When creating new component tags, do _not_ use `stencil` in the component name (ex: `<stencil-datepicker>`). This is because the generated component has little to nothing to do with StencilJs; it's just a web component!
 
 Instead, use the prefix `v`.
 

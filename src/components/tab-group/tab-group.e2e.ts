@@ -90,17 +90,17 @@ describe('<v-tab group>', () => {
       html: testTabGroup,
     });
     const tabGroup = await page.find('v-tab-group');
-    const slTabHide = await tabGroup.spyOnEvent('v-tab-hide');
-    const slTabShow = await tabGroup.spyOnEvent('v-tab-show');
+    const vTabHide = await tabGroup.spyOnEvent('v-tab-hide');
+    const vTabShow = await tabGroup.spyOnEvent('v-tab-show');
     const selectedPanelName = 'advanced';
     const selectedTab = await page.find(`v-tab[panel=${selectedPanelName}]`);
 
     await selectedTab.click();
 
-    expect(slTabHide).toHaveReceivedEventTimes(1);
-    expect(slTabHide).toHaveReceivedEventDetail({ name: 'general' });
-    expect(slTabShow).toHaveReceivedEventTimes(1);
-    expect(slTabShow).toHaveReceivedEventDetail({ name: 'advanced' });
+    expect(vTabHide).toHaveReceivedEventTimes(1);
+    expect(vTabHide).toHaveReceivedEventDetail({ name: 'general' });
+    expect(vTabShow).toHaveReceivedEventTimes(1);
+    expect(vTabShow).toHaveReceivedEventDetail({ name: 'advanced' });
   });
 
   it('should change tabs when show() is called', async () => {
@@ -108,17 +108,17 @@ describe('<v-tab group>', () => {
       html: testTabGroup,
     });
     const tabGroup = await page.find('v-tab-group');
-    const slTabHide = await tabGroup.spyOnEvent('v-tab-hide');
-    const slTabShow = await tabGroup.spyOnEvent('v-tab-show');
+    const vTabHide = await tabGroup.spyOnEvent('v-tab-hide');
+    const vTabShow = await tabGroup.spyOnEvent('v-tab-show');
     const selectedPanelName = 'advanced';
     const selectedTab = await page.find(`v-tab[panel=${selectedPanelName}]`);
 
     await selectedTab.click();
 
-    expect(slTabHide).toHaveReceivedEventTimes(1);
-    expect(slTabHide).toHaveReceivedEventDetail({ name: 'general' });
-    expect(slTabShow).toHaveReceivedEventTimes(1);
-    expect(slTabShow).toHaveReceivedEventDetail({ name: 'advanced' });
+    expect(vTabHide).toHaveReceivedEventTimes(1);
+    expect(vTabHide).toHaveReceivedEventDetail({ name: 'general' });
+    expect(vTabShow).toHaveReceivedEventTimes(1);
+    expect(vTabShow).toHaveReceivedEventDetail({ name: 'advanced' });
   });
 
   it('should not hide the active panel when selecting a nested tab', async () => {

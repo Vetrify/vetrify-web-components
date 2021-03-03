@@ -14,8 +14,8 @@ describe('<v-dropdown>', () => {
     });
     const dropdown = await page.find('v-dropdown');
     const panel = await page.find('v-dropdown >>> .dropdown__panel');
-    const slShow = await dropdown.spyOnEvent('v-show');
-    const slAfterShow = await dropdown.spyOnEvent('v-after-show');
+    const vShow = await dropdown.spyOnEvent('v-show');
+    const vAfterShow = await dropdown.spyOnEvent('v-after-show');
 
     expect(await panel.isVisible()).toBe(false);
 
@@ -25,8 +25,8 @@ describe('<v-dropdown>', () => {
     await showEventHappened;
 
     expect(await panel.isVisible()).toBe(true);
-    expect(slShow).toHaveReceivedEventTimes(1);
-    expect(slAfterShow).toHaveReceivedEventTimes(1);
+    expect(vShow).toHaveReceivedEventTimes(1);
+    expect(vAfterShow).toHaveReceivedEventTimes(1);
   });
 
   it('should close when the open attribute is removed', async () => {
@@ -42,8 +42,8 @@ describe('<v-dropdown>', () => {
     });
     const dropdown = await page.find('v-dropdown');
     const panel = await page.find('v-dropdown >>> .dropdown__panel');
-    const slHide = await dropdown.spyOnEvent('v-hide');
-    const slAfterHide = await dropdown.spyOnEvent('v-after-hide');
+    const vHide = await dropdown.spyOnEvent('v-hide');
+    const vAfterHide = await dropdown.spyOnEvent('v-after-hide');
 
     expect(await panel.isVisible()).toBe(true);
 
@@ -53,8 +53,8 @@ describe('<v-dropdown>', () => {
     await hideEventHappened;
 
     expect(await panel.isVisible()).toBe(false);
-    expect(slHide).toHaveReceivedEventTimes(1);
-    expect(slAfterHide).toHaveReceivedEventTimes(1);
+    expect(vHide).toHaveReceivedEventTimes(1);
+    expect(vAfterHide).toHaveReceivedEventTimes(1);
   });
 
   it('should open when the show() method is called', async () => {
@@ -70,8 +70,8 @@ describe('<v-dropdown>', () => {
     });
     const dropdown = await page.find('v-dropdown');
     const panel = await page.find('v-dropdown >>> .dropdown__panel');
-    const slShow = await dropdown.spyOnEvent('v-show');
-    const slAfterShow = await dropdown.spyOnEvent('v-after-show');
+    const vShow = await dropdown.spyOnEvent('v-show');
+    const vAfterShow = await dropdown.spyOnEvent('v-after-show');
 
     expect(await panel.isVisible()).toBe(false);
 
@@ -80,8 +80,8 @@ describe('<v-dropdown>', () => {
     await showEventHappened;
 
     expect(await panel.isVisible()).toBe(true);
-    expect(slShow).toHaveReceivedEventTimes(1);
-    expect(slAfterShow).toHaveReceivedEventTimes(1);
+    expect(vShow).toHaveReceivedEventTimes(1);
+    expect(vAfterShow).toHaveReceivedEventTimes(1);
   });
 
   it('should close when the hide() method is called', async () => {
@@ -98,8 +98,8 @@ describe('<v-dropdown>', () => {
 
     const dropdown = await page.find('v-dropdown');
     const panel = await page.find('v-dropdown >>> .dropdown__panel');
-    const slHide = await dropdown.spyOnEvent('v-hide');
-    const slAfterHide = await dropdown.spyOnEvent('v-after-hide');
+    const vHide = await dropdown.spyOnEvent('v-hide');
+    const vAfterHide = await dropdown.spyOnEvent('v-after-hide');
 
     expect(await panel.isVisible()).toBe(true);
 
@@ -108,8 +108,8 @@ describe('<v-dropdown>', () => {
     await hideEventHappened;
 
     expect(await panel.isVisible()).toBe(false);
-    expect(slHide).toHaveReceivedEventTimes(1);
-    expect(slAfterHide).toHaveReceivedEventTimes(1);
+    expect(vHide).toHaveReceivedEventTimes(1);
+    expect(vAfterHide).toHaveReceivedEventTimes(1);
   });
 
   it('should open when clicked and hidden', async () => {
@@ -125,8 +125,8 @@ describe('<v-dropdown>', () => {
     });
     const dropdown = await page.find('v-dropdown');
     const panel = await page.find('v-dropdown >>> .dropdown__panel');
-    const slShow = await dropdown.spyOnEvent('v-show');
-    const slAfterShow = await dropdown.spyOnEvent('v-after-show');
+    const vShow = await dropdown.spyOnEvent('v-show');
+    const vAfterShow = await dropdown.spyOnEvent('v-after-show');
 
     expect(await panel.isVisible()).toBe(false);
 
@@ -135,8 +135,8 @@ describe('<v-dropdown>', () => {
     await showEventHappened;
 
     expect(await panel.isVisible()).toBe(true);
-    expect(slShow).toHaveReceivedEventTimes(1);
-    expect(slAfterShow).toHaveReceivedEventTimes(1);
+    expect(vShow).toHaveReceivedEventTimes(1);
+    expect(vAfterShow).toHaveReceivedEventTimes(1);
   });
 
   it('should close when clicked while showing', async () => {
@@ -152,8 +152,8 @@ describe('<v-dropdown>', () => {
     });
     const dropdown = await page.find('v-dropdown');
     const panel = await page.find('v-dropdown >>> .dropdown__panel');
-    const slHide = await dropdown.spyOnEvent('v-hide');
-    const slAfterHide = await dropdown.spyOnEvent('v-after-hide');
+    const vHide = await dropdown.spyOnEvent('v-hide');
+    const vAfterHide = await dropdown.spyOnEvent('v-after-hide');
 
     expect(await panel.isVisible()).toBe(true);
 
@@ -162,8 +162,8 @@ describe('<v-dropdown>', () => {
     await afterEventHappened;
 
     expect(await panel.isVisible()).toBe(false);
-    expect(slHide).toHaveReceivedEventTimes(1);
-    expect(slAfterHide).toHaveReceivedEventTimes(1);
+    expect(vHide).toHaveReceivedEventTimes(1);
+    expect(vAfterHide).toHaveReceivedEventTimes(1);
   });
 
   it('should close when an item is selected', async () => {

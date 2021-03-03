@@ -9,8 +9,8 @@ describe('<v-drawer>', () => {
     });
     const drawer = await page.find('v-drawer');
     const base = await page.find('v-drawer >>> .drawer');
-    const slShow = await drawer.spyOnEvent('v-show');
-    const slAfterShow = await drawer.spyOnEvent('v-after-show');
+    const vShow = await drawer.spyOnEvent('v-show');
+    const vAfterShow = await drawer.spyOnEvent('v-after-show');
 
     expect(await base.isVisible()).toBe(false);
 
@@ -20,8 +20,8 @@ describe('<v-drawer>', () => {
     await showEventHappened;
 
     expect(await base.isVisible()).toBe(true);
-    expect(slShow).toHaveReceivedEventTimes(1);
-    expect(slAfterShow).toHaveReceivedEventTimes(1);
+    expect(vShow).toHaveReceivedEventTimes(1);
+    expect(vAfterShow).toHaveReceivedEventTimes(1);
   });
 
   it('should close when the open attribute is removed', async () => {
@@ -32,8 +32,8 @@ describe('<v-drawer>', () => {
     });
     const drawer = await page.find('v-drawer');
     const base = await page.find('v-drawer >>> .drawer');
-    const slHide = await drawer.spyOnEvent('v-hide');
-    const slAfterHide = await drawer.spyOnEvent('v-after-hide');
+    const vHide = await drawer.spyOnEvent('v-hide');
+    const vAfterHide = await drawer.spyOnEvent('v-after-hide');
 
     expect(await base.isVisible()).toBe(true);
 
@@ -43,8 +43,8 @@ describe('<v-drawer>', () => {
     await hideEventHappened;
 
     expect(await base.isVisible()).toBe(false);
-    expect(slHide).toHaveReceivedEventTimes(1);
-    expect(slAfterHide).toHaveReceivedEventTimes(1);
+    expect(vHide).toHaveReceivedEventTimes(1);
+    expect(vAfterHide).toHaveReceivedEventTimes(1);
   });
 
   it('should open when the show() method is called', async () => {
@@ -55,8 +55,8 @@ describe('<v-drawer>', () => {
     });
     const drawer = await page.find('v-drawer');
     const base = await page.find('v-drawer >>> .drawer');
-    const slShow = await drawer.spyOnEvent('v-show');
-    const slAfterShow = await drawer.spyOnEvent('v-after-show');
+    const vShow = await drawer.spyOnEvent('v-show');
+    const vAfterShow = await drawer.spyOnEvent('v-after-show');
 
     expect(await base.isVisible()).toBe(false);
 
@@ -65,8 +65,8 @@ describe('<v-drawer>', () => {
     await showEventHappened;
 
     expect(await base.isVisible()).toBe(true);
-    expect(slShow).toHaveReceivedEventTimes(1);
-    expect(slAfterShow).toHaveReceivedEventTimes(1);
+    expect(vShow).toHaveReceivedEventTimes(1);
+    expect(vAfterShow).toHaveReceivedEventTimes(1);
   });
 
   it('should close when the hide() method is called', async () => {
@@ -77,8 +77,8 @@ describe('<v-drawer>', () => {
     });
     const drawer = await page.find('v-drawer');
     const base = await page.find('v-drawer >>> .drawer');
-    const slHide = await drawer.spyOnEvent('v-hide');
-    const slAfterHide = await drawer.spyOnEvent('v-after-hide');
+    const vHide = await drawer.spyOnEvent('v-hide');
+    const vAfterHide = await drawer.spyOnEvent('v-after-hide');
 
     expect(await base.isVisible()).toBe(true);
 
@@ -87,8 +87,8 @@ describe('<v-drawer>', () => {
     await hideEventHappened;
 
     expect(await base.isVisible()).toBe(false);
-    expect(slHide).toHaveReceivedEventTimes(1);
-    expect(slAfterHide).toHaveReceivedEventTimes(1);
+    expect(vHide).toHaveReceivedEventTimes(1);
+    expect(vAfterHide).toHaveReceivedEventTimes(1);
   });
 
   it('should emit v-overlay-dismiss when the overlay is clicked', async () => {
@@ -98,12 +98,12 @@ describe('<v-drawer>', () => {
       `,
     });
     const drawer = await page.find('v-drawer');
-    const slOverlayDismiss = await drawer.spyOnEvent('v-overlay-dismiss');
+    const vOverlayDismiss = await drawer.spyOnEvent('v-overlay-dismiss');
 
     // We can't use the click method on the overlay since the click is in the middle, which will be behind the panel
     await page.mouse.click(0, 0);
     await page.waitForChanges();
 
-    expect(slOverlayDismiss).toHaveReceivedEventTimes(1);
+    expect(vOverlayDismiss).toHaveReceivedEventTimes(1);
   });
 });

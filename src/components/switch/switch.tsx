@@ -47,17 +47,17 @@ export class Switch {
   @Watch('checked')
   handleCheckedChange() {
     this.input.checked = this.checked;
-    this.slChange.emit();
+    this.vChange.emit();
   }
 
   /** Emitted when the control loses focus. */
-  @Event({ eventName: 'v-blur' }) slBlur: EventEmitter;
+  @Event({ eventName: 'v-blur' }) vBlur: EventEmitter;
 
   /** Emitted when the control's checked state changes. */
-  @Event({ eventName: 'v-change' }) slChange: EventEmitter;
+  @Event({ eventName: 'v-change' }) vChange: EventEmitter;
 
   /** Emitted when the control gains focus. */
-  @Event({ eventName: 'v-focus' }) slFocus: EventEmitter;
+  @Event({ eventName: 'v-focus' }) vFocus: EventEmitter;
 
   connectedCallback() {
     this.handleClick = this.handleClick.bind(this);
@@ -98,12 +98,12 @@ export class Switch {
 
   handleBlur() {
     this.hasFocus = false;
-    this.slBlur.emit();
+    this.vBlur.emit();
   }
 
   handleFocus() {
     this.hasFocus = true;
-    this.slFocus.emit();
+    this.vFocus.emit();
   }
 
   handleKeyDown(event: KeyboardEvent) {
