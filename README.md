@@ -31,6 +31,7 @@ For development using storybook, run:
 
 ```
 npm install
+num run-script build
 npm run
 ```
 

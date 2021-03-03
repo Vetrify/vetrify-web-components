@@ -11,8 +11,10 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-controls',
     '@storybook/addon-viewport',
+    //'@storybook/addon-jest',
   ],
   webpackFinal: async config => {
+
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
       loader: require.resolve('babel-loader'),

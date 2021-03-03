@@ -93,6 +93,7 @@
     "@popperjs/core": "^2.5.3",
     "@shoelace-style/animations": "^1.0.0",
     "@stencil/core": "^2.4.0",
+    "@storybook/addon-jest": "^6.1.20",
     "@types/resize-observer-browser": "^0.1.4",
     "babel-preset-typescript": "^7.0.0-alpha.19",
     "color": "^3.1.2"

@@ -137,7 +137,7 @@ export const ToastNotifications = () => `
 
     button.addEventListener('click', () => alert.toast());
   });
-</script>`
+</script>`;
 
 export const ImperativeToast = () => `
 <div class="alert-toast-wrapper">
