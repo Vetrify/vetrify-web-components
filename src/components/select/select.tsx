@@ -121,17 +121,17 @@ export class Select {
   @Watch('value')
   handleValueChange() {
     this.syncItemsFromValue();
-    this.slChange.emit();
+    this.vChange.emit();
   }
 
   /** Emitted when the control's value changes. */
-  @Event({ eventName: 'v-change' }) slChange: EventEmitter;
+  @Event({ eventName: 'v-change' }) vChange: EventEmitter;
 
   /** Emitted when the control gains focus. */
-  @Event({ eventName: 'v-focus' }) slFocus: EventEmitter;
+  @Event({ eventName: 'v-focus' }) vFocus: EventEmitter;
 
   /** Emitted when the control loses focus. */
-  @Event({ eventName: 'v-blur' }) slBlur: EventEmitter;
+  @Event({ eventName: 'v-blur' }) vBlur: EventEmitter;
 
   connectedCallback() {
     this.handleBlur = this.handleBlur.bind(this);
@@ -192,12 +192,12 @@ export class Select {
 
   handleBlur() {
     this.hasFocus = false;
-    this.slBlur.emit();
+    this.vBlur.emit();
   }
 
   handleFocus() {
     this.hasFocus = true;
-    this.slFocus.emit();
+    this.vFocus.emit();
   }
 
   handleClearClick(event: MouseEvent) {

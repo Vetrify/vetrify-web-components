@@ -9,8 +9,8 @@ describe('<v-alert>', () => {
     });
     const alert = await page.find('v-alert');
     const base = await page.find('v-alert >>> .alert');
-    const slShow = await alert.spyOnEvent('v-show');
-    const slAfterShow = await alert.spyOnEvent('v-after-show');
+    const vShow = await alert.spyOnEvent('v-show');
+    const vAfterShow = await alert.spyOnEvent('v-after-show');
 
     expect(await base.isVisible()).toBe(false);
 
@@ -20,8 +20,8 @@ describe('<v-alert>', () => {
     await showEventHappened;
 
     expect(await base.isVisible()).toBe(true);
-    expect(slShow).toHaveReceivedEventTimes(1);
-    expect(slAfterShow).toHaveReceivedEventTimes(1);
+    expect(vShow).toHaveReceivedEventTimes(1);
+    expect(vAfterShow).toHaveReceivedEventTimes(1);
   });
 
   it('should close when the open attribute is removed', async () => {
@@ -32,8 +32,8 @@ describe('<v-alert>', () => {
     });
     const alert = await page.find('v-alert');
     const base = await page.find('v-alert >>> .alert');
-    const slHide = await alert.spyOnEvent('v-hide');
-    const slAfterHide = await alert.spyOnEvent('v-after-hide');
+    const vHide = await alert.spyOnEvent('v-hide');
+    const vAfterHide = await alert.spyOnEvent('v-after-hide');
 
     expect(await base.isVisible()).toBe(true);
 
@@ -43,8 +43,8 @@ describe('<v-alert>', () => {
     await hideEventHappened;
 
     expect(await base.isVisible()).toBe(false);
-    expect(slHide).toHaveReceivedEventTimes(1);
-    expect(slAfterHide).toHaveReceivedEventTimes(1);
+    expect(vHide).toHaveReceivedEventTimes(1);
+    expect(vAfterHide).toHaveReceivedEventTimes(1);
   });
 
   it('should open with the show() method', async () => {
@@ -55,8 +55,8 @@ describe('<v-alert>', () => {
     });
     const alert = await page.find('v-alert');
     const base = await page.find('v-alert >>> .alert');
-    const slShow = await alert.spyOnEvent('v-show');
-    const slAfterShow = await alert.spyOnEvent('v-after-show');
+    const vShow = await alert.spyOnEvent('v-show');
+    const vAfterShow = await alert.spyOnEvent('v-after-show');
 
     expect(await base.isVisible()).toBe(false);
 
@@ -65,8 +65,8 @@ describe('<v-alert>', () => {
     await showEventHappened;
 
     expect(await base.isVisible()).toBe(true);
-    expect(slShow).toHaveReceivedEventTimes(1);
-    expect(slAfterShow).toHaveReceivedEventTimes(1);
+    expect(vShow).toHaveReceivedEventTimes(1);
+    expect(vAfterShow).toHaveReceivedEventTimes(1);
   });
 
   it('should close with the hide() method', async () => {
@@ -77,8 +77,8 @@ describe('<v-alert>', () => {
     });
     const alert = await page.find('v-alert');
     const base = await page.find('v-alert >>> .alert');
-    const slHide = await alert.spyOnEvent('v-hide');
-    const slAfterHide = await alert.spyOnEvent('v-after-hide');
+    const vHide = await alert.spyOnEvent('v-hide');
+    const vAfterHide = await alert.spyOnEvent('v-after-hide');
 
     expect(await base.isVisible()).toBe(true);
 
@@ -87,7 +87,7 @@ describe('<v-alert>', () => {
     await hideEventHappened;
 
     expect(await base.isVisible()).toBe(false);
-    expect(slHide).toHaveReceivedEventTimes(1);
-    expect(slAfterHide).toHaveReceivedEventTimes(1);
+    expect(vHide).toHaveReceivedEventTimes(1);
+    expect(vAfterHide).toHaveReceivedEventTimes(1);
   });
 });

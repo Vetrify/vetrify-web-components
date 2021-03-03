@@ -32,14 +32,14 @@ export class Tag {
   @Prop({ reflect: true }) clearable = false;
 
   /** Emitted when the clear button is activated. */
-  @Event({ eventName: 'v-clear' }) slClear: EventEmitter;
+  @Event({ eventName: 'v-clear' }) vClear: EventEmitter;
 
   connectedCallback() {
     this.handleClearClick = this.handleClearClick.bind(this);
   }
 
   handleClearClick() {
-    this.slClear.emit();
+    this.vClear.emit();
   }
 
   render() {

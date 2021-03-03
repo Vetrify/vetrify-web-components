@@ -54,16 +54,16 @@ export class Alert {
   }
 
   /** Emitted when the alert opens. Calling `event.preventDefault()` will prevent it from being opened. */
-  @Event({ eventName: 'v-show' }) slShow: EventEmitter;
+  @Event({ eventName: 'v-show' }) vShow: EventEmitter;
 
   /** Emitted after the alert opens and all transitions are complete. */
-  @Event({ eventName: 'v-after-show' }) slAfterShow: EventEmitter;
+  @Event({ eventName: 'v-after-show' }) vAfterShow: EventEmitter;
 
   /** Emitted when the alert closes. Calling `event.preventDefault()` will prevent it from being closed. */
-  @Event({ eventName: 'v-hide' }) slHide: EventEmitter;
+  @Event({ eventName: 'v-hide' }) vHide: EventEmitter;
 
   /** Emitted after the alert closes and all transitions are complete. */
-  @Event({ eventName: 'v-after-hide' }) slAfterHide: EventEmitter;
+  @Event({ eventName: 'v-after-hide' }) vAfterHide: EventEmitter;
 
   connectedCallback() {
     this.handleCloseClick = this.handleCloseClick.bind(this);
@@ -86,8 +86,8 @@ export class Alert {
       return;
     }
 
-    const slShow = this.slShow.emit();
-    if (slShow.defaultPrevented) {
+    const vShow = this.vShow.emit();
+    if (vShow.defaultPrevented) {
       this.open = false;
       return;
     }
@@ -108,8 +108,8 @@ export class Alert {
       return;
     }
 
-    const slHide = this.slHide.emit();
-    if (slHide.defaultPrevented) {
+    const vHide = this.vHide.emit();
+    if (vHide.defaultPrevented) {
       this.open = true;
       return;
     }
@@ -164,7 +164,7 @@ export class Alert {
     // Ensure we only emit one event when the target element is no longer visible
     if (event.propertyName === 'opacity' && target.classList.contains('alert')) {
       this.isVisible = this.open;
-      this.open ? this.slAfterShow.emit() : this.slAfterHide.emit();
+      this.open ? this.vAfterShow.emit() : this.vAfterHide.emit();
     }
   }
 

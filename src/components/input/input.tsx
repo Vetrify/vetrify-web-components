@@ -139,19 +139,19 @@ export class Input {
   }
 
   /** Emitted when the control's value changes. */
-  @Event({ eventName: 'v-change' }) slChange: EventEmitter;
+  @Event({ eventName: 'v-change' }) vChange: EventEmitter;
 
   /** Emitted when the clear button is activated. */
-  @Event({ eventName: 'v-clear' }) slClear: EventEmitter;
+  @Event({ eventName: 'v-clear' }) vClear: EventEmitter;
 
   /** Emitted when the control receives input. */
-  @Event({ eventName: 'v-input' }) slInput: EventEmitter;
+  @Event({ eventName: 'v-input' }) vInput: EventEmitter;
 
   /** Emitted when the control gains focus. */
-  @Event({ eventName: 'v-focus' }) slFocus: EventEmitter;
+  @Event({ eventName: 'v-focus' }) vFocus: EventEmitter;
 
   /** Emitted when the control loses focus. */
-  @Event({ eventName: 'v-blur' }) slBlur: EventEmitter;
+  @Event({ eventName: 'v-blur' }) vBlur: EventEmitter;
 
   connectedCallback() {
     this.handleChange = this.handleChange.bind(this);
@@ -205,8 +205,8 @@ export class Input {
 
     if (this.value !== this.input.value) {
       this.value = this.input.value;
-      this.slChange.emit();
-      this.slInput.emit();
+      this.vChange.emit();
+      this.vInput.emit();
     }
   }
 
@@ -225,12 +225,12 @@ export class Input {
 
   handleChange() {
     this.value = this.input.value;
-    this.slChange.emit();
+    this.vChange.emit();
   }
 
   handleInput() {
     this.value = this.input.value;
-    this.slInput.emit();
+    this.vInput.emit();
   }
 
   handleInvalid() {
@@ -239,19 +239,19 @@ export class Input {
 
   handleBlur() {
     this.hasFocus = false;
-    this.slBlur.emit();
+    this.vBlur.emit();
   }
 
   handleFocus() {
     this.hasFocus = true;
-    this.slFocus.emit();
+    this.vFocus.emit();
   }
 
   handleClearClick(event: MouseEvent) {
     this.value = '';
-    this.slClear.emit();
-    this.slInput.emit();
-    this.slChange.emit();
+    this.vClear.emit();
+    this.vInput.emit();
+    this.vChange.emit();
     this.input.focus();
 
     event.stopPropagation();

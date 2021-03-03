@@ -73,25 +73,25 @@ export class Drawer {
   }
 
   /** Emitted when the drawer opens. Calling `event.preventDefault()` will prevent it from being opened. */
-  @Event({ eventName: 'v-show' }) slShow: EventEmitter;
+  @Event({ eventName: 'v-show' }) vShow: EventEmitter;
 
   /** Emitted after the drawer opens and all transitions are complete. */
-  @Event({ eventName: 'v-after-show' }) slAfterShow: EventEmitter;
+  @Event({ eventName: 'v-after-show' }) vAfterShow: EventEmitter;
 
   /** Emitted when the drawer closes. Calling `event.preventDefault()` will prevent it from being closed. */
-  @Event({ eventName: 'v-hide' }) slHide: EventEmitter;
+  @Event({ eventName: 'v-hide' }) vHide: EventEmitter;
 
   /** Emitted after the drawer closes and all transitions are complete. */
-  @Event({ eventName: 'v-after-hide' }) slAfterHide: EventEmitter;
+  @Event({ eventName: 'v-after-hide' }) vAfterHide: EventEmitter;
 
   /**
    * Emitted when the drawer opens and the panel gains focus. Calling `event.preventDefault()` will prevent focus and
    * allow you to set it on a different element in the drawer, such as an input or button.
    */
-  @Event({ eventName: 'v-initial-focus' }) slInitialFocus: EventEmitter;
+  @Event({ eventName: 'v-initial-focus' }) vInitialFocus: EventEmitter;
 
   /** Emitted when the overlay is clicked. Calling `event.preventDefault()` will prevent the drawer from closing. */
-  @Event({ eventName: 'v-overlay-dismiss' }) slOverlayDismiss: EventEmitter;
+  @Event({ eventName: 'v-overlay-dismiss' }) vOverlayDismiss: EventEmitter;
 
   connectedCallback() {
     this.handleCloseClick = this.handleCloseClick.bind(this);
@@ -125,8 +125,8 @@ export class Drawer {
       return;
     }
 
-    const slShow = this.slShow.emit();
-    if (slShow.defaultPrevented) {
+    const vShow = this.vShow.emit();
+    if (vShow.defaultPrevented) {
       this.open = false;
       return;
     }
@@ -145,8 +145,8 @@ export class Drawer {
       if (hasPreventScroll) {
         // Wait for the next frame before setting initial focus so the dialog is technically visible
         requestAnimationFrame(() => {
-          const slInitialFocus = this.slInitialFocus.emit();
-          if (!slInitialFocus.defaultPrevented) {
+          const vInitialFocus = this.vInitialFocus.emit();
+          if (!vInitialFocus.defaultPrevented) {
             this.panel.focus({ preventScroll: true });
           }
         });
@@ -161,8 +161,8 @@ export class Drawer {
         this.drawer.addEventListener(
           'transitionend',
           () => {
-            const slInitialFocus = this.slInitialFocus.emit();
-            if (!slInitialFocus.defaultPrevented) {
+            const vInitialFocus = this.vInitialFocus.emit();
+            if (!vInitialFocus.defaultPrevented) {
               this.panel.focus();
             }
           },
@@ -179,8 +179,8 @@ export class Drawer {
       return;
     }
 
-    const slHide = this.slHide.emit();
-    if (slHide.defaultPrevented) {
+    const vHide = this.vHide.emit();
+    if (vHide.defaultPrevented) {
       this.open = true;
       return;
     }
@@ -203,9 +203,9 @@ export class Drawer {
   }
 
   handleOverlayClick() {
-    const slOverlayDismiss = this.slOverlayDismiss.emit();
+    const vOverlayDismiss = this.vOverlayDismiss.emit();
 
-    if (!slOverlayDismiss.defaultPrevented) {
+    if (!vOverlayDismiss.defaultPrevented) {
       this.hide();
     }
   }
@@ -222,7 +222,7 @@ export class Drawer {
       this.isVisible = this.open;
       this.willShow = false;
       this.willHide = false;
-      this.open ? this.slAfterShow.emit() : this.slAfterHide.emit();
+      this.open ? this.vAfterShow.emit() : this.vAfterHide.emit();
     }
   }
 

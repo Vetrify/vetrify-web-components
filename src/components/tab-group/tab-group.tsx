@@ -54,10 +54,10 @@ export class TabGroup {
   }
 
   /** Emitted when a tab is shown. */
-  @Event({ eventName: 'v-tab-show' }) slTabShow: EventEmitter<{ name: string }>;
+  @Event({ eventName: 'v-tab-show' }) vTabShow: EventEmitter<{ name: string }>;
 
   /** Emitted when a tab is hidden. */
-  @Event({ eventName: 'v-tab-hide' }) slTabHide: EventEmitter<{ name: string }>;
+  @Event({ eventName: 'v-tab-hide' }) vTabHide: EventEmitter<{ name: string }>;
 
   connectedCallback() {
     this.handleClick = this.handleClick.bind(this);
@@ -232,10 +232,10 @@ export class TabGroup {
       // Emit events
       if (emitEvents) {
         if (previousTab) {
-          this.slTabHide.emit({ name: previousTab.panel });
+          this.vTabHide.emit({ name: previousTab.panel });
         }
 
-        this.slTabShow.emit({ name: this.activeTab.panel });
+        this.vTabShow.emit({ name: this.activeTab.panel });
       }
     }
   }

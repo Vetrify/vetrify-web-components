@@ -79,13 +79,13 @@ export class Range {
   }
 
   /** Emitted when the control's value changes. */
-  @Event({ eventName: 'v-change' }) slChange: EventEmitter;
+  @Event({ eventName: 'v-change' }) vChange: EventEmitter;
 
   /** Emitted when the control loses focus. */
-  @Event({ eventName: 'v-blur' }) slBlur: EventEmitter;
+  @Event({ eventName: 'v-blur' }) vBlur: EventEmitter;
 
   /** Emitted when the control gains focus. */
-  @Event({ eventName: 'v-focus' }) slFocus: EventEmitter;
+  @Event({ eventName: 'v-focus' }) vFocus: EventEmitter;
 
   connectedCallback() {
     this.handleInput = this.handleInput.bind(this);
@@ -135,7 +135,7 @@ export class Range {
 
   handleInput() {
     this.value = Number(this.input.value);
-    this.slChange.emit();
+    this.vChange.emit();
 
     requestAnimationFrame(() => this.syncTooltip());
   }
@@ -143,14 +143,14 @@ export class Range {
   handleBlur() {
     this.hasFocus = false;
     this.hasTooltip = false;
-    this.slBlur.emit();
+    this.vBlur.emit();
     this.resizeObserver.unobserve(this.input);
   }
 
   handleFocus() {
     this.hasFocus = true;
     this.hasTooltip = true;
-    this.slFocus.emit();
+    this.vFocus.emit();
     this.resizeObserver.observe(this.input);
   }
 

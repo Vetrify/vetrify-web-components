@@ -8,11 +8,11 @@ describe('<v-button>', () => {
       `,
     });
     const button = await page.find('v-button');
-    const slFocus = await button.spyOnEvent('v-focus');
+    const vFocus = await button.spyOnEvent('v-focus');
 
     await button.click();
 
-    expect(slFocus).toHaveReceivedEventTimes(1);
+    expect(vFocus).toHaveReceivedEventTimes(1);
   });
 
   it('should emit v-blur when losing focus', async () => {
@@ -24,12 +24,12 @@ describe('<v-button>', () => {
     });
     const button = await page.find('v-button');
     const nativeButton = await page.find('button');
-    const slBlur = await button.spyOnEvent('v-blur');
+    const vBlur = await button.spyOnEvent('v-blur');
 
     await button.click();
     await nativeButton.click();
 
-    expect(slBlur).toHaveReceivedEventTimes(1);
+    expect(vBlur).toHaveReceivedEventTimes(1);
   });
 
   it('should emit v-focus when calling setFocus()', async () => {
@@ -39,11 +39,11 @@ describe('<v-button>', () => {
       `,
     });
     const button = await page.find('v-button');
-    const slFocus = await button.spyOnEvent('v-focus');
+    const vFocus = await button.spyOnEvent('v-focus');
 
     await button.callMethod('setFocus');
 
-    expect(slFocus).toHaveReceivedEventTimes(1);
+    expect(vFocus).toHaveReceivedEventTimes(1);
   });
 
   it('should emit v-blur when calling removeFocus()', async () => {
@@ -53,11 +53,11 @@ describe('<v-button>', () => {
       `,
     });
     const button = await page.find('v-button');
-    const slBlur = await button.spyOnEvent('v-blur');
+    const vBlur = await button.spyOnEvent('v-blur');
 
     await button.callMethod('setFocus');
     await button.callMethod('removeFocus');
 
-    expect(slBlur).toHaveReceivedEventTimes(1);
+    expect(vBlur).toHaveReceivedEventTimes(1);
   });
 });

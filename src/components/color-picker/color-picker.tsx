@@ -111,19 +111,19 @@ export class ColorPicker {
   ];
 
   /** Emitted when the color picker's value changes. */
-  @Event({ eventName: 'v-change' }) slChange: EventEmitter;
+  @Event({ eventName: 'v-change' }) vChange: EventEmitter;
 
   /** Emitted when the color picker opens. Calling `event.preventDefault()` will prevent it from being opened. */
-  @Event({ eventName: 'v-show' }) slShow: EventEmitter;
+  @Event({ eventName: 'v-show' }) vShow: EventEmitter;
 
   /** Emitted after the color picker opens and all transitions are complete. */
-  @Event({ eventName: 'v-after-show' }) slAfterShow: EventEmitter;
+  @Event({ eventName: 'v-after-show' }) vAfterShow: EventEmitter;
 
   /** Emitted when the color picker closes. Calling `event.preventDefault()` will prevent it from being closed. */
-  @Event({ eventName: 'v-hide' }) slHide: EventEmitter;
+  @Event({ eventName: 'v-hide' }) vHide: EventEmitter;
 
   /** Emitted after the color picker closes and all transitions are complete. */
-  @Event({ eventName: 'v-after-hide' }) slAfterHide: EventEmitter;
+  @Event({ eventName: 'v-after-hide' }) vAfterHide: EventEmitter;
 
   @Watch('format')
   handleFormatChange() {
@@ -152,7 +152,7 @@ export class ColorPicker {
     }
 
     if (this.value !== this.lastValueEmitted) {
-      this.slChange.emit();
+      this.vChange.emit();
       this.lastValueEmitted = this.value;
     }
   }
@@ -465,22 +465,22 @@ export class ColorPicker {
 
   handleDropdownShow(event: CustomEvent) {
     event.stopPropagation();
-    this.slShow.emit();
+    this.vShow.emit();
   }
 
   handleDropdownAfterShow(event: CustomEvent) {
     event.stopPropagation();
-    this.slAfterShow.emit();
+    this.vAfterShow.emit();
   }
 
   handleDropdownHide(event: CustomEvent) {
     event.stopPropagation();
-    this.slHide.emit();
+    this.vHide.emit();
   }
 
   handleDropdownAfterHide(event: CustomEvent) {
     event.stopPropagation();
-    this.slAfterHide.emit();
+    this.vAfterHide.emit();
     this.showCopyFeedback = false;
   }
 

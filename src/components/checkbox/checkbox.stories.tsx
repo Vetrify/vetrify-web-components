@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Checkbox',
+  title: 'Vetrify/Form/Checkbox',
 };
 
 export const Basic = () => `<v-checkbox></v-checkbox>`;

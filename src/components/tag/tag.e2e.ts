@@ -9,10 +9,10 @@ describe('<v-tag>', () => {
     });
     const tag = await page.find('v-tag');
     const tagClear = await page.find('v-tag >>> .tag__clear');
-    const slClear = await tag.spyOnEvent('v-clear');
+    const vClear = await tag.spyOnEvent('v-clear');
 
     await tagClear.click();
 
-    expect(slClear).toHaveReceivedEventTimes(1);
+    expect(vClear).toHaveReceivedEventTimes(1);
   });
 });

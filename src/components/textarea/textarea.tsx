@@ -100,16 +100,16 @@ export class Textarea {
   @Prop() inputmode: 'none' | 'text' | 'decimal' | 'numeric' | 'tel' | 'search' | 'email' | 'url';
 
   /** Emitted when the control's value changes. */
-  @Event({ eventName: 'v-change' }) slChange: EventEmitter;
+  @Event({ eventName: 'v-change' }) vChange: EventEmitter;
 
   /** Emitted when the control receives input. */
-  @Event({ eventName: 'v-input' }) slInput: EventEmitter;
+  @Event({ eventName: 'v-input' }) vInput: EventEmitter;
 
   /** Emitted when the control gains focus. */
-  @Event({ eventName: 'v-focus' }) slFocus: EventEmitter;
+  @Event({ eventName: 'v-focus' }) vFocus: EventEmitter;
 
   /** Emitted when the control loses focus. */
-  @Event({ eventName: 'v-blur' }) slBlur: EventEmitter;
+  @Event({ eventName: 'v-blur' }) vBlur: EventEmitter;
 
   @Watch('helpText')
   @Watch('label')
@@ -185,8 +185,8 @@ export class Textarea {
     if (this.value !== this.textarea.value) {
       this.value = this.textarea.value;
       this.setTextareaHeight();
-      this.slChange.emit();
-      this.slInput.emit();
+      this.vChange.emit();
+      this.vInput.emit();
     }
   }
 
@@ -204,23 +204,23 @@ export class Textarea {
   }
 
   handleChange() {
-    this.slChange.emit();
+    this.vChange.emit();
   }
 
   handleInput() {
     this.value = this.textarea.value;
     this.setTextareaHeight();
-    this.slInput.emit();
+    this.vInput.emit();
   }
 
   handleBlur() {
     this.hasFocus = false;
-    this.slBlur.emit();
+    this.vBlur.emit();
   }
 
   handleFocus() {
     this.hasFocus = true;
-    this.slFocus.emit();
+    this.vFocus.emit();
   }
 
   handleSlotChange() {

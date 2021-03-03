@@ -98,15 +98,15 @@ describe('<v-details>', () => {
       `,
     });
     const details = await page.find('v-details');
-    const slShow = await details.spyOnEvent('v-show');
-    const slAfterShow = await details.spyOnEvent('v-after-show');
+    const vShow = await details.spyOnEvent('v-show');
+    const vAfterShow = await details.spyOnEvent('v-after-show');
     const showEventHappened = details.waitForEvent('v-after-show');
 
     await details.callMethod('show');
     await showEventHappened;
 
-    expect(slShow).toHaveReceivedEventTimes(1);
-    expect(slAfterShow).toHaveReceivedEventTimes(1);
+    expect(vShow).toHaveReceivedEventTimes(1);
+    expect(vAfterShow).toHaveReceivedEventTimes(1);
   });
 
   it('should emit v-hide and v-after-hide events when closed', async () => {
@@ -119,14 +119,14 @@ describe('<v-details>', () => {
       `,
     });
     const details = await page.find('v-details');
-    const slHide = await details.spyOnEvent('v-hide');
-    const slAfterHide = await details.spyOnEvent('v-after-hide');
+    const vHide = await details.spyOnEvent('v-hide');
+    const vAfterHide = await details.spyOnEvent('v-after-hide');
     const hideEventHappened = details.waitForEvent('v-after-hide');
 
     await details.callMethod('hide');
     await hideEventHappened;
 
-    expect(slHide).toHaveReceivedEventTimes(1);
-    expect(slAfterHide).toHaveReceivedEventTimes(1);
+    expect(vHide).toHaveReceivedEventTimes(1);
+    expect(vAfterHide).toHaveReceivedEventTimes(1);
   });
 });

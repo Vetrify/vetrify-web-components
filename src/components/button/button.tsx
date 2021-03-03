@@ -71,10 +71,10 @@ export class Button {
   @Prop() download: string;
 
   /** Emitted when the button loses focus. */
-  @Event({ eventName: 'v-blur' }) slBlur: EventEmitter;
+  @Event({ eventName: 'v-blur' }) vBlur: EventEmitter;
 
   /** Emitted when the button gains focus. */
-  @Event({ eventName: 'v-focus' }) slFocus: EventEmitter;
+  @Event({ eventName: 'v-focus' }) vFocus: EventEmitter;
 
   connectedCallback() {
     this.handleBlur = this.handleBlur.bind(this);
@@ -107,12 +107,12 @@ export class Button {
 
   handleBlur() {
     this.hasFocus = false;
-    this.slBlur.emit();
+    this.vBlur.emit();
   }
 
   handleFocus() {
     this.hasFocus = true;
-    this.slFocus.emit();
+    this.vFocus.emit();
   }
 
   handleClick(event: MouseEvent) {

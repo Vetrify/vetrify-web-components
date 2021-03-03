@@ -31,11 +31,11 @@ export class ImageComparer {
 
   @Watch('position')
   handlePositionChange() {
-    this.slChange.emit();
+    this.vChange.emit();
   }
 
   /** Emitted when the slider position changes. */
-  @Event({ eventName: 'v-change' }) slChange: EventEmitter;
+  @Event({ eventName: 'v-change' }) vChange: EventEmitter;
 
   connectedCallback() {
     this.handleDrag = this.handleDrag.bind(this);

@@ -8,11 +8,11 @@ describe('<v-rating>', () => {
       `,
     });
     const rating = await page.find('v-rating');
-    const slChange = await rating.spyOnEvent('v-change');
+    const vChange = await rating.spyOnEvent('v-change');
 
     await rating.click();
 
-    expect(slChange).toHaveReceivedEventTimes(1);
+    expect(vChange).toHaveReceivedEventTimes(1);
   });
 
   it('should sync value when clicked', async () => {
