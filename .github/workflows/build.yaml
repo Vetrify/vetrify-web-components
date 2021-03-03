@@ -2,7 +2,7 @@ name: Node.js CI
 
 on:
   push:
-    branches: [main ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -35,6 +35,8 @@ jobs:
         node-version: [15.x]
     if: github.ref == 'refs/heads/main'
     steps:
+    - run : npm install
+    - uses : actions/checkout@v2
     # Setup .npmrc file to publish to GitHub Packages
     - name : delivery prep
       uses: actions/setup-node@v2
@@ -42,7 +44,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         registry-url: 'https://npm.pkg.github.com'
         scope: '@vetrify'
-    - run: npm install
     - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
