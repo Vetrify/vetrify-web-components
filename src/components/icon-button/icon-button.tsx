@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { focusVisible } from '../../utilities/focus-visible';
+import { focusVisible } from '../../utils/focus-visible';
 
 /**
  * @since 2.0

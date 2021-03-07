@@ -1,5 +1,5 @@
 import { Component, Prop } from '@stencil/core';
-import { formatBytes } from '../../utilities/number';
+import { formatBytes } from '../../utils/number';
 
 /**
  * @since 2.0

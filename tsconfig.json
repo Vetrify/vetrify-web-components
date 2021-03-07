@@ -4,15 +4,18 @@
     "allowUnreachableCode": false,
     "declaration": false,
     "experimentalDecorators": true,
-    "lib": ["dom", "es2017", "dom.iterable"],
+    "lib": ["dom", "es2015", "es2017", "dom.iterable"],
     "moduleResolution": "node",
     "module": "esnext",
     "target": "es2017",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "jsx": "react",
-    "jsxFactory": "h"
+    "jsxFactory": "h",
+    "preserveConstEnums": true,
+    "resolveJsonModule": true,
+    "stripInternal": true
   },
-  "include": ["src", "types/jsx.d.ts"],
+  "include": ["src", "types/jsx.d.ts", "./typings.d.ts", "./stencil.config.ts"],
   "exclude": ["node_modules", "stencil.config.ts"]
 }

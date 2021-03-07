@@ -1,6 +1,6 @@
 import { Component, Element, Event, EventEmitter, Method, Prop, State, Watch, h } from '@stencil/core';
-import { focusVisible } from '../../utilities/focus-visible';
-import { clamp } from '../../utilities/math';
+import { focusVisible } from '../../utils/focus-visible';
+import { clamp } from '../../utils/math';
 
 /**
  * @since 2.0

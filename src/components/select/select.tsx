@@ -1,7 +1,7 @@
 import { Component, Element, Event, EventEmitter, Method, Prop, State, Watch, h } from '@stencil/core';
 import FormControl from '../../functional-components/form-control/form-control';
-import { getTextContent } from '../../utilities/slot';
-import { hasSlot } from '../../utilities/slot';
+import { getTextContent } from '../../utils/slot';
+import { hasSlot } from '../../utils/slot';
 
 let id = 0;
 

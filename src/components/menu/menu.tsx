@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, Method, h } from '@stencil/core';
-import { getTextContent } from '../../utilities/slot';
+import { getTextContent } from '../../utils/slot';
 
 /**
  * @since 2.0

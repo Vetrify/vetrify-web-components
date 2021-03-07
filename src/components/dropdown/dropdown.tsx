@@ -1,7 +1,7 @@
 import { Component, Element, Event, EventEmitter, Method, Prop, Watch, h } from '@stencil/core';
-import { scrollIntoView } from '../../utilities/scroll';
-import { getNearestTabbableElement } from '../../utilities/tabbable';
-import Popover from '../../utilities/popover';
+import { scrollIntoView } from '../../utils/scroll';
+import { getNearestTabbableElement } from '../../utils/tabbable';
+import Popover from '../../utils/popover';
 
 let id = 0;
 

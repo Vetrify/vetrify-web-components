@@ -1,5 +1,6 @@
-@import 'component';
-@import 'mixins/hidden';
+@import '../../scss/component';
+@import '../../scss/vetrify';
+@import '../../scss/mixins/hidden';
 
 /**
  * @prop --box-shadow: The alert's box shadow.

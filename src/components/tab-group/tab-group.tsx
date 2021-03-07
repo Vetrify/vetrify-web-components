@@ -1,7 +1,7 @@
 import { Component, Element, Event, EventEmitter, Method, Prop, State, Watch, h } from '@stencil/core';
-import { getOffset } from '../../utilities/offset';
-import { scrollIntoView } from '../../utilities/scroll';
-import { focusVisible } from '../../utilities/focus-visible';
+import { getOffset } from '../../utils/offset';
+import { scrollIntoView } from '../../utils/scroll';
+import { focusVisible } from '../../utils/focus-visible';
 
 /**
  * @since 2.0

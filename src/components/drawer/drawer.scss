@@ -1,5 +1,5 @@
-@import 'component';
-@import 'mixins/hidden';
+@import '../../scss/component';
+@import '../../scss/mixins/hidden';
 
 /**
  * @prop --size: The preferred size of the drawer. This will be applied to the drawer's width or height depending on its
