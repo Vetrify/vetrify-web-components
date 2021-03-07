@@ -1,0 +1,26 @@
+@import 'component';
+
+:host {
+    display: block;
+  }
+
+  .cell {
+    fill: rgba(84, 240, 63, 1);
+    background: rgb(175, 29, 29);
+  }
+
+  .dial-body{
+    fill:#5cb349;stroke:#353b43;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.5;stroke-dasharray:none;stroke-opacity:1
+  }
+
+  .dial-knob{
+    fill:#5cb349;stroke:#353b43;stroke-width:5.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.5;stroke-dasharray:none;stroke-opacity:1
+  }
+  
+  .menu {
+    padding: var(--v-spacing-x-small) 0;
+  
+    &:focus {
+      outline: none;
+    }
+  }
