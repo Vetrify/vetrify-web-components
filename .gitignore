@@ -10,6 +10,7 @@ www/
 loader/
 temp/
 build/
+coverage/
 src/components.d.ts
 storybook-static
 *~
