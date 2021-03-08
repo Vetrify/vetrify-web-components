@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Button',
+  title: 'Vetrify/Buttons/Button',
 };
 
 export const Basic = () => ``;

@@ -42,7 +42,7 @@ export class Logo {
   }
 
   async setLogo() {
-    let url = './vetrify-web-components/logos/vetrify.svg'; // this.src;
+    let url = './dist-stencil/vetrify-web-components/logos/vetrify.svg'; // this.src;
 
     if (url) {
       try {

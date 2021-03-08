@@ -2,4 +2,4 @@ export default {
   title: 'Vetrify/Icon/IconLibrary',
 };
 
-export const Basic = () => ``;
+export const Basic = () => `<v-icon-library></v-icon-library>`;

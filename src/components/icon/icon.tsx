@@ -43,6 +43,7 @@ export class Icon {
   @Watch('name')
   @Watch('src')
   @Watch('library')
+
   handleChange() {
     this.setIcon();
   }

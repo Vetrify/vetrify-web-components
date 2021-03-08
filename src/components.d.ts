@@ -43,6 +43,80 @@ export namespace Components {
          */
         "type": 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
+    interface VAnimation {
+        /**
+          * Clears all KeyframeEffects caused by this animation and aborts its playback.
+         */
+        "cancel": () => Promise<void>;
+        /**
+          * The number of milliseconds to delay the start of the animation.
+         */
+        "delay": number;
+        /**
+          * Determines the direction of playback as well as the behavior when reaching the end of an iteration.
+         */
+        "direction": PlaybackDirection;
+        /**
+          * The number of milliseconds each iteration of the animation takes to complete.
+         */
+        "duration": number;
+        /**
+          * The easing function to use for the animation. This can be a Shoelace easing function or a custom easing function such as `cubic-bezier(0, 1, .76, 1.14)`.
+         */
+        "easing": string;
+        /**
+          * The number of milliseconds to delay after the active period of an animation sequence.
+         */
+        "endDelay": number;
+        /**
+          * Sets how the animation applies styles to its target before and after its execution.
+         */
+        "fill": FillMode;
+        /**
+          * Sets the playback time to the end of the animation corresponding to the current playback direction.
+         */
+        "finish": () => Promise<void>;
+        /**
+          * Gets a list of all supported animation names.
+         */
+        "getAnimationNames": () => Promise<string[]>;
+        /**
+          * Gets the current time of the animation in milliseconds.
+         */
+        "getCurrentTime": () => Promise<number>;
+        /**
+          * Gets a list of all supported easing function names.
+         */
+        "getEasingNames": () => Promise<string[]>;
+        /**
+          * The offset at which to start the animation, usually between 0 (start) and 1 (end).
+         */
+        "iterationStart": number;
+        /**
+          * The number of iterations to run before the animation completes. Defaults to `Infinity`, which loops.
+         */
+        "iterations": number;
+        /**
+          * The keyframes to use for the animation. If this is set, `name` will be ignored.
+         */
+        "keyframes": Keyframe[];
+        /**
+          * The name of the built-in animation to use. For custom animations, use the `keyframes` prop.
+         */
+        "name": string;
+        /**
+          * Pauses the animation. The animation will resume when this prop is removed.
+         */
+        "pause": boolean;
+        /**
+          * Sets the animation's playback rate. The default is `1`, which plays the animation at a normal speed. Setting this to `2`, for example, will double the animation's speed. A negative value can be used to reverse the animation. This value can be changed without causing the animation to restart.
+         */
+        "playbackRate": number;
+        /**
+          * Sets the current time of the animation in milliseconds.
+         */
+        "setCurrentTime": (time: number) => Promise<void>;
+    }
     interface VAvatar {
         /**
           * Alternative text for the image.
@@ -73,7 +147,7 @@ export namespace Components {
         /**
           * The badge's type.
          */
-        "type": 'primary' | 'success' | 'info' | 'warning' | 'danger';
+        "type": 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'In Progress' | 'Approved' | 'Verified' | 'Rejected';
     }
     interface VButton {
         /**
@@ -576,6 +650,10 @@ export namespace Components {
          */
         "src": string;
     }
+    interface VInfoBrief {
+        "subtitle": string;
+        "title": string;
+    }
     interface VInput {
         /**
           * The input's autocaptialize attribute.
@@ -710,6 +788,9 @@ export namespace Components {
          */
         "value": string;
     }
+    interface VLinkList {
+        "title": string;
+    }
     interface VLogo {
         "redraw": () => Promise<void>;
     }
@@ -766,6 +847,16 @@ export namespace Components {
           * The network diagram's data
          */
         "data": any;
+    }
+    interface VPersona {
+        "gender": 'female' | 'male';
+        "name": string;
+        "title": string;
+        "transformation": string;
+    }
+    interface VPersonaBrief {
+        "name": string;
+        "title": string;
     }
     interface VProgressBar {
         /**
@@ -920,6 +1011,10 @@ export namespace Components {
           * The current rating.
          */
         "value": number;
+    }
+    interface VRecipeStep {
+        "subject": string;
+        "verb": string;
     }
     interface VRelativeTime {
         /**
@@ -1289,6 +1384,18 @@ export namespace Components {
          */
         "trigger": string;
     }
+    interface VTransformation {
+        "checked": boolean;
+        "status": 'In Progress' | 'Approved' | 'Verified' | 'Rejected';
+        "subject": string;
+        "subtitle": string;
+        "title": string;
+        "verb": string;
+    }
+    interface VWidget {
+        "subtitle": string;
+        "title": string;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -1302,6 +1409,12 @@ declare global {
     var HTMLVAlertElement: {
         prototype: HTMLVAlertElement;
         new (): HTMLVAlertElement;
+    };
+    interface HTMLVAnimationElement extends Components.VAnimation, HTMLStencilElement {
+    }
+    var HTMLVAnimationElement: {
+        prototype: HTMLVAnimationElement;
+        new (): HTMLVAnimationElement;
     };
     interface HTMLVAvatarElement extends Components.VAvatar, HTMLStencilElement {
     }
@@ -1423,11 +1536,23 @@ declare global {
         prototype: HTMLVIncludeElement;
         new (): HTMLVIncludeElement;
     };
+    interface HTMLVInfoBriefElement extends Components.VInfoBrief, HTMLStencilElement {
+    }
+    var HTMLVInfoBriefElement: {
+        prototype: HTMLVInfoBriefElement;
+        new (): HTMLVInfoBriefElement;
+    };
     interface HTMLVInputElement extends Components.VInput, HTMLStencilElement {
     }
     var HTMLVInputElement: {
         prototype: HTMLVInputElement;
         new (): HTMLVInputElement;
+    };
+    interface HTMLVLinkListElement extends Components.VLinkList, HTMLStencilElement {
+    }
+    var HTMLVLinkListElement: {
+        prototype: HTMLVLinkListElement;
+        new (): HTMLVLinkListElement;
     };
     interface HTMLVLogoElement extends Components.VLogo, HTMLStencilElement {
     }
@@ -1471,6 +1596,18 @@ declare global {
         prototype: HTMLVNetworkDiagramElement;
         new (): HTMLVNetworkDiagramElement;
     };
+    interface HTMLVPersonaElement extends Components.VPersona, HTMLStencilElement {
+    }
+    var HTMLVPersonaElement: {
+        prototype: HTMLVPersonaElement;
+        new (): HTMLVPersonaElement;
+    };
+    interface HTMLVPersonaBriefElement extends Components.VPersonaBrief, HTMLStencilElement {
+    }
+    var HTMLVPersonaBriefElement: {
+        prototype: HTMLVPersonaBriefElement;
+        new (): HTMLVPersonaBriefElement;
+    };
     interface HTMLVProgressBarElement extends Components.VProgressBar, HTMLStencilElement {
     }
     var HTMLVProgressBarElement: {
@@ -1500,6 +1637,12 @@ declare global {
     var HTMLVRatingElement: {
         prototype: HTMLVRatingElement;
         new (): HTMLVRatingElement;
+    };
+    interface HTMLVRecipeStepElement extends Components.VRecipeStep, HTMLStencilElement {
+    }
+    var HTMLVRecipeStepElement: {
+        prototype: HTMLVRecipeStepElement;
+        new (): HTMLVRecipeStepElement;
     };
     interface HTMLVRelativeTimeElement extends Components.VRelativeTime, HTMLStencilElement {
     }
@@ -1585,9 +1728,22 @@ declare global {
         prototype: HTMLVTooltipElement;
         new (): HTMLVTooltipElement;
     };
+    interface HTMLVTransformationElement extends Components.VTransformation, HTMLStencilElement {
+    }
+    var HTMLVTransformationElement: {
+        prototype: HTMLVTransformationElement;
+        new (): HTMLVTransformationElement;
+    };
+    interface HTMLVWidgetElement extends Components.VWidget, HTMLStencilElement {
+    }
+    var HTMLVWidgetElement: {
+        prototype: HTMLVWidgetElement;
+        new (): HTMLVWidgetElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "v-alert": HTMLVAlertElement;
+        "v-animation": HTMLVAnimationElement;
         "v-avatar": HTMLVAvatarElement;
         "v-badge": HTMLVBadgeElement;
         "v-button": HTMLVButtonElement;
@@ -1608,7 +1764,9 @@ declare global {
         "v-icon-library": HTMLVIconLibraryElement;
         "v-image-comparer": HTMLVImageComparerElement;
         "v-include": HTMLVIncludeElement;
+        "v-info-brief": HTMLVInfoBriefElement;
         "v-input": HTMLVInputElement;
+        "v-link-list": HTMLVLinkListElement;
         "v-logo": HTMLVLogoElement;
         "v-matrix-view": HTMLVMatrixViewElement;
         "v-menu": HTMLVMenuElement;
@@ -1616,11 +1774,14 @@ declare global {
         "v-menu-item": HTMLVMenuItemElement;
         "v-menu-label": HTMLVMenuLabelElement;
         "v-network-diagram": HTMLVNetworkDiagramElement;
+        "v-persona": HTMLVPersonaElement;
+        "v-persona-brief": HTMLVPersonaBriefElement;
         "v-progress-bar": HTMLVProgressBarElement;
         "v-progress-ring": HTMLVProgressRingElement;
         "v-radio": HTMLVRadioElement;
         "v-range": HTMLVRangeElement;
         "v-rating": HTMLVRatingElement;
+        "v-recipe-step": HTMLVRecipeStepElement;
         "v-relative-time": HTMLVRelativeTimeElement;
         "v-resize-observer": HTMLVResizeObserverElement;
         "v-responsive-embed": HTMLVResponsiveEmbedElement;
@@ -1635,6 +1796,8 @@ declare global {
         "v-textarea": HTMLVTextareaElement;
         "v-theme": HTMLVThemeElement;
         "v-tooltip": HTMLVTooltipElement;
+        "v-transformation": HTMLVTransformationElement;
+        "v-widget": HTMLVWidgetElement;
     }
 }
 declare namespace LocalJSX {
@@ -1679,6 +1842,68 @@ declare namespace LocalJSX {
          */
         "type"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
+    interface VAnimation {
+        /**
+          * The number of milliseconds to delay the start of the animation.
+         */
+        "delay"?: number;
+        /**
+          * Determines the direction of playback as well as the behavior when reaching the end of an iteration.
+         */
+        "direction"?: PlaybackDirection;
+        /**
+          * The number of milliseconds each iteration of the animation takes to complete.
+         */
+        "duration"?: number;
+        /**
+          * The easing function to use for the animation. This can be a Shoelace easing function or a custom easing function such as `cubic-bezier(0, 1, .76, 1.14)`.
+         */
+        "easing"?: string;
+        /**
+          * The number of milliseconds to delay after the active period of an animation sequence.
+         */
+        "endDelay"?: number;
+        /**
+          * Sets how the animation applies styles to its target before and after its execution.
+         */
+        "fill"?: FillMode;
+        /**
+          * The offset at which to start the animation, usually between 0 (start) and 1 (end).
+         */
+        "iterationStart"?: number;
+        /**
+          * The number of iterations to run before the animation completes. Defaults to `Infinity`, which loops.
+         */
+        "iterations"?: number;
+        /**
+          * The keyframes to use for the animation. If this is set, `name` will be ignored.
+         */
+        "keyframes"?: Keyframe[];
+        /**
+          * The name of the built-in animation to use. For custom animations, use the `keyframes` prop.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the animation is canceled.
+         */
+        "onV-cancel"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the animation finishes.
+         */
+        "onV-finish"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the animation starts or restarts.
+         */
+        "onV-start"?: (event: CustomEvent<any>) => void;
+        /**
+          * Pauses the animation. The animation will resume when this prop is removed.
+         */
+        "pause"?: boolean;
+        /**
+          * Sets the animation's playback rate. The default is `1`, which plays the animation at a normal speed. Setting this to `2`, for example, will double the animation's speed. A negative value can be used to reverse the animation. This value can be changed without causing the animation to restart.
+         */
+        "playbackRate"?: number;
+    }
     interface VAvatar {
         /**
           * Alternative text for the image.
@@ -1709,7 +1934,7 @@ declare namespace LocalJSX {
         /**
           * The badge's type.
          */
-        "type"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
+        "type"?: 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'In Progress' | 'Approved' | 'Verified' | 'Rejected';
     }
     interface VButton {
         /**
@@ -2271,6 +2496,10 @@ declare namespace LocalJSX {
          */
         "src"?: string;
     }
+    interface VInfoBrief {
+        "subtitle"?: string;
+        "title"?: string;
+    }
     interface VInput {
         /**
           * The input's autocaptialize attribute.
@@ -2397,6 +2626,9 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface VLinkList {
+        "title"?: string;
+    }
     interface VLogo {
         /**
           * Emitted when the icon failed to load.
@@ -2450,6 +2682,16 @@ declare namespace LocalJSX {
           * The network diagram's data
          */
         "data"?: any;
+    }
+    interface VPersona {
+        "gender"?: 'female' | 'male';
+        "name"?: string;
+        "title"?: string;
+        "transformation"?: string;
+    }
+    interface VPersonaBrief {
+        "name"?: string;
+        "title"?: string;
     }
     interface VProgressBar {
         /**
@@ -2596,6 +2838,10 @@ declare namespace LocalJSX {
           * The current rating.
          */
         "value"?: number;
+    }
+    interface VRecipeStep {
+        "subject"?: string;
+        "verb"?: string;
     }
     interface VRelativeTime {
         /**
@@ -2969,9 +3215,22 @@ declare namespace LocalJSX {
          */
         "trigger"?: string;
     }
+    interface VTransformation {
+        "checked"?: boolean;
+        "status"?: 'In Progress' | 'Approved' | 'Verified' | 'Rejected';
+        "subject"?: string;
+        "subtitle"?: string;
+        "title"?: string;
+        "verb"?: string;
+    }
+    interface VWidget {
+        "subtitle"?: string;
+        "title"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "v-alert": VAlert;
+        "v-animation": VAnimation;
         "v-avatar": VAvatar;
         "v-badge": VBadge;
         "v-button": VButton;
@@ -2992,7 +3251,9 @@ declare namespace LocalJSX {
         "v-icon-library": VIconLibrary;
         "v-image-comparer": VImageComparer;
         "v-include": VInclude;
+        "v-info-brief": VInfoBrief;
         "v-input": VInput;
+        "v-link-list": VLinkList;
         "v-logo": VLogo;
         "v-matrix-view": VMatrixView;
         "v-menu": VMenu;
@@ -3000,11 +3261,14 @@ declare namespace LocalJSX {
         "v-menu-item": VMenuItem;
         "v-menu-label": VMenuLabel;
         "v-network-diagram": VNetworkDiagram;
+        "v-persona": VPersona;
+        "v-persona-brief": VPersonaBrief;
         "v-progress-bar": VProgressBar;
         "v-progress-ring": VProgressRing;
         "v-radio": VRadio;
         "v-range": VRange;
         "v-rating": VRating;
+        "v-recipe-step": VRecipeStep;
         "v-relative-time": VRelativeTime;
         "v-resize-observer": VResizeObserver;
         "v-responsive-embed": VResponsiveEmbed;
@@ -3019,6 +3283,8 @@ declare namespace LocalJSX {
         "v-textarea": VTextarea;
         "v-theme": VTheme;
         "v-tooltip": VTooltip;
+        "v-transformation": VTransformation;
+        "v-widget": VWidget;
     }
 }
 export { LocalJSX as JSX };
@@ -3027,6 +3293,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "v-alert": LocalJSX.VAlert & JSXBase.HTMLAttributes<HTMLVAlertElement>;
+            "v-animation": LocalJSX.VAnimation & JSXBase.HTMLAttributes<HTMLVAnimationElement>;
             "v-avatar": LocalJSX.VAvatar & JSXBase.HTMLAttributes<HTMLVAvatarElement>;
             "v-badge": LocalJSX.VBadge & JSXBase.HTMLAttributes<HTMLVBadgeElement>;
             "v-button": LocalJSX.VButton & JSXBase.HTMLAttributes<HTMLVButtonElement>;
@@ -3047,7 +3314,9 @@ declare module "@stencil/core" {
             "v-icon-library": LocalJSX.VIconLibrary & JSXBase.HTMLAttributes<HTMLVIconLibraryElement>;
             "v-image-comparer": LocalJSX.VImageComparer & JSXBase.HTMLAttributes<HTMLVImageComparerElement>;
             "v-include": LocalJSX.VInclude & JSXBase.HTMLAttributes<HTMLVIncludeElement>;
+            "v-info-brief": LocalJSX.VInfoBrief & JSXBase.HTMLAttributes<HTMLVInfoBriefElement>;
             "v-input": LocalJSX.VInput & JSXBase.HTMLAttributes<HTMLVInputElement>;
+            "v-link-list": LocalJSX.VLinkList & JSXBase.HTMLAttributes<HTMLVLinkListElement>;
             "v-logo": LocalJSX.VLogo & JSXBase.HTMLAttributes<HTMLVLogoElement>;
             "v-matrix-view": LocalJSX.VMatrixView & JSXBase.HTMLAttributes<HTMLVMatrixViewElement>;
             "v-menu": LocalJSX.VMenu & JSXBase.HTMLAttributes<HTMLVMenuElement>;
@@ -3055,11 +3324,14 @@ declare module "@stencil/core" {
             "v-menu-item": LocalJSX.VMenuItem & JSXBase.HTMLAttributes<HTMLVMenuItemElement>;
             "v-menu-label": LocalJSX.VMenuLabel & JSXBase.HTMLAttributes<HTMLVMenuLabelElement>;
             "v-network-diagram": LocalJSX.VNetworkDiagram & JSXBase.HTMLAttributes<HTMLVNetworkDiagramElement>;
+            "v-persona": LocalJSX.VPersona & JSXBase.HTMLAttributes<HTMLVPersonaElement>;
+            "v-persona-brief": LocalJSX.VPersonaBrief & JSXBase.HTMLAttributes<HTMLVPersonaBriefElement>;
             "v-progress-bar": LocalJSX.VProgressBar & JSXBase.HTMLAttributes<HTMLVProgressBarElement>;
             "v-progress-ring": LocalJSX.VProgressRing & JSXBase.HTMLAttributes<HTMLVProgressRingElement>;
             "v-radio": LocalJSX.VRadio & JSXBase.HTMLAttributes<HTMLVRadioElement>;
             "v-range": LocalJSX.VRange & JSXBase.HTMLAttributes<HTMLVRangeElement>;
             "v-rating": LocalJSX.VRating & JSXBase.HTMLAttributes<HTMLVRatingElement>;
+            "v-recipe-step": LocalJSX.VRecipeStep & JSXBase.HTMLAttributes<HTMLVRecipeStepElement>;
             "v-relative-time": LocalJSX.VRelativeTime & JSXBase.HTMLAttributes<HTMLVRelativeTimeElement>;
             "v-resize-observer": LocalJSX.VResizeObserver & JSXBase.HTMLAttributes<HTMLVResizeObserverElement>;
             "v-responsive-embed": LocalJSX.VResponsiveEmbed & JSXBase.HTMLAttributes<HTMLVResponsiveEmbedElement>;
@@ -3074,6 +3346,8 @@ declare module "@stencil/core" {
             "v-textarea": LocalJSX.VTextarea & JSXBase.HTMLAttributes<HTMLVTextareaElement>;
             "v-theme": LocalJSX.VTheme & JSXBase.HTMLAttributes<HTMLVThemeElement>;
             "v-tooltip": LocalJSX.VTooltip & JSXBase.HTMLAttributes<HTMLVTooltipElement>;
+            "v-transformation": LocalJSX.VTransformation & JSXBase.HTMLAttributes<HTMLVTransformationElement>;
+            "v-widget": LocalJSX.VWidget & JSXBase.HTMLAttributes<HTMLVWidgetElement>;
         }
     }
 }

@@ -18,7 +18,7 @@ export class Badge {
   badge: HTMLElement;
 
   /** The badge's type. */
-  @Prop() type: 'primary' | 'success' | 'info' | 'warning' | 'danger' = 'primary';
+  @Prop() type: 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'In Progress' | 'Approved' | 'Verified' | 'Rejected' = 'primary';
 
   /** Set to true to draw a pill-style badge with rounded edges. */
   @Prop() pill = false;
@@ -33,8 +33,12 @@ export class Badge {
         part="base"
         class={{
           'badge': true,
-
-          // Types
+	  
+	  // Types
+          "badge-rejected":this.type === 'Rejected',
+          "badge-progress":this.type === 'In Progress',
+          "badge-approved":this.type === 'Approved',
+          "badge-verified":this.type === 'Verified',
           'badge--primary': this.type === 'primary',
           'badge--success': this.type === 'success',
           'badge--info': this.type === 'info',

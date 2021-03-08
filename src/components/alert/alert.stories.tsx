@@ -1,4 +1,3 @@
-import { html } from 'lit-html';
 import markdown from './readme.md';
 import { eventHandles, action } from '../../../.storybook/helpers/custom-action';
 
@@ -12,7 +11,7 @@ const args = {
   message: 'Message',
   isOpen: true,
   isClosable: false,
-  duration: null
+  duration: 0
 };
 
 // https://storybook.js.org/docs/react/essentials/controls#annotation
@@ -84,12 +83,36 @@ const Template = (
     duration
   }) =>
      `
-  <v-alert ${isOpen ? 'open ' : ''}${isClosable ? 'closable ' : ''}${duration ? 'duration=\"' + duration  + '\"' : '' }type="${alertType}">
-    <v-icon slot="icon" name="${iconName}" > </v-icon>
-    <strong>${title}</strong><br>
-    ${message}
-  </v-alert>
+  <div class="story-alert">
+  <v-button type="primary" class="show-button">Show</v-button>
+  <v-button type="primary" class="toast-button">Toast</v-button>
+  <v-button type="primary" class="hide-button">Hide</v-button>
+    <v-alert ${isOpen ? 'open ' : ''}${isClosable ? 'closable ' : ''}${duration ? 'duration=\"' + duration  + '\"' : '' }type="${alertType}">
+      <v-icon slot="icon" name="${iconName}" > </v-icon>
+      <strong>${title}</strong><br>
+      ${message}
+    </v-alert>
 
+  </div>
+
+  <script>
+    var a = document.querySelector('.story-alert');
+    var showButton = a.querySelector('.show-button');
+    var toastButton = a.querySelector('.toast-button');
+    var hideButton = a.querySelector('.hide-button');
+
+    var myAlert = a.querySelector('v-alert');
+
+    showButton.addEventListener('click', () => myAlert.show());
+    hideButton.addEventListener('click', () => myAlert.hide());
+    toastButton.addEventListener('click', () => myAlert.toast());
+  </script>
+  
+  <style>
+    .story-alert v-alert {
+      margin-top: var(--v-spacing-medium);
+    }
+  </style>
 `;
 //  ${action('v-alert', customEvents)}
 
