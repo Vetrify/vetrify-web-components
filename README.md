@@ -16,8 +16,6 @@ Stencil combines the best concepts of the most popular front-end frameworks into
 
 Stencil components are just Web Components, so they work in any major framework or with no framework at all.
 
-The core structure is strongly influenced by the [Shoelace](https://shoelace.style/) project.
-
 ### Storybook
 
 [Storybook](https://storybook.js.org) is a development environment for UI components.
@@ -29,27 +27,20 @@ It allows you to browse a component library, view the different states of each c
 
 For development using storybook, run:
 
-```
-npm install
-num run-script build
-npm run
-```
-
-> note: this will start both StencilJs and Storybook
+`npm install`<br/>
+`npm start`<br/>
+`vetrify storybook will run under: http://localhost:3000`
 
 ### To Build
 
 To build the component for production, run:
 
-```bash
-npm run build
-```
+`npm build`
 
 To run the unit tests for the components, run:
 
-```bash
-npm test
-```
+`npm test`<br/>
+`npm test -t special.spec.ts`
 
 ## Contributing
 
@@ -65,7 +56,7 @@ Instead, use the prefix `v`.
 
 ## Using Components
 
-There two strategies for using Vetrify web components.
+Strategies for using Vetrify web components.
 
 The first step is to [publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages).
 
@@ -80,7 +71,15 @@ The first step is to [publish to NPM](https://docs.npmjs.com/getting-started/pub
 - Put a script tag similar to this `<script src='node_modules/my-component/dist/my-component.esm.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
-## Ref
+# Notes
 
-- [article on getting Stencil to work with typescript](https://mc706.io/2020/01/27/stencil-storybook-typescript/)
-- [starting templates](https://github.com/shoelace-style/shoelace)
+* [Stencil 2.0.3](https://stenciljs.com/) 
+* [Storybook 6.0.26](https://storybook.js.org/) 
+* Real Stencil HMR (hot module reloading)
+* Chromatic tested for visual regression testing of stories.
+
+## Special Thanks to stencil storybook starters 
+* [bjankord](https://github.com/bjankord/stencil-storybook-boilerplate) 
+* [elwynelwyn](https://github.com/elwynelwyn/stencilbook-ding)
+* [dutscher](https://dutscher.github.io/stencil-storybook)
+* [shoelace](https://github.com/shoelace-style/shoelace)

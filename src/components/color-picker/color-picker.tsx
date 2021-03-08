@@ -1,6 +1,6 @@
 import { Component, Element, Event, EventEmitter, Method, Prop, State, Watch, h } from '@stencil/core';
 import color from 'color';
-import { clamp } from '../../utilities/math';
+import { clamp } from '../../utils/math';
 
 /**
  * @since 2.0

@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, Method, Prop, State, h } from '@stencil/core';
-import { hasSlot } from '../../utilities/slot';
+import { hasSlot } from '../../utils/slot';
 
 /**
  * @since 2.0

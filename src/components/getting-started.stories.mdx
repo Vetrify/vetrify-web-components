@@ -1,0 +1,34 @@
+import { Meta, Source } from '@storybook/addon-docs/blocks';
+import packageName from '../../.storybook/helpers/mdx-packageJson';
+import dedent from 'ts-dedent';
+import markdown from '../../readme.md';
+
+<Meta title="Vetrify Components" />
+
+# Vetrify Web Components
+
+## Github
+- Repo: https://github.com/vetrify/vetrify-web-components
+
+## MDX links
+- [MDX](https://mdxjs.com/getting-started)
+- [Storybook MDX](https://storybook.js.org/docs/react/api/mdx)
+
+## Change your package name
+in your `package.json`
+
+## Add this snippet code to your page
+<Source
+  language='html'
+  code={dedent`
+     <script type="module" src="${packageName}.esm.js"></script>
+     <link rel="stylesheet" href="${packageName}.css" />
+     <my-component ...></my-component>
+  `}
+/>
+
+## [Readme](https://github.com/dutscher/stencil-storybook/blob/main/readme.md)
+<Source
+  language='markdown'
+  code={markdown}
+/>

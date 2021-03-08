@@ -1,8 +1,8 @@
 import { Component, Element, Event, EventEmitter, Method, Prop, State, Watch, h } from '@stencil/core';
-import { lockBodyScrolling, unlockBodyScrolling } from '../../utilities/scroll';
-import { hasSlot } from '../../utilities/slot';
-import { isPreventScrollSupported } from '../../utilities/support';
-import Modal from '../../utilities/modal';
+import { lockBodyScrolling, unlockBodyScrolling } from '../../utils/scroll';
+import { hasSlot } from '../../utils/slot';
+import { isPreventScrollSupported } from '../../utils/support';
+import Modal from '../../utils/modal';
 
 const hasPreventScroll = isPreventScrollSupported();
 

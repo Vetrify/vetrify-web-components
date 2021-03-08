@@ -1,7 +1,7 @@
-@import 'component';
+@import '../../scss/component';
 @import '../../functional-components/form-control/form-control';
-@import 'mixins/hidden';
-@import 'mixins/hide-scrollbar';
+@import '../../scss/mixins/hidden';
+@import '../../scss/mixins/hide-scrollbar';
 
 /**
  * @prop --focus-ring: The focus ring style to use when the control receives focus, a `box-shadow` property.

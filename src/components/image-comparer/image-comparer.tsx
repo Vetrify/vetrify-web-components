@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, Prop, Watch, h } from '@stencil/core';
-import { clamp } from '../../utilities/math';
+import { clamp } from '../../utils/math';
 
 /**
  * @since 2.0

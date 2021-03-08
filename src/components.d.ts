@@ -7,6 +7,12 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconLibraryMutator, IconLibraryResolver } from "./components/icon-library/icon-library-registry";
 export namespace Components {
+    interface MyComponent {
+        "first": string;
+        "last": string;
+        "middle": string;
+        "modifier": string;
+    }
     interface VAlert {
         /**
           * Set to true to make the alert closable.
@@ -36,80 +42,6 @@ export namespace Components {
           * The type of alert.
          */
         "type": 'primary' | 'success' | 'info' | 'warning' | 'danger';
-    }
-    interface VAnimation {
-        /**
-          * Clears all KeyframeEffects caused by this animation and aborts its playback.
-         */
-        "cancel": () => Promise<void>;
-        /**
-          * The number of milliseconds to delay the start of the animation.
-         */
-        "delay": number;
-        /**
-          * Determines the direction of playback as well as the behavior when reaching the end of an iteration.
-         */
-        "direction": PlaybackDirection;
-        /**
-          * The number of milliseconds each iteration of the animation takes to complete.
-         */
-        "duration": number;
-        /**
-          * The easing function to use for the animation. This can be a Shoelace easing function or a custom easing function such as `cubic-bezier(0, 1, .76, 1.14)`.
-         */
-        "easing": string;
-        /**
-          * The number of milliseconds to delay after the active period of an animation sequence.
-         */
-        "endDelay": number;
-        /**
-          * Sets how the animation applies styles to its target before and after its execution.
-         */
-        "fill": FillMode;
-        /**
-          * Sets the playback time to the end of the animation corresponding to the current playback direction.
-         */
-        "finish": () => Promise<void>;
-        /**
-          * Gets a list of all supported animation names.
-         */
-        "getAnimationNames": () => Promise<string[]>;
-        /**
-          * Gets the current time of the animation in milliseconds.
-         */
-        "getCurrentTime": () => Promise<number>;
-        /**
-          * Gets a list of all supported easing function names.
-         */
-        "getEasingNames": () => Promise<string[]>;
-        /**
-          * The offset at which to start the animation, usually between 0 (start) and 1 (end).
-         */
-        "iterationStart": number;
-        /**
-          * The number of iterations to run before the animation completes. Defaults to `Infinity`, which loops.
-         */
-        "iterations": number;
-        /**
-          * The keyframes to use for the animation. If this is set, `name` will be ignored.
-         */
-        "keyframes": Keyframe[];
-        /**
-          * The name of the built-in animation to use. For custom animations, use the `keyframes` prop.
-         */
-        "name": string;
-        /**
-          * Pauses the animation. The animation will resume when this prop is removed.
-         */
-        "pause": boolean;
-        /**
-          * Sets the animation's playback rate. The default is `1`, which plays the animation at a normal speed. Setting this to `2`, for example, will double the animation's speed. A negative value can be used to reverse the animation. This value can be changed without causing the animation to restart.
-         */
-        "playbackRate": number;
-        /**
-          * Sets the current time of the animation in milliseconds.
-         */
-        "setCurrentTime": (time: number) => Promise<void>;
     }
     interface VAvatar {
         /**
@@ -781,6 +713,22 @@ export namespace Components {
     interface VLogo {
         "redraw": () => Promise<void>;
     }
+    interface VMatrixView {
+        "addPath": () => Promise<void>;
+        "addText": () => Promise<void>;
+        /**
+          * The first name
+         */
+        "first": string;
+        /**
+          * The last name
+         */
+        "last": string;
+        /**
+          * The middle name
+         */
+        "middle": string;
+    }
     interface VMenu {
         /**
           * Initiates type-to-select logic, which automatically selects an option based on what the user is currently typing. The key passed will be appended to the internal query and the selection will be updated. After a brief period, the internal query is cleared automatically. This method is intended to be used with the keydown event. Useful for enabling type-to-select when the menu doesn't have focus.
@@ -1343,17 +1291,17 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    }
+    var HTMLMyComponentElement: {
+        prototype: HTMLMyComponentElement;
+        new (): HTMLMyComponentElement;
+    };
     interface HTMLVAlertElement extends Components.VAlert, HTMLStencilElement {
     }
     var HTMLVAlertElement: {
         prototype: HTMLVAlertElement;
         new (): HTMLVAlertElement;
-    };
-    interface HTMLVAnimationElement extends Components.VAnimation, HTMLStencilElement {
-    }
-    var HTMLVAnimationElement: {
-        prototype: HTMLVAnimationElement;
-        new (): HTMLVAnimationElement;
     };
     interface HTMLVAvatarElement extends Components.VAvatar, HTMLStencilElement {
     }
@@ -1486,6 +1434,12 @@ declare global {
     var HTMLVLogoElement: {
         prototype: HTMLVLogoElement;
         new (): HTMLVLogoElement;
+    };
+    interface HTMLVMatrixViewElement extends Components.VMatrixView, HTMLStencilElement {
+    }
+    var HTMLVMatrixViewElement: {
+        prototype: HTMLVMatrixViewElement;
+        new (): HTMLVMatrixViewElement;
     };
     interface HTMLVMenuElement extends Components.VMenu, HTMLStencilElement {
     }
@@ -1632,8 +1586,8 @@ declare global {
         new (): HTMLVTooltipElement;
     };
     interface HTMLElementTagNameMap {
+        "my-component": HTMLMyComponentElement;
         "v-alert": HTMLVAlertElement;
-        "v-animation": HTMLVAnimationElement;
         "v-avatar": HTMLVAvatarElement;
         "v-badge": HTMLVBadgeElement;
         "v-button": HTMLVButtonElement;
@@ -1656,6 +1610,7 @@ declare global {
         "v-include": HTMLVIncludeElement;
         "v-input": HTMLVInputElement;
         "v-logo": HTMLVLogoElement;
+        "v-matrix-view": HTMLVMatrixViewElement;
         "v-menu": HTMLVMenuElement;
         "v-menu-divider": HTMLVMenuDividerElement;
         "v-menu-item": HTMLVMenuItemElement;
@@ -1683,6 +1638,13 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface MyComponent {
+        "first"?: string;
+        "last"?: string;
+        "middle"?: string;
+        "modifier"?: string;
+        "onClicked"?: (event: CustomEvent<void>) => void;
+    }
     interface VAlert {
         /**
           * Set to true to make the alert closable.
@@ -1716,68 +1678,6 @@ declare namespace LocalJSX {
           * The type of alert.
          */
         "type"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
-    }
-    interface VAnimation {
-        /**
-          * The number of milliseconds to delay the start of the animation.
-         */
-        "delay"?: number;
-        /**
-          * Determines the direction of playback as well as the behavior when reaching the end of an iteration.
-         */
-        "direction"?: PlaybackDirection;
-        /**
-          * The number of milliseconds each iteration of the animation takes to complete.
-         */
-        "duration"?: number;
-        /**
-          * The easing function to use for the animation. This can be a Shoelace easing function or a custom easing function such as `cubic-bezier(0, 1, .76, 1.14)`.
-         */
-        "easing"?: string;
-        /**
-          * The number of milliseconds to delay after the active period of an animation sequence.
-         */
-        "endDelay"?: number;
-        /**
-          * Sets how the animation applies styles to its target before and after its execution.
-         */
-        "fill"?: FillMode;
-        /**
-          * The offset at which to start the animation, usually between 0 (start) and 1 (end).
-         */
-        "iterationStart"?: number;
-        /**
-          * The number of iterations to run before the animation completes. Defaults to `Infinity`, which loops.
-         */
-        "iterations"?: number;
-        /**
-          * The keyframes to use for the animation. If this is set, `name` will be ignored.
-         */
-        "keyframes"?: Keyframe[];
-        /**
-          * The name of the built-in animation to use. For custom animations, use the `keyframes` prop.
-         */
-        "name"?: string;
-        /**
-          * Emitted when the animation is canceled.
-         */
-        "onV-cancel"?: (event: CustomEvent<any>) => void;
-        /**
-          * Emitted when the animation finishes.
-         */
-        "onV-finish"?: (event: CustomEvent<any>) => void;
-        /**
-          * Emitted when the animation starts or restarts.
-         */
-        "onV-start"?: (event: CustomEvent<any>) => void;
-        /**
-          * Pauses the animation. The animation will resume when this prop is removed.
-         */
-        "pause"?: boolean;
-        /**
-          * Sets the animation's playback rate. The default is `1`, which plays the animation at a normal speed. Setting this to `2`, for example, will double the animation's speed. A negative value can be used to reverse the animation. This value can be changed without causing the animation to restart.
-         */
-        "playbackRate"?: number;
     }
     interface VAvatar {
         /**
@@ -2507,6 +2407,20 @@ declare namespace LocalJSX {
          */
         "onV-load"?: (event: CustomEvent<any>) => void;
     }
+    interface VMatrixView {
+        /**
+          * The first name
+         */
+        "first"?: string;
+        /**
+          * The last name
+         */
+        "last"?: string;
+        /**
+          * The middle name
+         */
+        "middle"?: string;
+    }
     interface VMenu {
         /**
           * Emitted when a menu item is selected.
@@ -3056,8 +2970,8 @@ declare namespace LocalJSX {
         "trigger"?: string;
     }
     interface IntrinsicElements {
+        "my-component": MyComponent;
         "v-alert": VAlert;
-        "v-animation": VAnimation;
         "v-avatar": VAvatar;
         "v-badge": VBadge;
         "v-button": VButton;
@@ -3080,6 +2994,7 @@ declare namespace LocalJSX {
         "v-include": VInclude;
         "v-input": VInput;
         "v-logo": VLogo;
+        "v-matrix-view": VMatrixView;
         "v-menu": VMenu;
         "v-menu-divider": VMenuDivider;
         "v-menu-item": VMenuItem;
@@ -3110,8 +3025,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "v-alert": LocalJSX.VAlert & JSXBase.HTMLAttributes<HTMLVAlertElement>;
-            "v-animation": LocalJSX.VAnimation & JSXBase.HTMLAttributes<HTMLVAnimationElement>;
             "v-avatar": LocalJSX.VAvatar & JSXBase.HTMLAttributes<HTMLVAvatarElement>;
             "v-badge": LocalJSX.VBadge & JSXBase.HTMLAttributes<HTMLVBadgeElement>;
             "v-button": LocalJSX.VButton & JSXBase.HTMLAttributes<HTMLVButtonElement>;
@@ -3134,6 +3049,7 @@ declare module "@stencil/core" {
             "v-include": LocalJSX.VInclude & JSXBase.HTMLAttributes<HTMLVIncludeElement>;
             "v-input": LocalJSX.VInput & JSXBase.HTMLAttributes<HTMLVInputElement>;
             "v-logo": LocalJSX.VLogo & JSXBase.HTMLAttributes<HTMLVLogoElement>;
+            "v-matrix-view": LocalJSX.VMatrixView & JSXBase.HTMLAttributes<HTMLVMatrixViewElement>;
             "v-menu": LocalJSX.VMenu & JSXBase.HTMLAttributes<HTMLVMenuElement>;
             "v-menu-divider": LocalJSX.VMenuDivider & JSXBase.HTMLAttributes<HTMLVMenuDividerElement>;
             "v-menu-item": LocalJSX.VMenuItem & JSXBase.HTMLAttributes<HTMLVMenuItemElement>;

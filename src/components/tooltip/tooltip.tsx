@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, Host, Method, Prop, Watch, h } from '@stencil/core';
-import Popover from '../../utilities/popover';
+import Popover from '../../utils/popover';
 
 let id = 0;
 

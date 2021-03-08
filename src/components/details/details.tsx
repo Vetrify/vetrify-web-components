@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, Method, Prop, Watch, h } from '@stencil/core';
-import { focusVisible } from '../../utilities/focus-visible';
+import { focusVisible } from '../../utils/focus-visible';
 
 let id = 0;
 
