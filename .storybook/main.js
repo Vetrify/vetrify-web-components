@@ -6,7 +6,7 @@ const chalk = require('chalk');
 // Export a function. Accept the base config as the only param.
 module.exports = {
   stories: ['../src/components/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
-  addons: ['@storybook/addon-links', '@storybook/addon-docs', '@storybook/addon-essentials'],
+  addons: ['@storybook/addon-links', '@storybook/addon-docs', '@storybook/addon-essentials', '@storybook/addon-events'],
   webpackFinal: async (config, { configType }) => {
     // watch:storybook configType === 'DEVELOPMENT'
     // build:storybook configType === 'PRODUCTION'

@@ -1,5 +1,5 @@
 {
-  "name": "vetrify-storybook",
+  "name": "vetrify-web-components",
   "beawareofchange": "change aswell scripts:build:storybook --static-dir",
   "version": "0.0.1",
   "distDirs": {
@@ -51,6 +51,7 @@
     "@stencil/eslint-plugin": "^0.3.1",
     "@storybook/addon-actions": "^6.1.21",
     "@storybook/addon-essentials": "^6.1.21",
+    "@storybook/addon-events": "^6.1.21",
     "@storybook/addon-links": "^6.1.21",
     "@storybook/addon-notes": "^5.3.21",
     "@types/jest": "^26.0.20",

@@ -1,10 +1,104 @@
+import { html } from 'lit-html';
+import markdown from './readme.md';
+import { eventHandles, action } from '../../../.storybook/helpers/custom-action';
+
+const customEvents = ['clicked'];
+const events = ['mouseover', 'click', ...eventHandles(customEvents)];
+
+const args = {
+  alertType: '',
+  iconName: 'info-circle',
+  title: 'Title',
+  message: 'Message',
+  isOpen: true,
+  isClosable: false,
+  duration: null
+};
+
+// https://storybook.js.org/docs/react/essentials/controls#annotation
+const argTypes = {
+  alertType: {
+    control: {
+      type: 'select',
+      options: ['', 'primary', 'success', 'info', 'warn', 'danger'],
+    },
+  },
+  iconName: {
+    description: 'The icon name',
+    control:{
+      type: "text"
+    }
+  },
+  title: {
+    description: 'The alert title',
+    control:{
+      type: "text"
+    }
+  },
+  message: {
+    description: 'The alert message',
+    control:{
+      type: "text"
+    }
+  },
+  isOpen:{
+    description: 'the alert is open',
+    control:{
+      type: "boolean"
+    }
+  },
+  isClosable:{
+    description: 'the alert can be closed',
+    control:{
+      type: "boolean"
+    }
+  },
+  duration:{
+    description: 'amount of time the alert will be visible',
+    control:{
+      type: "number"
+    }
+  }
+};
+
+// https://storybook.js.org/docs/react/writing-stories/parameters
 export default {
-    title: 'Vetrify/Alert',
-  };
-  
-  export const Basic = () => `<v-alert message="ok"></v-alert>`;
-  
-  export const Types = () => `
+  title: 'Vetrify/Alert',
+  component: 'v-alert',
+  parameters: {
+    notes: {markdown},
+    actions: {
+      handles: events,
+    },
+  },
+};
+
+const Template = (
+  {
+    alertType,
+    iconName,
+    title,
+    message,
+    isOpen,
+    isClosable,
+    duration
+  }) =>
+     `
+  <v-alert ${isOpen ? 'open ' : ''}${isClosable ? 'closable ' : ''}${duration ? 'duration=\"' + duration  + '\"' : '' }type="${alertType}">
+    <v-icon slot="icon" name="${iconName}" > </v-icon>
+    <strong>${title}</strong><br>
+    ${message}
+  </v-alert>
+
+`;
+//  ${action('v-alert', customEvents)}
+
+export const Default = Template.bind({});
+
+Default.args = {...args};
+Default.argTypes = {...argTypes};
+
+  export const Types2 = () => `
   <v-alert type="primary" open>
     <v-icon slot="icon" name="info-circle"></v-icon>
     <strong>This is super informative</strong><br>
@@ -44,7 +138,7 @@ export default {
   </v-alert>
   `;
   
-  export const Closable = () => `
+  export const Closable2 = () => `
   <v-alert type="primary" open closable class="alert-closable">
     <v-icon slot="icon" name="info-circle"></v-icon>
     You can close this alert any time!
@@ -58,13 +152,13 @@ export default {
   </script>
   `;
   
-  export const WithoutIcons = () => `
+  export const WithoutIcons2 = () => `
   <v-alert type="primary" open>
     Nothing fancy here, just a simple alert.
   </v-alert>
   `;
   
-  export const Duration = () => `
+  export const Duration2 = () => `
   <div class="alert-duration">
     <v-button type="primary">Show Alert</v-button>
   
@@ -89,7 +183,7 @@ export default {
   </style>
   `;
   
-  export const ToastNotifications = () => `
+  export const ToastNotifications2 = () => `
   <div class="alert-toast">
     <v-button type="primary">Primary</v-button>
     <v-button type="success">Success</v-button>
@@ -139,7 +233,7 @@ export default {
     });
   </script>`;
   
-  export const ImperativeToast = () => `
+  export const ImperativeToast2 = () => `
   <div class="alert-toast-wrapper">
     <v-button type="primary">Create Toast</v-button>
   </div>
@@ -177,10 +271,4 @@ export default {
     });
   </script>
   `;
-  
-  Basic.args = {
-    first: 'a',
-    middle: 'b',
-    last: 'c',
-  };
   
