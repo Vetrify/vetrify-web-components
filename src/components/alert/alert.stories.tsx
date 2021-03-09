@@ -1,5 +1,5 @@
 import markdown from './readme.md';
-import { eventHandles, action } from '../../../.storybook/helpers/custom-action';
+import { eventHandles } from '../../../.storybook/helpers/custom-action';
 
 const customEvents = ['clicked'];
 const events = ['mouseover', 'click', ...eventHandles(customEvents)];

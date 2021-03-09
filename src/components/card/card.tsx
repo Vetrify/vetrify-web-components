@@ -1,4 +1,5 @@
-import { Component, Element, State, h } from '@stencil/core';
+import { Component, Element, State, h, Prop } from '@stencil/core';
+//import { runInThisContext } from 'node:vm';
 import { hasSlot } from '../../utils/slot';
 
 /**
@@ -8,10 +9,8 @@ import { hasSlot } from '../../utils/slot';
  * @slot - The card's body.
  * @slot header - The card's header.
  * @slot footer - The card's footer.
- * @slot image - The card's image.
  *
  * @part base - The component's base wrapper.
- * @part image - The card's image, if present.
  * @part header - The card's header, if present.
  * @part body - The card's body.
  * @part footer - The card's footer, if present.
@@ -20,14 +19,20 @@ import { hasSlot } from '../../utils/slot';
 @Component({
   tag: 'v-card',
   styleUrl: 'card.scss',
-  shadow: true,
+  shadow: false,
 })
 export class Card {
   @Element() host: HTMLVCardElement;
 
-  @State() hasFooter = false;
-  @State() hasImage = false;
-  @State() hasHeader = false;
+  @State() hasFooter = true;
+  @State() hasHeader = true;
+
+  @Prop() showHeader = true;
+  @Prop() showFooter = true;
+  @Prop() bordered = true;
+  @Prop() semiBordered = false;
+  @Prop() title = '';
+  @Prop() subtitle = '';
 
   connectedCallback() {
     this.handleSlotChange = this.handleSlotChange.bind(this);
@@ -39,36 +44,15 @@ export class Card {
 
   handleSlotChange() {
     this.hasFooter = hasSlot(this.host, 'footer');
-    this.hasImage = hasSlot(this.host, 'image');
     this.hasHeader = hasSlot(this.host, 'header');
   }
 
   render() {
     return (
-      <div
-        part="base"
-        class={{
-          'card': true,
-          'card--has-footer': this.hasFooter,
-          'card--has-image': this.hasImage,
-          'card--has-header': this.hasHeader,
-        }}
-      >
-        <div part="image" class="card__image">
-          <slot name="image" onSlotchange={this.handleSlotChange} />
-        </div>
-
-        <div part="header" class="card__header">
-          <slot name="header" onSlotchange={this.handleSlotChange} />
-        </div>
-
-        <div part="body" class="card__body">
-          <slot />
-        </div>
-
-        <div part="footer" class="card__footer">
-          <slot name="footer" onSlotchange={this.handleSlotChange} />
-        </div>
+      <div class={{'card': true, 'card-custom': true, 'card-border': this.bordered, 'card-fit': this.semiBordered}}>      
+        {this.showHeader && (<div class="card-header"><slot name="header" onSlotchange={this.handleSlotChange} /></div>)}
+        <div class="card-body"><slot /></div>
+        {this.showFooter && (<div class="card-footer"><slot name="footer" onSlotchange={this.handleSlotChange} /></div>)}
       </div>
     );
   }

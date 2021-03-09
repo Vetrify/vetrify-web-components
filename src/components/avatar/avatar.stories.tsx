@@ -10,14 +10,16 @@ export default {
       control: { type: 'select', options: ['undefined', 'circle', 'rounded', 'square'] },
     },
     icon: { control: 'text' },
+    size: { control: 'number' },
   },
 };
 
-export const Basic = ({ initials, image, shape, icon }) => {
+export const Basic = ({ initials, image, shape, icon, size }) => {
   let myInitials = '';
   let myImage = '';
   let myShape = '';
   let myIconTag = '';
+  let mySize = '';
 
   if (initials) {
     myInitials = ` initials="${initials}"`;
@@ -35,7 +37,12 @@ export const Basic = ({ initials, image, shape, icon }) => {
     myIconTag = `<v-icon slot="icon" name="${icon}"></v-icon>`;
   }
 
-  let start = `<v-avatar ${myInitials}${myImage}${myShape}>${myIconTag}</v-avatar>`;
+  if(size)
+  {
+    mySize = ` style="--size: ${size}rem;"`
+  }
+
+  let start = `<v-avatar ${myInitials}${myImage}${myShape}${mySize}>${myIconTag}</v-avatar>`;
 
   return start;
 };
@@ -75,8 +82,3 @@ export const Groups = () => html`<div class="avatar-group">
 }
 </style>
 `;
-
-// Basic.args = {
-//     first: 'stencil',
-//     middle:'storybook',
-//     last: 'typescript'}
