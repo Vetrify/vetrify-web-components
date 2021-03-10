@@ -69,8 +69,6 @@ export default {
 
 const HeaderSlotTemplate = (
   {
-    title,
-    subtitle,
     showHeader,
     showFooter,
     semiBordered,
@@ -80,21 +78,26 @@ const HeaderSlotTemplate = (
   <div class="container">
     <div class="row">
       <div class="col-lg-6">
+        <v-card show-header="${showHeader}" show-footer="${showFooter}" ${semiBordered && 'semi-bordered '}${bordered && 'bordered'}>
 
-        <v-card  ${showHeader? 'show-header':''} ${showFooter? 'show-footer': ''} ${semiBordered? 'semi-bordered': ''}  ${bordered? 'boardered': ''}>
-        <div slot="header" class="card-title" >
-          <h3 class="card-label">Basic Card 
-          <small>sub title</small></h3>
-        </div>
+          <div slot="footer" class="card-footer-slot">
+            footer slot
+          </div>
+
+          <div slot="header" class="card-header-slot" >
+            <div class="card-title">
+              <h3 class="card-label">Basic Card 
+              <small>sub title</small></h3>
+            </div>
+          </div>
+
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
-
-          <div slot="footer"> footer</div>
-
         </v-card>
+        <div>&nbsp;</div>
 
         
       
-        <div class="card card-custom">
+        <div class="card card-custom card--show-header card--show-footer">
           <div class="card-header">
             <div class="card-title">
               <h3 class="card-label">Basic Card 
@@ -103,15 +106,9 @@ const HeaderSlotTemplate = (
           </div>
           <div class="card-body">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</div>
           <div class="card-footer">footer</div>
-          </div>
-
-       
-      
-          
+        </div>
       </div>
-      
     </div>
-
   </div>
 </div>
 </div>`;
@@ -135,10 +132,16 @@ const HeaderInlineTemplate = (
   <div class="container">
     <div class="row">
       <div class="col-lg-6">
-        <v-card ${title? 'title="' + title + "' ": ''}${subtitle? 'subtitle="' + subtitle + "' ": ''}  ${showHeader? 'show-header':''} ${showFooter? 'show-footer': ''} ${semiBordered? 'semi-bordered': ''}  ${bordered? 'boardered': ''}>
+      <v-card ${title? 'title="' + title + "' ": ' '}${subtitle? 'subtitle="' + subtitle + "' ": ' '}show-header="${showHeader}" show-footer="${showFooter}" ${semiBordered && 'semi-bordered '}${bordered && 'bordered'}>
+
+          <div slot="footer" class="card-footer-slot">
+            footer slot
+          </div>
+
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
-          <div slot="footer"> footer</div>
         </v-card>
+        <div>&nbsp;</div>
+
       </div> 
     </div>
   </div>

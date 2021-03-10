@@ -24,15 +24,15 @@ import { hasSlot } from '../../utils/slot';
 export class Card {
   @Element() host: HTMLVCardElement;
 
-  @State() hasFooter = true;
-  @State() hasHeader = true;
+  @State() hasFooter = false;
+  @State() hasHeader = false;
 
-  @Prop() showHeader = true;
-  @Prop() showFooter = true;
-  @Prop() bordered = true;
-  @Prop() semiBordered = false;
-  @Prop() title = '';
-  @Prop() subtitle = '';
+  @Prop({ mutable: true }) showHeader:boolean = true;
+  @Prop({ mutable: true }) showFooter:boolean = true;
+  @Prop() bordered:boolean = true;
+  @Prop() semiBordered:boolean = false;
+  @Prop({ mutable: true }) title: string = '';
+  @Prop({ mutable: true }) subtitle: string = '';
 
   connectedCallback() {
     this.handleSlotChange = this.handleSlotChange.bind(this);
@@ -49,10 +49,29 @@ export class Card {
 
   render() {
     return (
-      <div class={{'card': true, 'card-custom': true, 'card-border': this.bordered, 'card-fit': this.semiBordered}}>      
-        {this.showHeader && (<div class="card-header"><slot name="header" onSlotchange={this.handleSlotChange} /></div>)}
-        <div class="card-body"><slot /></div>
-        {this.showFooter && (<div class="card-footer"><slot name="footer" onSlotchange={this.handleSlotChange} /></div>)}
+      
+      <div class={{
+        'card': true, 
+        'card-custom': true, 
+        'card-border': this.bordered, 
+        'card-fit': this.semiBordered,
+        'card--show-header': this.showHeader,
+        'card--show-footer': this.showFooter}}>
+        <div class="card-header">
+          <slot name="header" onSlotchange={this.handleSlotChange} />
+          {this.hasHeader || (           
+              <div class="card-title">
+                <h3 class="card-label">${this.title} 
+                <small>${this.subtitle}</small></h3>
+              </div>         
+          )}
+        </div>
+        <div class="card-body">
+          <slot />
+        </div>
+        <div class="card-footer">
+          <slot name="footer" onSlotchange={this.handleSlotChange} />
+        </div>
       </div>
     );
   }

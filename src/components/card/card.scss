@@ -17,49 +17,62 @@
   display: inline-block;
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--v-color-white);
-  box-shadow: var(--v-shadow-x-small);
-  border: solid var(--border-width) var(--border-color);
-  border-radius: var(--border-radius);
-}
+// .card {
+//   display: flex;
+//   flex-direction: column;
+//   background-color: var(--v-color-white);
+//   box-shadow: var(--v-shadow-x-small);
+//   border: solid var(--border-width) var(--border-color);
+//   border-radius: var(--border-radius);
+// }
 
-.card__image {
-  border-top-left-radius: var(--border-radius);
-  border-top-right-radius: var(--border-radius);
-  margin: calc(-1 * var(--border-width));
-  overflow: hidden;
+// .card__image {
+//   border-top-left-radius: var(--border-radius);
+//   border-top-right-radius: var(--border-radius);
+//   margin: calc(-1 * var(--border-width));
+//   overflow: hidden;
 
-  ::slotted(img) {
-    display: block;
-    width: 100%;
-  }
-}
+//   ::slotted(img) {
+//     display: block;
+//     width: 100%;
+//   }
+// }
 
-.card:not(.card--has-image) .card__image {
+.card:not(.card--has-image) .card-image {
+  visibility: hidden;
   display: none;
 }
 
-.card__header {
-  border-bottom: solid var(--border-width) var(--border-color);
-  padding: calc(var(--padding) / 2) var(--padding);
-}
+// .card__header {
+//   border-bottom: solid var(--border-width) var(--border-color);
+//   padding: calc(var(--padding) / 2) var(--padding);
+// }
 
-.card:not(.card--has-header) .card__header {
+.card:not(.card--show-header) .card-header {
+  visibility: hidden;
   display: none;
 }
 
-.card__body {
-  padding: var(--padding);
+.card:not(.card--show-header) .card-header-slot {
+  visibility: hidden;
+  display: none;
 }
 
-.card--has-footer .card__footer {
-  border-top: solid var(--border-width) var(--border-color);
-  padding: var(--padding);
+// .card__body {
+//   padding: var(--padding);
+// }
+
+// .card--has-footer .card__footer {
+//   border-top: solid var(--border-width) var(--border-color);
+//   padding: var(--padding);
+// }
+
+.card:not(.card--show-footer) .card-footer {
+  visibility: hidden;
+  display: none;
 }
 
-.card:not(.card--has-footer) .card__footer {
+.card:not(.card--show-footer) .card-footer-slot {
+  visibility: hidden;
   display: none;
 }
