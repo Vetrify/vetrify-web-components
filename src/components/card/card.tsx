@@ -59,10 +59,10 @@ export class Card {
         'card--show-footer': this.showFooter}}>
         <div class="card-header">
           <slot name="header" onSlotchange={this.handleSlotChange} />
-          {this.hasHeader || (           
+          {!this.hasHeader && this.title && (           
               <div class="card-title">
-                <h3 class="card-label">${this.title} 
-                <small>${this.subtitle}</small></h3>
+                <h3 class="card-label">{this.title}&nbsp; 
+                <small>{this.subtitle}</small></h3>
               </div>         
           )}
         </div>

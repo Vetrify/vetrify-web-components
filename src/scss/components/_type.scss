@@ -4,12 +4,12 @@
 
 
 // Headings
-.h1 { @include font-size($h1-font-size, true); }
-.h2 { @include font-size($h2-font-size, true); }
-.h3 { @include font-size($h3-font-size, true); }
-.h4 { @include font-size($h4-font-size, true); }
-.h5 { @include font-size($h5-font-size, true); }
-.h6 { @include font-size($h6-font-size, true); }
+.h1 { font-family: $font-family-headers; font-weight: 600; @include font-size($h1-font-size, true); }
+.h2 { font-family: $font-family-headers; font-weight: 600; @include font-size($h2-font-size, true); }
+.h3 { font-family: $font-family-headers; font-weight: 600; @include font-size($h3-font-size, true); }
+.h4 { font-family: $font-family-headers; font-weight: 600; @include font-size($h4-font-size, true); }
+.h5 { font-family: $font-family-headers; font-weight: 600; @include font-size($h5-font-size, true); }
+.h6 { font-family: $font-family-headers; font-weight: 600; @include font-size($h6-font-size, true); }
 
 // Lead
 .lead {

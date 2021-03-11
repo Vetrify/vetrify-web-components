@@ -1,5 +1,7 @@
 /*! Vetrify */
 
+@import './style';
+
 :root {
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // Theme color tokens
@@ -138,7 +140,7 @@
 
   // Fonts
   --v-font-mono: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
-  --v-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --v-font-sans: 'Open Sans', Roboto, Montserrat, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   --v-font-serif: Georgia, 'Times New Roman', serif;
 
   --v-font-content: 'Open Sans'
@@ -306,8 +308,3 @@
 @import '../components/alert/alert.light-dom';
 @import '../components/button-group/button-group.light-dom';
 
-@import "style";
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Metronic
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

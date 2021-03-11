@@ -1,6 +1,6 @@
 /* stylelint-disable scale-unlimited/declaration-strict-value */
 // For font imports only
-// https://github.com/agitator/Montserrat-webfont
+// https://github.com/agitator/OpenSans-webfont
 @font-face {
   font-family: 'Montserrat';
   src: url('../fonts/Montserrat/light.woff') format('woff');
@@ -21,6 +21,31 @@
   font-family: 'Montserrat';
   src: url('../fonts/Montserrat/bold.woff') format('woff');
   font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans/open-sans-v18-latin-600.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans/open-sans-v18-latin-700.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans/open-sans-v18-latin-800.woff') format('woff');
+  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }

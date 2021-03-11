@@ -80,9 +80,7 @@ const HeaderSlotTemplate = (
       <div class="col-lg-6">
         <v-card show-header="${showHeader}" show-footer="${showFooter}" ${semiBordered && 'semi-bordered '}${bordered && 'bordered'}>
 
-          <div slot="footer" class="card-footer-slot">
-            footer slot
-          </div>
+          
 
           <div slot="header" class="card-header-slot" >
             <div class="card-title">
@@ -92,6 +90,9 @@ const HeaderSlotTemplate = (
           </div>
 
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
+          <div slot="footer" class="card-footer-slot">
+            footer slot
+          </div>
         </v-card>
         <div>&nbsp;</div>
 
@@ -132,7 +133,7 @@ const HeaderInlineTemplate = (
   <div class="container">
     <div class="row">
       <div class="col-lg-6">
-      <v-card ${title? 'title="' + title + "' ": ' '}${subtitle? 'subtitle="' + subtitle + "' ": ' '}show-header="${showHeader}" show-footer="${showFooter}" ${semiBordered && 'semi-bordered '}${bordered && 'bordered'}>
+      <v-card ${title && ( `title="${title}"`)}${subtitle && (`subtitle="${subtitle}")} show-header="${showHeader}"`)} show-footer="${showFooter}" ${semiBordered && 'semi-bordered '}${bordered && 'bordered'}>
 
           <div slot="footer" class="card-footer-slot">
             footer slot
@@ -140,8 +141,6 @@ const HeaderInlineTemplate = (
 
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
         </v-card>
-        <div>&nbsp;</div>
-
       </div> 
     </div>
   </div>
