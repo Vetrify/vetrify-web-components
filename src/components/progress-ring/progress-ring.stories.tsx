@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/ProgressRing',
+  title: 'Elements/Forms/ProgressRing',
 };
 
 export const Basic = () => ``;

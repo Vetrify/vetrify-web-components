@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Badge',
+  title: 'Elements/Badge',
 };
 
 export const Basic = () => `<v-badge>Badge</v-badge>`;

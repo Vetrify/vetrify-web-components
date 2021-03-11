@@ -62,7 +62,7 @@ const argTypes = {
 
 // https://storybook.js.org/docs/react/writing-stories/parameters
 export default {
-  title: 'Vetrify/Alert',
+  title: 'Elements/Alert',
   component: 'v-alert',
   parameters: {
     notes: {markdown},

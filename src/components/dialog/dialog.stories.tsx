@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Dialog',
+  title: 'Components/Dialog',
 };
 
 export const Basic = () => ``;

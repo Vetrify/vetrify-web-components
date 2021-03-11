@@ -25,12 +25,19 @@ export class Card {
   @Element() host: HTMLVCardElement;
 
   @State() hasFooter = false;
-  @State() hasHeader = false;
+  @State() hasHeader = false;  
 
   @Prop({ mutable: true }) showHeader:boolean = true;
   @Prop({ mutable: true }) showFooter:boolean = true;
   @Prop() bordered:boolean = true;
   @Prop() semiBordered:boolean = false;
+
+  /** The name of the icon to draw. */
+  @Prop() iconName: string = '';
+
+    /** The name of a registered custom icon library. */
+    @Prop() library = 'default';
+
   @Prop({ mutable: true }) title: string = '';
   @Prop({ mutable: true }) subtitle: string = '';
 
@@ -58,6 +65,11 @@ export class Card {
         'card--show-header': this.showHeader,
         'card--show-footer': this.showFooter}}>
         <div class="card-header">
+          {this.iconName && (
+            <div class="card-icon">
+              <v-icon name="{this.iconName}" library="${this.}" ></v-icon>
+            </div>
+          )}
           <slot name="header" onSlotchange={this.handleSlotChange} />
           {!this.hasHeader && this.title && (           
               <div class="card-title">

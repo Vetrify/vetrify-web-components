@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/ImageComparer',
+  title: 'Components/ImageComparer',
 };
 
 export const Basic = () => ``;

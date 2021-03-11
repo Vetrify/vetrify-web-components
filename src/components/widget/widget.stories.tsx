@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Widget',
+  title: 'Components/Widget',
   argTypes: {
     subtitle: { control: 'text' },
     title: { control: 'text' },

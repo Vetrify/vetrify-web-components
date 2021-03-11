@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Tag',
+  title: 'Elements/Tag',
 };
 
 export const Basic = () => ``;

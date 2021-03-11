@@ -2,7 +2,7 @@ import { createPage } from './Page';
 import * as HeaderStories from './Header.stories';
 
 export default {
-  title: 'Vetrify/StorybookExample/Page',
+  title: 'Templates/StorybookExample/Page',
   argTypes: {
     onLogin: { action: 'onLogin' },
     onLogout: { action: 'onLogout' },

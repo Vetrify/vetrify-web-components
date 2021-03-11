@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Details',
+  title: 'Elements/Details',
 };
 
 export const Basic = () => `<v-details summary="Toggle Me">

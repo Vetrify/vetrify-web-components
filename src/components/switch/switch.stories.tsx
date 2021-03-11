@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Switch',
+  title: 'Elements/Switch',
 };
 
 export const Basic = () => ``;

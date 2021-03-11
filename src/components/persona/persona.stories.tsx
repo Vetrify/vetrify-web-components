@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Personas/Persona',
+  title: 'Components/Personas/Persona',
   argTypes: {
     name: { control: 'text' },
     title: { control: 'text' },

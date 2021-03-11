@@ -1,7 +1,8 @@
 import { html } from 'lit-html';
 
 export default {
-  title: 'Vetrify/Avatar',
+  title: 'Components/Avatar',
+  
   argTypes: {
     alt: { control: 'text' },
     image: { control: 'text', default: 'https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80' },
@@ -60,7 +61,7 @@ export const CustomIcons = () => `<v-avatar>
 <v-icon slot="icon" name="archive"></v-icon>
 </v-avatar>
 
-<v-avatar>
+<v-avatar style="--size:4rem">
 <v-icon slot="icon" name="briefcase"></v-icon>
 </v-avatar>
 `;

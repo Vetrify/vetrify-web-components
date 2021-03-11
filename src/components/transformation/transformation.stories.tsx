@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Transformation',
+  title: 'Components/Transformation',
 
 };
 

@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Icons/IconButton',
+  title: 'Elements/Icons/IconButton',
 };
 
 export const Basic = () => `<v-icon-button name="caret-up-square" style="height:4rem; width:4rem"></v-icon-button>`;

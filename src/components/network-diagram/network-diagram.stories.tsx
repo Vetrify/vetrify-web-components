@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/NetworkDiagram',
+  title: 'Components/NetworkDiagram',
 };
 
 export const Basic = () => ``;

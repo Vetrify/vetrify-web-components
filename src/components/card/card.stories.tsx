@@ -6,6 +6,8 @@ const customEvents = ['clicked'];
 const events = ['mouseover', 'click', ...eventHandles(customEvents)];
 
 const args = {
+  iconName: 'Code/Option',
+  iconLibrary: 'default',
   showHeader: true,
   showFooter: true,
   semiBordered: true,
@@ -16,6 +18,18 @@ const args = {
 
 // https://storybook.js.org/docs/react/essentials/controls#annotation
 const argTypes = {
+  iconName:{
+    description: 'Icon name',
+    control:{
+      type: "text"
+    }
+  },
+  iconLibrary:{
+    description: 'Icon library',
+    control:{
+      type: "text"
+    }
+  },
   title:{
     description: '',
     control:{
@@ -57,7 +71,7 @@ const argTypes = {
 
 // https://storybook.js.org/docs/react/writing-stories/parameters
 export default {
-  title: 'Vetrify/Cards/Card',
+  title: 'Components/Cards/Card',
   component: 'v-card',
   parameters: {
     //notes: {markdown},
@@ -69,6 +83,8 @@ export default {
 
 const HeaderSlotTemplate = (
   {
+    iconName,
+    iconLibrary,
     showHeader,
     showFooter,
     semiBordered,
@@ -78,7 +94,13 @@ const HeaderSlotTemplate = (
   <div class="container">
     <div class="row">
       <div class="col-lg-6">
-        <v-card show-header="${showHeader}" show-footer="${showFooter}" ${semiBordered && 'semi-bordered '}${bordered && 'bordered'}>
+        <v-card 
+          ${iconName && (`icon-name=${iconName} `)}
+          ${iconName && iconLibrary && (`icon-library=${iconLibrary} `)} 
+          show-header="${showHeader}" 
+          show-footer="${showFooter}" 
+          ${semiBordered && 'semi-bordered '}
+          ${bordered && 'bordered'}>
 
           
 
@@ -97,6 +119,19 @@ const HeaderSlotTemplate = (
         <div>&nbsp;</div>
 
         
+        <div class="card card-custom card--show-header card--show-footer">
+											<div class="card-header">
+												<div class="card-title">
+													<span class="card-icon">
+														<i class="alert text-primary"></i>
+													</span>
+													<h3 class="card-label">Card Icon 
+													<small>sub title</small></h3>
+												</div>
+											</div>
+											<div class="card-body">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</div>
+										</div>
+    
       
         <div class="card card-custom card--show-header card--show-footer">
           <div class="card-header">

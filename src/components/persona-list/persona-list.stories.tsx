@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Personas/Persona List',
+  title: 'Components/Personas/Persona List',
 
 };
 

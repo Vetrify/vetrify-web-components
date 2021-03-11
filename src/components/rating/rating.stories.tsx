@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Rating',
+  title: 'Components/Rating',
 };
 
 export const Basic = () => ``;

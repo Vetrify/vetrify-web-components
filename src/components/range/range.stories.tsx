@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Form/Range',
+  title: 'Elements/Form/Range',
 };
 
 export const Basic = () => ``;

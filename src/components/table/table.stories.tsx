@@ -1,5 +1,5 @@
 export default {
-    title: 'Vetrify/Table',
+    title: 'Templates/Table',
   };
 
   export const BasicDynamic = () =>`

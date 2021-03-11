@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Menu/MenuDivider',
+  title: 'Elements/Menu/MenuDivider',
 };
 
 export const Basic = () => ``;

@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Include',
+  title: 'Elements/Include',
 };
 
 export const Basic = () => ``;

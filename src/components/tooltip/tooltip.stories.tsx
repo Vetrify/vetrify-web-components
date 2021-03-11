@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Tooltip',
+  title: 'Elements/Tooltip',
 };
 
 export const Basic = () => ``;

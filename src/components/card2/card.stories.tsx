@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Cards/Card_Old',
+  title: 'Components/Cards/Card_Old',
 };
 
 export const Basic = () => ``;

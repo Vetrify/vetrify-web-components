@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Dropdown',
+  title: 'Elements/Dropdown',
 };
 
 export const Basic = () => ``;

@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Tabs/Tab',
+  title: 'Elements/Tabs/Tab',
 };
 
 export const Basic = () => ``;

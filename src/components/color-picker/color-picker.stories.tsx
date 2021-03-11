@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/ColorPicker',
+  title: 'Components/ColorPicker',
 };
 
 export const Basic = () => ``;

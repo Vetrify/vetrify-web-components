@@ -35,7 +35,7 @@ var argTypes = {
 
 // https://storybook.js.org/docs/react/writing-stories/parameters
 export default {
-  title: 'Vetrify/Drawer',
+  title: 'Components/Drawer',
   component: 'v-drawer',
   parameters: {
     notes: {markdown},
