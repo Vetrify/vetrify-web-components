@@ -36,7 +36,7 @@ export class Card {
   @Prop() iconName: string = '';
 
   /** The name of a registered custom icon library. */
-  @Prop() library = 'default';
+  @Prop() iconLibrary = 'default';
 
   @Prop({ mutable: true }) title: string = '';
   @Prop({ mutable: true }) subtitle: string = '';
@@ -70,7 +70,7 @@ export class Card {
               <div class="card-title">
                 {this.iconName && (
                   <div class="card-icon">
-                    <v-icon name={this.iconName} library={this.library} ></v-icon>
+                    <v-icon name={this.iconName} library={this.iconLibrary} ></v-icon>
                   </div>
                 )}
                 <h3 class="card-label">{this.title}&nbsp; 

@@ -220,13 +220,13 @@ export namespace Components {
     interface VCard {
         "bordered": boolean;
         /**
+          * The name of a registered custom icon library.
+         */
+        "iconLibrary": string;
+        /**
           * The name of the icon to draw.
          */
         "iconName": string;
-        /**
-          * The name of a registered custom icon library.
-         */
-        "library": string;
         "semiBordered": boolean;
         "showFooter": boolean;
         "showHeader": boolean;
@@ -2030,13 +2030,13 @@ declare namespace LocalJSX {
     interface VCard {
         "bordered"?: boolean;
         /**
+          * The name of a registered custom icon library.
+         */
+        "iconLibrary"?: string;
+        /**
           * The name of the icon to draw.
          */
         "iconName"?: string;
-        /**
-          * The name of a registered custom icon library.
-         */
-        "library"?: string;
         "semiBordered"?: boolean;
         "showFooter"?: boolean;
         "showHeader"?: boolean;

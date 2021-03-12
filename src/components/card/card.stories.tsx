@@ -7,7 +7,7 @@ const events = ['mouseover', 'click', ...eventHandles(customEvents)];
 
 
 const args = {
-  iconName: '', //Code/Option
+  iconName: 'Code/Git3',
   iconLibrary: 'default',
   showHeader: true,
   showFooter: true,
@@ -117,7 +117,7 @@ const HeaderSlotTemplate = (
         </v-card>
         <div>&nbsp;</div>
 
-        <div class="card card-custom card--show-header card--show-footer">
+        <div class="card card-custom card-rounded card--show-header card--show-footer">
           <div class="card-header">
             <div class="card-title">
               <h3 class="card-label">Basic Card 
@@ -176,7 +176,7 @@ const HeaderInlineTemplate = (
         </v-card>
         <br />
         
-        <div class="card card-custom card--show-header card--show-footer">
+        <div class="card card-custom rounded card--show-header card--show-footer">
         <div class="card-header">
           <div class="card-title">
             <span class="card-icon">
