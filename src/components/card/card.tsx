@@ -38,8 +38,8 @@ export class Card {
   /** The name of a registered custom icon library. */
   @Prop() iconLibrary = 'default';
 
-  @Prop({ mutable: true }) title: string = '';
-  @Prop({ mutable: true }) subtitle: string = '';
+  @Prop({ mutable: true }) heading: string = '';
+  @Prop({ mutable: true }) subheading: string = '';
 
   connectedCallback() {
     this.handleSlotChange = this.handleSlotChange.bind(this);
@@ -66,15 +66,15 @@ export class Card {
         'card--show-footer': this.showFooter}}>
         <div class="card-header">
           <slot name="header" onSlotchange={this.handleSlotChange} />
-          {!this.hasHeader && this.title && (           
-              <div class="card-title">
+          {!this.hasHeader && this.heading && (           
+              <div class="card-heading">
                 {this.iconName && (
                   <div class="card-icon">
                     <v-icon name={this.iconName} library={this.iconLibrary} ></v-icon>
                   </div>
                 )}
-                <h3 class="card-label">{this.title}&nbsp; 
-                <small>{this.subtitle}</small></h3>
+                <h3 class="card-label">{this.heading}&nbsp; 
+                <small>{this.subheading}</small></h3>
               </div>         
           )}
         </div>

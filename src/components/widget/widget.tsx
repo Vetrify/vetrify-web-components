@@ -18,14 +18,14 @@ import { Component, Prop, h } from '@stencil/core';
 
 })
 export class PersonaBrief {
-  @Prop() subtitle:string;
-  @Prop() title: string;
+  @Prop() subheading:string;
+  @Prop() heading: string;
 
   render() {
     return (
       <div>
-        <h3>{this.title}</h3>
-        <p class="gray">{this.subtitle}</p>
+        <h3>{this.heading}</h3>
+        <p class="gray">{this.subheading}</p>
         <slot/>
       </div>
     );

@@ -13,8 +13,8 @@ const args = {
   showFooter: true,
   semiBordered: false,
   bordered: false,
-  title: 'title',
-  subtitle: 'subtitle'
+  heading: 'heading',
+  subheading: 'subheading'
 };
 
 // https://storybook.js.org/docs/react/essentials/controls#annotation
@@ -31,13 +31,13 @@ const argTypes = {
       type: "text"
     }
   },
-  title:{
+  heading:{
     description: '',
     control:{
       type: "text"
     }
   },
-  subtitle:{
+  subheading:{
     description: '',
     control:{
       type: "text"
@@ -145,8 +145,8 @@ HeaderSlot.argTypes = {...argTypes};
 
 const HeaderInlineTemplate = (
   {
-    title,
-    subtitle,
+    heading,
+    subheading,
     iconName,
     iconLibrary,
     showHeader,
@@ -159,8 +159,8 @@ const HeaderInlineTemplate = (
     <div class="row">
       <div class="col-lg-6">
       <v-card 
-          ${title && (`title="${title}"`)}
-          ${subtitle && (`subtitle="${subtitle}"`)}
+          ${heading && (`heading="${heading}"`)}
+          ${subheading && (`subheading="${subheading}"`)}
           ${iconName && (`icon-name="${iconName}" `)}
           ${iconName && iconLibrary && (`icon-library=${iconLibrary} `)} 
           show-header="${showHeader}" 
@@ -182,8 +182,8 @@ const HeaderInlineTemplate = (
             <span class="card-icon">
               <i class="alert text-primary"></i>
             </span>
-            <h3 class="card-label">Card Icon 
-            <small>sub title</small></h3>
+            <h3 class="card-label">Card Heading 
+            <small>sub heading</small></h3>
           </div>
         </div>
         <div class="card-body">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</div>

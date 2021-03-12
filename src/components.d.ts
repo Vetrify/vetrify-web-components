@@ -219,6 +219,7 @@ export namespace Components {
     }
     interface VCard {
         "bordered": boolean;
+        "heading": string;
         /**
           * The name of a registered custom icon library.
          */
@@ -230,8 +231,7 @@ export namespace Components {
         "semiBordered": boolean;
         "showFooter": boolean;
         "showHeader": boolean;
-        "subtitle": string;
-        "title": string;
+        "subheading": string;
     }
     interface VCard2 {
     }
@@ -667,8 +667,8 @@ export namespace Components {
         "src": string;
     }
     interface VInfoBrief {
-        "subtitle": string;
-        "title": string;
+        "heading": string;
+        "subheading": string;
     }
     interface VInput {
         /**
@@ -805,7 +805,7 @@ export namespace Components {
         "value": string;
     }
     interface VLinkList {
-        "title": string;
+        "heading": string;
     }
     interface VLogo {
         "redraw": () => Promise<void>;
@@ -866,13 +866,13 @@ export namespace Components {
     }
     interface VPersona {
         "gender": 'female' | 'male';
+        "heading": string;
         "name": string;
-        "title": string;
         "transformation": string;
     }
     interface VPersonaBrief {
+        "heading": string;
         "name": string;
-        "title": string;
     }
     interface VProgressBar {
         /**
@@ -1402,15 +1402,15 @@ export namespace Components {
     }
     interface VTransformation {
         "checked": boolean;
+        "heading": string;
         "status": 'In Progress' | 'Approved' | 'Verified' | 'Rejected';
+        "subheading": string;
         "subject": string;
-        "subtitle": string;
-        "title": string;
         "verb": string;
     }
     interface VWidget {
-        "subtitle": string;
-        "title": string;
+        "heading": string;
+        "subheading": string;
     }
 }
 declare global {
@@ -2029,6 +2029,7 @@ declare namespace LocalJSX {
     }
     interface VCard {
         "bordered"?: boolean;
+        "heading"?: string;
         /**
           * The name of a registered custom icon library.
          */
@@ -2040,8 +2041,7 @@ declare namespace LocalJSX {
         "semiBordered"?: boolean;
         "showFooter"?: boolean;
         "showHeader"?: boolean;
-        "subtitle"?: string;
-        "title"?: string;
+        "subheading"?: string;
     }
     interface VCard2 {
     }
@@ -2536,8 +2536,8 @@ declare namespace LocalJSX {
         "src"?: string;
     }
     interface VInfoBrief {
-        "subtitle"?: string;
-        "title"?: string;
+        "heading"?: string;
+        "subheading"?: string;
     }
     interface VInput {
         /**
@@ -2666,7 +2666,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface VLinkList {
-        "title"?: string;
+        "heading"?: string;
     }
     interface VLogo {
         /**
@@ -2724,13 +2724,13 @@ declare namespace LocalJSX {
     }
     interface VPersona {
         "gender"?: 'female' | 'male';
+        "heading"?: string;
         "name"?: string;
-        "title"?: string;
         "transformation"?: string;
     }
     interface VPersonaBrief {
+        "heading"?: string;
         "name"?: string;
-        "title"?: string;
     }
     interface VProgressBar {
         /**
@@ -3256,15 +3256,15 @@ declare namespace LocalJSX {
     }
     interface VTransformation {
         "checked"?: boolean;
+        "heading"?: string;
         "status"?: 'In Progress' | 'Approved' | 'Verified' | 'Rejected';
+        "subheading"?: string;
         "subject"?: string;
-        "subtitle"?: string;
-        "title"?: string;
         "verb"?: string;
     }
     interface VWidget {
-        "subtitle"?: string;
-        "title"?: string;
+        "heading"?: string;
+        "subheading"?: string;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
