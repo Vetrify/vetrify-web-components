@@ -35,8 +35,8 @@ export class Card {
   /** The name of the icon to draw. */
   @Prop() iconName: string = '';
 
-    /** The name of a registered custom icon library. */
-    @Prop() library = 'default';
+  /** The name of a registered custom icon library. */
+  @Prop() library = 'default';
 
   @Prop({ mutable: true }) title: string = '';
   @Prop({ mutable: true }) subtitle: string = '';
@@ -65,14 +65,14 @@ export class Card {
         'card--show-header': this.showHeader,
         'card--show-footer': this.showFooter}}>
         <div class="card-header">
-          {this.iconName && (
-            <div class="card-icon">
-              <v-icon name="{this.iconName}" library="${this.}" ></v-icon>
-            </div>
-          )}
           <slot name="header" onSlotchange={this.handleSlotChange} />
           {!this.hasHeader && this.title && (           
               <div class="card-title">
+                {this.iconName && (
+                  <div class="card-icon">
+                    <v-icon name={this.iconName} library={this.library} ></v-icon>
+                  </div>
+                )}
                 <h3 class="card-label">{this.title}&nbsp; 
                 <small>{this.subtitle}</small></h3>
               </div>         

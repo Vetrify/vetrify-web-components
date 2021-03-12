@@ -18,10 +18,10 @@
 }
 
 .card-header-slot{
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  flex-wrap: wrap;
+  //display: flex;
+  //justify-content: space-between;// left;// space-between;
+  //align-items: stretch;
+  //flex-wrap: wrap;
   //height: $card-header-height;
   //min-height: $card-header-height;
   padding-top: 0;
@@ -36,6 +36,34 @@
   box-shadow: var(--v-shadow-x-small);
   border: solid var(--border-width) var(--border-color);
   border-radius: var(--border-radius);
+}
+
+.card-header
+{
+  
+  .card-icon
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    v-icon {
+      font-size: 1.25rem;
+      color: $dark-50;
+      line-height: 0;
+
+
+      &:after,
+      &:before {
+          line-height: 0;
+      }
+  }
+}
+
+.svg-icon {
+    @include svg-icon-size(24px);
+    @include svg-icon-color($dark-50);
+}
 }
 
 // .card__image {
