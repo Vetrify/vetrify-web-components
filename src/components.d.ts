@@ -233,8 +233,6 @@ export namespace Components {
         "showHeader": boolean;
         "subheading": string;
     }
-    interface VCard2 {
-    }
     interface VCheckbox {
         /**
           * Set to true to draw the checkbox in a checked state.
@@ -1462,12 +1460,6 @@ declare global {
         prototype: HTMLVCardElement;
         new (): HTMLVCardElement;
     };
-    interface HTMLVCard2Element extends Components.VCard2, HTMLStencilElement {
-    }
-    var HTMLVCard2Element: {
-        prototype: HTMLVCard2Element;
-        new (): HTMLVCard2Element;
-    };
     interface HTMLVCheckboxElement extends Components.VCheckbox, HTMLStencilElement {
     }
     var HTMLVCheckboxElement: {
@@ -1771,7 +1763,6 @@ declare global {
         "v-button": HTMLVButtonElement;
         "v-button-group": HTMLVButtonGroupElement;
         "v-card": HTMLVCardElement;
-        "v-card2": HTMLVCard2Element;
         "v-checkbox": HTMLVCheckboxElement;
         "v-color-picker": HTMLVColorPickerElement;
         "v-details": HTMLVDetailsElement;
@@ -2042,8 +2033,6 @@ declare namespace LocalJSX {
         "showFooter"?: boolean;
         "showHeader"?: boolean;
         "subheading"?: string;
-    }
-    interface VCard2 {
     }
     interface VCheckbox {
         /**
@@ -3275,7 +3264,6 @@ declare namespace LocalJSX {
         "v-button": VButton;
         "v-button-group": VButtonGroup;
         "v-card": VCard;
-        "v-card2": VCard2;
         "v-checkbox": VCheckbox;
         "v-color-picker": VColorPicker;
         "v-details": VDetails;
@@ -3339,7 +3327,6 @@ declare module "@stencil/core" {
             "v-button": LocalJSX.VButton & JSXBase.HTMLAttributes<HTMLVButtonElement>;
             "v-button-group": LocalJSX.VButtonGroup & JSXBase.HTMLAttributes<HTMLVButtonGroupElement>;
             "v-card": LocalJSX.VCard & JSXBase.HTMLAttributes<HTMLVCardElement>;
-            "v-card2": LocalJSX.VCard2 & JSXBase.HTMLAttributes<HTMLVCard2Element>;
             "v-checkbox": LocalJSX.VCheckbox & JSXBase.HTMLAttributes<HTMLVCheckboxElement>;
             "v-color-picker": LocalJSX.VColorPicker & JSXBase.HTMLAttributes<HTMLVColorPickerElement>;
             "v-details": LocalJSX.VDetails & JSXBase.HTMLAttributes<HTMLVDetailsElement>;
