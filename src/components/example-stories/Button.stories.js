@@ -1,7 +1,7 @@
 import { createButton } from './Button';
 
 export default {
-  title: 'Vetrify/StorybookExample/Button',
+  title: 'Templates/StorybookExample/Button',
   argTypes: {
     label: { control: 'text' },
     primary: { control: 'boolean' },

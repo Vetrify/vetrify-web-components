@@ -1,5 +1,10 @@
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
+  options: {
+    storySort: {
+      order: ['Templates', 'Modules', 'Components', 'Elements'],
+    },
+  },
   docs: {
     extractComponentDescription: (component, { notes }) => {
       if (notes) {

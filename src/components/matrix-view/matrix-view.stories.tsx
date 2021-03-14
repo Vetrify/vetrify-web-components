@@ -1,5 +1,5 @@
 export default {
-    title: 'Vetrify/Matrix/View',
+    title: 'Components/Matrix/View',
   };
   
 export const Basic = () => `<v-matrix-view />`;

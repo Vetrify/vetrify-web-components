@@ -18,14 +18,14 @@ import { Component, Prop, h } from '@stencil/core';
 
 })
 export class InfoBrief {
-  @Prop() subtitle:string;
-  @Prop() title: string;
+  @Prop() subheading:string;
+  @Prop() heading: string;
 
   render() {
     return (
       <div>
-        <p>{this.title}</p>
-        <p class="gray">{this.subtitle}</p>
+        <p>{this.heading}</p>
+        <p class="gray">{this.subheading}</p>
       </div>
     );
   }

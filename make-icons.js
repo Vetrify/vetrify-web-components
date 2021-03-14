@@ -33,6 +33,8 @@ let numIcons = 0;
       copy(`${srcPath}/icons`, './src/components/icon/icons'),
       copy(`${srcPath}/LICENSE.md`, './src/components/icon/icons/LICENSE.md'),
       copy(`${srcPath}/bootstrap-icons.svg`, './docs/assets/icons/sprite.svg', { overwrite: true }),
+
+      copy(`./src/assets/icons`, `./src/components/icon/icons` )
     ]);
 
     // Generate metadata

@@ -1,31 +1,29 @@
 export default {
-  title: 'Vetrify/Widget',
+  title: 'Components/Widget',
   argTypes: {
-    subtitle: { control: 'text' },
-    title: { control: 'text' },
-
-
+    subheading: { control: 'text' },
+    heading: { control: 'text' },
   },
 };
 
-export const Basic= ({ title, subtitle }) => {
-  let myTitle = `title="Transformations"`;
-  let mySubtitle = ` subtitle="More than 400+ new transformations"`;
+export const Basic= ({ heading, subheading }) => {
+  let myHeading = `heading="Transformations"`;
+  let mySubheading = ` subheading="More than 400+ new transformations"`;
 
 
-  if (title) {
-    myTitle = `title="${title}"`;
+  if (heading) {
+    myHeading = `heading="${heading}"`;
   }
 
-  if (subtitle) {
-    mySubtitle = ` subtitle="${name}"`;
+  if (subheading) {
+    mySubheading = ` subheading="${name}"`;
   }
 
 
 
   let start = `
   <div style="width:500px">
-    <v-widget ${myTitle}${mySubtitle}></v-widget>
+    <v-widget ${myHeading}${mySubheading}></v-widget>
   </div>`
   console.log(start);
 

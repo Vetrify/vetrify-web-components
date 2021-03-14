@@ -1,7 +1,7 @@
 import { createHeader } from './Header';
 
 export default {
-  title: 'Vetrify/StorybookExample/Header',
+  title: 'Templates/StorybookExample/Header',
   argTypes: {
     onLogin: { action: 'onLogin' },
     onLogout: { action: 'onLogout' },

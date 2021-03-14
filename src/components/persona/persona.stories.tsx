@@ -1,8 +1,8 @@
 export default {
-  title: 'Vetrify/Personas/Persona',
+  title: 'Components/Personas/Persona',
   argTypes: {
     name: { control: 'text' },
-    title: { control: 'text' },
+    heading: { control: 'text' },
     gender: {
       control: { type: 'select', options: [ 'male', 'female'] },
     },
@@ -11,14 +11,14 @@ export default {
   },
 };
 
-export const Basic= ({ title, name, gender, transformation }) => {
-  let myTitle = `title="CEO"`;
+export const Basic= ({ heading, name, gender, transformation }) => {
+  let myHeading = `heading="CEO"`;
   let myName = ` name="Suleman"`;
   let myGender = ` gender="male"`;
   let myTransformation =` transformation="xyz"`;
 
-  if (title) {
-    myTitle = `personaTitle="${title}"`;
+  if (heading) {
+    myHeading = `personaHeading="${heading}"`;
   }
 
   if (name) {
@@ -35,7 +35,7 @@ export const Basic= ({ title, name, gender, transformation }) => {
 
   let start = `
   <div style="width:500px">
-  <v-persona ${myTitle}${myName}${myGender}${myTransformation}></v-persona>
+  <v-persona ${myHeading}${myName}${myGender}${myTransformation}></v-persona>
   </div>`
   return start;
 };

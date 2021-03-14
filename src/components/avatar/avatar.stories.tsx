@@ -1,7 +1,8 @@
 import { html } from 'lit-html';
 
 export default {
-  title: 'Vetrify/Avatar',
+  title: 'Components/Avatar',
+  
   argTypes: {
     alt: { control: 'text' },
     image: { control: 'text', default: 'https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80' },
@@ -10,14 +11,16 @@ export default {
       control: { type: 'select', options: ['undefined', 'circle', 'rounded', 'square'] },
     },
     icon: { control: 'text' },
+    size: { control: 'number' },
   },
 };
 
-export const Basic = ({ initials, image, shape, icon }) => {
+export const Basic = ({ initials, image, shape, icon, size }) => {
   let myInitials = '';
   let myImage = '';
   let myShape = '';
   let myIconTag = '';
+  let mySize = '';
 
   if (initials) {
     myInitials = ` initials="${initials}"`;
@@ -35,7 +38,12 @@ export const Basic = ({ initials, image, shape, icon }) => {
     myIconTag = `<v-icon slot="icon" name="${icon}"></v-icon>`;
   }
 
-  let start = `<v-avatar ${myInitials}${myImage}${myShape}>${myIconTag}</v-avatar>`;
+  if(size)
+  {
+    mySize = ` style="--size: ${size}rem;"`
+  }
+
+  let start = `<v-avatar ${myInitials}${myImage}${myShape}${mySize}>${myIconTag}</v-avatar>`;
 
   return start;
 };
@@ -53,7 +61,7 @@ export const CustomIcons = () => `<v-avatar>
 <v-icon slot="icon" name="archive"></v-icon>
 </v-avatar>
 
-<v-avatar>
+<v-avatar style="--size:4rem">
 <v-icon slot="icon" name="briefcase"></v-icon>
 </v-avatar>
 `;
@@ -75,8 +83,3 @@ export const Groups = () => html`<div class="avatar-group">
 }
 </style>
 `;
-
-// Basic.args = {
-//     first: 'stencil',
-//     middle:'storybook',
-//     last: 'typescript'}

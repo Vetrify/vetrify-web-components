@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Logo',
+  title: 'Elements/Logo',
 };
 
 export const Basic = () => `<v-logo></v-logo>`;

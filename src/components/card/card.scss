@@ -1,4 +1,6 @@
 @import '../../scss/component';
+@import '../../scss/vetrify';
+@import '../../scss/style';
 
 /**
  * @prop --border-color: The card's border color, including borders that occur inside the card.
@@ -15,6 +17,18 @@
   display: inline-block;
 }
 
+.card-header-slot{
+  //display: flex;
+  //justify-content: space-between;// left;// space-between;
+  //align-items: stretch;
+  //flex-wrap: wrap;
+  //height: $card-header-height;
+  //min-height: $card-header-height;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: transparent;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -24,40 +38,93 @@
   border-radius: var(--border-radius);
 }
 
-.card__image {
-  border-top-left-radius: var(--border-radius);
-  border-top-right-radius: var(--border-radius);
-  margin: calc(-1 * var(--border-width));
-  overflow: hidden;
+.card-header
+{
+  
+  .card-icon
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  ::slotted(img) {
-    display: block;
-    width: 100%;
+    v-icon {
+      font-size: 1.25rem;
+      color: $dark-50;
+      line-height: 0;
+
+
+      &:after,
+      &:before {
+          line-height: 0;
+      }
   }
 }
 
-.card:not(.card--has-image) .card__image {
+.svg-icon {
+    @include svg-icon-size(24px);
+    @include svg-icon-color($dark-50);
+}
+}
+
+// .card__image {
+//   border-top-left-radius: var(--border-radius);
+//   border-top-right-radius: var(--border-radius);
+//   margin: calc(-1 * var(--border-width));
+//   overflow: hidden;
+
+//   ::slotted(img) {
+//     display: block;
+//     width: 100%;
+//   }
+// }
+
+.card:not(.card--has-image) .card-image {
+  visibility: hidden;
   display: none;
 }
 
-.card__header {
-  border-bottom: solid var(--border-width) var(--border-color);
-  padding: calc(var(--padding) / 2) var(--padding);
+// .card__header {
+//   border-bottom: solid var(--border-width) var(--border-color);
+//   padding: calc(var(--padding) / 2) var(--padding);
+// }
+
+.card:not(.card--show-header) .card-header {
+
+  visibility: none !important;
+  display: none !important;
 }
 
-.card:not(.card--has-header) .card__header {
+.card:not(.card--show-header) .card-header-slot {
+  visibility: none !important;
+  display: none !important;
+}
+
+// .card__body {
+//   padding: var(--padding);
+// }
+
+// .card--has-footer .card__footer {
+//   border-top: solid var(--border-width) var(--border-color);
+//   padding: var(--padding);
+// }
+
+.card-footer-slot {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.card:not(.card--show-footer) .card-footer {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  min-height: 0px !important;
+  visibility: hidden;
   display: none;
 }
 
-.card__body {
-  padding: var(--padding);
-}
-
-.card--has-footer .card__footer {
-  border-top: solid var(--border-width) var(--border-color);
-  padding: var(--padding);
-}
-
-.card:not(.card--has-footer) .card__footer {
+.card:not(.card--show-footer) .card-footer-slot {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  min-height: 0px !important;
+  visibility: hidden;
   display: none;
 }

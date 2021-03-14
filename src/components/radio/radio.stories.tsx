@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/Form/Radio',
+  title: 'Elements/Form/Radio',
 };
 
 export const Basic = () => ``;

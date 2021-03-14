@@ -1,5 +1,5 @@
 import markdown from './readme.md';
-import { eventHandles, action } from '../../../.storybook/helpers/custom-action';
+import { eventHandles } from '../../../.storybook/helpers/custom-action';
 
 const customEvents = ['clicked'];
 const events = ['mouseover', 'click', ...eventHandles(customEvents)];
@@ -62,7 +62,7 @@ const argTypes = {
 
 // https://storybook.js.org/docs/react/writing-stories/parameters
 export default {
-  title: 'Vetrify/Alert',
+  title: 'Elements/Alert',
   component: 'v-alert',
   parameters: {
     notes: {markdown},

@@ -22,7 +22,7 @@ console.log(Boy);
 export class Persona {
   @Prop() name:string;
   @Prop() gender:'female' | 'male';
-  @Prop() title: string;
+  @Prop() heading: string;
   @Prop() transformation: string;
 
   render() {
@@ -34,10 +34,10 @@ export class Persona {
             alt="Gray tabby kitten looking down"
             shape="rounded"
           ></v-avatar>
-          <v-persona-brief name={this.name} title={this.title}/>
+          <v-persona-brief name={this.name} heading={this.heading}/>
 
         </div>
-        <v-info-brief title={"Transformation"} subtitle={this.transformation}></v-info-brief>
+        <v-info-brief heading={"Transformation"} subheading={this.transformation}></v-info-brief>
       </div>
     );
   }

@@ -15,11 +15,11 @@ import { Component, Prop, h } from '@stencil/core';
   tag: 'v-link-list',
 })
 export class InfoBrief {
-  @Prop() title: string;
+  @Prop() heading: string;
 
   render() {
     return (
-        <p>{this.title}: <span><slot/></span></p>
+        <p>{this.heading}: <span><slot/></span></p>
     );
   }
 }

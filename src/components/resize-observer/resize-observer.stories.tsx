@@ -1,5 +1,5 @@
 export default {
-  title: 'Vetrify/ResizeObserver',
+  title: 'Elements/Functional/ResizeObserver',
 };
 
 export const Basic = () => ``;

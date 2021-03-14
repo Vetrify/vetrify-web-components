@@ -20,11 +20,11 @@ import Unchecked  from '../../images/uncheck.svg'
 })
 export class Transformation {
   @Prop() status:'In Progress' | 'Approved' | 'Verified' | 'Rejected';
-  @Prop() title: string;
+  @Prop() heading: string;
   @Prop() checked: boolean;
   @Prop() verb: string;
   @Prop() subject: string;
-  @Prop() subtitle: string;
+  @Prop() subheading: string;
 
   render() {
     return (
@@ -37,14 +37,14 @@ export class Transformation {
           ></v-avatar>
           <div class="detail">
           <v-recipe-step verb={this.verb} subject={this.subject} />
-          <v-link-list title="Personas">
+          <v-link-list heading="Personas">
               <a href="#">Suleman</a>
           </v-link-list>
           </div>
 
         </div>
         <div class="transformation">
-          <v-info-brief title={this.title} subtitle={this.subtitle}></v-info-brief>
+          <v-info-brief heading={this.heading} subheading={this.subheading}></v-info-brief>
           <v-badge type={this.status}>{this.status}</v-badge>
         </div>
       </div>
