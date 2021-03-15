@@ -459,6 +459,12 @@ export namespace Components {
          */
         "skidding": number;
     }
+    interface VEarnedValueChart {
+        /**
+          * The words in the word cloud.
+         */
+        "words": string[];
+    }
     interface VEditor {
         "config": string;
         "content": string;
@@ -1418,6 +1424,12 @@ export namespace Components {
         "heading": string;
         "subheading": string;
     }
+    interface VWordCloud {
+        /**
+          * The words in the word cloud.
+         */
+        "words": string[];
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -1509,6 +1521,12 @@ declare global {
     var HTMLVDropdownElement: {
         prototype: HTMLVDropdownElement;
         new (): HTMLVDropdownElement;
+    };
+    interface HTMLVEarnedValueChartElement extends Components.VEarnedValueChart, HTMLStencilElement {
+    }
+    var HTMLVEarnedValueChartElement: {
+        prototype: HTMLVEarnedValueChartElement;
+        new (): HTMLVEarnedValueChartElement;
     };
     interface HTMLVEditorElement extends Components.VEditor, HTMLStencilElement {
     }
@@ -1774,6 +1792,12 @@ declare global {
         prototype: HTMLVWidgetElement;
         new (): HTMLVWidgetElement;
     };
+    interface HTMLVWordCloudElement extends Components.VWordCloud, HTMLStencilElement {
+    }
+    var HTMLVWordCloudElement: {
+        prototype: HTMLVWordCloudElement;
+        new (): HTMLVWordCloudElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "v-alert": HTMLVAlertElement;
@@ -1790,6 +1814,7 @@ declare global {
         "v-dialog": HTMLVDialogElement;
         "v-drawer": HTMLVDrawerElement;
         "v-dropdown": HTMLVDropdownElement;
+        "v-earned-value-chart": HTMLVEarnedValueChartElement;
         "v-editor": HTMLVEditorElement;
         "v-form": HTMLVFormElement;
         "v-format-bytes": HTMLVFormatBytesElement;
@@ -1834,6 +1859,7 @@ declare global {
         "v-tooltip": HTMLVTooltipElement;
         "v-transformation": HTMLVTransformationElement;
         "v-widget": HTMLVWidgetElement;
+        "v-word-cloud": HTMLVWordCloudElement;
     }
 }
 declare namespace LocalJSX {
@@ -2329,6 +2355,12 @@ declare namespace LocalJSX {
           * The distance in pixels from which to offset the panel along its trigger.
          */
         "skidding"?: number;
+    }
+    interface VEarnedValueChart {
+        /**
+          * The words in the word cloud.
+         */
+        "words"?: string[];
     }
     interface VEditor {
         "config"?: string;
@@ -3286,6 +3318,12 @@ declare namespace LocalJSX {
         "heading"?: string;
         "subheading"?: string;
     }
+    interface VWordCloud {
+        /**
+          * The words in the word cloud.
+         */
+        "words"?: string[];
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "v-alert": VAlert;
@@ -3302,6 +3340,7 @@ declare namespace LocalJSX {
         "v-dialog": VDialog;
         "v-drawer": VDrawer;
         "v-dropdown": VDropdown;
+        "v-earned-value-chart": VEarnedValueChart;
         "v-editor": VEditor;
         "v-form": VForm;
         "v-format-bytes": VFormatBytes;
@@ -3346,6 +3385,7 @@ declare namespace LocalJSX {
         "v-tooltip": VTooltip;
         "v-transformation": VTransformation;
         "v-widget": VWidget;
+        "v-word-cloud": VWordCloud;
     }
 }
 export { LocalJSX as JSX };
@@ -3367,6 +3407,7 @@ declare module "@stencil/core" {
             "v-dialog": LocalJSX.VDialog & JSXBase.HTMLAttributes<HTMLVDialogElement>;
             "v-drawer": LocalJSX.VDrawer & JSXBase.HTMLAttributes<HTMLVDrawerElement>;
             "v-dropdown": LocalJSX.VDropdown & JSXBase.HTMLAttributes<HTMLVDropdownElement>;
+            "v-earned-value-chart": LocalJSX.VEarnedValueChart & JSXBase.HTMLAttributes<HTMLVEarnedValueChartElement>;
             "v-editor": LocalJSX.VEditor & JSXBase.HTMLAttributes<HTMLVEditorElement>;
             "v-form": LocalJSX.VForm & JSXBase.HTMLAttributes<HTMLVFormElement>;
             "v-format-bytes": LocalJSX.VFormatBytes & JSXBase.HTMLAttributes<HTMLVFormatBytesElement>;
@@ -3411,6 +3452,7 @@ declare module "@stencil/core" {
             "v-tooltip": LocalJSX.VTooltip & JSXBase.HTMLAttributes<HTMLVTooltipElement>;
             "v-transformation": LocalJSX.VTransformation & JSXBase.HTMLAttributes<HTMLVTransformationElement>;
             "v-widget": LocalJSX.VWidget & JSXBase.HTMLAttributes<HTMLVWidgetElement>;
+            "v-word-cloud": LocalJSX.VWordCloud & JSXBase.HTMLAttributes<HTMLVWordCloudElement>;
         }
     }
 }
