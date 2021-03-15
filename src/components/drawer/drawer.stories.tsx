@@ -38,7 +38,7 @@ export default {
   title: 'Components/Drawer',
   component: 'v-drawer',
   parameters: {
-    notes: {markdown},
+    notes: { markdown },
     actions: {
       handles: events,
     },

@@ -1,11 +1,11 @@
 import { h, Component, Prop, Element, Watch, Event } from '@stencil/core';
 import EventEmitter from 'eventemitter3';
 import manager from '../../utils/editor-manager';
-import InlineEditor from '@ckeditor/ckeditor5-build-inline';
-//import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+//import InlineEditor from '@ckeditor/ckeditor5-build-inline';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
-manager.register('inline', InlineEditor);
-//manager.register('classic', ClassicEditor);
+//manager.register('inline', InlineEditor); // NOTE: registering multiple editors breaks the component here
+manager.register('classic', ClassicEditor);
 
 @Component({
   tag: 'v-editor',
