@@ -459,6 +459,12 @@ export namespace Components {
          */
         "skidding": number;
     }
+    interface VEditor {
+        "config": string;
+        "content": string;
+        "editor": string;
+        "targetId": string;
+    }
     interface VForm {
         /**
           * Gets all form control elements (native and custom).
@@ -1504,6 +1510,12 @@ declare global {
         prototype: HTMLVDropdownElement;
         new (): HTMLVDropdownElement;
     };
+    interface HTMLVEditorElement extends Components.VEditor, HTMLStencilElement {
+    }
+    var HTMLVEditorElement: {
+        prototype: HTMLVEditorElement;
+        new (): HTMLVEditorElement;
+    };
     interface HTMLVFormElement extends Components.VForm, HTMLStencilElement {
     }
     var HTMLVFormElement: {
@@ -1778,6 +1790,7 @@ declare global {
         "v-dialog": HTMLVDialogElement;
         "v-drawer": HTMLVDrawerElement;
         "v-dropdown": HTMLVDropdownElement;
+        "v-editor": HTMLVEditorElement;
         "v-form": HTMLVFormElement;
         "v-format-bytes": HTMLVFormatBytesElement;
         "v-format-date": HTMLVFormatDateElement;
@@ -2316,6 +2329,13 @@ declare namespace LocalJSX {
           * The distance in pixels from which to offset the panel along its trigger.
          */
         "skidding"?: number;
+    }
+    interface VEditor {
+        "config"?: string;
+        "content"?: string;
+        "editor"?: string;
+        "onCkeditorchange"?: (event: CustomEvent<any>) => void;
+        "targetId"?: string;
     }
     interface VForm {
         /**
@@ -3282,6 +3302,7 @@ declare namespace LocalJSX {
         "v-dialog": VDialog;
         "v-drawer": VDrawer;
         "v-dropdown": VDropdown;
+        "v-editor": VEditor;
         "v-form": VForm;
         "v-format-bytes": VFormatBytes;
         "v-format-date": VFormatDate;
@@ -3346,6 +3367,7 @@ declare module "@stencil/core" {
             "v-dialog": LocalJSX.VDialog & JSXBase.HTMLAttributes<HTMLVDialogElement>;
             "v-drawer": LocalJSX.VDrawer & JSXBase.HTMLAttributes<HTMLVDrawerElement>;
             "v-dropdown": LocalJSX.VDropdown & JSXBase.HTMLAttributes<HTMLVDropdownElement>;
+            "v-editor": LocalJSX.VEditor & JSXBase.HTMLAttributes<HTMLVEditorElement>;
             "v-form": LocalJSX.VForm & JSXBase.HTMLAttributes<HTMLVFormElement>;
             "v-format-bytes": LocalJSX.VFormatBytes & JSXBase.HTMLAttributes<HTMLVFormatBytesElement>;
             "v-format-date": LocalJSX.VFormatDate & JSXBase.HTMLAttributes<HTMLVFormatDateElement>;

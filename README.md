@@ -2,11 +2,19 @@
 
 # Vetrify Web Components
 
+
 Vetrify's standalone Web Components.
+
+----
+
 
 ## Operation
 
+----
+
+
 ### To Run
+
 
 For development using storybook, run:
 
@@ -98,7 +106,10 @@ For development using storybook, run:
 
 <br />
 
+----
+
 ### To Build
+
 
 To build the component for production, run:
 
@@ -112,18 +123,29 @@ or for a specific spec:
 
 `npm test -t special.spec.ts`
 
+----
 
 ## Contributing
 
+----
+
 ### Language Convention
+
+
 
 Typescript should be the default language used for defining components, tests, and stories.
 
+
+----
+
 ### Naming Convention
+
 
 When creating new component tags, do _not_ use `stencil` in the component name (ex: `<stencil-datepicker>`). This is because the generated component has little to nothing to do with StencilJs; it's just a web component!
 
 Instead, use the prefix `v`.
+
+----
 
 ## Using Components
 
@@ -142,6 +164,7 @@ The first step is to [publish to NPM](https://docs.npmjs.com/getting-started/pub
 - Put a script tag similar to this `<script src='node_modules/my-component/dist/my-component.esm.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
+----
 
 ## Toolset
 
@@ -158,6 +181,7 @@ Stencil components are just Web Components, so they work in any major framework 
 [Storybook](https://storybook.js.org) is a development environment for UI components.
 It allows you to browse a component library, view the different states of each component, and interactively develop and test components. Find out more at https://storybook.js.org.
 
+----
 
 # Notes
 
@@ -165,9 +189,14 @@ It allows you to browse a component library, view the different states of each c
 * [Storybook 6.0.26](https://storybook.js.org/) 
 * Real Stencil HMR (hot module reloading)
 * Chromatic tested for visual regression testing of stories.
+----
+
 
 ## Special Thanks to stencil storybook starters 
 * [bjankord](https://github.com/bjankord/stencil-storybook-boilerplate) 
 * [elwynelwyn](https://github.com/elwynelwyn/stencilbook-ding)
 * [dutscher](https://dutscher.github.io/stencil-storybook)
 * [shoelace](https://github.com/shoelace-style/shoelace)
+* [FabienHenon - ckeditor](https://github.com/FabienHenon/ckeditor5-webcomponent)
+
+----
