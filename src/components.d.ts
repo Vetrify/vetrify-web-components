@@ -871,10 +871,6 @@ export namespace Components {
     interface VMenuLabel {
     }
     interface VNetworkDiagram {
-        /**
-          * The network diagram's data
-         */
-        "data": any;
     }
     interface VPersona {
         "gender": 'female' | 'male';
@@ -1425,6 +1421,7 @@ export namespace Components {
         "subheading": string;
     }
     interface VWordCloud {
+        "heading": string;
         /**
           * The words in the word cloud.
          */
@@ -2769,10 +2766,6 @@ declare namespace LocalJSX {
     interface VMenuLabel {
     }
     interface VNetworkDiagram {
-        /**
-          * The network diagram's data
-         */
-        "data"?: any;
     }
     interface VPersona {
         "gender"?: 'female' | 'male';
@@ -3319,6 +3312,7 @@ declare namespace LocalJSX {
         "subheading"?: string;
     }
     interface VWordCloud {
+        "heading"?: string;
         /**
           * The words in the word cloud.
          */
