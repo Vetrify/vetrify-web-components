@@ -1371,6 +1371,9 @@ export namespace Components {
          */
         "name": string;
     }
+    interface VTimeline {
+        "heading": string;
+    }
     interface VTooltip {
         /**
           * The tooltip's content. Alternatively, you can use the content slot.
@@ -1772,6 +1775,12 @@ declare global {
         prototype: HTMLVThemeElement;
         new (): HTMLVThemeElement;
     };
+    interface HTMLVTimelineElement extends Components.VTimeline, HTMLStencilElement {
+    }
+    var HTMLVTimelineElement: {
+        prototype: HTMLVTimelineElement;
+        new (): HTMLVTimelineElement;
+    };
     interface HTMLVTooltipElement extends Components.VTooltip, HTMLStencilElement {
     }
     var HTMLVTooltipElement: {
@@ -1854,6 +1863,7 @@ declare global {
         "v-tag": HTMLVTagElement;
         "v-textarea": HTMLVTextareaElement;
         "v-theme": HTMLVThemeElement;
+        "v-timeline": HTMLVTimelineElement;
         "v-tooltip": HTMLVTooltipElement;
         "v-transformation": HTMLVTransformationElement;
         "v-widget": HTMLVWidgetElement;
@@ -3255,6 +3265,9 @@ declare namespace LocalJSX {
          */
         "name"?: string;
     }
+    interface VTimeline {
+        "heading"?: string;
+    }
     interface VTooltip {
         /**
           * The tooltip's content. Alternatively, you can use the content slot.
@@ -3378,6 +3391,7 @@ declare namespace LocalJSX {
         "v-tag": VTag;
         "v-textarea": VTextarea;
         "v-theme": VTheme;
+        "v-timeline": VTimeline;
         "v-tooltip": VTooltip;
         "v-transformation": VTransformation;
         "v-widget": VWidget;
@@ -3445,6 +3459,7 @@ declare module "@stencil/core" {
             "v-tag": LocalJSX.VTag & JSXBase.HTMLAttributes<HTMLVTagElement>;
             "v-textarea": LocalJSX.VTextarea & JSXBase.HTMLAttributes<HTMLVTextareaElement>;
             "v-theme": LocalJSX.VTheme & JSXBase.HTMLAttributes<HTMLVThemeElement>;
+            "v-timeline": LocalJSX.VTimeline & JSXBase.HTMLAttributes<HTMLVTimelineElement>;
             "v-tooltip": LocalJSX.VTooltip & JSXBase.HTMLAttributes<HTMLVTooltipElement>;
             "v-transformation": LocalJSX.VTransformation & JSXBase.HTMLAttributes<HTMLVTransformationElement>;
             "v-widget": LocalJSX.VWidget & JSXBase.HTMLAttributes<HTMLVWidgetElement>;

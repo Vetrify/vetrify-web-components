@@ -5,7 +5,7 @@ import { BEM, hostClasses } from '../../utils';
 @Component({
   tag: 'my-component',
   styleUrl: 'my-component.scss',
-  shadow: false,
+  shadow: true,
 })
 export class MyComponent {
   private readonly componentName: string = 'my-component';

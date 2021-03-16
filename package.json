@@ -195,6 +195,7 @@
     "uppy": "^1.26.1",
     "vis-data": "^7.1.2",
     "vis-network": "^9.0.3",
+    "vis-timeline": "^7.4.6",
     "vis-util": "^5.0.2",
     "wait-on": "^5.2.1",
     "waypoints": "^4.0.1",

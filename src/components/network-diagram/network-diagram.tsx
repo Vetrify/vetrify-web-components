@@ -16,7 +16,7 @@ import { Network, Node, Edge, Data } from 'vis-network'
 
 
 /**
- * @since 0.0
+ * @since 0.1
  * @status development
  *
  * @part base - The component's base wrapper.
