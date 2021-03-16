@@ -208,7 +208,7 @@ export class VNetwork{
 
   }
 
-  render(x) {
+  render() {
     return (<div>
 
       <div id="my-network"></div>
@@ -216,7 +216,7 @@ export class VNetwork{
       <h2 id="eventSpanHeading"></h2>
       <pre id="eventSpanContent"></pre>
 
-      {x}
+ 
 
     </div>);
   }
