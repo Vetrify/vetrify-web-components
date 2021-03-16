@@ -125,6 +125,12 @@ or for a specific spec:
 
 ----
 
+## ADR (Architectural Decision Records)
+
+[Lighweight Architecture Decision Records (ADRs)](./adr.md) will be used to record thoughts & decisions and prevent re-visiting or re-thinking issues which helps move the project forward.
+
+----
+
 ## Contributing
 
 ----

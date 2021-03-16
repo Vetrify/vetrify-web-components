@@ -1,8 +1,9 @@
 import { Component, /* Element,*/ Prop, h  } from '@stencil/core';
-import { DataSet, } from 'vis-data'
-import { Timeline, TimelineItem } from 'vis-timeline'
+//import { DataSet, } from 'vis-data'
+//import { Timeline, TimelineItem } from 'vis-timeline'
 
 // TODO:
+// * add dependency :"vis-timeline": "^7.4.6",  (polyfill currently broken)
 // * basic rendering: https://visjs.github.io/vis-timeline/examples/timeline/editing/editingItems.html
 // * samples in storybook https://visjs.github.io/vis-timeline/examples/timeline/
 
@@ -25,49 +26,49 @@ export class VTimeline{
 
   componentDidRender(){
     //var options = {};
-    var items = new DataSet<TimelineItem>();
+    // var items = new DataSet<TimelineItem>();
 
-    items.add([
-      {id: 1, content: 'item 1<br>start', start: '2014-01-23'},
-      {id: 2, content: 'item 2', start: '2014-01-18'},
-      {id: 3, content: 'item 3', start: '2014-01-21'},
-      {id: 4, content: 'item 4', start: '2014-01-19', end: '2014-01-24'},
-      {id: 5, content: 'item 5', start: '2014-01-28', type:'point'},
-      {id: 6, content: 'item 6', start: '2014-01-26'}
-    ]);
+    // items.add([
+    //   {id: 1, content: 'item 1<br>start', start: '2014-01-23'},
+    //   {id: 2, content: 'item 2', start: '2014-01-18'},
+    //   {id: 3, content: 'item 3', start: '2014-01-21'},
+    //   {id: 4, content: 'item 4', start: '2014-01-19', end: '2014-01-24'},
+    //   {id: 5, content: 'item 5', start: '2014-01-28', type:'point'},
+    //   {id: 6, content: 'item 6', start: '2014-01-26'}
+    // ]);
 
-    // items.on('*', function (event, properties) {
-    //   console.log(event, properties.items);
-    // });
+    // // items.on('*', function (event, properties) {
+    // //   console.log(event, properties.items);
+    // // });
 
-    var container = document.getElementById("my-timeline");
+    // var container = document.getElementById("my-timeline");
 
-    var options = {
-      start: '2014-01-10',
-      end: '2014-02-10',
-      height: '300px',
+    // var options = {
+    //   start: '2014-01-10',
+    //   end: '2014-02-10',
+    //   height: '300px',
   
-      // allow selecting multiple items using ctrl+click, shift+click, or hold.
-      multiselect: true,
+    //   // allow selecting multiple items using ctrl+click, shift+click, or hold.
+    //   multiselect: true,
   
-      // allow manipulation of items
-      editable: true,
+    //   // allow manipulation of items
+    //   editable: true,
   
-      /* alternatively, enable/disable individual actions:
+    //   /* alternatively, enable/disable individual actions:
   
-      editable: {
-        add: true,
-        updateTime: true,
-        updateGroup: true,
-        remove: true
-      },
+    //   editable: {
+    //     add: true,
+    //     updateTime: true,
+    //     updateGroup: true,
+    //     remove: true
+    //   },
   
-      */
+    //   */
   
-      showCurrentTime: true
-    };
+    //   showCurrentTime: true
+    //};
 
-    new Timeline(container, items, options);
+    //new Timeline(container, items, options);
 
     // var timeline = new Timeline(container, items, options);
 
