@@ -12,12 +12,18 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [15.x]
+        node-version: [14.x]
 
     steps:
     - uses: actions/checkout@v2
-    - name: install - Node.js ${{ matrix.node-version }}
-      run: npm install
+    - name : Setup Node Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@vetrify'
+    - name: install packages
+      run: npm install --max-old-space-size=8192 --no-warnings
     - name: test
       run: npm test --max-old-space-size=8192 --no-warnings
 
@@ -26,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [15.x]
+        node-version: [14.x]
     if: github.ref == 'refs/heads/main'
     steps:
     # Setup .npmrc file to publish to GitHub Packages
