@@ -461,7 +461,7 @@ export namespace Components {
     }
     interface VEarnedValueChart {
         /**
-          * The words in the word cloud.
+          * Placeholder... remove this.
          */
         "words": string[];
     }
@@ -882,6 +882,12 @@ export namespace Components {
     interface VPersonaBrief {
         "heading": string;
         "name": string;
+    }
+    interface VPieChart {
+        /**
+          * Placeholder... remove this.
+         */
+        "words": string[];
     }
     interface VProgressBar {
         /**
@@ -1661,6 +1667,12 @@ declare global {
         prototype: HTMLVPersonaBriefElement;
         new (): HTMLVPersonaBriefElement;
     };
+    interface HTMLVPieChartElement extends Components.VPieChart, HTMLStencilElement {
+    }
+    var HTMLVPieChartElement: {
+        prototype: HTMLVPieChartElement;
+        new (): HTMLVPieChartElement;
+    };
     interface HTMLVProgressBarElement extends Components.VProgressBar, HTMLStencilElement {
     }
     var HTMLVProgressBarElement: {
@@ -1844,6 +1856,7 @@ declare global {
         "v-network-diagram": HTMLVNetworkDiagramElement;
         "v-persona": HTMLVPersonaElement;
         "v-persona-brief": HTMLVPersonaBriefElement;
+        "v-pie-chart": HTMLVPieChartElement;
         "v-progress-bar": HTMLVProgressBarElement;
         "v-progress-ring": HTMLVProgressRingElement;
         "v-radio": HTMLVRadioElement;
@@ -2366,7 +2379,7 @@ declare namespace LocalJSX {
     }
     interface VEarnedValueChart {
         /**
-          * The words in the word cloud.
+          * Placeholder... remove this.
          */
         "words"?: string[];
     }
@@ -2788,6 +2801,12 @@ declare namespace LocalJSX {
     interface VPersonaBrief {
         "heading"?: string;
         "name"?: string;
+    }
+    interface VPieChart {
+        /**
+          * Placeholder... remove this.
+         */
+        "words"?: string[];
     }
     interface VProgressBar {
         /**
@@ -3372,6 +3391,7 @@ declare namespace LocalJSX {
         "v-network-diagram": VNetworkDiagram;
         "v-persona": VPersona;
         "v-persona-brief": VPersonaBrief;
+        "v-pie-chart": VPieChart;
         "v-progress-bar": VProgressBar;
         "v-progress-ring": VProgressRing;
         "v-radio": VRadio;
@@ -3440,6 +3460,7 @@ declare module "@stencil/core" {
             "v-network-diagram": LocalJSX.VNetworkDiagram & JSXBase.HTMLAttributes<HTMLVNetworkDiagramElement>;
             "v-persona": LocalJSX.VPersona & JSXBase.HTMLAttributes<HTMLVPersonaElement>;
             "v-persona-brief": LocalJSX.VPersonaBrief & JSXBase.HTMLAttributes<HTMLVPersonaBriefElement>;
+            "v-pie-chart": LocalJSX.VPieChart & JSXBase.HTMLAttributes<HTMLVPieChartElement>;
             "v-progress-bar": LocalJSX.VProgressBar & JSXBase.HTMLAttributes<HTMLVProgressBarElement>;
             "v-progress-ring": LocalJSX.VProgressRing & JSXBase.HTMLAttributes<HTMLVProgressRingElement>;
             "v-radio": LocalJSX.VRadio & JSXBase.HTMLAttributes<HTMLVRadioElement>;

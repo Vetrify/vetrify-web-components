@@ -17,7 +17,10 @@ Charting library to be used for web components
 
 * [Google Charts NPM](https://www.npmjs.com/package/google-charts)
 * [Google Charts Types NPM] 
-> `npm install --save @types/google.visualization`  
+
+> `npm i  --save-dev @google-web-components/google-chart`
+
+> `npm install --save-dev @types/google.visualization`  
 
 ### Other options reviewed
 
