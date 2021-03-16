@@ -4,7 +4,7 @@ describe('v-editor', () => {
   it('renders', async () => {
     const page = await newE2EPage();
 
-    await page.setContent('<v-editor></v-editor>');
+    await page.setContent('<v-editor editor="classic"></v-editor>');
     const element = await page.find('v-editor');
     expect(element).toHaveClass('hydrated');
   });

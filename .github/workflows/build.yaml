@@ -2,7 +2,7 @@ name: Vetrify CI
 
 on:
   push:
-    branches: [main ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -23,9 +23,11 @@ jobs:
         registry-url: 'https://npm.pkg.github.com'
         scope: '@vetrify'
     - name: install packages
-      run: npm install --max-old-space-size=8192 --no-warnings
+      run: npm install
+    - name: build
+      run: npm run build --max-old-space-size=8192
     - name: test
-      run: npm test --max-old-space-size=8192 --no-warnings
+      run: npm test --max-old-space-size=8192
 
   deploy:
     needs: build
