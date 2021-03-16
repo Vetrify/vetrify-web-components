@@ -8,8 +8,6 @@ import { Component, Element, /* State, */ h, Prop } from '@stencil/core';
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 am4core.useTheme(am4themes_animated);
 
-
-
 //import { runInThisContext } from 'node:vm';
 //import { hasSlot } from '../../utils/slot';
 

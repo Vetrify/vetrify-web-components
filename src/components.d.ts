@@ -871,6 +871,7 @@ export namespace Components {
     interface VMenuLabel {
     }
     interface VNetworkDiagram {
+        "heading": string;
     }
     interface VPersona {
         "gender": 'female' | 'male';
@@ -2766,6 +2767,7 @@ declare namespace LocalJSX {
     interface VMenuLabel {
     }
     interface VNetworkDiagram {
+        "heading"?: string;
     }
     interface VPersona {
         "gender"?: 'female' | 'male';

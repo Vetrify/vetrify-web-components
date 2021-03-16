@@ -1,4 +1,4 @@
-import { Component, /*Element, Prop,*/ h  } from '@stencil/core';
+import { Component, /* Element,*/ Prop, h  } from '@stencil/core';
 import { DataSet, } from 'vis-data'
 //import { DataSetInitialOptions } from 'vis-data/declarations/data-set';
 import { Network, Node, Edge, Data } from 'vis-network'
@@ -27,11 +27,12 @@ import { Network, Node, Edge, Data } from 'vis-network'
   styleUrl: 'network-diagram.scss',
   shadow: false,
 })
-
 export class VNetwork{
   //@Element() host: HTMLVNetworkElement;
 
-  onComponentDidRender(){
+  @Prop({ mutable: true }) heading: string = '';
+
+  componentDidRender(){
     //var options = {};
     var nodes = new DataSet<Node>();
     var edges = new DataSet<Edge>();
@@ -67,8 +68,6 @@ export class VNetwork{
     };
 
     var network = new Network(container, d, networkOptions);
-
-    //network.redraw(); // not sure if this is necessary... but good to know the hook is here for pos-processing
 
     network.on("click", function (params) {
       params.event = "[original event]";
