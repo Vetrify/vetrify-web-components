@@ -1,10 +1,10 @@
 import { Component, Element, /*State,*/ h, Prop } from '@stencil/core';
 
-import * as am4core from "@amcharts/amcharts4/core";
-import * as am4charts from "@amcharts/amcharts4/charts";
+import {useTheme, create } from "@amcharts/amcharts4/core";
+import {XYChart, DateAxis, ValueAxis, LineSeries, XYCursor, XYChartScrollbar} from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
-am4core.useTheme(am4themes_animated);
+useTheme(am4themes_animated);
 
 
 
@@ -36,7 +36,7 @@ export class Card {
   // @Prop({ mutable: true }) subheading: string = '';
 
   componentDidRender() {
-    let chart = am4core.create("evchartdiv", am4charts.XYChart);
+    let chart = create("evchartdiv", XYChart);
     chart.paddingRight = 20;
 
     let data = [];
@@ -48,21 +48,21 @@ export class Card {
 
     chart.data = data;
 
-    let dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+    let dateAxis = chart.xAxes.push(new DateAxis());
     dateAxis.renderer.grid.template.location = 0;
 
-    let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    let valueAxis = chart.yAxes.push(new ValueAxis());
     valueAxis.tooltip.disabled = true;
     valueAxis.renderer.minWidth = 35;
 
-    let series = chart.series.push(new am4charts.LineSeries());
+    let series = chart.series.push(new LineSeries());
     series.dataFields.dateX = "date";
     series.dataFields.valueY = "value";
 
     series.tooltipText = "{valueY.value}";
-    chart.cursor = new am4charts.XYCursor();
+    chart.cursor = new XYCursor();
 
-    let scrollbarX = new am4charts.XYChartScrollbar();
+    let scrollbarX = new XYChartScrollbar();
     scrollbarX.series.push(series);
     chart.scrollbarX = scrollbarX;
   }
