@@ -17,9 +17,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: install - Node.js ${{ matrix.node-version }}
-      run: | 
-      npm install
-      export NODE_OPTIONS="--max-old-space-size=8192"
+      run: npm install
+    - name: increase memory
+      run: export NODE_OPTIONS="--max-old-space-size=8192"
     - name: build
       run: npm build
     - name: test
