@@ -25,9 +25,9 @@ jobs:
     - name: install packages
       run: npm install
     - name: build
-      run: npm run build --max-old-space-size=8192
+      run: npm run build 
     - name: test
-      run: npm test --max-old-space-size=8192
+      run: npm test
 
   deploy:
     needs: build
