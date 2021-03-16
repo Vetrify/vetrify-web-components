@@ -1,16 +1,14 @@
 import { Component, /* Element,*/ Prop, h  } from '@stencil/core';
 import { DataSet, } from 'vis-data'
-//import { DataSetInitialOptions } from 'vis-data/declarations/data-set';
 import { Timeline, TimelineItem } from 'vis-timeline'
-//import {  Node, Edge, Data, Options } from "vis-network/standalone";
 
 // TODO:
+// * basic rendering: https://visjs.github.io/vis-timeline/examples/timeline/editing/editingItems.html
 // * samples in storybook https://visjs.github.io/vis-timeline/examples/timeline/
-
 
 /**
  * @since 0.1
- * @status development
+ * @status development -- WIP (work-in-progress): builds but does nt render
  *
  * @part base - The component's base wrapper.
  */
