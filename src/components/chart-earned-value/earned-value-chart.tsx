@@ -57,7 +57,8 @@ export class Card {
         x: {
           0: {side: 'top'}
         }
-      }
+      },
+      trendlines: { 0: {}, 1: {}, 2: {} } 
     };
 
     var chart = new GoogleCharts.api.visualization.LineChart(document.getElementById('evchartdiv'));
