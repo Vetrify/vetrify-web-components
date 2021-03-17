@@ -459,6 +459,18 @@ export namespace Components {
          */
         "skidding": number;
     }
+    interface VEarnedValueChart {
+        /**
+          * Placeholder... remove this.
+         */
+        "words": string[];
+    }
+    interface VEditor {
+        "config": string;
+        "content": string;
+        "editor": string;
+        "targetId": string;
+    }
     interface VForm {
         /**
           * Gets all form control elements (native and custom).
@@ -859,10 +871,7 @@ export namespace Components {
     interface VMenuLabel {
     }
     interface VNetworkDiagram {
-        /**
-          * The network diagram's data
-         */
-        "data": any;
+        "heading": string;
     }
     interface VPersona {
         "gender": 'female' | 'male';
@@ -873,6 +882,12 @@ export namespace Components {
     interface VPersonaBrief {
         "heading": string;
         "name": string;
+    }
+    interface VPieChart {
+        /**
+          * Placeholder... remove this.
+         */
+        "words": string[];
     }
     interface VProgressBar {
         /**
@@ -1362,6 +1377,9 @@ export namespace Components {
          */
         "name": string;
     }
+    interface VTimeline {
+        "heading": string;
+    }
     interface VTooltip {
         /**
           * The tooltip's content. Alternatively, you can use the content slot.
@@ -1411,6 +1429,13 @@ export namespace Components {
     interface VWidget {
         "heading": string;
         "subheading": string;
+    }
+    interface VWordCloud {
+        "heading": string;
+        /**
+          * The words in the word cloud.
+         */
+        "words": string[];
     }
 }
 declare global {
@@ -1503,6 +1528,18 @@ declare global {
     var HTMLVDropdownElement: {
         prototype: HTMLVDropdownElement;
         new (): HTMLVDropdownElement;
+    };
+    interface HTMLVEarnedValueChartElement extends Components.VEarnedValueChart, HTMLStencilElement {
+    }
+    var HTMLVEarnedValueChartElement: {
+        prototype: HTMLVEarnedValueChartElement;
+        new (): HTMLVEarnedValueChartElement;
+    };
+    interface HTMLVEditorElement extends Components.VEditor, HTMLStencilElement {
+    }
+    var HTMLVEditorElement: {
+        prototype: HTMLVEditorElement;
+        new (): HTMLVEditorElement;
     };
     interface HTMLVFormElement extends Components.VForm, HTMLStencilElement {
     }
@@ -1630,6 +1667,12 @@ declare global {
         prototype: HTMLVPersonaBriefElement;
         new (): HTMLVPersonaBriefElement;
     };
+    interface HTMLVPieChartElement extends Components.VPieChart, HTMLStencilElement {
+    }
+    var HTMLVPieChartElement: {
+        prototype: HTMLVPieChartElement;
+        new (): HTMLVPieChartElement;
+    };
     interface HTMLVProgressBarElement extends Components.VProgressBar, HTMLStencilElement {
     }
     var HTMLVProgressBarElement: {
@@ -1744,6 +1787,12 @@ declare global {
         prototype: HTMLVThemeElement;
         new (): HTMLVThemeElement;
     };
+    interface HTMLVTimelineElement extends Components.VTimeline, HTMLStencilElement {
+    }
+    var HTMLVTimelineElement: {
+        prototype: HTMLVTimelineElement;
+        new (): HTMLVTimelineElement;
+    };
     interface HTMLVTooltipElement extends Components.VTooltip, HTMLStencilElement {
     }
     var HTMLVTooltipElement: {
@@ -1762,6 +1811,12 @@ declare global {
         prototype: HTMLVWidgetElement;
         new (): HTMLVWidgetElement;
     };
+    interface HTMLVWordCloudElement extends Components.VWordCloud, HTMLStencilElement {
+    }
+    var HTMLVWordCloudElement: {
+        prototype: HTMLVWordCloudElement;
+        new (): HTMLVWordCloudElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "v-alert": HTMLVAlertElement;
@@ -1778,6 +1833,8 @@ declare global {
         "v-dialog": HTMLVDialogElement;
         "v-drawer": HTMLVDrawerElement;
         "v-dropdown": HTMLVDropdownElement;
+        "v-earned-value-chart": HTMLVEarnedValueChartElement;
+        "v-editor": HTMLVEditorElement;
         "v-form": HTMLVFormElement;
         "v-format-bytes": HTMLVFormatBytesElement;
         "v-format-date": HTMLVFormatDateElement;
@@ -1799,6 +1856,7 @@ declare global {
         "v-network-diagram": HTMLVNetworkDiagramElement;
         "v-persona": HTMLVPersonaElement;
         "v-persona-brief": HTMLVPersonaBriefElement;
+        "v-pie-chart": HTMLVPieChartElement;
         "v-progress-bar": HTMLVProgressBarElement;
         "v-progress-ring": HTMLVProgressRingElement;
         "v-radio": HTMLVRadioElement;
@@ -1818,9 +1876,11 @@ declare global {
         "v-tag": HTMLVTagElement;
         "v-textarea": HTMLVTextareaElement;
         "v-theme": HTMLVThemeElement;
+        "v-timeline": HTMLVTimelineElement;
         "v-tooltip": HTMLVTooltipElement;
         "v-transformation": HTMLVTransformationElement;
         "v-widget": HTMLVWidgetElement;
+        "v-word-cloud": HTMLVWordCloudElement;
     }
 }
 declare namespace LocalJSX {
@@ -2317,6 +2377,19 @@ declare namespace LocalJSX {
          */
         "skidding"?: number;
     }
+    interface VEarnedValueChart {
+        /**
+          * Placeholder... remove this.
+         */
+        "words"?: string[];
+    }
+    interface VEditor {
+        "config"?: string;
+        "content"?: string;
+        "editor"?: string;
+        "onCkeditorchange"?: (event: CustomEvent<any>) => void;
+        "targetId"?: string;
+    }
     interface VForm {
         /**
           * Prevent the form from validating inputs before submitting.
@@ -2717,10 +2790,7 @@ declare namespace LocalJSX {
     interface VMenuLabel {
     }
     interface VNetworkDiagram {
-        /**
-          * The network diagram's data
-         */
-        "data"?: any;
+        "heading"?: string;
     }
     interface VPersona {
         "gender"?: 'female' | 'male';
@@ -2731,6 +2801,12 @@ declare namespace LocalJSX {
     interface VPersonaBrief {
         "heading"?: string;
         "name"?: string;
+    }
+    interface VPieChart {
+        /**
+          * Placeholder... remove this.
+         */
+        "words"?: string[];
     }
     interface VProgressBar {
         /**
@@ -3208,6 +3284,9 @@ declare namespace LocalJSX {
          */
         "name"?: string;
     }
+    interface VTimeline {
+        "heading"?: string;
+    }
     interface VTooltip {
         /**
           * The tooltip's content. Alternatively, you can use the content slot.
@@ -3266,6 +3345,13 @@ declare namespace LocalJSX {
         "heading"?: string;
         "subheading"?: string;
     }
+    interface VWordCloud {
+        "heading"?: string;
+        /**
+          * The words in the word cloud.
+         */
+        "words"?: string[];
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "v-alert": VAlert;
@@ -3282,6 +3368,8 @@ declare namespace LocalJSX {
         "v-dialog": VDialog;
         "v-drawer": VDrawer;
         "v-dropdown": VDropdown;
+        "v-earned-value-chart": VEarnedValueChart;
+        "v-editor": VEditor;
         "v-form": VForm;
         "v-format-bytes": VFormatBytes;
         "v-format-date": VFormatDate;
@@ -3303,6 +3391,7 @@ declare namespace LocalJSX {
         "v-network-diagram": VNetworkDiagram;
         "v-persona": VPersona;
         "v-persona-brief": VPersonaBrief;
+        "v-pie-chart": VPieChart;
         "v-progress-bar": VProgressBar;
         "v-progress-ring": VProgressRing;
         "v-radio": VRadio;
@@ -3322,9 +3411,11 @@ declare namespace LocalJSX {
         "v-tag": VTag;
         "v-textarea": VTextarea;
         "v-theme": VTheme;
+        "v-timeline": VTimeline;
         "v-tooltip": VTooltip;
         "v-transformation": VTransformation;
         "v-widget": VWidget;
+        "v-word-cloud": VWordCloud;
     }
 }
 export { LocalJSX as JSX };
@@ -3346,6 +3437,8 @@ declare module "@stencil/core" {
             "v-dialog": LocalJSX.VDialog & JSXBase.HTMLAttributes<HTMLVDialogElement>;
             "v-drawer": LocalJSX.VDrawer & JSXBase.HTMLAttributes<HTMLVDrawerElement>;
             "v-dropdown": LocalJSX.VDropdown & JSXBase.HTMLAttributes<HTMLVDropdownElement>;
+            "v-earned-value-chart": LocalJSX.VEarnedValueChart & JSXBase.HTMLAttributes<HTMLVEarnedValueChartElement>;
+            "v-editor": LocalJSX.VEditor & JSXBase.HTMLAttributes<HTMLVEditorElement>;
             "v-form": LocalJSX.VForm & JSXBase.HTMLAttributes<HTMLVFormElement>;
             "v-format-bytes": LocalJSX.VFormatBytes & JSXBase.HTMLAttributes<HTMLVFormatBytesElement>;
             "v-format-date": LocalJSX.VFormatDate & JSXBase.HTMLAttributes<HTMLVFormatDateElement>;
@@ -3367,6 +3460,7 @@ declare module "@stencil/core" {
             "v-network-diagram": LocalJSX.VNetworkDiagram & JSXBase.HTMLAttributes<HTMLVNetworkDiagramElement>;
             "v-persona": LocalJSX.VPersona & JSXBase.HTMLAttributes<HTMLVPersonaElement>;
             "v-persona-brief": LocalJSX.VPersonaBrief & JSXBase.HTMLAttributes<HTMLVPersonaBriefElement>;
+            "v-pie-chart": LocalJSX.VPieChart & JSXBase.HTMLAttributes<HTMLVPieChartElement>;
             "v-progress-bar": LocalJSX.VProgressBar & JSXBase.HTMLAttributes<HTMLVProgressBarElement>;
             "v-progress-ring": LocalJSX.VProgressRing & JSXBase.HTMLAttributes<HTMLVProgressRingElement>;
             "v-radio": LocalJSX.VRadio & JSXBase.HTMLAttributes<HTMLVRadioElement>;
@@ -3386,9 +3480,11 @@ declare module "@stencil/core" {
             "v-tag": LocalJSX.VTag & JSXBase.HTMLAttributes<HTMLVTagElement>;
             "v-textarea": LocalJSX.VTextarea & JSXBase.HTMLAttributes<HTMLVTextareaElement>;
             "v-theme": LocalJSX.VTheme & JSXBase.HTMLAttributes<HTMLVThemeElement>;
+            "v-timeline": LocalJSX.VTimeline & JSXBase.HTMLAttributes<HTMLVTimelineElement>;
             "v-tooltip": LocalJSX.VTooltip & JSXBase.HTMLAttributes<HTMLVTooltipElement>;
             "v-transformation": LocalJSX.VTransformation & JSXBase.HTMLAttributes<HTMLVTransformationElement>;
             "v-widget": LocalJSX.VWidget & JSXBase.HTMLAttributes<HTMLVWidgetElement>;
+            "v-word-cloud": LocalJSX.VWordCloud & JSXBase.HTMLAttributes<HTMLVWordCloudElement>;
         }
     }
 }

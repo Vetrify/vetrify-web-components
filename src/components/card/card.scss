@@ -99,6 +99,11 @@
   display: none !important;
 }
 
+.card-body{
+  font-weight: var(--v-font-weight-light);
+  font-size: var(--v-font-size-medium);
+}
+
 // .card__body {
 //   padding: var(--padding);
 // }

@@ -1,4 +1,5 @@
 import { Config } from '@stencil/core';
+import nodePolyfills from 'rollup-plugin-node-polyfills';
 import { sass } from '@stencil/sass';
 
 const scssVariables = 'src/scss/variables.scss';
@@ -14,6 +15,11 @@ export const config: Config = {
       includePaths: ['./node_modules', './src/scss']
     }),
   ],
+  rollupPlugins: {
+    after: [
+      nodePolyfills(),
+    ]
+  },
   globalStyle: 'src/scss/vetrify.scss',
   devServer: {
     reloadStrategy: 'hmr',

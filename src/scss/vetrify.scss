@@ -138,7 +138,7 @@
 
   // Fonts
   --v-font-mono: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
-  --v-font-sans: 'Open Sans', Roboto, Montserrat, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --v-font-sans: 'Open Sans', Roboto, Montserrat, Helvetica, Arial, sans-serif;
   --v-font-serif: Georgia, 'Times New Roman', serif;
 
   --v-font-content: 'Open Sans'
@@ -156,10 +156,10 @@
   --v-font-size-xxxx-large: 4.5rem; // 72px
 
   // Font weights
-  --v-font-weight-light: 300;
-  --v-font-weight-normal: 400;
-  --v-font-weight-semibold: 500;
-  --v-font-weight-bold: 700;
+  --v-font-weight-light: 400;
+  --v-font-weight-normal: 500;
+  --v-font-weight-semibold: 700;
+  --v-font-weight-bold: 800;
 
   // Letter spacings
   --v-letter-spacing-dense: -0.015em;
