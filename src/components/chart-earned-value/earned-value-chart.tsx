@@ -15,7 +15,7 @@ GoogleCharts.load('current', {'packages':['line']});
   styleUrl: 'earned-value-chart.scss',
   shadow: false,
 })
-export class Card {
+export class EarnedValueChart {
   @Element() host: HTMLVEarnedValueChartElement;
 
   /** Placeholder... remove this. */

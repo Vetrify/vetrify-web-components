@@ -15,24 +15,23 @@ GoogleCharts.load('current', {'packages':['corechart']});
 @Component({
   tag: 'v-pie-chart',
   styleUrl: 'pie-chart.scss',
-  shadow: false,
+  shadow: true,
 })
-export class Card {
+export class PieChart {
   @Element() host: HTMLVPieChartElement;
 
   /** Placeholder... remove this. */
-  @Prop() words: string[] = [''];
+  @Prop() words: string[] = ['a', 'b'];
 
   drawChart()
   {
     var data = new GoogleCharts.api.visualization.arrayToDataTable(
       ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
-
+      ['Work',     11],
+      ['Eat',      2],
+      ['Commute',  2],
+      ['Watch TV', 2],
+      ['Sleep',    7]
     );
 
     var options = {
@@ -55,8 +54,9 @@ export class Card {
 
   render(words) {
     return (
-      <div class="pie-chart" id="piechartdiv">{words}</div>
-      
+      <div>{words} 
+        <div class="pie-chart" id="piechartdiv"> </div>
+      </div>
     );
   }
 }
