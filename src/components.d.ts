@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Chart } from "chart.js";
 import { IconLibraryMutator, IconLibraryResolver } from "./components/icon-library/icon-library-registry";
 export namespace Components {
     interface MyComponent {
@@ -234,6 +235,16 @@ export namespace Components {
         "subheading": string;
     }
     interface VCard2 {
+    }
+    interface VChart {
+        "chartType": Chart.ChartType;
+        "data": Chart.ChartData;
+        "duration"?: number;
+        "easing"?: Chart.Easing;
+        "height": number;
+        "lazy"?: boolean;
+        "options": Chart.ChartOptions;
+        "width": number;
     }
     interface VCheckbox {
         /**
@@ -883,12 +894,6 @@ export namespace Components {
         "heading": string;
         "name": string;
     }
-    interface VPieChart {
-        /**
-          * Placeholder... remove this.
-         */
-        "words": string[];
-    }
     interface VProgressBar {
         /**
           * When true, percentage is ignored, the label is hidden, and the progress bar is drawn in an indeterminate state.
@@ -1380,6 +1385,12 @@ export namespace Components {
     interface VTimeline {
         "heading": string;
     }
+    interface VTimelineChart {
+        /**
+          * Placeholder... remove this.
+         */
+        "words": string[];
+    }
     interface VTooltip {
         /**
           * The tooltip's content. Alternatively, you can use the content slot.
@@ -1492,6 +1503,12 @@ declare global {
     var HTMLVCard2Element: {
         prototype: HTMLVCard2Element;
         new (): HTMLVCard2Element;
+    };
+    interface HTMLVChartElement extends Components.VChart, HTMLStencilElement {
+    }
+    var HTMLVChartElement: {
+        prototype: HTMLVChartElement;
+        new (): HTMLVChartElement;
     };
     interface HTMLVCheckboxElement extends Components.VCheckbox, HTMLStencilElement {
     }
@@ -1667,12 +1684,6 @@ declare global {
         prototype: HTMLVPersonaBriefElement;
         new (): HTMLVPersonaBriefElement;
     };
-    interface HTMLVPieChartElement extends Components.VPieChart, HTMLStencilElement {
-    }
-    var HTMLVPieChartElement: {
-        prototype: HTMLVPieChartElement;
-        new (): HTMLVPieChartElement;
-    };
     interface HTMLVProgressBarElement extends Components.VProgressBar, HTMLStencilElement {
     }
     var HTMLVProgressBarElement: {
@@ -1793,6 +1804,12 @@ declare global {
         prototype: HTMLVTimelineElement;
         new (): HTMLVTimelineElement;
     };
+    interface HTMLVTimelineChartElement extends Components.VTimelineChart, HTMLStencilElement {
+    }
+    var HTMLVTimelineChartElement: {
+        prototype: HTMLVTimelineChartElement;
+        new (): HTMLVTimelineChartElement;
+    };
     interface HTMLVTooltipElement extends Components.VTooltip, HTMLStencilElement {
     }
     var HTMLVTooltipElement: {
@@ -1827,6 +1844,7 @@ declare global {
         "v-button-group": HTMLVButtonGroupElement;
         "v-card": HTMLVCardElement;
         "v-card2": HTMLVCard2Element;
+        "v-chart": HTMLVChartElement;
         "v-checkbox": HTMLVCheckboxElement;
         "v-color-picker": HTMLVColorPickerElement;
         "v-details": HTMLVDetailsElement;
@@ -1856,7 +1874,6 @@ declare global {
         "v-network-diagram": HTMLVNetworkDiagramElement;
         "v-persona": HTMLVPersonaElement;
         "v-persona-brief": HTMLVPersonaBriefElement;
-        "v-pie-chart": HTMLVPieChartElement;
         "v-progress-bar": HTMLVProgressBarElement;
         "v-progress-ring": HTMLVProgressRingElement;
         "v-radio": HTMLVRadioElement;
@@ -1877,6 +1894,7 @@ declare global {
         "v-textarea": HTMLVTextareaElement;
         "v-theme": HTMLVThemeElement;
         "v-timeline": HTMLVTimelineElement;
+        "v-timeline-chart": HTMLVTimelineChartElement;
         "v-tooltip": HTMLVTooltipElement;
         "v-transformation": HTMLVTransformationElement;
         "v-widget": HTMLVWidgetElement;
@@ -2104,6 +2122,16 @@ declare namespace LocalJSX {
         "subheading"?: string;
     }
     interface VCard2 {
+    }
+    interface VChart {
+        "chartType"?: Chart.ChartType;
+        "data"?: Chart.ChartData;
+        "duration"?: number;
+        "easing"?: Chart.Easing;
+        "height"?: number;
+        "lazy"?: boolean;
+        "options"?: Chart.ChartOptions;
+        "width"?: number;
     }
     interface VCheckbox {
         /**
@@ -2802,12 +2830,6 @@ declare namespace LocalJSX {
         "heading"?: string;
         "name"?: string;
     }
-    interface VPieChart {
-        /**
-          * Placeholder... remove this.
-         */
-        "words"?: string[];
-    }
     interface VProgressBar {
         /**
           * When true, percentage is ignored, the label is hidden, and the progress bar is drawn in an indeterminate state.
@@ -3287,6 +3309,12 @@ declare namespace LocalJSX {
     interface VTimeline {
         "heading"?: string;
     }
+    interface VTimelineChart {
+        /**
+          * Placeholder... remove this.
+         */
+        "words"?: string[];
+    }
     interface VTooltip {
         /**
           * The tooltip's content. Alternatively, you can use the content slot.
@@ -3362,6 +3390,7 @@ declare namespace LocalJSX {
         "v-button-group": VButtonGroup;
         "v-card": VCard;
         "v-card2": VCard2;
+        "v-chart": VChart;
         "v-checkbox": VCheckbox;
         "v-color-picker": VColorPicker;
         "v-details": VDetails;
@@ -3391,7 +3420,6 @@ declare namespace LocalJSX {
         "v-network-diagram": VNetworkDiagram;
         "v-persona": VPersona;
         "v-persona-brief": VPersonaBrief;
-        "v-pie-chart": VPieChart;
         "v-progress-bar": VProgressBar;
         "v-progress-ring": VProgressRing;
         "v-radio": VRadio;
@@ -3412,6 +3440,7 @@ declare namespace LocalJSX {
         "v-textarea": VTextarea;
         "v-theme": VTheme;
         "v-timeline": VTimeline;
+        "v-timeline-chart": VTimelineChart;
         "v-tooltip": VTooltip;
         "v-transformation": VTransformation;
         "v-widget": VWidget;
@@ -3431,6 +3460,7 @@ declare module "@stencil/core" {
             "v-button-group": LocalJSX.VButtonGroup & JSXBase.HTMLAttributes<HTMLVButtonGroupElement>;
             "v-card": LocalJSX.VCard & JSXBase.HTMLAttributes<HTMLVCardElement>;
             "v-card2": LocalJSX.VCard2 & JSXBase.HTMLAttributes<HTMLVCard2Element>;
+            "v-chart": LocalJSX.VChart & JSXBase.HTMLAttributes<HTMLVChartElement>;
             "v-checkbox": LocalJSX.VCheckbox & JSXBase.HTMLAttributes<HTMLVCheckboxElement>;
             "v-color-picker": LocalJSX.VColorPicker & JSXBase.HTMLAttributes<HTMLVColorPickerElement>;
             "v-details": LocalJSX.VDetails & JSXBase.HTMLAttributes<HTMLVDetailsElement>;
@@ -3460,7 +3490,6 @@ declare module "@stencil/core" {
             "v-network-diagram": LocalJSX.VNetworkDiagram & JSXBase.HTMLAttributes<HTMLVNetworkDiagramElement>;
             "v-persona": LocalJSX.VPersona & JSXBase.HTMLAttributes<HTMLVPersonaElement>;
             "v-persona-brief": LocalJSX.VPersonaBrief & JSXBase.HTMLAttributes<HTMLVPersonaBriefElement>;
-            "v-pie-chart": LocalJSX.VPieChart & JSXBase.HTMLAttributes<HTMLVPieChartElement>;
             "v-progress-bar": LocalJSX.VProgressBar & JSXBase.HTMLAttributes<HTMLVProgressBarElement>;
             "v-progress-ring": LocalJSX.VProgressRing & JSXBase.HTMLAttributes<HTMLVProgressRingElement>;
             "v-radio": LocalJSX.VRadio & JSXBase.HTMLAttributes<HTMLVRadioElement>;
@@ -3481,6 +3510,7 @@ declare module "@stencil/core" {
             "v-textarea": LocalJSX.VTextarea & JSXBase.HTMLAttributes<HTMLVTextareaElement>;
             "v-theme": LocalJSX.VTheme & JSXBase.HTMLAttributes<HTMLVThemeElement>;
             "v-timeline": LocalJSX.VTimeline & JSXBase.HTMLAttributes<HTMLVTimelineElement>;
+            "v-timeline-chart": LocalJSX.VTimelineChart & JSXBase.HTMLAttributes<HTMLVTimelineChartElement>;
             "v-tooltip": LocalJSX.VTooltip & JSXBase.HTMLAttributes<HTMLVTooltipElement>;
             "v-transformation": LocalJSX.VTransformation & JSXBase.HTMLAttributes<HTMLVTransformationElement>;
             "v-widget": LocalJSX.VWidget & JSXBase.HTMLAttributes<HTMLVWidgetElement>;

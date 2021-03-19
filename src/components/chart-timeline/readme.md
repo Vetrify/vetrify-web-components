@@ -1,4 +1,4 @@
-# v-pie-chart
+# v-earned-value-chart
 
 
 

@@ -21,8 +21,8 @@ const argTypes = {
 
 // https://storybook.js.org/docs/react/writing-stories/parameters
 export default {
-  title: 'Components/Charts/Pie',
-  component: 'v-pie-chart',
+  title: 'Components/Charts/Timeline',
+  component: 'v-timeline-chart',
   parameters: {
     notes: {markdown},
     actions: {
@@ -34,7 +34,7 @@ export default {
 const BasicTemplate = (
   {
     
-  }) =>  `<v-card heading="Pie Chart" show-footer="false"><v-pie-chart></v-pie-chart></vcard>`;
+  }) =>  `<v-timeline-chart></v-timeline-chart>`;
 
 export const Basic = BasicTemplate.bind({});
 
