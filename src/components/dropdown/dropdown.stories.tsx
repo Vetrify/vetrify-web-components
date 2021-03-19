@@ -1,8 +1,44 @@
-export default {
-  title: 'Elements/Dropdown',
+
+
+const args = {
+  hoist: false,
+  skidding: 1,
+  distance: 2
 };
 
-export const Basic = () => `<v-dropdown>
+// https://storybook.js.org/docs/react/essentials/controls#annotation
+const argTypes = {
+  skidding:{
+    description: 'Skidding',
+    control:{
+      type: "number"
+    }
+  },
+  distance:{
+    description: 'Distance',
+    control:{
+      type: "number"
+    }
+  },
+  hoist:{
+    description: 'Hoisting',
+    control:{
+      type: "boolean"
+    }
+  },
+
+};
+
+// https://storybook.js.org/docs/react/writing-stories/parameters
+export default {
+  title: 'Components/DropDown',
+  component: 'v-dropdown',
+};
+
+
+const Basic = ({hoist, skidding, distance}) => {
+return `
+<v-dropdown hoist="${hoist}" skidding="${skidding}" distance="${distance}">
 <v-button slot="trigger" caret>Dropdown</v-button>
 <v-menu>
   <v-menu-item>Dropdown Item 1</v-menu-item>
@@ -21,4 +57,9 @@ export const Basic = () => `<v-dropdown>
     <v-icon slot="suffix" name="heart"></v-icon>
   </v-menu-item>
 </v-menu>
-</v-dropdown>`;
+</v-dropdown>`};
+
+export const BasicSlot= Basic.bind({});
+
+BasicSlot.args = {...args};
+BasicSlot.argTypes = {...argTypes};

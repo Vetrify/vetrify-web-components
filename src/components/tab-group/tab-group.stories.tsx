@@ -1,8 +1,27 @@
 export default {
   title: 'Elements/Tabs/TabGroup',
 };
+const argTypes = {
+  placement:{
+    description: 'Status',
+    control:{
+      type: 'select',
+        options: ['top' , 'bottom' , 'left' , 'right' ]
+    }
+  },
+  scroll : {
+    control: {
+      type:"boolean"
+    }
+  },
+}
 
-export const Basic = () => `<v-tab-group>
+const args = {
+  placement: 'top',
+  scroll: false
+}
+
+const BasicTemplate = ({placement, scroll}) => `<v-tab-group placement="${placement}" noScrollControls="${scroll}">
 <v-tab slot="nav" panel="general">General</v-tab>
 <v-tab slot="nav" panel="custom">Custom</v-tab>
 <v-tab slot="nav" panel="advanced">Advanced</v-tab>
@@ -14,46 +33,24 @@ export const Basic = () => `<v-tab-group>
 <v-tab-panel name="disabled">This is a disabled tab panel.</v-tab-panel>
 </v-tab-group>
 `;
+export const Basic = BasicTemplate.bind({});
+Basic.args = args;
+Basic.argTypes = argTypes;
 
-export const TabsOnBottom = () => `<v-tab-group placement="bottom">
-<v-tab slot="nav" panel="general">General</v-tab>
-<v-tab slot="nav" panel="custom">Custom</v-tab>
-<v-tab slot="nav" panel="advanced">Advanced</v-tab>
-<v-tab slot="nav" panel="disabled" disabled>Disabled</v-tab>
 
-<v-tab-panel name="general">This is the general tab panel.</v-tab-panel>
-<v-tab-panel name="custom">This is the custom tab panel.</v-tab-panel>
-<v-tab-panel name="advanced">This is the advanced tab panel.</v-tab-panel>
-<v-tab-panel name="disabled">This is a disabled tab panel.</v-tab-panel>
-</v-tab-group>
-`;
+export const TabsOnBottom = BasicTemplate.bind({});
+TabsOnBottom.args = {...args,placement:"bottom"};
+TabsOnBottom.argTypes = argTypes;
 
-export const TabsOnLeft = () => `<v-tab-group placement="left">
-<v-tab slot="nav" panel="general">General</v-tab>
-<v-tab slot="nav" panel="custom">Custom</v-tab>
-<v-tab slot="nav" panel="advanced">Advanced</v-tab>
-<v-tab slot="nav" panel="disabled" disabled>Disabled</v-tab>
 
-<v-tab-panel name="general">This is the general tab panel.</v-tab-panel>
-<v-tab-panel name="custom">This is the custom tab panel.</v-tab-panel>
-<v-tab-panel name="advanced">This is the advanced tab panel.</v-tab-panel>
-<v-tab-panel name="disabled">This is a disabled tab panel.</v-tab-panel>
-</v-tab-group>
-`;
+export const TabsOnLeft = BasicTemplate.bind({});
+TabsOnLeft.args = {...args,placement:"left"};
+TabsOnLeft.argTypes = argTypes;
 
-export const TabsOnRight = () => `<v-tab-group placement="right">
-<v-tab slot="nav" panel="general">General</v-tab>
-<v-tab slot="nav" panel="custom">Custom</v-tab>
-<v-tab slot="nav" panel="advanced">Advanced</v-tab>
-<v-tab slot="nav" panel="disabled" disabled>Disabled</v-tab>
 
-<v-tab-panel name="general">This is the general tab panel.</v-tab-panel>
-<v-tab-panel name="custom">This is the custom tab panel.</v-tab-panel>
-<v-tab-panel name="advanced">This is the advanced tab panel.</v-tab-panel>
-<v-tab-panel name="disabled">This is a disabled tab panel.</v-tab-panel>
-</v-tab-group>
-`;
-
+export const TabsOnRight = BasicTemplate.bind({});
+TabsOnRight.args = {...args,placement:"right"};
+TabsOnRight.argTypes = argTypes;
 // export const ClosableTabls = () => `<v-tab-group class="tabs-closable">
 // <v-tab slot="nav" panel="general">General</v-tab>
 // <v-tab slot="nav" panel="closable-1" closable>Closable 1</v-tab>
@@ -85,7 +82,7 @@ export const TabsOnRight = () => `<v-tab-group placement="right">
 // </script>
 // `;
 
-export const ScrollingTabs = () => `<v-tab-group>
+export const ScrollingTabsTemplate = ({placement}) => `<v-tab-group placement="${placement}">
 <v-tab slot="nav" panel="tab-1">Tab 1</v-tab>
 <v-tab slot="nav" panel="tab-2">Tab 2</v-tab>
 <v-tab slot="nav" panel="tab-3">Tab 3</v-tab>
@@ -130,3 +127,7 @@ export const ScrollingTabs = () => `<v-tab-group>
 </v-tab-group>
 `;
 
+
+export const ScrollingTabs = ScrollingTabsTemplate.bind({});
+ScrollingTabs.args = {scroll: true,placement:"top"};
+ScrollingTabs.argTypes = argTypes;

@@ -1,13 +1,46 @@
 export default {
   title: 'Elements/ProgressBar',
+  component: 'v-card',
 };
 
-export const Basic = () => `<v-progress-bar percentage="50"></v-progress-bar>
-`;
 
-export const CustomHeight = () => `<v-progress-bar percentage="50" style="--height: 6px;"></v-progress-bar>
-`;
+const args = {
+  percentage: 50,
+  indeterminate: false,
+  height: 6
 
+};
+
+const argTypes = {
+  percentage:{
+    description: 'Percentage',
+    control:{
+      type: "number"
+    }
+  },
+  height:{
+    description: 'Percentage',
+    control:{
+      type: "number"
+    }
+  },
+  indeterminate:{
+    description: 'Indeterminate',
+    control:{
+      type: "boolean"
+    }
+  }
+};
+ const BasicTemplate = ({percentage, indeterminate}) => `<v-progress-bar percentage="${percentage}" indeterminate="${indeterminate}"></v-progress-bar>
+`;
+export const Basic = BasicTemplate.bind({});
+Basic.args = args;
+Basic.argTypes = argTypes;
+ const CustomHeightTemplate = ({percentage, indeterminate, height}) => `<v-progress-bar percentage="${percentage}" indeterminate="${indeterminate}"  style="--height: ${height}px;"></v-progress-bar>
+`;
+export const CustomHeight = CustomHeightTemplate.bind({});
+CustomHeight.args = {...args};
+CustomHeight.argTypes = argTypes;
 
 // export const Labels = () => `<v-progress-bar percentage="50" class="progress-bar-labels">50%</v-progress-bar>
 
@@ -35,5 +68,10 @@ export const CustomHeight = () => `<v-progress-bar percentage="50" style="--heig
 // </script>
 // `;
 
-export const Indeterminate = () => `<v-progress-bar indeterminate></v-progress-bar>
+
+ const IndeterminateTemplate = ({percentage, indeterminate}) => `<v-progress-bar percentage="${percentage}" indeterminate="${indeterminate}"></v-progress-bar>
 `;
+
+export const Indeterminate = IndeterminateTemplate.bind({});
+Indeterminate.args = {...args, indeterminate: true};
+Indeterminate.argTypes = argTypes;

@@ -384,6 +384,7 @@ export class Dropdown {
             <slot />
           </div>
         </div>
+      <div>{this.hoist}</div>
       </div>
     );
   }

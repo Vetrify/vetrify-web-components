@@ -25,7 +25,7 @@ export class PersonaBrief {
     return (
       <div>
         <p>{this.name}</p>
-        <p class="gray">Title: {this.heading}</p>
+        <p class="gray">{this.heading}</p>
       </div>
     );
   }

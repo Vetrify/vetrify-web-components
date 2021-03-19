@@ -5,8 +5,8 @@ export default {
 
 export const Basic= () => {
   let personaList = [
-    {name:"Suleman", gender:"male", heading:"CEO", transformation:"xyz"},
-    {name:"Jeniffer", gender:"female", heading:"CFO", transformation:"xyz"},
+    {name:"Suleman", gender:"male", heading:"Title: CEO", transformation:"xyz"},
+    {name:"Jeniffer", gender:"female", heading:"Title: CFO", transformation:"xyz"},
   ]
 
   let personas = '';

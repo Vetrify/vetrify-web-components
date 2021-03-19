@@ -19,7 +19,7 @@ import { Component, Prop, h } from '@stencil/core';
 export class ProgressBar {
   /** The progress bar's percentage, 0 to 100. */
   @Prop() percentage = 0;
-
+  @Prop() color = '#4ea24e'
   /** When true, percentage is ignored, the label is hidden, and the progress bar is drawn in an indeterminate state. */
   @Prop() indeterminate = false;
 
@@ -41,6 +41,7 @@ export class ProgressBar {
           class="progress-bar__indicator"
           style={{
             width: `${this.percentage}%`,
+            backgroundColor: this.color
           }}
         >
           {!this.indeterminate && (

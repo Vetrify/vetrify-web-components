@@ -1,21 +1,76 @@
 export default {
   title: 'Elements/Tooltip',
+  component: 'v-card',
 };
 
-export const Html = () => `<v-tooltip>
+
+const args = {
+  content: "This is an avatar",
+  placement: 'top-start',
+  disabled: false,
+  distance: 2,
+  skidding: 0
+};
+
+const argTypes = {
+  content:{
+    description: 'Content',
+    control:{
+      type: "text"
+    }
+  },
+  skidding:{
+    description: 'Skidding',
+    control:{
+      type: "number"
+    }
+  },
+  distance:{
+    description: 'Distance',
+    control:{
+      type: "number"
+    }
+  },
+  disabled:{
+    description: 'Disabled',
+    control:{
+      type: "boolean"
+    }
+  },
+  placement:{
+    description: 'Placement',
+    control:{
+      type: 'select',
+        options: ['top' , 'top-start' , 'top-end' , 'right' , 'right-start' , 'right-end' , 'bottom' , 'bottom-start' , 'bottom-end' , 'left' , 'left-start' , 'left-end']
+    }
+  },
+};
+
+
+const HtmlTemplate = ({content, placement, skidding, distance, disabled}) => `<v-tooltip content="${content}" skidding="${skidding}" distance="${distance}" disabled="${disabled}" placement="${placement}">
 <div slot="content">I'm not <strong>just</strong> a tooltip, I'm a <em>tooltip</em> with HTML!</div>
 <v-button>Hover me</v-button>
 </v-tooltip>
 `;
 
-export const ClickTrigger = () => `<v-tooltip content="Click again to dismiss" trigger="click">
+export const Html  = HtmlTemplate.bind({});
+Html.args = args;
+Html.argTypes = argTypes;
+
+
+
+const ClickTriggerTemplate = ({content, placement, skidding, distance, disabled}) => `<v-tooltip content="${content}" skidding="${skidding}" distance="${distance}" disabled="${disabled}" placement="${placement}" trigger="click">
 <v-button>Click to Toggle</v-button>
 </v-tooltip>
 `;
 
-export const ManualTrigger = () => `<v-button style="margin-right: 4rem;">Toggle Manually</v-button>
+export const ClickTrigger  = ClickTriggerTemplate.bind({});
+ClickTrigger.args = args;
+ClickTrigger.argTypes = argTypes;
 
-<v-tooltip content="This is an avatar" trigger="manual" class="manual-tooltip">
+export const ManualTriggerTemplate = ({content, placement, skidding, distance, disabled}) => `<v-button style="margin-right: 4rem;">Toggle Manually</v-button>
+
+<v-tooltip content="${content}" skidding="${skidding}" distance="${distance}" disabled="${disabled}" placement="${placement}" trigger="manual" class="manual-tooltip">
   <v-avatar></v-avatar>
 </v-tooltip>
 
@@ -25,17 +80,47 @@ export const ManualTrigger = () => `<v-button style="margin-right: 4rem;">Toggle
 
   toggle.addEventListener('click', () => (tooltip.open = !tooltip.open));
 </script>`;
+export const ManualTrigger  = ManualTriggerTemplate.bind({});
+ManualTrigger.args = args;
+ManualTrigger.argTypes = argTypes;
 
-export const NoArrows = () => `<div style="--v-tooltip-arrow-size: 0;">
-<v-tooltip content="This is a tooltip">
+export const NoArrowsTemplate = ({content, skidding, distance, disabled}) => `<div style="--v-tooltip-arrow-size: 0;">
+<v-tooltip content="${content}" skidding="${skidding}" distance="${distance}" disabled="${disabled}" >
   <v-button>Above</v-button>
 </v-tooltip>
 
-<v-tooltip content="This is a tooltip" placement="bottom">
+<v-tooltip content="${content}" skidding="${skidding}" distance="${distance}" disabled="${disabled}" placement="bottom">
   <v-button>Below</v-button>
 </v-tooltip>
 </div>`;
-
+export const NoArrows  = NoArrowsTemplate.bind({});
+NoArrows.args = args;
+NoArrows.argTypes = {
+  content:{
+    description: 'Content',
+    control:{
+      type: "text"
+    }
+  },
+  skidding:{
+    description: 'Skidding',
+    control:{
+      type: "number"
+    }
+  },
+  distance:{
+    description: 'Distance',
+    control:{
+      type: "number"
+    }
+  },
+  disabled:{
+    description: 'Disabled',
+    control:{
+      type: "boolean"
+    }
+  }
+};
 export const Basic = () => `<div class="tooltip-placement-example">
 <div class="tooltip-placement-example-row">
   <v-tooltip content="top-start" placement="top-start">

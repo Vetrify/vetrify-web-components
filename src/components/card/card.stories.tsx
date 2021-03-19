@@ -97,19 +97,21 @@ const HeaderSlotTemplate = (
   <div class="container">
     <div class="row">
       <div class="col-lg-6">
-        <v-card 
-          show-header="${showHeader}" 
-          show-footer="${showFooter}" 
+        <v-card
+          show-header="${showHeader}"
+          show-footer="${showFooter}"
           ${semiBordered && 'semi-bordered '}
-          ${bordered && 'bordered'}>
+         bordered='${bordered}'>
 
           <div slot="header" class="card-header-slot" >
             <div class="card-title">
-              <h3 class="card-label">Basic Card 
+              <h3 class="card-label">Basic Card
               <small>sub title</small></h3>
             </div>
           </div>
+          <div slot="card-toolbar" class="card-header-slot card-toolbar">
 
+          </div>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
           <div slot="footer" class="card-footer-slot">
             footer slot
@@ -120,7 +122,7 @@ const HeaderSlotTemplate = (
         <div class="card card-custom card-rounded card--show-header card--show-footer">
           <div class="card-header">
             <div class="card-title">
-              <h3 class="card-label">Basic Card 
+              <h3 class="card-label">Basic Card
               <small>sub title</small></h3>
             </div>
           </div>
@@ -158,13 +160,13 @@ const HeaderInlineTemplate = (
   <div class="container">
     <div class="row">
       <div class="col-lg-6">
-      <v-card 
+      <v-card
           ${heading && (`heading="${heading}"`)}
           ${subheading && (`subheading="${subheading}"`)}
           ${iconName && (`icon-name="${iconName}" `)}
-          ${iconName && iconLibrary && (`icon-library=${iconLibrary} `)} 
-          show-header="${showHeader}" 
-          show-footer="${showFooter}" 
+          ${iconName && iconLibrary && (`icon-library=${iconLibrary} `)}
+          show-header="${showHeader}"
+          show-footer="${showFooter}"
           ${semiBordered && 'semi-bordered '}
           ${bordered && 'bordered'}>
 
@@ -175,21 +177,21 @@ const HeaderInlineTemplate = (
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
         </v-card>
         <br />
-        
+
         <div class="card card-custom rounded card--show-header card--show-footer">
         <div class="card-header">
           <div class="card-title">
             <span class="card-icon">
               <i class="alert text-primary"></i>
             </span>
-            <h3 class="card-label">Card Heading 
+            <h3 class="card-label">Card Heading
             <small>sub heading</small></h3>
           </div>
         </div>
         <div class="card-body">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</div>
       </div>
 
-      </div> 
+      </div>
     </div>
   </div>
 </div>

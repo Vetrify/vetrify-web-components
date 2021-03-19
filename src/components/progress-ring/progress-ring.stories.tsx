@@ -2,17 +2,100 @@ export default {
   title: 'Elements/Forms/ProgressRing',
 };
 
-export const Basic = () => `<v-progress-ring percentage="50"></v-progress-ring>`;
+const BasicTemplate = ({ percentage}) => `<v-progress-ring percentage="${percentage}"></v-progress-ring>`;
+export const Basic = BasicTemplate.bind({});
+const basicArgs = {
+  percentage: 50
+}
+const basicArgTypes = {
+  percentage:{
+    description: 'Percentage',
+    control:{
+      type: "number"
+    }
+  }
+}
+Basic.args = basicArgs;
+Basic.argTypes = basicArgTypes;
 
-export const Size = () => `<v-progress-ring percentage="50" size="200"></v-progress-ring>`;
+const SizeTemplate = ({percentage, size}) => `<v-progress-ring percentage="${percentage}" size="${size}"></v-progress-ring>`;
 
-export const StrokeWidth = () => `<v-progress-ring percentage="50" stroke-width="10"></v-progress-ring>`;
+export const Size = SizeTemplate.bind({});
+const SizeArgs = {
+  percentage: 50,
+  size: 200,
 
-export const Colors = () => `<v-progress-ring 
-percentage="50" 
-style="--track-color: #ffe2c6; --indicator-color: tomato;"
+}
+const SizeArgTypes = {
+  percentage:{
+    description: 'Percentage',
+    control:{
+      type: "number"
+    }
+  },
+  size:{
+    description: 'Size',
+    control:{
+      type: "number"
+    }
+  }
+} ;
+Size.args = SizeArgs;
+Size.argTypes = SizeArgTypes;
+
+const StrokeWidthTemplate = ({percentage, size, strokeWidth}) => `<v-progress-ring percentage="${percentage}" stroke-width="${strokeWidth}" size="${size}"></v-progress-ring>`;
+
+export const StrokeWidth = StrokeWidthTemplate.bind({});
+const StrokeWidthArgs = {
+  percentage: 50,
+  size: 100,
+  strokeWidth: 10,
+}
+const StrokeWidthArgTypes = {
+  percentage:{
+    description: 'Percentage',
+    control:{
+      type: "number"
+    }
+  },
+  size:{
+    description: 'Size',
+    control:{
+      type: "number"
+    }
+  },
+  strokeWidth:{
+    description: 'Stroke',
+    control:{
+      type: "number"
+    }
+  }
+} ;
+StrokeWidth.args = StrokeWidthArgs;
+StrokeWidth.argTypes = StrokeWidthArgTypes;
+
+
+const ColorsTemplate = ({percentage, size, strokeWidth, indicatorColor, trackColor}) => `<v-progress-ring
+percentage="${percentage}"
+size="${size}"
+strokeWidth="${strokeWidth}"
+style="--track-color: ${indicatorColor}; --indicator-color: ${trackColor};"
 ></v-progress-ring>
 `;
+
+export const Colors = ColorsTemplate.bind({});
+Colors.args = {
+  ...StrokeWidthArgs,
+  trackColor: '#ffe2c6',
+  indicatorColor:'tomato'
+}
+
+Colors.argTypes = {
+  ...StrokeWidthArgTypes,
+  trackColor: { control: 'color', description:"Track Color" },
+  indicatorColor: { control: 'color',  description:"Indicator Color"  }
+}
+
 
 // export const Labels = ( ) => `<v-progress-ring percentage="50" size="200" class="progress-ring-labels" style="margin-bottom: .5rem;">50%</v-progress-ring>
 
