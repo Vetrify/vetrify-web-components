@@ -9,19 +9,14 @@ const argTypes = {
         options: ['top' , 'bottom' , 'left' , 'right' ]
     }
   },
-  scroll : {
-    control: {
-      type:"boolean"
-    }
-  },
+
 }
 
 const args = {
   placement: 'top',
-  scroll: false
 }
 
-const BasicTemplate = ({placement, scroll}) => `<v-tab-group placement="${placement}" noScrollControls="${scroll}">
+const BasicTemplate = ({placement}) => `<v-tab-group placement="${placement}" >
 <v-tab slot="nav" panel="general">General</v-tab>
 <v-tab slot="nav" panel="custom">Custom</v-tab>
 <v-tab slot="nav" panel="advanced">Advanced</v-tab>
@@ -37,20 +32,6 @@ export const Basic = BasicTemplate.bind({});
 Basic.args = args;
 Basic.argTypes = argTypes;
 
-
-export const TabsOnBottom = BasicTemplate.bind({});
-TabsOnBottom.args = {...args,placement:"bottom"};
-TabsOnBottom.argTypes = argTypes;
-
-
-export const TabsOnLeft = BasicTemplate.bind({});
-TabsOnLeft.args = {...args,placement:"left"};
-TabsOnLeft.argTypes = argTypes;
-
-
-export const TabsOnRight = BasicTemplate.bind({});
-TabsOnRight.args = {...args,placement:"right"};
-TabsOnRight.argTypes = argTypes;
 // export const ClosableTabls = () => `<v-tab-group class="tabs-closable">
 // <v-tab slot="nav" panel="general">General</v-tab>
 // <v-tab slot="nav" panel="closable-1" closable>Closable 1</v-tab>
@@ -82,7 +63,7 @@ TabsOnRight.argTypes = argTypes;
 // </script>
 // `;
 
-export const ScrollingTabsTemplate = ({placement}) => `<v-tab-group placement="${placement}">
+const ScrollingTabsTemplate = ({placement}) => `<v-tab-group placement="${placement}">
 <v-tab slot="nav" panel="tab-1">Tab 1</v-tab>
 <v-tab slot="nav" panel="tab-2">Tab 2</v-tab>
 <v-tab slot="nav" panel="tab-3">Tab 3</v-tab>
@@ -129,5 +110,5 @@ export const ScrollingTabsTemplate = ({placement}) => `<v-tab-group placement="$
 
 
 export const ScrollingTabs = ScrollingTabsTemplate.bind({});
-ScrollingTabs.args = {scroll: true,placement:"top"};
+ScrollingTabs.args = {placement:"top"};
 ScrollingTabs.argTypes = argTypes;

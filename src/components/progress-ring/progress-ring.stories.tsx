@@ -1,51 +1,8 @@
 export default {
-  title: 'Elements/Forms/ProgressRing',
+  title: 'Elements/ProgressRing',
 };
 
-const BasicTemplate = ({ percentage}) => `<v-progress-ring percentage="${percentage}"></v-progress-ring>`;
-export const Basic = BasicTemplate.bind({});
-const basicArgs = {
-  percentage: 50
-}
-const basicArgTypes = {
-  percentage:{
-    description: 'Percentage',
-    control:{
-      type: "number"
-    }
-  }
-}
-Basic.args = basicArgs;
-Basic.argTypes = basicArgTypes;
 
-const SizeTemplate = ({percentage, size}) => `<v-progress-ring percentage="${percentage}" size="${size}"></v-progress-ring>`;
-
-export const Size = SizeTemplate.bind({});
-const SizeArgs = {
-  percentage: 50,
-  size: 200,
-
-}
-const SizeArgTypes = {
-  percentage:{
-    description: 'Percentage',
-    control:{
-      type: "number"
-    }
-  },
-  size:{
-    description: 'Size',
-    control:{
-      type: "number"
-    }
-  }
-} ;
-Size.args = SizeArgs;
-Size.argTypes = SizeArgTypes;
-
-const StrokeWidthTemplate = ({percentage, size, strokeWidth}) => `<v-progress-ring percentage="${percentage}" stroke-width="${strokeWidth}" size="${size}"></v-progress-ring>`;
-
-export const StrokeWidth = StrokeWidthTemplate.bind({});
 const StrokeWidthArgs = {
   percentage: 50,
   size: 100,
@@ -71,26 +28,25 @@ const StrokeWidthArgTypes = {
     }
   }
 } ;
-StrokeWidth.args = StrokeWidthArgs;
-StrokeWidth.argTypes = StrokeWidthArgTypes;
 
 
-const ColorsTemplate = ({percentage, size, strokeWidth, indicatorColor, trackColor}) => `<v-progress-ring
+
+const BasicTemplate = ({percentage, size, strokeWidth, indicatorColor, trackColor}) => `<v-progress-ring
 percentage="${percentage}"
 size="${size}"
-strokeWidth="${strokeWidth}"
+stroke-width="${strokeWidth}"
 style="--track-color: ${indicatorColor}; --indicator-color: ${trackColor};"
 ></v-progress-ring>
 `;
 
-export const Colors = ColorsTemplate.bind({});
-Colors.args = {
+export const Basic = BasicTemplate.bind({});
+Basic.args = {
   ...StrokeWidthArgs,
   trackColor: '#ffe2c6',
   indicatorColor:'tomato'
 }
 
-Colors.argTypes = {
+Basic.argTypes = {
   ...StrokeWidthArgTypes,
   trackColor: { control: 'color', description:"Track Color" },
   indicatorColor: { control: 'color',  description:"Indicator Color"  }

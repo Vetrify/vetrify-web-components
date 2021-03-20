@@ -47,10 +47,13 @@ const argTypes = {
 };
 
 
-const HtmlTemplate = ({content, placement, skidding, distance, disabled}) => `<v-tooltip content="${content}" skidding="${skidding}" distance="${distance}" disabled="${disabled}" placement="${placement}">
-<div slot="content">I'm not <strong>just</strong> a tooltip, I'm a <em>tooltip</em> with HTML!</div>
-<v-button>Hover me</v-button>
-</v-tooltip>
+const HtmlTemplate = ({content, placement, skidding, distance, disabled}) => `
+<div style="margin:300px 0px 0px 300px">
+    <v-tooltip content="${content}" skidding="${skidding}" distance="${distance}" disabled="${disabled}" placement="${placement}">
+    <div slot="content">I'm not <strong>just</strong> a tooltip, I'm a <em>tooltip</em> with HTML!</div>
+    <v-button>Hover me</v-button>
+    </v-tooltip>
+</div>
 `;
 
 export const Html  = HtmlTemplate.bind({});
@@ -59,9 +62,12 @@ Html.argTypes = argTypes;
 
 
 
-const ClickTriggerTemplate = ({content, placement, skidding, distance, disabled}) => `<v-tooltip content="${content}" skidding="${skidding}" distance="${distance}" disabled="${disabled}" placement="${placement}" trigger="click">
-<v-button>Click to Toggle</v-button>
-</v-tooltip>
+const ClickTriggerTemplate = ({content, placement, skidding, distance, disabled}) => `
+<div style="margin:300px 0px 0px 300px">
+<v-tooltip content="${content}" skidding="${skidding}" distance="${distance}" disabled="${disabled}" placement="${placement}" trigger="click">
+  <v-button>Click to Toggle</v-button>
+  </v-tooltip>
+</div>
 `;
 
 export const ClickTrigger  = ClickTriggerTemplate.bind({});
@@ -84,7 +90,7 @@ export const ManualTrigger  = ManualTriggerTemplate.bind({});
 ManualTrigger.args = args;
 ManualTrigger.argTypes = argTypes;
 
-export const NoArrowsTemplate = ({content, skidding, distance, disabled}) => `<div style="--v-tooltip-arrow-size: 0;">
+export const NoArrowsTemplate = ({content, skidding, distance, disabled}) => `<div style="--v-tooltip-arrow-size: 0;margin:300px 0px 0px 300px">
 <v-tooltip content="${content}" skidding="${skidding}" distance="${distance}" disabled="${disabled}" >
   <v-button>Above</v-button>
 </v-tooltip>

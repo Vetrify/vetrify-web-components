@@ -8,9 +8,13 @@
  * @prop --border-width: The width of card borders.
  * @prop --padding: The padding to use for card sections.
  */
+ //The border issue is solved we have used the css variables
+ :root {
+   --border-radius-medium: 10px;
+  --border-radius-large: 20px;
+ }
 :host {
   --border-color: var(--v-color-gray-200);
-  --border-radius: var(--v-border-radius-medium);
   --border-width: 1px;
   --padding: var(--v-spacing-large);
 
@@ -35,7 +39,7 @@
   background-color: var(--v-color-white);
 
   border: solid var(--border-width) var(--border-color);
-  border-radius: 10px;
+  border-radius: var(--border-radius-medium);
 }
 
 .card-header
@@ -135,12 +139,12 @@
 
 .card-border {
   padding: 20px 20px;
-  border-radius: 10px;
+  border-radius: var(--border-radius-medium);
   background-color: #fff;
 }
 .card-bordered {
   border: 1px solid rgba(189, 185, 185, 0.575) !important;
-  border-radius: 10px;
+  border-radius: var(--border-radius-medium);
   box-shadow: 0px 0px white !important;
 }
 

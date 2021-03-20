@@ -30,7 +30,7 @@ export class ProgressInfo {
           <p>{this.percentage} %</p>
           <p>{this.label} </p>
         </div>
-        <v-progress-bar percentage={this.percentage}   style={{"--height": "3px"}} color={this.color}></v-progress-bar>
+        <v-progress-bar percentage={this.percentage}   style={{"--height": "5px"}} color={this.color}></v-progress-bar>
       </div>
     );
   }
