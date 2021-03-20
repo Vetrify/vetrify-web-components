@@ -20,7 +20,7 @@ const argTypes = {
 
 // https://storybook.js.org/docs/react/writing-stories/parameters
 export default {
-  title: 'Components/Editor',
+  title: 'Components/Input/Editor',
   component: 'v-editor',
   parameters: {
     notes: {markdown},

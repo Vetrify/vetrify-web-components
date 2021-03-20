@@ -1,5 +1,5 @@
 export default {
-  title: 'Components/ColorPicker',
+  title: 'Components/Input/ColorPicker',
 };
 
 export const Basic = () => `<v-color-picker></v-color-picker>`;

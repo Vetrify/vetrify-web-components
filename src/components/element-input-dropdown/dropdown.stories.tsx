@@ -39,7 +39,7 @@ const argTypes = {
 
 // https://storybook.js.org/docs/react/writing-stories/parameters
 export default {
-  title: 'Components/DropDown',
+  title: 'Elements/Input/DropDown',
   component: 'v-dropdown',
 };
 

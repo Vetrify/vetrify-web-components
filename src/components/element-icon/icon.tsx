@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, Method, Prop, State, Watch, h } from '@stencil/core';
-import { getLibrary, watchIcon, unwatchIcon } from '../icon-library/icon-library-registry';
+import { getLibrary, watchIcon, unwatchIcon } from '../element-icon-library/icon-library-registry';
 import { requestIcon } from './request';
 
 const parser = new DOMParser();

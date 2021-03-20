@@ -1,5 +1,5 @@
 export default {
-  title: 'Elements/Buttons/Button',
+  title: 'Elements/Input/Button',
 };
 
 export const Basic = () => `<v-button>ok</v-button>`;

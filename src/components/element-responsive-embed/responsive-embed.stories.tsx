@@ -1,5 +1,5 @@
 export default {
-  title: 'Components/ResponsiveEmbed',
+  title: 'Elements/ResponsiveEmbed',
 };
 
 export const Basic = () => ``;

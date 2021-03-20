@@ -1,4 +1,4 @@
-src/components/icon/icons
+src/components/element-icon/icons
 src/**/__snapshots__/**/*
 docs/assets/data/custom.json
 docs/assets/icons/sprite.svg
