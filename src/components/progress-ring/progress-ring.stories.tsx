@@ -1,5 +1,5 @@
 export default {
-  title: 'Elements/ProgressRing',
+  title: 'Elements/Progress/Ring',
 };
 
 

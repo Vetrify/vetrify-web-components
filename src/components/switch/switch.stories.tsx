@@ -1,5 +1,5 @@
 export default {
-  title: 'Elements/Switch',
+  title: 'Elements/Input/Switch',
 };
 
 export const Basic = () => `<v-switch>Switch</v-switch>`;

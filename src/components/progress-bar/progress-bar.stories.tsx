@@ -1,5 +1,5 @@
 export default {
-  title: 'Elements/ProgressBar',
+  title: 'Elements/Progress/Bar',
   component: 'v-card',
 };
 
@@ -32,7 +32,7 @@ const argTypes = {
   }
 };
 
-export const Labels = ({percentage}) => `<v-progress-bar percentage="50" class="progress-bar-labels">50%</v-progress-bar>
+export const Labels = ({percentage}) => `<v-progress-bar percentage="${percentage}" class="progress-bar-labels">${percentage}%</v-progress-bar>
 
 <br>
 

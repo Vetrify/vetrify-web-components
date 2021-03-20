@@ -1,5 +1,5 @@
 export default {
-  title: 'Elements/Form/Input',
+  title: 'Elements/Input/Input',
 };
 
 export const Basic = () => ``;

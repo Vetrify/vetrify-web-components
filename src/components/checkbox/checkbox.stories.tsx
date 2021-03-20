@@ -1,5 +1,5 @@
 export default {
-  title: 'Elements/Form/Checkbox',
+  title: 'Elements/Input/Checkbox',
 };
 
 
