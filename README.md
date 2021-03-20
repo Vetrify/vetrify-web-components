@@ -7,6 +7,34 @@ Vetrify's standalone Web Components.
 
 ----
 
+## Structure
+
+----
+
+### Elements
+
+Elements are the fundamental building blocks for the component library.
+
+----
+
+### Components
+
+Components are more complex building blocks, usually composed of one or more elements.
+
+----
+
+### Modules
+
+Modules are domain-specific utility components
+
+----
+
+### Templates
+
+Templates are examples demonstrating standard ways to use Modules, Components, and Elements.
+
+----
+
 
 ## Operation
 
