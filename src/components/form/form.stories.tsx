@@ -1,5 +1,5 @@
 export default {
-  title: 'Components/Form/Form',
+  title: 'Components/Input/Form',
 };
 
 export const Basic = () => ``;

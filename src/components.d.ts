@@ -890,10 +890,22 @@ export namespace Components {
         "words": string[];
     }
     interface VProgressBar {
+        "color": string;
         /**
           * When true, percentage is ignored, the label is hidden, and the progress bar is drawn in an indeterminate state.
          */
         "indeterminate": boolean;
+        /**
+          * The progress bar's percentage, 0 to 100.
+         */
+        "percentage": number;
+    }
+    interface VProgressInfo {
+        "color": string;
+        /**
+          * When true, percentage is ignored, the label is hidden, and the progress bar is drawn in an indeterminate state.
+         */
+        "label": string;
         /**
           * The progress bar's percentage, 0 to 100.
          */
@@ -1679,6 +1691,12 @@ declare global {
         prototype: HTMLVProgressBarElement;
         new (): HTMLVProgressBarElement;
     };
+    interface HTMLVProgressInfoElement extends Components.VProgressInfo, HTMLStencilElement {
+    }
+    var HTMLVProgressInfoElement: {
+        prototype: HTMLVProgressInfoElement;
+        new (): HTMLVProgressInfoElement;
+    };
     interface HTMLVProgressRingElement extends Components.VProgressRing, HTMLStencilElement {
     }
     var HTMLVProgressRingElement: {
@@ -1858,6 +1876,7 @@ declare global {
         "v-persona-brief": HTMLVPersonaBriefElement;
         "v-pie-chart": HTMLVPieChartElement;
         "v-progress-bar": HTMLVProgressBarElement;
+        "v-progress-info": HTMLVProgressInfoElement;
         "v-progress-ring": HTMLVProgressRingElement;
         "v-radio": HTMLVRadioElement;
         "v-range": HTMLVRangeElement;
@@ -2809,10 +2828,22 @@ declare namespace LocalJSX {
         "words"?: string[];
     }
     interface VProgressBar {
+        "color"?: string;
         /**
           * When true, percentage is ignored, the label is hidden, and the progress bar is drawn in an indeterminate state.
          */
         "indeterminate"?: boolean;
+        /**
+          * The progress bar's percentage, 0 to 100.
+         */
+        "percentage"?: number;
+    }
+    interface VProgressInfo {
+        "color"?: string;
+        /**
+          * When true, percentage is ignored, the label is hidden, and the progress bar is drawn in an indeterminate state.
+         */
+        "label"?: string;
         /**
           * The progress bar's percentage, 0 to 100.
          */
@@ -3393,6 +3424,7 @@ declare namespace LocalJSX {
         "v-persona-brief": VPersonaBrief;
         "v-pie-chart": VPieChart;
         "v-progress-bar": VProgressBar;
+        "v-progress-info": VProgressInfo;
         "v-progress-ring": VProgressRing;
         "v-radio": VRadio;
         "v-range": VRange;
@@ -3462,6 +3494,7 @@ declare module "@stencil/core" {
             "v-persona-brief": LocalJSX.VPersonaBrief & JSXBase.HTMLAttributes<HTMLVPersonaBriefElement>;
             "v-pie-chart": LocalJSX.VPieChart & JSXBase.HTMLAttributes<HTMLVPieChartElement>;
             "v-progress-bar": LocalJSX.VProgressBar & JSXBase.HTMLAttributes<HTMLVProgressBarElement>;
+            "v-progress-info": LocalJSX.VProgressInfo & JSXBase.HTMLAttributes<HTMLVProgressInfoElement>;
             "v-progress-ring": LocalJSX.VProgressRing & JSXBase.HTMLAttributes<HTMLVProgressRingElement>;
             "v-radio": LocalJSX.VRadio & JSXBase.HTMLAttributes<HTMLVRadioElement>;
             "v-range": LocalJSX.VRange & JSXBase.HTMLAttributes<HTMLVRangeElement>;

@@ -1,5 +1,5 @@
 export default {
-  title: 'Elements/Form/Range',
+  title: 'Elements/Input/Range',
 };
 
 export const Basic = () => `<v-range min="0" max="100" step="1"></v-range>`;

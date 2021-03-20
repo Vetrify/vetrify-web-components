@@ -25,7 +25,7 @@ export class Card {
   @Element() host: HTMLVCardElement;
 
   @State() hasFooter = false;
-  @State() hasHeader = false;  
+  @State() hasHeader = false;
 
   @Prop({ mutable: true }) showHeader:boolean = true;
   @Prop({ mutable: true }) showFooter:boolean = true;
@@ -56,27 +56,30 @@ export class Card {
 
   render() {
     return (
-      
       <div class={{
-        'card': true, 
-        'card-custom': true, 
-        'card-border': this.bordered, 
+        'card-border':this.bordered
+      }}>
+      <div class={{
+        'card': true,
+        'card-custom': true,
+        'card-bordered': this.bordered ,
         'card-fit': this.semiBordered,
         'card--show-header': this.showHeader,
         'card--show-footer': this.showFooter}}>
         <div class="card-header">
           <slot name="header" onSlotchange={this.handleSlotChange} />
-          {!this.hasHeader && this.heading && (           
+          {!this.hasHeader && this.heading && (
               <div class="card-heading">
                 {this.iconName && (
                   <div class="card-icon">
                     <v-icon name={this.iconName} library={this.iconLibrary} ></v-icon>
                   </div>
                 )}
-                <h3 class="card-label">{this.heading}&nbsp; 
+                <h3 class="card-label">{this.heading}&nbsp;
                 <small>{this.subheading}</small></h3>
-              </div>         
+              </div>
           )}
+          <slot name="card-toolbar"/>
         </div>
         <div class="card-body">
           <slot />
@@ -84,6 +87,7 @@ export class Card {
         <div class="card-footer">
           <slot name="footer" onSlotchange={this.handleSlotChange} />
         </div>
+      </div>
       </div>
     );
   }

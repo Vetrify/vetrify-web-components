@@ -1,5 +1,5 @@
 export default {
-  title: 'Elements/Form/Radio',
+  title: 'Elements/Input/Radio',
 };
 
 export const Basic = () => ``;

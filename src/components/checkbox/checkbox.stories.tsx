@@ -1,11 +1,35 @@
 export default {
-  title: 'Elements/Form/Checkbox',
+  title: 'Elements/Input/Checkbox',
 };
 
-export const Basic = () => `<v-checkbox>Checkbox</v-checkbox>`;
 
-export const Checked = () => `<v-checkbox checked>Checked</v-checkbox>`;
 
-export const Indeterminate = () => `<v-checkbox indeterminate>Indeterminate</v-checkbox>`;
+const argTypes = {
+  checked:{
+    description: 'Status',
+    control:{
+      type: 'boolean',
+    }
+  },
+  disabled:{
+    description: 'Status',
+    control:{
+      type: 'boolean',
+    }
+  },
+  indeterminate:{
+    description: 'Status',
+    control:{
+      type: 'boolean',
+    }
+  },
+}
 
-export const Disabled = () => `<v-checkbox disabled>Disabled</v-checkbox>`;
+const BasicTemplate = ({checked, indeterminate, disabled}) => `<v-checkbox ${checked && 'checked'} ${indeterminate && 'indeterminate'} ${disabled && 'disabled'}>Checkbox</v-checkbox>`;
+export const Basic =  BasicTemplate.bind({});
+Basic.args = {
+  checked: false,
+  disabled: false,
+  indeterminate:false
+}
+Basic.argTypes = argTypes;

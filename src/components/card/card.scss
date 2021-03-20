@@ -8,9 +8,13 @@
  * @prop --border-width: The width of card borders.
  * @prop --padding: The padding to use for card sections.
  */
+ //The border issue is solved we have used the css variables
+ :root {
+   --border-radius-medium: 10px;
+  --border-radius-large: 20px;
+ }
 :host {
   --border-color: var(--v-color-gray-200);
-  --border-radius: var(--v-border-radius-medium);
   --border-width: 1px;
   --padding: var(--v-spacing-large);
 
@@ -24,7 +28,7 @@
   //flex-wrap: wrap;
   //height: $card-header-height;
   //min-height: $card-header-height;
-  padding-top: 0;
+  padding-top: 20px;
   padding-bottom: 0;
   background-color: transparent;
 }
@@ -33,14 +37,13 @@
   display: flex;
   flex-direction: column;
   background-color: var(--v-color-white);
-  box-shadow: var(--v-shadow-x-small);
+
   border: solid var(--border-width) var(--border-color);
-  border-radius: var(--border-radius);
+  border-radius: var(--border-radius-medium);
 }
 
 .card-header
 {
-  
   .card-icon
   {
     display: flex;
@@ -132,4 +135,19 @@
   min-height: 0px !important;
   visibility: hidden;
   display: none;
+}
+
+.card-border {
+  padding: 20px 20px;
+  border-radius: var(--border-radius-medium);
+  background-color: #fff;
+}
+.card-bordered {
+  border: 1px solid rgba(189, 185, 185, 0.575) !important;
+  border-radius: var(--border-radius-medium);
+  box-shadow: 0px 0px white !important;
+}
+
+.card-toolbar {
+  display: flex;
 }
