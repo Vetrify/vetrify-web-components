@@ -1,6 +1,6 @@
 
 export default {
-  title: 'Components/ProgressInfo',
+  title: 'Elements/ProgressInfo',
   component: 'v-progress-info',
 };
 const args = {

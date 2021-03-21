@@ -1,5 +1,5 @@
 export default {
-  title: 'Elements/Spinner',
+  title: 'Elements/Progress/Spinner',
 };
 
 export const Basic = () => `<v-spinner></v-spinner>`;

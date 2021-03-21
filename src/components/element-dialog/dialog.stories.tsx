@@ -1,5 +1,5 @@
 export default {
-  title: 'Components/Dialog',
+  title: 'Elements/Dialog',
 };
 
 export const Basic = () => `<v-dialog label="Dialog" class="dialog-overview">

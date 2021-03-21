@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IconLibraryMutator, IconLibraryResolver } from "./components/icon-library/icon-library-registry";
+import { IconLibraryMutator, IconLibraryResolver } from "./components/element-icon-library/icon-library-registry";
 export namespace Components {
     interface MyComponent {
         "first": string;

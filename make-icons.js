@@ -28,13 +28,13 @@ let numIcons = 0;
 
     // Copy icons
     console.log(chalk.cyan(`Copying icons and license 🚛`));
-    await del(['./src/components/icon/icons']);
+    await del(['./src/components/element-icon/icons']);
     await Promise.all([
-      copy(`${srcPath}/icons`, './src/components/icon/icons'),
-      copy(`${srcPath}/LICENSE.md`, './src/components/icon/icons/LICENSE.md'),
+      copy(`${srcPath}/icons`, './src/components/element-icon/icons'),
+      copy(`${srcPath}/LICENSE.md`, './src/components/element-icon/icons/LICENSE.md'),
       copy(`${srcPath}/bootstrap-icons.svg`, './docs/assets/icons/sprite.svg', { overwrite: true }),
 
-      copy(`./src/assets/icons`, `./src/components/icon/icons` )
+      copy(`./src/assets/icons`, `./src/components/element-icon/icons` )
     ]);
 
     // Generate metadata
@@ -54,7 +54,7 @@ let numIcons = 0;
       };
     });
 
-    await fs.writeFile('./src/components/icon/icons/icons.json', JSON.stringify(metadata, null, 2), 'utf8');
+    await fs.writeFile('./src/components/element-icon/icons/icons.json', JSON.stringify(metadata, null, 2), 'utf8');
 
     console.log(chalk.green(`Successfully processed ${numIcons} icons! ✨\n`));
   } catch (err) {

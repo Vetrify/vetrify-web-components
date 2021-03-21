@@ -1,7 +1,7 @@
 import { html } from 'lit-html';
 
 export default {
-  title: 'Components/Avatar',
+  title: 'Elements/Avatar',
   
   argTypes: {
     alt: { control: 'text' },

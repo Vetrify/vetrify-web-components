@@ -1,5 +1,5 @@
 export default {
-  title: 'Components/Transformation List',
+  title: 'Templates/Transformation List',
 
 };
 
