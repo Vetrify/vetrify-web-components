@@ -41,13 +41,3 @@ const ProgressInfoTemplate = ({label, percentage, color}) => {
 export const ProgressInfo = ProgressInfoTemplate.bind({});
 ProgressInfo.args = args;
 ProgressInfo.argTypes = argTypes;
-
-export const Temp = () => `
-<sl-select
-  label="Experience"
-  help-text="Please tell us your skill level."
->
-  <sl-menu-item value="option-1">Novice</sl-menu-item>
-  <sl-menu-item value="option-2">Intermediate</sl-menu-item>
-  <sl-menu-item value="option-3">Advanced</sl-menu-item>
-</sl-select>`;

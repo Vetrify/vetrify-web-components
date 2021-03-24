@@ -7,10 +7,13 @@ const events = ['mouseover', 'click', ...eventHandles(customEvents)];
 
 const args = {
   placeholder: 'Add text...',
+  pill: false,
   disabled: false,
   size: '',
   label:'label',
   helpText:'Help Text',
+  showPrefixIcon: false,
+  showSuffixIcon: false,
   autocapitalize:'',
   autocomplete:'',
   autocorrect:'',
@@ -40,6 +43,12 @@ const argTypes = {
       type: "text"
     }
   },
+  pill:{
+    description:"",
+    control:{
+      type: "boolean"
+    }
+  },
   disabled:{
     description:"",
     control:{
@@ -52,6 +61,18 @@ const argTypes = {
     {
       type: "select",
       options:  ['', 'small', 'medium', 'large'],
+    }
+  },
+  label:{
+    description: "",
+    control:{
+      type: "text"
+    }
+  },
+  helpText:{
+    description: "",
+    control:{
+      type: "text"
     }
   },
   type:{
@@ -69,24 +90,12 @@ const argTypes = {
       options: ['none' , 'text' , 'numeric' , 'decimal' , 'email', 'search' , 'tel' , 'url']
     }
   },
-  label:{
-    description: "",
-    control:{
-      type: "text"
-    }
-  },
-  helpText:{
-    description: "",
-    control:{
-      type: "text"
-    }
-  }
 };
 
 // https://storybook.js.org/docs/react/writing-stories/parameters
 export default {
-  title: 'Elements/Input/TextArea',
-  component: 'v-textarea',
+  title: 'Elements/Input/Input',
+  component: 'v-select',
   parameters: {
     //notes: {markdown},
     actions: {
@@ -97,10 +106,13 @@ export default {
 
 const BasicTemplate =  (
   { placeholder,
+    pill,
     disabled,
     size,
     label,
     helpText,
+    showPrefixIcon,
+    showSuffixIcon,
     autocapitalize,
     autocomplete,
     autocorrect,
@@ -119,14 +131,13 @@ const BasicTemplate =  (
     togglePassword,
     type,
     value
-  }
-) => `
-
-<v-textarea 
+   }
+) => `<v-input 
   ${placeholder.length > 0 && `placeholder="${placeholder}"`} 
   ${size.length > 0 && `size="${size}"`} 
   ${label.length > 0 && `label="${label}"`} 
   ${helpText.length > 0 && `help-text="${helpText}"`} 
+  ${pill && 'pill'} 
   ${disabled && 'disabled'}
   ${autocapitalize.length > 0 && `autocapitalize="${autocapitalize}"`}
   ${autocomplete.length > 0 && `autocomplete="${autocomplete}"`}
@@ -143,9 +154,10 @@ const BasicTemplate =  (
   ${spellcheck && `spellcheck`}
   ${togglePassword && `toggle-password`}
   ${type.length > 0 && `type="${type}"`}
-  ${value.length > 0 && `value="${value}"`}
-  >
-  </v-textarea>
+  ${value.length > 0 && `value="${value}"`} >
+    ${showPrefixIcon && `<v-icon name="tag" slot="prefix"></v-icon>`}
+    ${showSuffixIcon ?? `<v-icon name="tag" slot="suffix"></v-icon>`}
+  </v-input>
 `;
 
 export const Basic = BasicTemplate.bind({});
