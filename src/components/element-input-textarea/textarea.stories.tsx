@@ -88,7 +88,7 @@ export default {
   title: 'Elements/Input/TextArea',
   component: 'v-textarea',
   parameters: {
-    //notes: {markdown},
+    notes: {markdown},
     actions: {
       handles: events,
     },

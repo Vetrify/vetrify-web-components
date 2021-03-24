@@ -97,7 +97,7 @@ export default {
   title: 'Elements/Input/Input',
   component: 'v-select',
   parameters: {
-    //notes: {markdown},
+    notes: {markdown},
     actions: {
       handles: events,
     },
