@@ -20,68 +20,69 @@ export const Basic = () => `<div class="animation-overview">
 </style>
 `;
 
-// export const AnimationsAndEasing = () => `<div class="animation-sandbox">
-// <v-animation name="bounce" easing="ease-in-out" duration="2000">
-//   <div class="box"></div>
-// </v-animation>
+export const AnimationsAndEasing = () => `<div class="animation-sandbox">
+<v-animation name="bounce" easing="ease-in-out" duration="2000">
+  <div class="box"></div>
+</v-animation>
 
-// <div class="controls">
-//   <v-select label="Animation" value="bounce"></v-select>
-//   <v-select label="Easing" value="linear"></v-select>
-//   <v-range min="0" max="2" step=".5" value="1"></v-range>
-// </div>
-// </div>
+Todo: get animation and easing values from script
+<div class="controls">
+  <v-select label="Animation" value="bounce"></v-select>
+  <v-select label="Easing" value="linear"></v-select>
+  <v-range min="0" max="2" step=".5" value="1"></v-range>
+</div>
+</div>
 
-// <script type="module">
-// import { getAnimationNames, getEasingNames } from '/dist/shoelace.js';
+<script type="module">
+import { getAnimationNames, getEasingNames } from 'dist-stencil/vetrify-web-components/v-animation.entry.js';
 
-// const container = document.querySelector('.animation-sandbox');
-// const animation = container.querySelector('v-animation');
-// const animationName = container.querySelector('.controls v-select:nth-child(1)');
-// const easingName = container.querySelector('.controls v-select:nth-child(2)');
-// const playbackRate = container.querySelector('v-range');
-// const animations = getAnimationNames();
-// const easings = getEasingNames();
+const container = document.querySelector('.animation-sandbox');
+const animation = container.querySelector('v-animation');
+const animationName = container.querySelector('.controls v-select:nth-child(1)');
+const easingName = container.querySelector('.controls v-select:nth-child(2)');
+const playbackRate = container.querySelector('v-range');
+const animations = getAnimationNames();
+const easings = getEasingNames();
 
-// animations.map(name => {
-//   const menuItem = Object.assign(document.createElement('v-menu-item'), {
-//     textContent: name,
-//     value: name
-//   });
-//   animationName.appendChild(menuItem);
-// });
+animations.map(name => {
+  const menuItem = Object.assign(document.createElement('v-menu-item'), {
+    textContent: name,
+    value: name
+  });
+  animationName.appendChild(menuItem);
+});
 
-// easings.map(name => {
-//   const menuItem = Object.assign(document.createElement('v-menu-item'), {
-//     textContent: name,
-//     value: name
-//   });
-//   easingName.appendChild(menuItem);
-// });
+easings.map(name => {
+  const menuItem = Object.assign(document.createElement('v-menu-item'), {
+    textContent: name,
+    value: name
+  });
+  easingName.appendChild(menuItem);
+});
 
-// animationName.addEventListener('v-change', () => animation.name = animationName.value);
-// easingName.addEventListener('v-change', () => animation.easing = easingName.value);
-// playbackRate.addEventListener('v-change', () => animation.playbackRate = playbackRate.value);
-// playbackRate.tooltipFormatter = val => `Playback Rate = ${val}`;
-// </script>
+animationName.addEventListener('v-change', () => animation.name = animationName.value);
+easingName.addEventListener('v-change', () => animation.easing = easingName.value);
+playbackRate.addEventListener('v-change', () => animation.playbackRate = playbackRate.value);
+playbackRate.tooltipFormatter = val => \`Playback Rate = \${val}\`;
+</script>
 
-// <style>
-// .animation-sandbox .box {
-//   width: 100px;
-//   height: 100px;
-//   background-color: var(--v-color-primary-500);
-// }
+<style>
+.animation-sandbox .box {
+  width: 100px;
+  height: 100px;
+  background-color: var(--v-color-primary-500);
+}
 
-// .animation-sandbox .controls {
-//   max-width: 300px;
-//   margin-top: 2rem;
-// }
+.animation-sandbox .controls {
+  max-width: 300px;
+  margin-top: 2rem;
+}
 
-// .animation-sandbox .controls v-select {
-//   margin-bottom: 1rem;
-// }
-// </style>
-// `;
+.animation-sandbox .controls v-select {
+  margin-bottom: 1rem;
+}
+</style>
+`;
 
 
 export const IntersectionObserver = () => `<div class="animation-scroll">
