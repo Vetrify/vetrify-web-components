@@ -1,0 +1,152 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"$id": "http://www.vetrify.com/business-strategy-0.0.1",
+	"version": "0.0.1",
+	"title": "Vetrify Business Strategy",
+	"description": "Definition for business strategy in the Vetrify application",
+	"properties": {
+		"recipes": { "type": "array", "items": { "$ref": "#/$defs/recipe" } },
+		"terms": { "type": "array", "items": { "$ref": "#/$defs/term" } },
+		"relationships": { "type": "array", "items": { "$ref": "#/$defs/relationship-group"} },
+		"personas": { "type" : "array", "items":{ "$ref": "#/$defs/persona" } },
+		"reasons": { "type": "array", "items": { "$ref": "#/$defs/purpose" } },
+		"failure-modes":{ "type": "array", "items": { "$ref": "#/$defs/failure-mode"} },
+		"effect-labels":{ "type": "array", "items": {"$ref": "#/$defs/range-label" } },
+		"view-action": { "$ref": "#/$defs/view-action" }
+	},
+	"$defs": {
+		"view-action":{
+			"type": "string",
+			"enum":["update", "remove"]
+		},
+		"term": {
+			"type": "object",
+			"properties": {
+				"name": { "type": "string" },
+				"definition": { "type": "string" },
+				"weight":{ "type": "number" },
+				"view-action": { "$ref": "#/$defs/view-action" }
+			},
+			"required": ["name"]
+		},
+		"persona": {
+			"type": "object",
+			"properties": {
+				"$id": { "type": "string", "maxLength": 64, "format" : "uuid" },
+				"name": { "type": "string" },
+				"brief": { "type": "string" },
+				"thumbnail": {"type": "string", "format": "uri" },
+				"initials": {"type": "string", "minLength": 2, "maxLength": 3},
+				"view-action": { "$ref": "#/$defs/view-action" }
+			},
+			"required": ["$id", "name", "brief"]
+		},
+		"recipe": {
+			"type": "object",
+			"properties": {
+				"$id": { "type": "string", "maxLength": 64, "format" : "uuid" },
+				"associated-verb":{ "type": "string" },
+				"name": { "type": "string" },
+				"description":{ "type": "string" },
+				"promise": { "type": "string" },
+				"steps": { "type": "array", "items": { "$ref": "#/$defs/recipe-step" } },
+				"step-relationships": { "type": "array", "items": { "$ref": "#/$defs/relationship" } },
+				"view-action": { "$ref": "#/$defs/view-action" }
+			},
+			"required":["$id", "name", "promise"]
+		},
+		"recipe-step": {
+			"type": "object",
+			"properties": {
+				"$id": { "type": "string", "maxLength": 64, "format" : "uuid" },
+				"verb": { "type": "string" },
+				"subject": { "type": "string" },
+				"importance": {"type": "number"},
+				"ordinal":{ "type":"number"},
+				"substeps": { "type": "array", "items": { "$ref": "#/$defs/recipe-step" } },
+				"substep-relationships": { "type": "array", "items": { "$ref": "#/$defs/relationship" } },
+				"view-action": { "$ref": "#/$defs/view-action" }
+			},
+			"required": ["$id", "verb", "subject", "ordinal"],
+			"additionalProperties": false
+		},
+		"failure-mode":{
+			"type":"object",
+			"properties":{
+				"$id": { "type": "string", "maxLength": 64, "format" : "uuid" },
+				"name":{"type":"string"},
+				"detail":{"type":"string"},
+				"probability":{"type":"number"},
+				"impact":{"type":"number"},
+				"view-action": { "$ref": "#/$defs/view-action" }
+			},
+			"required": ["$id", "name", "probability", "impact"]
+		},
+		"purpose": {
+			"type": "object",
+			"properties": {
+				"$id": { "type": "string", "maxLength": 64, "format" : "uuid" },	
+				"direction": { "type": "string", "enum": ["increase", "decrease", "maximize", "minimize"] },
+				"subject": { "type": "string" },
+				"target": { "type": "string" },
+				"view-action": { "$ref": "#/$defs/view-action" }
+			},
+			"required": ["$id", "direction", "subject", "target"],
+			"additionalProperties": false
+		},
+		"relationship-group":{
+			"type":"object",
+			"properties":{
+				"name":{"type": "string"},
+				"detail":{"type": "string"},
+				"source-type": {
+					"type": "string",
+					"enum": [ "step", "objective", "failure-mode", "effect-category", "persona" ]
+				},
+				"destination-type": {
+					"type": "string",
+					"enum": [ "step", "objective", "failure-mode", "effect-category", "persona" ]
+				},
+				"labels": {
+					"description": "the label to be shown with various types of relationship weights",
+					"type": "array", "items": { "$ref": "#/$defs/range-label" }
+				},
+				"values": {
+					"type": "array", "items": { "$ref": "#/$defs/relationship" }
+				},
+				"view-action": { "$ref": "#/$defs/view-action" }
+			},
+			"required":["name", "source-type", "destination-type"]
+		},
+		"range-label": {
+			"type": "object",
+			"description": "a label for a range of numeric values.  min is inclusive, max is exclusive.",
+			"properties": {
+				"label": { "type": "string" },
+				"description": {"type": "string"},
+				"icon-name": { "type": "string" },
+				"default-value": { "type": "number" },
+				"min-value": { "type": "number" },
+				"max-value": { "type": "number" },
+				"view-action": { "$ref": "#/$defs/view-action" }
+			},
+			"required":["label", "default-value"]
+		},
+		"relationship": {
+			"type": "object",
+			"properties": {
+				"$id": { "type": "string", "maxLength": 64, "format" : "uuid" },
+				"type":{ "type": "string"},
+				"constraint-type": { "type": "string", "enum": [ "FS", "SS", "SF" ] },
+				"weight": { "type": "number" },
+				"source-id": { "type": "string", "maxLength": 64, "format" : "uuid" },
+				"destination-id": { "type": "string" },
+				"name": { "type": "string" },
+				"view-action": { "$ref": "#/$defs/view-action" }
+			},
+			"required": ["$id", "type", "source-id", "destination-id"],
+			"additionalProperties": false
+			
+		}
+	}
+}

@@ -1,0 +1,86 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"$id": "http://www.vetrify.com/broadband-estimate-0.0.1",
+	"version": "0.0.1",
+	"title": "Vetrify Broadband Estimate",
+	"description": "Definition for broadband estimates in the Vetrify application",
+	"properties": {
+		"$id": {"type":"string", "maxLength": 64, "format" : "uuid"},
+		"name" :{"type":"string", "maxLength":256},
+		"description": {"type":"string" },
+		"$project-id" : {"type": "string", "maxLength": 64, "format" : "uuid"},
+		"category": {"type": "string", "maxLength": 32},
+		"subcategory": {"type": "string", "maxLength": 64},
+		"$user-id": {"type": "string", "maxLength": 64, "format" : "uuid" },
+		"$document-id" : {"type": "string", "maxLength": 64, "format" : "uuid"},
+		"version": {"type": "string", "maxLength": 64},
+		"status": {"type": "string", "maxLength": 64},
+		"as-of" : { "type": "string", "format":"date-time"}	,
+		"participant-ids":{"type": "array", "items": [ { "type": "string", "maxLength": 64}]},
+		"project-assumptions": {"type": "array", "items": { "$ref": "#/$defs/assumption"}},	
+		"detail": { "type": "array", "items": { "$ref": "#/$defs/detail" } },
+		"view-action": { "$ref": "#/$defs/view-action" }
+	},
+	"$defs": {
+		"view-action":{
+			"type": "string",
+			"enum":["update", "remove"]
+		},
+		"estimate-round": {
+			"type": "object",
+			"properties": {
+				"status": {"type":"string", "maxLength": 32 },
+				"start": {"type": "string", "format": "date-time"},
+				"stop": {"type": "string", "format": "date-time"},
+				"unit": {"type": "string", "enum":["hours", "days", "weeks", "months", "years"]},
+				"assumptions" : {"type":"array", "items":{ "type": "string"} },
+				"estimates": {"type": "array", "items": { "$ref": "#/$defs/estimate"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
+			}
+		},
+		"estimate":{
+			"type": "object",
+			"properties": {
+				"$user-id": {"type": "string", "maxLength": 64, "format" : "uuid"},
+				"timestamp": {"type": "string", "format": "date-time"},
+				"$value": {"type": "number"},
+				"assumptions" : {"type":"array", "items":{ "type": "string"} },
+				"view-action": { "$ref": "#/$defs/view-action" }
+			}
+		},
+		"detail": {
+			"type": "object",
+			"properties": {
+				"title" : { "type": "string", "maxLength": 256 },
+				"ordinal" : { "type": "number" },
+				"description": {"type":"string"},
+				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
+				"detail-assumptions": {"type": "array", "items": { "$ref": "#/$defs/assumption"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
+			},
+			"required": ["title", "ordinal", "content"]
+		},
+		"assumption":{
+			"type": "object",
+			"properties": {
+				"$user-id": {"type": "string", "maxLength": 64, "format" : "uuid"},
+				"timestamp": {"type": "string", "format": "date-time"},
+				"value": {"type": "number"},
+				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
+			}
+		},
+		"comment": {
+			"type": "object",
+			"properties": {
+				"$user-id" :{"type": "string", "maxLength": 64, "format" : "uuid" },
+				"timestamp" : { "type": "string", "format":"date-time"}	,
+				"status": {"type": "string", "maxLength": 64},
+				"action": {"type": "string", "maxLength": 32},
+				"content": {"type": "string"},
+				"responses": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
+				"view-action": { "$ref": "#/$defs/view-action" }		
+			}
+		}
+	}
+}

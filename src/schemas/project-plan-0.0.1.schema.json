@@ -1,0 +1,122 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"$id": "http://www.vetrify.com/project-staffing-0.0.1",
+	"version": "0.0.1",
+	"title": "Vetrify Project Staffing Plan (CPM)",
+	"description": "Definition for a CPM (Critical Path Management) project plan in the Vetrify application",
+	"properties": {
+		"$id": {"type":"string", "maxLength": 64, "format": "uuid" },
+		"name" :{"type":"string", "maxLength":256},
+		"description": {"type":"string" },
+		"$project-id" : {"type": "string", "maxLength": 64, "format": "uuid" },
+		"category": {"type": "string", "maxLength": 32},
+		"subcategory": {"type": "string", "maxLength": 64},
+		"$user-id": {"type": "string", "maxLength": 64, "format": "uuid" },
+		"$document-id" : {"type": "string", "maxLength": 64, "format": "uuid" },
+		"version": {"type": "string", "maxLength": 64},
+		"status": {"type": "string", "maxLength": 64},
+		"as-of" : { "type": "string", "format":"date-time"}	,
+		"participant-ids":{"type": "array", "items": [ { "type": "string", "maxLength": 64}]},
+		"project-assumptions": {"type": "array", "items": { "$ref": "#/$defs/assumption"}},	
+		"detail": { "type": "array", "items": { "$ref": "#/$defs/detail" } },
+		"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
+		"view-action": { "$ref": "#/$defs/view-action" }
+	},
+	"$defs": {
+		"view-action":{
+			"type": "string",
+			"enum":["update", "remove"]
+		},
+		"milestone": {
+			"type":"object",
+			"properties": {
+				"$id": {"type":"string", "maxLength": 64, "format": "uuid" },
+				"name": {"type":"string", "maxLength": 128 },
+				"isPlaceholder": {"type":"boolean"},
+				"description": {"type":"string" },
+				"deliverable": {"type":"string"},
+				"acceptance-criteria": {"type": "string"},
+				"technical-dependencies": {"type": "array", "items": { "type": "string", "maxLength": 64, "format":"uuid"}},
+				"resource-dependencies": {"type": "array", "items": { "type": "string", "maxLength": 64, "format":"uuid"}},
+				"resource-type" : {"type":"string", "maxLength": 64},
+				"status": {"type":"string", "maxLength": 64},
+				"estimate-unit": {"type": "string", "enum":["hours", "days", "weeks", "months", "years"]},
+				"estimate-mean": {"type": "number"},
+				"estimate-sdev": {"type": "number"},
+				"tasks": {"type":"array", "items": { "$ref": "#/$defs/task"}},
+				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
+			}
+		},
+		"task":{
+			"type":"object",
+			"properties":{
+				"$id": {"type":"string", "maxLength": 64, "format": "uuid" },
+				"ordinal":{"type":"number"},
+				"title": {"type": "string", "maxLength": 128},
+				"description": {"type": "string"},
+				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
+			},
+			"required": ["ordinal", "title"]
+		},
+		"estimate-round": {
+			"type": "object",
+			"properties": {
+				"status": {"type":"string", "maxLength": 32 },
+				"start": {"type": "string", "format": "date-time"},
+				"stop": {"type": "string", "format": "date-time"},
+				"unit": {"type": "string", "enum":["hours", "days", "weeks", "months", "years"]},
+				"assumptions" : {"type":"array", "items":{ "type": "string"} },
+				"estimates": {"type": "array", "items": { "$ref": "#/$defs/estimate"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
+			}
+		},
+		"estimate":{
+			"type": "object",
+			"properties": {
+				"$user-id": {"type": "string", "maxLength": 64, "format": "uuid" },
+				"$task-id": {"type":"string", "maxLength": 64, "format": "uuid" },
+				"timestamp": {"type": "string", "format": "date-time"},
+				"value": {"type": "number"},
+				"assumptions" : {"type":"array", "items":{ "type": "string"} },
+				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
+			}
+		},
+		"detail": {
+			"type": "object",
+			"properties": {
+				"title" : { "type": "string", "maxLength": 256 },
+				"ordinal" : { "type": "number" },
+				"description": {"type":"string"},
+				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
+				"detail-assumptions": {"type": "array", "items": { "$ref": "#/$defs/assumption"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
+			},
+			"required": ["title", "ordinal", "content"]
+		},
+		"assumption":{
+			"type": "object",
+			"properties": {
+				"$user-id": {"type": "string", "maxLength": 64, "format": "uuid" },
+				"timestamp": {"type": "string", "format": "date-time"},
+				"$value": {"type": "number"},
+				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
+			}
+		},
+		"comment": {
+			"type": "object",
+			"properties": {
+				"$user-id" :{"type": "string", "maxLength": 64, "format": "uuid" },
+				"timestamp" : { "type": "string", "format":"date-time"}	,
+				"status": {"type": "string", "maxLength": 64},
+				"action": {"type": "string", "maxLength": 32},
+				"content": {"type": "string"},
+				"responses": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
+			}
+		}
+	}
+}

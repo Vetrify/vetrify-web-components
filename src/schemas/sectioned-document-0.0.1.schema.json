@@ -1,0 +1,44 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"$id": "http://www.vetrify.com/sectioned-document-0.0.1",
+	"version": "0.0.1",
+	"title": "Vetrify Sectioned Document",
+	"description": "Definition document with detailed sections in the Vetrify applications",
+	"properties": {
+		"$version-id": {"type":"string", "maxLength": 64, "format" : "uuid" },
+		"name" :{"type":"string", "maxLength":256},
+		"description": {"type":"string" },
+		"project-id" : {"type": "string", "maxLength": 64, "format" : "uuid" },
+		"category": {"type": "string", "maxLength": 32},
+		"subcategory": {"type": "string", "maxLength": 64},
+		"$user-id": {"type": "string", "maxLength": 64, "format" : "uuid" },
+		"document-id" : {"type": "string", "maxLength": 64},
+		"version": {"type": "string", "maxLength": 64},
+		"status": {"type": "string", "maxLength": 64},
+		"as-of" : { "type": "string", "format":"date-time"}	,	
+		"sections": { "type": "array", "items": { "$ref": "#/$defs/section" } }
+	},
+	"$defs": {
+		"section": {
+			"type": "object",
+			"properties": {
+				"title" : { "type": "string", "maxLength": 256 },
+				"ordinal" : { "type": "number" },
+				"content": {"type":"string"},
+				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}}
+			},
+			"required": ["title", "ordinal", "content"]
+		},
+		"comment": {
+			"type": "object",
+			"properties": {
+				"$user-id" :{"type": "string", "maxLength": 64, "format" : "uuid" },
+				"timestamp" : { "type": "string", "format":"date-time"}	,
+				"status": {"type": "string", "maxLength": 64},
+				"action": {"type": "string", "maxLength": 32},
+				"content": {"type": "string"},
+				"responses": {"type": "array", "items": { "$ref": "#/$defs/section"}}				
+			}
+		}
+	}
+}

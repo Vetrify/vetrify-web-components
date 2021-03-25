@@ -1,5 +1,6 @@
 src/components/element-icon/icons
 src/**/__snapshots__/**/*
+src/types/**/*.*
 docs/assets/data/custom.json
 docs/assets/icons/sprite.svg
 

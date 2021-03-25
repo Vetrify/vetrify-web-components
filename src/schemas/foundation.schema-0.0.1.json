@@ -1,0 +1,129 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"$id": "http://www.vetrify.com/foundation-0.0.1",
+	"version": "0.0.1",
+	"title": "Vetrify Foundation",
+	"description": "The foundational data for the vetrify application",
+	"properties": {
+		"users": { "type": "array", "items": { "$ref": "#/$defs/user" } },
+		"tasks": { "type" : "array", "items" : { "$ref": "#/$defs/task"} },
+		"task-assignments": { "type": "array", "items": { "$ref": "#/$defs/task-assignment"} },
+		"projects" :{ "type": "array", "items": {"$ref": "#/$defs/project"} },
+		"project-roles" :{ "type": "array", "items": {"$ref": "#/$defs/project-role"} },
+		"project-events" :{ "type": "array", "items": {"$ref": "#/$defs/project-event"} },
+		"event-tasks": {"type": "array", "items":[{"type": "string"}, {"type": "string"} ]},
+		"documents" :{ "type": "array", "items": {"$ref": "#/$defs/document"} },
+		"document-relationships": { "type": "array", "items": { "$ref": "#/$defs/document-relationship" } },
+		"document-versions" :{ "type": "array", "items": {"$ref": "#/$defs/document-version"} },
+		"view-action": { "$ref": "#/$defs/view-action" }
+	},
+	"$defs": {
+		"view-action":{
+			"type": "string",
+			"enum":["update", "remove"]
+		},
+		"user": {
+			"type": "object",
+			"properties": {
+				"$id": { "type": "string", "maxLength": 64, "format" : "uuid" },
+				"name": { "type": "string", "maxLength": 64 },
+				"initials": {"type": "string", "minLength": 2, "maxLength": 3},
+				"thumbnail": {"type": "string", "format": "uri" },
+				"view-action": {"$ref": "#/$defs/view-action"}
+			},
+			"required": ["$id", "name"]
+		},
+		"project":{
+			"type": "object",
+			"properties": {
+				"$id": {"type": "string", "maxLength": 64, "format" : "uuid" },
+				"display-name" : {"type": "string", "maxLength": 128},
+				"brief" : {"type": "string"},
+				"view-action": {"$ref": "#/$defs/view-action"}
+			},
+			"required" : ["$id", "display-name"]
+		},
+		"project-role":{
+			"type": "object",
+			"properties": {
+				"$id": {"type": "string", "maxLength": 64, "format" : "uuid"},
+				"project-id": {"type": "string", "maxLength": 64, "format" : "uuid"},
+				"user-id": {"type": "string", "maxLength": 64, "format" : "uuid"},
+				"status": {"type": "string", "maxLength": 32 },
+				"role": {"type": "string", "maxLength": 32 },
+				"as-of": {"type": "string", "format": "date-time"},
+				"view-action": {"$ref": "#/$defs/view-action"}
+			}
+		},
+		"project-event":{
+			"type": "object",
+			"properties": {
+				"$id": {"type": "string", "maxLength": 64, "format" : "uuid"},
+				"project-id": {"type": "string", "maxLength": 64, "format" : "uuid"},
+				"document-id": {"type": "string", "maxLength": 64, "format" : "uuid"},
+				"display-name": {"type": "string", "maxLength": 128},
+				"type": {"type": "string", "maxLength": 32},
+				"timestamp": {"type": "string", "format": "date-time"},
+				"view-action": {"$ref": "#/$defs/view-action"}
+			}
+		},
+		"task": {
+			"type": "object",
+			"properties": {
+				"$id": {"type": "string", "maxLength": 64, "format" : "uuid" },
+				"project-id" : {"type": "string", "maxLength": 64},
+				"view-action": {"$ref": "#/$defs/view-action"}
+			},
+			"required":["$id", "project-id"]
+		},
+		"task-assignment":{
+			"type": "object",
+			"properties": {
+				"$id": {"type": "string", "maxLength": 64, "format" : "uuid"},
+				"task-id": {"type": "string", "maxLength": 64, "format" : "uuid"},
+				"user-id": {"type": "string", "maxLength": 64, "format" : "uuid"},
+				"status": {"type": "string", "maxLength": 32},
+				"role": {"type": "string", "maxLength": 32},
+				"as-of": {"type": "string", "format": "date-time"},
+				"view-action": {"$ref": "#/$defs/view-action"}
+			}
+		},
+		"document": {
+			"type": "object",
+			"properties": {
+				"$id": {"type": "string", "maxLength": 64, "format" : "uuid" },
+				"project-id" : {"type": "string", "maxLength": 64},
+				"category": {"type": "string", "maxLength": 32},
+				"subcategory": {"type": "string", "maxLength": 64},
+				"view-action": {"$ref": "#/$defs/view-action"}
+			},
+			"required":["$id", "project-id"]
+		},
+		"document-relationship" : {
+			"type": "object",
+			"properties": {
+				"$id": {"type": "string", "maxLength": 64, "format" : "uuid" },
+				"source-document-id" : {"type": "string", "maxLength": 64},
+				"destination-document-id" : {"type": "string", "maxLength": 64},
+				"type": {"type": "string", "maxLength": 64},
+				"view-action": {"$ref": "#/$defs/view-action"}
+			},
+			"required":["$id", "source-document-id", "destination-document-id"]
+		},
+		"document-version" : {
+			"type": "object",
+			"properties": {
+				"$id": {"type": "string", "maxLength": 64, "format" : "uuid" },
+				"$user-id": {"type": "string", "maxLength": 64, "format" : "uuid" },
+				"document-id" : {"type": "string", "maxLength": 64, "format" : "uuid"},
+				"name": {"type": "string", "maxLength": 256},
+				"version": {"type": "string", "maxLength": 64},
+				"description": {"type": "string"},
+				"status": {"type": "string", "maxLength": 64},
+				"as-of" : { "type": "string", "format":"date-time"},
+				"view-action": {"$ref": "#/$defs/view-action"}
+			},
+			"required":["$id", "$document-id"]
+		}
+	}
+}

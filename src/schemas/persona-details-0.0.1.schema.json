@@ -1,0 +1,47 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"$id": "http://www.vetrify.com/persona-details-0.0.1",
+	"version": "0.0.1",
+	"title": "Vetrify Persona Details",
+	"description": "Definition for detailed proto-personas in the Vetrify application",
+	"properties": {
+		"lists": {
+			"type": "array",
+			"items": {
+				"$ref": "#/$defs/persona"
+			}
+		},
+		"view-action": { "$ref": "#/$defs/view-action" }
+	},
+	"$defs": {
+		"view-action":{
+			"type": "string",
+			"enum":["update", "remove"]
+		},
+		"persona": {
+			"type": "object",
+			"properties": {
+				"$id": { "type": "string", "maxLength": 64, "format" : "uuid" },
+				"name": { "type": "string" },
+				"initials": {"type": "string", "minLength": 2, "maxLength": 3},
+				"image": {"type": "string", "format": "uri" },
+				"thumbnail": {"type": "string", "format": "uri" },
+				"brief": { "type": "string" },				
+				"about": { "type": "string" },
+				"demographics": {"type": "array", "items":[{ "type": "string"},{"type":"string"}]},
+				"tags": {"type":"array", "items":[{ 
+					"type": "string"
+					},{
+						"type": "number", "minimum": 0.0, "maximum": 1.0
+					}]},
+				"details": { "type":"array", "items":[{
+					"type": "string"
+				},{
+					"type": "array", "items": { "type": "string"}
+				}] },
+				"view-action": { "$ref": "#/$defs/view-action" }				
+			},
+			"required": ["$id", "name", "brief"]
+		}
+	}
+}
