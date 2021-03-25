@@ -1,0 +1,38 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"description": "Personas",
+	"properties": {
+		"lists": {
+			"type": "array",
+			"items": {
+				"$ref": "#/$defs/persona"
+			}
+		}
+	},
+	"$defs": {
+		"persona": {
+			"type": "object",
+			"properties": {
+				"$id": { "type": "string", "maxLength": 64, "format" : "uuid" },
+				"name": { "type": "string" },
+				"initials": {"type": "string", "minLength": 2, "maxLength": 3},
+				"image": {"type": "string", "format": "uri" },
+				"thumbnail": {"type": "string", "format": "uri" },
+				"brief": { "type": "string" },				
+				"about": { "type": "string" },
+				"demographics": {"type": "array", "items":[{ "type": "string"},{"type":"string"}]},
+				"tags": {"type":"array", "items":[{ 
+					"type": "string"
+					},{
+						"type": "number", "minimum": 0.0, "maximum": 1.0
+					}]},
+				"details": { "type":"array", "items":[{
+					"type": "string"
+				},{
+					"type": "array", "items": { "type": "string"}
+				}] }				
+			},
+			"required": ["$id", "name", "brief"]
+		}
+	}
+}

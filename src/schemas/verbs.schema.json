@@ -1,0 +1,22 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"description": "Verbs",
+	"properties": {
+		"lists": {
+			"type": "array",
+			"items": {
+				"$ref": "#/$defs/verb-list"
+			}
+		}
+	},
+	"$defs": {
+		"verb-list": {
+			"type": "object",
+			"properties": {
+				"key": { "type": "string" },
+				"values": {"type":"array", "items":{ "type": "string"}}
+			},
+			"required": ["name", "values"]
+		}
+	}
+}
