@@ -1,6 +1,9 @@
 {
 	"$schema": "http://json-schema.org/schema#",
-	"description": "Broadband Estimate",
+	"$id": "http://www.vetrify.com/broadband-estimate-0.0.1",
+	"version": "0.0.1",
+	"title": "Vetrify Broadband Estimate",
+	"description": "Definition for broadband estimates in the Vetrify application",
 	"properties": {
 		"$id": {"type":"string", "maxLength": 64, "format" : "uuid"},
 		"name" :{"type":"string", "maxLength":256},
@@ -15,9 +18,14 @@
 		"as-of" : { "type": "string", "format":"date-time"}	,
 		"participant-ids":{"type": "array", "items": [ { "type": "string", "maxLength": 64}]},
 		"project-assumptions": {"type": "array", "items": { "$ref": "#/$defs/assumption"}},	
-		"detail": { "type": "array", "items": { "$ref": "#/$defs/detail" } }
+		"detail": { "type": "array", "items": { "$ref": "#/$defs/detail" } },
+		"view-action": { "$ref": "#/$defs/view-action" }
 	},
 	"$defs": {
+		"view-action":{
+			"type": "string",
+			"enum":["update", "remove"]
+		},
 		"estimate-round": {
 			"type": "object",
 			"properties": {
@@ -26,7 +34,8 @@
 				"stop": {"type": "string", "format": "date-time"},
 				"unit": {"type": "string", "enum":["hours", "days", "weeks", "months", "years"]},
 				"assumptions" : {"type":"array", "items":{ "type": "string"} },
-				"estimates": {"type": "array", "items": { "$ref": "#/$defs/estimate"}}
+				"estimates": {"type": "array", "items": { "$ref": "#/$defs/estimate"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
 			}
 		},
 		"estimate":{
@@ -35,7 +44,8 @@
 				"$user-id": {"type": "string", "maxLength": 64, "format" : "uuid"},
 				"timestamp": {"type": "string", "format": "date-time"},
 				"$value": {"type": "number"},
-				"assumptions" : {"type":"array", "items":{ "type": "string"} }
+				"assumptions" : {"type":"array", "items":{ "type": "string"} },
+				"view-action": { "$ref": "#/$defs/view-action" }
 			}
 		},
 		"detail": {
@@ -45,7 +55,8 @@
 				"ordinal" : { "type": "number" },
 				"description": {"type":"string"},
 				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
-				"detail-assumptions": {"type": "array", "items": { "$ref": "#/$defs/assumption"}}
+				"detail-assumptions": {"type": "array", "items": { "$ref": "#/$defs/assumption"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
 			},
 			"required": ["title", "ordinal", "content"]
 		},
@@ -55,7 +66,8 @@
 				"$user-id": {"type": "string", "maxLength": 64, "format" : "uuid"},
 				"timestamp": {"type": "string", "format": "date-time"},
 				"value": {"type": "number"},
-				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}}
+				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
 			}
 		},
 		"comment": {
@@ -66,7 +78,8 @@
 				"status": {"type": "string", "maxLength": 64},
 				"action": {"type": "string", "maxLength": 32},
 				"content": {"type": "string"},
-				"responses": {"type": "array", "items": { "$ref": "#/$defs/comment"}}				
+				"responses": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
+				"view-action": { "$ref": "#/$defs/view-action" }		
 			}
 		}
 	}

@@ -1,6 +1,9 @@
 {
 	"$schema": "http://json-schema.org/schema#",
-	"description": "Strategy",
+	"$id": "http://www.vetrify.com/business-strategy-0.0.1",
+	"version": "0.0.1",
+	"title": "Vetrify Business Strategy",
+	"description": "Definition for business strategy in the Vetrify application",
 	"properties": {
 		"recipes": { "type": "array", "items": { "$ref": "#/$defs/recipe" } },
 		"terms": { "type": "array", "items": { "$ref": "#/$defs/term" } },
@@ -8,15 +11,21 @@
 		"personas": { "type" : "array", "items":{ "$ref": "#/$defs/persona" } },
 		"reasons": { "type": "array", "items": { "$ref": "#/$defs/purpose" } },
 		"failure-modes":{ "type": "array", "items": { "$ref": "#/$defs/failure-mode"} },
-		"effect-labels":{ "type": "array", "items": {"$ref": "#/$defs/range-label" } }
+		"effect-labels":{ "type": "array", "items": {"$ref": "#/$defs/range-label" } },
+		"view-action": { "$ref": "#/$defs/view-action" }
 	},
 	"$defs": {
+		"view-action":{
+			"type": "string",
+			"enum":["update", "remove"]
+		},
 		"term": {
 			"type": "object",
 			"properties": {
 				"name": { "type": "string" },
 				"definition": { "type": "string" },
-				"weight":{ "type": "number" }
+				"weight":{ "type": "number" },
+				"view-action": { "$ref": "#/$defs/view-action" }
 			},
 			"required": ["name"]
 		},
@@ -27,7 +36,8 @@
 				"name": { "type": "string" },
 				"brief": { "type": "string" },
 				"thumbnail": {"type": "string", "format": "uri" },
-				"initials": {"type": "string", "minLength": 2, "maxLength": 3}
+				"initials": {"type": "string", "minLength": 2, "maxLength": 3},
+				"view-action": { "$ref": "#/$defs/view-action" }
 			},
 			"required": ["$id", "name", "brief"]
 		},
@@ -40,7 +50,8 @@
 				"description":{ "type": "string" },
 				"promise": { "type": "string" },
 				"steps": { "type": "array", "items": { "$ref": "#/$defs/recipe-step" } },
-				"step-relationships": { "type": "array", "items": { "$ref": "#/$defs/relationship" } }
+				"step-relationships": { "type": "array", "items": { "$ref": "#/$defs/relationship" } },
+				"view-action": { "$ref": "#/$defs/view-action" }
 			},
 			"required":["$id", "name", "promise"]
 		},
@@ -53,7 +64,8 @@
 				"importance": {"type": "number"},
 				"ordinal":{ "type":"number"},
 				"substeps": { "type": "array", "items": { "$ref": "#/$defs/recipe-step" } },
-				"substep-relationships": { "type": "array", "items": { "$ref": "#/$defs/relationship" } }
+				"substep-relationships": { "type": "array", "items": { "$ref": "#/$defs/relationship" } },
+				"view-action": { "$ref": "#/$defs/view-action" }
 			},
 			"required": ["$id", "verb", "subject", "ordinal"],
 			"additionalProperties": false
@@ -65,7 +77,8 @@
 				"name":{"type":"string"},
 				"detail":{"type":"string"},
 				"probability":{"type":"number"},
-				"impact":{"type":"number"}				
+				"impact":{"type":"number"},
+				"view-action": { "$ref": "#/$defs/view-action" }
 			},
 			"required": ["$id", "name", "probability", "impact"]
 		},
@@ -75,7 +88,8 @@
 				"$id": { "type": "string", "maxLength": 64, "format" : "uuid" },	
 				"direction": { "type": "string", "enum": ["increase", "decrease", "maximize", "minimize"] },
 				"subject": { "type": "string" },
-				"target": { "type": "string" }
+				"target": { "type": "string" },
+				"view-action": { "$ref": "#/$defs/view-action" }
 			},
 			"required": ["$id", "direction", "subject", "target"],
 			"additionalProperties": false
@@ -99,7 +113,8 @@
 				},
 				"values": {
 					"type": "array", "items": { "$ref": "#/$defs/relationship" }
-				}
+				},
+				"view-action": { "$ref": "#/$defs/view-action" }
 			},
 			"required":["name", "source-type", "destination-type"]
 		},
@@ -112,7 +127,8 @@
 				"icon-name": { "type": "string" },
 				"default-value": { "type": "number" },
 				"min-value": { "type": "number" },
-				"max-value": { "type": "number" }
+				"max-value": { "type": "number" },
+				"view-action": { "$ref": "#/$defs/view-action" }
 			},
 			"required":["label", "default-value"]
 		},
@@ -125,7 +141,8 @@
 				"weight": { "type": "number" },
 				"source-id": { "type": "string", "maxLength": 64, "format" : "uuid" },
 				"destination-id": { "type": "string" },
-				"name": { "type": "string" }
+				"name": { "type": "string" },
+				"view-action": { "$ref": "#/$defs/view-action" }
 			},
 			"required": ["$id", "type", "source-id", "destination-id"],
 			"additionalProperties": false

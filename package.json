@@ -22,7 +22,7 @@
     "watch:proxy": "wait-on http://localhost:3001/ && wait-on http://localhost:3002/ && node ./scripts/proxy.js",
     "new:component": "stencil generate",
     "------------------ production ------------------": "this is a divider",
-    "build": "run-s make-icons build:stencil build:storybook",
+    "build": "run-s compile-schema make-icons build:stencil build:storybook",
     "build:stencil": "node --max_old_space_size=4096 --optimize_for_size --stack_size=4096 ./node_modules/@stencil/core/bin/stencil build --docs ",
     "build:stencil_old": "stencil build --docs ",
     "build:storybook": "build-storybook --output-dir ./dist-storybook --static-dir ./dist-stencil/vetrify-web-components ",
@@ -34,7 +34,8 @@
     "lint:husky": "lint-staged",
     "chromatic": "run-s build:stencil chromatic:publish",
     "chromatic:publish": "npx chromatic --project-token <REPLACE-WITH-YOUR-TOKEN> --build-script-name build:storybook",
-    "make-icons": "node make-icons.js"
+    "make-icons": "node make-icons.js",
+    "compile-schema": "./node_modules/.bin/json2ts ./src/schemas/**/*.json -o ./src/types"
   },
   "husky": {
     "hooks": {
@@ -157,6 +158,7 @@
     "jquery-mask-plugin": "^1.14.16",
     "jquery.repeater": "^1.2.1",
     "jqvmap": "^1.5.1",
+    "json-schema-to-typescript": "^10.1.3",
     "jstree": "^3.3.10",
     "jszip": "^3.5.0",
     "keycharm": "^0.4.0",

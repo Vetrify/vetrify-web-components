@@ -1,15 +1,23 @@
 {
 	"$schema": "http://json-schema.org/schema#",
-	"description": "Personas",
+	"$id": "http://www.vetrify.com/persona-details-0.0.1",
+	"version": "0.0.1",
+	"title": "Vetrify Persona Details",
+	"description": "Definition for detailed proto-personas in the Vetrify application",
 	"properties": {
 		"lists": {
 			"type": "array",
 			"items": {
 				"$ref": "#/$defs/persona"
 			}
-		}
+		},
+		"view-action": { "$ref": "#/$defs/view-action" }
 	},
 	"$defs": {
+		"view-action":{
+			"type": "string",
+			"enum":["update", "remove"]
+		},
 		"persona": {
 			"type": "object",
 			"properties": {
@@ -30,7 +38,8 @@
 					"type": "string"
 				},{
 					"type": "array", "items": { "type": "string"}
-				}] }				
+				}] },
+				"view-action": { "$ref": "#/$defs/view-action" }				
 			},
 			"required": ["$id", "name", "brief"]
 		}

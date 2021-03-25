@@ -1,0 +1,35 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"$id": "http://www.vetrify.com/verbs-0.0.1",
+	"version": "0.0.1",
+	"title": "Vetrify Verbs",
+	"description": "The verb structure used in the vetrify application.",
+	"properties": {
+		"lists": {
+			"type": "array",
+			"items": {
+				"$ref": "#/$defs/verb-list"
+			}
+		}
+	},
+	"$defs": {
+		"verb-list": {
+			"type": "object",
+			"properties": {
+				"key": {
+					"type": "string"
+				},
+				"values": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			},
+			"required": [
+				"name",
+				"values"
+			]
+		}
+	}
+}

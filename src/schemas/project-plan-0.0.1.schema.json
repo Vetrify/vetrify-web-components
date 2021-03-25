@@ -1,6 +1,9 @@
 {
 	"$schema": "http://json-schema.org/schema#",
-	"description": "Project Staffing Plan (CPM)",
+	"$id": "http://www.vetrify.com/project-staffing-0.0.1",
+	"version": "0.0.1",
+	"title": "Vetrify Project Staffing Plan (CPM)",
+	"description": "Definition for a CPM (Critical Path Management) project plan in the Vetrify application",
 	"properties": {
 		"$id": {"type":"string", "maxLength": 64, "format": "uuid" },
 		"name" :{"type":"string", "maxLength":256},
@@ -16,9 +19,14 @@
 		"participant-ids":{"type": "array", "items": [ { "type": "string", "maxLength": 64}]},
 		"project-assumptions": {"type": "array", "items": { "$ref": "#/$defs/assumption"}},	
 		"detail": { "type": "array", "items": { "$ref": "#/$defs/detail" } },
-		"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}}
+		"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
+		"view-action": { "$ref": "#/$defs/view-action" }
 	},
 	"$defs": {
+		"view-action":{
+			"type": "string",
+			"enum":["update", "remove"]
+		},
 		"milestone": {
 			"type":"object",
 			"properties": {
@@ -36,7 +44,8 @@
 				"estimate-mean": {"type": "number"},
 				"estimate-sdev": {"type": "number"},
 				"tasks": {"type":"array", "items": { "$ref": "#/$defs/task"}},
-				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}}
+				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
 			}
 		},
 		"task":{
@@ -46,7 +55,8 @@
 				"ordinal":{"type":"number"},
 				"title": {"type": "string", "maxLength": 128},
 				"description": {"type": "string"},
-				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}}
+				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
 			},
 			"required": ["ordinal", "title"]
 		},
@@ -58,7 +68,8 @@
 				"stop": {"type": "string", "format": "date-time"},
 				"unit": {"type": "string", "enum":["hours", "days", "weeks", "months", "years"]},
 				"assumptions" : {"type":"array", "items":{ "type": "string"} },
-				"estimates": {"type": "array", "items": { "$ref": "#/$defs/estimate"}}
+				"estimates": {"type": "array", "items": { "$ref": "#/$defs/estimate"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
 			}
 		},
 		"estimate":{
@@ -69,7 +80,8 @@
 				"timestamp": {"type": "string", "format": "date-time"},
 				"value": {"type": "number"},
 				"assumptions" : {"type":"array", "items":{ "type": "string"} },
-				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}}
+				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
 			}
 		},
 		"detail": {
@@ -79,7 +91,8 @@
 				"ordinal" : { "type": "number" },
 				"description": {"type":"string"},
 				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
-				"detail-assumptions": {"type": "array", "items": { "$ref": "#/$defs/assumption"}}
+				"detail-assumptions": {"type": "array", "items": { "$ref": "#/$defs/assumption"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
 			},
 			"required": ["title", "ordinal", "content"]
 		},
@@ -89,7 +102,8 @@
 				"$user-id": {"type": "string", "maxLength": 64, "format": "uuid" },
 				"timestamp": {"type": "string", "format": "date-time"},
 				"$value": {"type": "number"},
-				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}}
+				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
 			}
 		},
 		"comment": {
@@ -100,7 +114,8 @@
 				"status": {"type": "string", "maxLength": 64},
 				"action": {"type": "string", "maxLength": 32},
 				"content": {"type": "string"},
-				"responses": {"type": "array", "items": { "$ref": "#/$defs/comment"}}				
+				"responses": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
+				"view-action": { "$ref": "#/$defs/view-action" }
 			}
 		}
 	}

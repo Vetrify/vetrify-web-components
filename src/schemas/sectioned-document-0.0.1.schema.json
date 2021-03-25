@@ -1,6 +1,9 @@
 {
 	"$schema": "http://json-schema.org/schema#",
-	"description": "Sectioned Document",
+	"$id": "http://www.vetrify.com/sectioned-document-0.0.1",
+	"version": "0.0.1",
+	"title": "Vetrify Sectioned Document",
+	"description": "Definition document with detailed sections in the Vetrify applications",
 	"properties": {
 		"$version-id": {"type":"string", "maxLength": 64, "format" : "uuid" },
 		"name" :{"type":"string", "maxLength":256},
