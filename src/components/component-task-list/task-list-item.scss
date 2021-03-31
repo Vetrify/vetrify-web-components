@@ -1,0 +1,153 @@
+@import '../../scss/component';
+@import '../../scss/vetrify';
+@import '../../scss/style';
+
+/**
+ * @prop --border-color: The card's border color, including borders that occur inside the card.
+ * @prop --border-radius: The border radius for card edges.
+ * @prop --border-width: The width of card borders.
+ * @prop --padding: The padding to use for card sections.
+ */
+ //The border issue is solved we have used the css variables
+ :root {
+   --border-radius-medium: 10px;
+  --border-radius-large: 20px;
+ }
+:host {
+  --border-color: var(--v-color-gray-200);
+  --border-width: 1px;
+  --padding: var(--v-spacing-large);
+
+  display: inline-block;
+}
+
+.card-header-slot{
+  //display: flex;
+  //justify-content: space-between;// left;// space-between;
+  //align-items: stretch;
+  //flex-wrap: wrap;
+  //height: $card-header-height;
+  //min-height: $card-header-height;
+  padding-top: 20px;
+  padding-bottom: 0;
+  background-color: transparent;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--v-color-white);
+
+  border: solid var(--border-width) var(--border-color);
+  border-radius: var(--border-radius-medium);
+}
+
+.card-header
+{
+  .card-icon
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    v-icon {
+      font-size: 1.25rem;
+      color: $dark-50;
+      line-height: 0;
+
+
+      &:after,
+      &:before {
+          line-height: 0;
+      }
+  }
+}
+
+.svg-icon {
+    @include svg-icon-size(24px);
+    @include svg-icon-color($dark-50);
+}
+}
+
+// .card__image {
+//   border-top-left-radius: var(--border-radius);
+//   border-top-right-radius: var(--border-radius);
+//   margin: calc(-1 * var(--border-width));
+//   overflow: hidden;
+
+//   ::slotted(img) {
+//     display: block;
+//     width: 100%;
+//   }
+// }
+
+.card:not(.card--has-image) .card-image {
+  visibility: hidden;
+  display: none;
+}
+
+// .card__header {
+//   border-bottom: solid var(--border-width) var(--border-color);
+//   padding: calc(var(--padding) / 2) var(--padding);
+// }
+
+.card:not(.card--show-header) .card-header {
+
+  visibility: none !important;
+  display: none !important;
+}
+
+.card:not(.card--show-header) .card-header-slot {
+  visibility: none !important;
+  display: none !important;
+}
+
+.card-body{
+  font-weight: var(--v-font-weight-light);
+  font-size: var(--v-font-size-medium);
+}
+
+// .card__body {
+//   padding: var(--padding);
+// }
+
+// .card--has-footer .card__footer {
+//   border-top: solid var(--border-width) var(--border-color);
+//   padding: var(--padding);
+// }
+
+.card-footer-slot {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.card:not(.card--show-footer) .card-footer {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  min-height: 0px !important;
+  visibility: hidden;
+  display: none;
+}
+
+.card:not(.card--show-footer) .card-footer-slot {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  min-height: 0px !important;
+  visibility: hidden;
+  display: none;
+}
+
+.card-border {
+  padding: 20px 20px;
+  border-radius: var(--border-radius-medium);
+  background-color: #fff;
+}
+.card-bordered {
+  border: 1px solid rgba(189, 185, 185, 0.575) !important;
+  border-radius: var(--border-radius-medium);
+  box-shadow: 0px 0px white !important;
+}
+
+.card-toolbar {
+  display: flex;
+}

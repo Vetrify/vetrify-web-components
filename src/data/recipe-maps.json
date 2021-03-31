@@ -1,0 +1,158 @@
+{
+	"recipeMaps": [
+		{
+			"$id": "697FBED5-6418-44B1-93B3-3FA32A166632",
+			"associatedVerb": "build",
+			"name": "Engineering Process - Basic",
+			"description": "Basic engineering process",
+			"steps": [
+
+			]
+		},
+		{
+			"$id": "6C1FA74F-8120-4BF2-81C6-EEC2BFF29F90",
+			"associatedVerb": "learn",
+			"name": "Scientific Process - Basic",
+			"description": "Basic scientific process",
+			"steps": [
+		
+			]
+		},
+		{
+			"$id": "8CB83FB2-AE43-453C-BD80-4F543C4C4F03",
+			"verb": "achieve",
+			"object": "transition",
+			"name": "Universal job map",
+			"description": "Universal job map for any process.",
+			"steps": [
+				{ "$number": 0, "objects":  [], "verbs": ["define", "plan", "select", "determine"] },
+				{ "$number": 1, "objects":  [], "verbs": ["locate", "gather", "access", "retrieve"] },
+				{ "$number": 2, "objects":  [], "verbs": ["prepare", "setup", "organize", "examine"] },
+				{ "$number": 3, "objects":  [], "verbs": ["confirm", "validate", "prioritize", "decode"] },
+				{ "$number": 4, "objects":  [], "verbs": ["execute", "perform", "transact", "administer"] },
+				{ "$number": 5, "objects":  [], "verbs": ["monitor", "verify", "track", "check"] },
+				{ "$number": 6, "objects":  [], "verbs": ["resolve", "troubleshoot", "restore", "fix"] },
+				{ "$number": 7, "objects":  [], "verbs": ["modify", "update", "adjust", "maintain"] },
+				{ "$number": 8, "objects":  [], "verbs": ["conclude", "store", "finish", "close"] }
+			],
+			"transitions": [
+				[ 0, 1 ],
+				[ 1, 2 ],
+				[ 2, 3 ],
+				[ 3, 4 ],
+				[ 4, 5 ],
+				[ 5, 6 ], [ 5, 7 ],
+				[ 6, 7 ],
+				[ 7, 8 ],
+				[ 8, 0 ]
+		    ]
+		},
+		{
+			"$id": "4F36BF7C-3B57-43B1-B2BF-25D9CF9835E4",
+			"verb": "provide",
+			"object": "service",
+			"name": "Provide a service",
+			"description": "Universal job map for providing a service",
+			"steps": [
+				{ "$number": 0, "verbs": ["receive"], "objects": ["customer contact"] },
+				{ "$number": 1, "verbs": ["define", "assess"], "objects": ["customer needs", "customer wants"] },
+				{ "$number": 2, "verbs": ["develop"], "objects":["plan"], "objective": "satisfy customer needs"},
+				{ "$number": 3, "verbs": ["verify"], "objects":["plan"], "objective": "satisfy customer needs"},
+				{ "$number": 4, "verbs": ["prepare"], "objects":["customers", "employees"], "context": "their role"},
+				{ "$number": 5, "verbs": ["manage"], "objects":["behaviors", "role execution"]},
+				{ "$number": 6, "verbs": ["deliver"], "objects":["service"], "context": "a specific customer"},
+				{ "$number": 7, "verbs": ["evaluate", "monitor"], "objects":["service delivery"]},
+				{ "$number": 8, "verbs": ["modify", "maintain"], "objects":["service delivery"], "context": "as needed"},
+				{ "$number": 9, "verbs": ["respond"], "objects":["customer inquires", "customer questions", "customer issues"]},
+				{ "$number": 10, "verbs": ["conclude"], "objects":["service"]},
+				{ "$number": 11, "verbs": ["determine"], "objects":["resources needed"]},
+				{ "$number": 12, "verbs": ["schedule", "assign"], "objects":["resources"]},
+				{ "$number": 13, "verbs": ["coordinate"], "objects":["internal service providers", "external service providers"]},
+				{ "$number": 14, "verbs": ["gather"], "objects":["materials", "equipment", "information"]},
+				{ "$number": 15, "verbs": ["prepare"], "objects":["resources"]}						
+			],
+			"transitions":[
+				[0, 1],
+				[1, 2],
+				[2, 3],
+				[3, 4],
+				[4, 5], [4, 6],
+				[5, 6], [6, 5],
+				[5, 7], 
+				[6, 7],
+				[7, 8], [7, 9],
+				[8, 9], [9, 8],
+				[8, 10],
+				[3, 11],
+				[11, 12],
+				[12, 13],
+				[13, 14],
+				[14, 15],
+				[15, 6]
+			]
+		},
+		{
+			"$id": "9069109D-4DD2-40A3-9512-7930D1D9B066",
+			"verb": "provide",
+			"object": "support",
+			"name": "Provide support",
+			"description": "Universal job map for providing support",
+			"steps": [
+				{ "$number": 0, "verbs": ["receive"], "objects": ["support contact"] },
+				{ "$number": 1, "verbs": ["define", "access"], "objects": ["problem"] },
+				{ "$number": 2, "verbs": ["develop"], "objects": ["support plan"] },
+				{ "$number": 3, "verbs": ["verify"], "objects": ["solution"], "context": "plan" },
+				{ "$number": 4, "verbs": ["determine"], "objects": ["required resources"], "context": "plan execution" },
+			    { "$number": 5, "verbs": ["schedule"], "objects": ["resources"] },
+			    { "$number": 6, "verbs": ["coordinate"], "objects": ["partners"] },
+			    { "$number": 7, "verbs": ["gather"], "objects": ["necessary materials", "necessary information"] },
+			    { "$number": 8, "verbs": ["prepare"], "objects": ["resources"], "context": "plan execution" },
+			    { "$number": 9, "verbs": ["prepare"], "objects": ["customers"], "context": "role in plan" },
+			    { "$number": 9, "verbs": ["diagnose", "deliver"], "objects": ["support"] },
+			    { "$number": 10, "verbs": ["manage"], "objects": ["customer's role"], "context": "plan execution" },
+			    { "$number": 11, "verbs": ["monitor", "verify"], "objects": ["plan success"] },
+			    { "$number": 12, "verbs": ["respond"], "objects": ["follow-up questions"], "context": "from customer" },
+			    { "$number": 13, "verbs": ["modify", "maintain", "escalate"], "objects": []},
+			    { "$number": 14, "verbs": ["conclude"], "objects": ["support"] }
+			],
+			"transitions":[
+				[0, 1],
+				[1, 2],
+				[2, 3],
+				[3, 4],
+				[4, 5],
+				[5, 6],
+				[6, 7],
+				[7, 8],
+				[8, 9],
+				[9, 10],
+				[10, 11],
+				[11, 12],
+				[12, 13],
+				[13, 14]
+			]
+		},
+	    {
+			"$id": "EE96BE22-F62E-4596-8FFB-51FA8B297FD7",
+			"verb": "obtain",
+			"object": "service",
+			"name": "Provide a service",
+			"description": "Universal job map for obtaining a service",
+			"steps": [						
+			],
+			"transitions":[
+			]
+		},
+		{
+			"$id": "7B7F9149-8E45-44ED-B210-343B724DC6B4",
+			"verb": "obtain",
+			"object": "support",
+			"name": "Provide support",
+			"description": "Universal job map for obtaining support",
+			"steps": [
+			],
+			"transitions":[
+			]
+		}
+	]
+}

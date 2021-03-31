@@ -1,0 +1,52 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"$id": "http://www.vetrify.com/recipeMap-0.0.1",
+	"version": "0.0.1",
+	"title": "Vetrify Recipe Maps",
+	"description": "Definition for known recipes to be used as templates in the Vetrify application",
+	"properties": {
+		"recipeMaps": { "type": "array", "items": { "$ref": "#/$defs/recipeMap" } },
+		"viewState": { "$ref": "#/$defs/viewState" }
+	},
+	"$defs": {
+		"viewState":{
+			"type": "object", 
+			"properties": {
+				"readOnly": { "type":"boolean"},
+				"hidden": { "type":"boolean"},
+			    "status": { "type": "string", "enum":["dirty", "new", "deleted"]},
+			    "availableActions": { "type": "array", "items":{ "type": "string"}},
+			    "requestedActions": { "type": "array", "items":{ "type": "string"}}
+			}
+		},
+		"recipeMap": {
+			"type": "object",
+			"properties": {
+				"$id": { "type": "string", "maxLength": 64, "format" : "uuid" },
+				"verb":{ "type": "string", "maxLength": 64 },
+				"object":{ "type": "string", "maxLength": 256 },
+				"name": { "type": "string" },
+				"description":{ "type": "string" },
+				"steps": { "type": "array", "items": { "$ref": "#/$defs/recipe-step" } },
+				"transitions": { "type": "array", "items": { "type:": "array", "items": [{"type": "number"},{"type": "number"}], "additionalItems": false }},
+				"viewState": { "$ref": "#/$defs/viewState" }
+			},
+			"required":["$id", "name"]
+		},
+		"recipe-step": {
+			"type": "object",
+			"properties": {
+				"$number": {"type": "number"},
+				"verbs" : {"type": "array", "items": { "type": "string", "maxLength": 64 }},
+				"type": {"enum":["initial", "terminal"]},
+				"objects" : {"type": "array", "items": { "type": "string", "maxLength": 64 }},
+				"objective" : {"type": "string", "maxLength": 512},
+				"context": {"type": "string", "maxLength": 512},
+				"importance": {"type": "number"},
+				"subrecipe": { "$ref": "#/$defs/recipeMap" },				
+				"viewState": { "$ref": "#/$defs/viewState" }
+			},
+			"required": ["$number", "verbs", "objects"]
+		}
+	}
+}

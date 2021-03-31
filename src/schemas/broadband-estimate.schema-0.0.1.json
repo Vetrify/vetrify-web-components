@@ -8,7 +8,7 @@
 		"$id": {"type":"string", "maxLength": 64, "format" : "uuid"},
 		"name" :{"type":"string", "maxLength":256},
 		"description": {"type":"string" },
-		"$project-id" : {"type": "string", "maxLength": 64, "format" : "uuid"},
+		"$projectId" : {"type": "string", "maxLength": 64, "format" : "uuid"},
 		"category": {"type": "string", "maxLength": 32},
 		"subcategory": {"type": "string", "maxLength": 64},
 		"$user-id": {"type": "string", "maxLength": 64, "format" : "uuid" },
@@ -19,12 +19,18 @@
 		"participant-ids":{"type": "array", "items": [ { "type": "string", "maxLength": 64}]},
 		"project-assumptions": {"type": "array", "items": { "$ref": "#/$defs/assumption"}},	
 		"detail": { "type": "array", "items": { "$ref": "#/$defs/detail" } },
-		"view-action": { "$ref": "#/$defs/view-action" }
+		"viewState": { "$ref": "#/$defs/viewState" }
 	},
 	"$defs": {
-		"view-action":{
-			"type": "string",
-			"enum":["update", "remove"]
+		"viewState":{
+			"type": "object", 
+			"properties": {
+				"readOnly": { "type":"boolean"},
+				"hidden": { "type":"boolean"},
+			    "status": { "type": "string", "enum":["dirty", "new", "deleted"]},
+			    "availableActions": { "type": "array", "items":{ "type": "string"}},
+			    "requestedActions": { "type": "array", "items":{ "type": "string"}}
+			}
 		},
 		"estimate-round": {
 			"type": "object",
@@ -35,17 +41,17 @@
 				"unit": {"type": "string", "enum":["hours", "days", "weeks", "months", "years"]},
 				"assumptions" : {"type":"array", "items":{ "type": "string"} },
 				"estimates": {"type": "array", "items": { "$ref": "#/$defs/estimate"}},
-				"view-action": { "$ref": "#/$defs/view-action" }
+				"viewState": { "$ref": "#/$defs/viewState" }
 			}
 		},
 		"estimate":{
 			"type": "object",
 			"properties": {
-				"$user-id": {"type": "string", "maxLength": 64, "format" : "uuid"},
+				"$userId": {"type": "string", "maxLength": 64, "format" : "uuid"},
 				"timestamp": {"type": "string", "format": "date-time"},
 				"$value": {"type": "number"},
 				"assumptions" : {"type":"array", "items":{ "type": "string"} },
-				"view-action": { "$ref": "#/$defs/view-action" }
+				"viewState": { "$ref": "#/$defs/viewState" }
 			}
 		},
 		"detail": {
@@ -56,18 +62,18 @@
 				"description": {"type":"string"},
 				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
 				"detail-assumptions": {"type": "array", "items": { "$ref": "#/$defs/assumption"}},
-				"view-action": { "$ref": "#/$defs/view-action" }
+				"viewState": { "$ref": "#/$defs/viewState" }
 			},
 			"required": ["title", "ordinal", "content"]
 		},
 		"assumption":{
 			"type": "object",
 			"properties": {
-				"$user-id": {"type": "string", "maxLength": 64, "format" : "uuid"},
+				"$userId": {"type": "string", "maxLength": 64, "format" : "uuid"},
 				"timestamp": {"type": "string", "format": "date-time"},
 				"value": {"type": "number"},
 				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
-				"view-action": { "$ref": "#/$defs/view-action" }
+				"viewState": { "$ref": "#/$defs/viewState" }
 			}
 		},
 		"comment": {
@@ -79,7 +85,7 @@
 				"action": {"type": "string", "maxLength": 32},
 				"content": {"type": "string"},
 				"responses": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
-				"view-action": { "$ref": "#/$defs/view-action" }		
+				"viewState": { "$ref": "#/$defs/viewState" }
 			}
 		}
 	}

@@ -15,17 +15,28 @@
 		"document-id" : {"type": "string", "maxLength": 64},
 		"version": {"type": "string", "maxLength": 64},
 		"status": {"type": "string", "maxLength": 64},
-		"as-of" : { "type": "string", "format":"date-time"}	,	
+		"asOf" : { "type": "string", "format":"date-time"}	,	
 		"sections": { "type": "array", "items": { "$ref": "#/$defs/section" } }
 	},
 	"$defs": {
+		"viewState":{
+			"type": "object", 
+			"properties": {
+				"readOnly": { "type":"boolean"},
+				"hidden": { "type":"boolean"},
+			    "status": { "type": "string", "enum":["dirty", "new", "deleted"]},
+			    "availableActions": { "type": "array", "items":{ "type": "string"}},
+			    "requestedActions": { "type": "array", "items":{ "type": "string"}}
+			}
+		},
 		"section": {
 			"type": "object",
 			"properties": {
 				"title" : { "type": "string", "maxLength": 256 },
 				"ordinal" : { "type": "number" },
 				"content": {"type":"string"},
-				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}}
+				"comments": {"type": "array", "items": { "$ref": "#/$defs/comment"}},
+				"viewState": {"$ref": "#/$defs/viewState"}
 			},
 			"required": ["title", "ordinal", "content"]
 		},
@@ -37,7 +48,8 @@
 				"status": {"type": "string", "maxLength": 64},
 				"action": {"type": "string", "maxLength": 32},
 				"content": {"type": "string"},
-				"responses": {"type": "array", "items": { "$ref": "#/$defs/section"}}				
+				"responses": {"type": "array", "items": { "$ref": "#/$defs/section"}},
+				"viewState": {"$ref": "#/$defs/viewState"}
 			}
 		}
 	}
