@@ -7,17 +7,23 @@
 	"properties": {
 		"recipes": { "type": "array", "items": { "$ref": "#/$defs/recipe" } },
 		"terms": { "type": "array", "items": { "$ref": "#/$defs/term" } },
-		"relationships": { "type": "array", "items": { "$ref": "#/$defs/relationship-group"} },
+		"relationships": { "type": "array", "items": { "$ref": "#/$defs/relationshipGroup"} },
 		"personas": { "type" : "array", "items":{ "$ref": "#/$defs/persona" } },
 		"reasons": { "type": "array", "items": { "$ref": "#/$defs/purpose" } },
-		"failure-modes":{ "type": "array", "items": { "$ref": "#/$defs/failure-mode"} },
-		"effect-labels":{ "type": "array", "items": {"$ref": "#/$defs/range-label" } },
-		"view-action": { "$ref": "#/$defs/view-action" }
+		"failureModes":{ "type": "array", "items": { "$ref": "#/$defs/failureMode"} },
+		"effectLabels":{ "type": "array", "items": {"$ref": "#/$defs/rangeLabel" } },
+		"viewState": { "$ref": "#/$defs/viewState" }
 	},
 	"$defs": {
-		"view-action":{
-			"type": "string",
-			"enum":["update", "remove"]
+		"viewState":{
+			"type": "object", 
+			"properties": {
+				"readOnly": { "type":"boolean"},
+				"hidden": { "type":"boolean"},
+			    "status": { "type": "string", "enum":["dirty", "new", "deleted"]},
+			    "availableActions": { "type": "array", "items":{ "type": "string"}},
+			    "requestedActions": { "type": "array", "items":{ "type": "string"}}
+			}
 		},
 		"term": {
 			"type": "object",
@@ -25,7 +31,7 @@
 				"name": { "type": "string" },
 				"definition": { "type": "string" },
 				"weight":{ "type": "number" },
-				"view-action": { "$ref": "#/$defs/view-action" }
+				"viewState": { "$ref": "#/$defs/viewState" }
 			},
 			"required": ["name"]
 		},
@@ -37,7 +43,7 @@
 				"brief": { "type": "string" },
 				"thumbnail": {"type": "string", "format": "uri" },
 				"initials": {"type": "string", "minLength": 2, "maxLength": 3},
-				"view-action": { "$ref": "#/$defs/view-action" }
+				"viewState": { "$ref": "#/$defs/viewState" }
 			},
 			"required": ["$id", "name", "brief"]
 		},
@@ -45,17 +51,17 @@
 			"type": "object",
 			"properties": {
 				"$id": { "type": "string", "maxLength": 64, "format" : "uuid" },
-				"associated-verb":{ "type": "string" },
+				"associatedVerb":{ "type": "string" },
 				"name": { "type": "string" },
 				"description":{ "type": "string" },
 				"promise": { "type": "string" },
-				"steps": { "type": "array", "items": { "$ref": "#/$defs/recipe-step" } },
-				"step-relationships": { "type": "array", "items": { "$ref": "#/$defs/relationship" } },
-				"view-action": { "$ref": "#/$defs/view-action" }
+				"steps": { "type": "array", "items": { "$ref": "#/$defs/recipeStep" } },
+				"stepRelationships": { "type": "array", "items": { "$ref": "#/$defs/relationship" } },
+				"viewState": { "$ref": "#/$defs/viewState" }
 			},
 			"required":["$id", "name", "promise"]
 		},
-		"recipe-step": {
+		"recipeStep": {
 			"type": "object",
 			"properties": {
 				"$id": { "type": "string", "maxLength": 64, "format" : "uuid" },
@@ -63,14 +69,14 @@
 				"subject": { "type": "string" },
 				"importance": {"type": "number"},
 				"ordinal":{ "type":"number"},
-				"substeps": { "type": "array", "items": { "$ref": "#/$defs/recipe-step" } },
-				"substep-relationships": { "type": "array", "items": { "$ref": "#/$defs/relationship" } },
-				"view-action": { "$ref": "#/$defs/view-action" }
+				"substeps": { "type": "array", "items": { "$ref": "#/$defs/recipeStep" } },
+				"substepRelationships": { "type": "array", "items": { "$ref": "#/$defs/relationship" } },
+				"viewState": { "$ref": "#/$defs/viewState" }
 			},
 			"required": ["$id", "verb", "subject", "ordinal"],
 			"additionalProperties": false
 		},
-		"failure-mode":{
+		"failureMode":{
 			"type":"object",
 			"properties":{
 				"$id": { "type": "string", "maxLength": 64, "format" : "uuid" },
@@ -78,7 +84,7 @@
 				"detail":{"type":"string"},
 				"probability":{"type":"number"},
 				"impact":{"type":"number"},
-				"view-action": { "$ref": "#/$defs/view-action" }
+				"viewState": { "$ref": "#/$defs/viewState" }
 			},
 			"required": ["$id", "name", "probability", "impact"]
 		},
@@ -89,62 +95,62 @@
 				"direction": { "type": "string", "enum": ["increase", "decrease", "maximize", "minimize"] },
 				"subject": { "type": "string" },
 				"target": { "type": "string" },
-				"view-action": { "$ref": "#/$defs/view-action" }
+				"viewState": { "$ref": "#/$defs/viewState" }
 			},
 			"required": ["$id", "direction", "subject", "target"],
 			"additionalProperties": false
 		},
-		"relationship-group":{
+		"relationshipGroup":{
 			"type":"object",
 			"properties":{
 				"name":{"type": "string"},
 				"detail":{"type": "string"},
-				"source-type": {
+				"sourceType": {
 					"type": "string",
-					"enum": [ "step", "objective", "failure-mode", "effect-category", "persona" ]
+					"enum": [ "step", "objective", "failure mode", "effect category", "persona" ]
 				},
-				"destination-type": {
+				"destinationType": {
 					"type": "string",
-					"enum": [ "step", "objective", "failure-mode", "effect-category", "persona" ]
+					"enum": [ "step", "objective", "failureMode", "effect category", "persona" ]
 				},
 				"labels": {
 					"description": "the label to be shown with various types of relationship weights",
-					"type": "array", "items": { "$ref": "#/$defs/range-label" }
+					"type": "array", "items": { "$ref": "#/$defs/rangeLabel" }
 				},
 				"values": {
 					"type": "array", "items": { "$ref": "#/$defs/relationship" }
 				},
-				"view-action": { "$ref": "#/$defs/view-action" }
+				"viewState": { "$ref": "#/$defs/viewState" }
 			},
-			"required":["name", "source-type", "destination-type"]
+			"required":["name", "sourceType", "destinationType"]
 		},
-		"range-label": {
+		"rangeLabel": {
 			"type": "object",
 			"description": "a label for a range of numeric values.  min is inclusive, max is exclusive.",
 			"properties": {
 				"label": { "type": "string" },
 				"description": {"type": "string"},
-				"icon-name": { "type": "string" },
-				"default-value": { "type": "number" },
-				"min-value": { "type": "number" },
-				"max-value": { "type": "number" },
-				"view-action": { "$ref": "#/$defs/view-action" }
+				"iconName": { "type": "string" },
+				"defaultValue": { "type": "number" },
+				"minValue": { "type": "number" },
+				"maxValue": { "type": "number" },
+				"viewState": { "$ref": "#/$defs/viewState" }
 			},
-			"required":["label", "default-value"]
+			"required":["label", "defaultValue"]
 		},
 		"relationship": {
 			"type": "object",
 			"properties": {
 				"$id": { "type": "string", "maxLength": 64, "format" : "uuid" },
 				"type":{ "type": "string"},
-				"constraint-type": { "type": "string", "enum": [ "FS", "SS", "SF" ] },
+				"constraintType": { "type": "string", "enum": [ "FS", "SS", "SF" ] },
 				"weight": { "type": "number" },
-				"source-id": { "type": "string", "maxLength": 64, "format" : "uuid" },
-				"destination-id": { "type": "string" },
+				"sourceId": { "type": "string", "maxLength": 64, "format" : "uuid" },
+				"destinationId": { "type": "string" },
 				"name": { "type": "string" },
-				"view-action": { "$ref": "#/$defs/view-action" }
+				"viewState": { "$ref": "#/$defs/viewState" }
 			},
-			"required": ["$id", "type", "source-id", "destination-id"],
+			"required": ["$id", "type", "sourceId", "destinationId"],
 			"additionalProperties": false
 			
 		}

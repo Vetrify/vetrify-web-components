@@ -603,6 +603,14 @@ export namespace Components {
          */
         "value": number;
     }
+    interface VFoundation {
+        "checked": boolean;
+        "heading": string;
+        "status": 'In Progress' | 'Approved' | 'Verified' | 'Rejected';
+        "subheading": string;
+        "subject": string;
+        "verb": string;
+    }
     interface VIcon {
         /**
           * An alternative description to use for accessibility. If omitted, the name or src will be used to generate it.
@@ -1273,6 +1281,38 @@ export namespace Components {
          */
         "type": 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'text';
     }
+    interface VTaskList {
+        "bordered": boolean;
+        "heading": string;
+        /**
+          * The name of a registered custom icon library.
+         */
+        "iconLibrary": string;
+        /**
+          * The name of the icon to draw.
+         */
+        "iconName": string;
+        "semiBordered": boolean;
+        "showFooter": boolean;
+        "showHeader": boolean;
+        "subheading": string;
+    }
+    interface VTaskListItem {
+        "bordered": boolean;
+        "heading": string;
+        /**
+          * The name of a registered custom icon library.
+         */
+        "iconLibrary": string;
+        /**
+          * The name of the icon to draw.
+         */
+        "iconName": string;
+        "semiBordered": boolean;
+        "showFooter": boolean;
+        "showHeader": boolean;
+        "subheading": string;
+    }
     interface VTextarea {
         /**
           * The textarea's autocaptialize attribute.
@@ -1577,6 +1617,12 @@ declare global {
         prototype: HTMLVFormatNumberElement;
         new (): HTMLVFormatNumberElement;
     };
+    interface HTMLVFoundationElement extends Components.VFoundation, HTMLStencilElement {
+    }
+    var HTMLVFoundationElement: {
+        prototype: HTMLVFoundationElement;
+        new (): HTMLVFoundationElement;
+    };
     interface HTMLVIconElement extends Components.VIcon, HTMLStencilElement {
     }
     var HTMLVIconElement: {
@@ -1793,6 +1839,18 @@ declare global {
         prototype: HTMLVTagElement;
         new (): HTMLVTagElement;
     };
+    interface HTMLVTaskListElement extends Components.VTaskList, HTMLStencilElement {
+    }
+    var HTMLVTaskListElement: {
+        prototype: HTMLVTaskListElement;
+        new (): HTMLVTaskListElement;
+    };
+    interface HTMLVTaskListItemElement extends Components.VTaskListItem, HTMLStencilElement {
+    }
+    var HTMLVTaskListItemElement: {
+        prototype: HTMLVTaskListItemElement;
+        new (): HTMLVTaskListItemElement;
+    };
     interface HTMLVTextareaElement extends Components.VTextarea, HTMLStencilElement {
     }
     var HTMLVTextareaElement: {
@@ -1857,6 +1915,7 @@ declare global {
         "v-format-bytes": HTMLVFormatBytesElement;
         "v-format-date": HTMLVFormatDateElement;
         "v-format-number": HTMLVFormatNumberElement;
+        "v-foundation": HTMLVFoundationElement;
         "v-icon": HTMLVIconElement;
         "v-icon-button": HTMLVIconButtonElement;
         "v-icon-library": HTMLVIconLibraryElement;
@@ -1893,6 +1952,8 @@ declare global {
         "v-tab-group": HTMLVTabGroupElement;
         "v-tab-panel": HTMLVTabPanelElement;
         "v-tag": HTMLVTagElement;
+        "v-task-list": HTMLVTaskListElement;
+        "v-task-list-item": HTMLVTaskListItemElement;
         "v-textarea": HTMLVTextareaElement;
         "v-theme": HTMLVThemeElement;
         "v-timeline": HTMLVTimelineElement;
@@ -2532,6 +2593,14 @@ declare namespace LocalJSX {
           * The number to format.
          */
         "value"?: number;
+    }
+    interface VFoundation {
+        "checked"?: boolean;
+        "heading"?: string;
+        "status"?: 'In Progress' | 'Approved' | 'Verified' | 'Rejected';
+        "subheading"?: string;
+        "subject"?: string;
+        "verb"?: string;
     }
     interface VIcon {
         /**
@@ -3211,6 +3280,38 @@ declare namespace LocalJSX {
          */
         "type"?: 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'text';
     }
+    interface VTaskList {
+        "bordered"?: boolean;
+        "heading"?: string;
+        /**
+          * The name of a registered custom icon library.
+         */
+        "iconLibrary"?: string;
+        /**
+          * The name of the icon to draw.
+         */
+        "iconName"?: string;
+        "semiBordered"?: boolean;
+        "showFooter"?: boolean;
+        "showHeader"?: boolean;
+        "subheading"?: string;
+    }
+    interface VTaskListItem {
+        "bordered"?: boolean;
+        "heading"?: string;
+        /**
+          * The name of a registered custom icon library.
+         */
+        "iconLibrary"?: string;
+        /**
+          * The name of the icon to draw.
+         */
+        "iconName"?: string;
+        "semiBordered"?: boolean;
+        "showFooter"?: boolean;
+        "showHeader"?: boolean;
+        "subheading"?: string;
+    }
     interface VTextarea {
         /**
           * The textarea's autocaptialize attribute.
@@ -3405,6 +3506,7 @@ declare namespace LocalJSX {
         "v-format-bytes": VFormatBytes;
         "v-format-date": VFormatDate;
         "v-format-number": VFormatNumber;
+        "v-foundation": VFoundation;
         "v-icon": VIcon;
         "v-icon-button": VIconButton;
         "v-icon-library": VIconLibrary;
@@ -3441,6 +3543,8 @@ declare namespace LocalJSX {
         "v-tab-group": VTabGroup;
         "v-tab-panel": VTabPanel;
         "v-tag": VTag;
+        "v-task-list": VTaskList;
+        "v-task-list-item": VTaskListItem;
         "v-textarea": VTextarea;
         "v-theme": VTheme;
         "v-timeline": VTimeline;
@@ -3475,6 +3579,7 @@ declare module "@stencil/core" {
             "v-format-bytes": LocalJSX.VFormatBytes & JSXBase.HTMLAttributes<HTMLVFormatBytesElement>;
             "v-format-date": LocalJSX.VFormatDate & JSXBase.HTMLAttributes<HTMLVFormatDateElement>;
             "v-format-number": LocalJSX.VFormatNumber & JSXBase.HTMLAttributes<HTMLVFormatNumberElement>;
+            "v-foundation": LocalJSX.VFoundation & JSXBase.HTMLAttributes<HTMLVFoundationElement>;
             "v-icon": LocalJSX.VIcon & JSXBase.HTMLAttributes<HTMLVIconElement>;
             "v-icon-button": LocalJSX.VIconButton & JSXBase.HTMLAttributes<HTMLVIconButtonElement>;
             "v-icon-library": LocalJSX.VIconLibrary & JSXBase.HTMLAttributes<HTMLVIconLibraryElement>;
@@ -3511,6 +3616,8 @@ declare module "@stencil/core" {
             "v-tab-group": LocalJSX.VTabGroup & JSXBase.HTMLAttributes<HTMLVTabGroupElement>;
             "v-tab-panel": LocalJSX.VTabPanel & JSXBase.HTMLAttributes<HTMLVTabPanelElement>;
             "v-tag": LocalJSX.VTag & JSXBase.HTMLAttributes<HTMLVTagElement>;
+            "v-task-list": LocalJSX.VTaskList & JSXBase.HTMLAttributes<HTMLVTaskListElement>;
+            "v-task-list-item": LocalJSX.VTaskListItem & JSXBase.HTMLAttributes<HTMLVTaskListItemElement>;
             "v-textarea": LocalJSX.VTextarea & JSXBase.HTMLAttributes<HTMLVTextareaElement>;
             "v-theme": LocalJSX.VTheme & JSXBase.HTMLAttributes<HTMLVThemeElement>;
             "v-timeline": LocalJSX.VTimeline & JSXBase.HTMLAttributes<HTMLVTimelineElement>;

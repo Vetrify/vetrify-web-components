@@ -11,12 +11,18 @@
 				"$ref": "#/$defs/persona"
 			}
 		},
-		"view-action": { "$ref": "#/$defs/view-action" }
+		"viewState": { "$ref": "#/$defs/viewState" }
 	},
 	"$defs": {
-		"view-action":{
-			"type": "string",
-			"enum":["update", "remove"]
+		"viewState":{
+			"type": "object", 
+			"properties": {
+				"readOnly": { "type":"boolean"},
+				"hidden": { "type":"boolean"},
+			    "status": { "type": "string", "enum":["dirty", "new", "deleted"]},
+			    "availableActions": { "type": "array", "items":{ "type": "string"}},
+			    "requestedActions": { "type": "array", "items":{ "type": "string"}}
+			}
 		},
 		"persona": {
 			"type": "object",
@@ -39,7 +45,7 @@
 				},{
 					"type": "array", "items": { "type": "string"}
 				}] },
-				"view-action": { "$ref": "#/$defs/view-action" }				
+				"viewState": { "$ref": "#/$defs/viewState" }				
 			},
 			"required": ["$id", "name", "brief"]
 		}
