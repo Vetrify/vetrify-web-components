@@ -1,0 +1,14 @@
+import { newSpecPage } from '@stencil/core/testing';
+//import { FoundationService } from './foundation.service';
+import { Foundation } from './foundation'
+
+// TODO: create real tests (scrap the one below)
+describe('foundation-service', () => {
+  it('is initially empty', async () => {
+    const { root } = await newSpecPage({
+      components: [Foundation],
+      html: '<v-foundation></v-foundation>',
+    });
+    expect(1).toEqual(1);
+  });
+});

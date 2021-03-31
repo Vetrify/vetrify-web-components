@@ -12,7 +12,7 @@ adr.psm1 is a powershell module you can import in a normal powershell session. T
 2. Open Powershell CLI and import module
 
 	```powershell
-	/ powershell –ExecutionPolicy Bypass
+	/ powershell –ExecutionPolicy Bypass -scope CurrentUser
 	/ Import-Module .\adr.psm1
 	```
 3. Create an ADR repository in the current script location

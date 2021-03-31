@@ -45,15 +45,7 @@
 				[ 6, 7 ],
 				[ 7, 8 ],
 				[ 8, 0 ]
-		    ],
-			"prompts": [
-				{
-					"promptTemplates": [
-						"Is there a anything that has to be {{}} before {{verb}} the {{subject}}?",
-						"Is there a anything that has to be {{}} after {{verb}} the {{subject}}?"
-					]
-				}
-			]
+		    ]
 		},
 		{
 			"$id": "4F36BF7C-3B57-43B1-B2BF-25D9CF9835E4",

@@ -28,7 +28,7 @@
 				"name": { "type": "string" },
 				"description":{ "type": "string" },
 				"steps": { "type": "array", "items": { "$ref": "#/$defs/recipe-step" } },
-				"transitions": { "type": "array", "items": {"type":"array", "items": {"type": "number"}} },
+				"transitions": { "type": "array", "items": { "type:": "array", "items": [{"type": "number"},{"type": "number"}], "additionalItems": false }},
 				"viewState": { "$ref": "#/$defs/viewState" }
 			},
 			"required":["$id", "name"]
