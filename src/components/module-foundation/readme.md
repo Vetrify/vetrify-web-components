@@ -1,6 +1,17 @@
 # v-foundation
 
+The foundation module stores the foundational data and functionality used across all pages in the application.
 
+This includes
+- Tasks
+- Users
+- Projects
+- Project events
+- Docs (list of other available documents for users to interact with)
+
+The foundation module receives push notifications asynchronously with the server through a SignalR hub.
+
+The foundation module submits change requests through a rest api.
 
 <!-- Auto Generated Below -->
 
