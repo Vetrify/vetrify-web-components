@@ -76,6 +76,19 @@ Date: $datePosted
 "
 }
 
+# function Adr-UpdateMaster(){
+# 	Set-Location $PSScriptRoot;
+
+# 	#default adr repostory root
+# 	$destinationDirectory = "docs\adr"	
+
+# 	#find the latest adr sequence
+# 	$latestFiles = Get-ChildItem "*.md" -Name -File $destinationDirectory 
+
+# 	$vals = $latestFiles | Select-Object -Property "fileName"
+
+# }
+
 function Adr-Help(){
 }
 

@@ -110,12 +110,22 @@
 			"properties": {
 				"$id": {"type": "string", "maxLength": 64, "format" : "uuid" },
 				"project-id" : {"type": "string", "maxLength": 64},
-				"category": {"type": "string", "maxLength": 32},
+				"category": {"type": "string", "maxLength": 32, "enum":[
+					"strategy", 
+					"project document", 
+					"project requirements", 
+					"analysis", 
+					"plan", 
+					"feedback",
+					"account behavior",
+					"lexicon",
+					"personas",
+					"presentation component"]},
 				"subcategory": {"type": "string", "maxLength": 64},
 				"availableActions": {"type": "array", "items":{ "type": "string"}},
 				"viewState" : { "$ref": "#/$defs/viewState"}
 			},
-			"required":["$id", "project-id"]
+			"required":["$id", "project-id", "category"]
 		},
 		"docRelationship" : {
 			"type": "object",
