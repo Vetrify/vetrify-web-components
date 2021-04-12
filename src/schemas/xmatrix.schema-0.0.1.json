@@ -1,0 +1,121 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"$id": "http://www.vetrify.com/xmatrix-0.0.1",
+	"version": "0.0.1",
+	"title": "Vetrify XMatrix",
+	"description": "Matrix to cross-compare multiple vectors of data",
+	"required": [
+		"title",
+		"gap",
+		"padding",
+		"arm",
+		"zig",
+		"zag"
+	],
+	"additionalProperties": false,
+	"properties": {
+		"title": {
+			"type": "string"
+		},
+		"kind": {
+			"type": "string"
+		},
+		"driver": {
+			"type": "string"
+		},
+		"author": {
+			"type": "string"
+		},
+		"period": {
+			"type": "string"
+		},
+		"source": {
+			"type": "string",
+			"format": "uri"
+		},
+		"revision": {
+			"type": "string"
+		},
+		"gap": {
+			"type": "number"
+		},
+		"padding": {
+			"type": "number"
+		},
+		"color": {
+			"type": "string"
+		},
+		"arm": {
+			"type": "number"
+		},
+		"klikkers": {
+			"type": "array",
+			"title": "klikkers",
+			"items": {
+				"type": "array",
+				"items": {
+					"type": "number"
+				}
+			}
+		},
+		"zig": {
+			"type": "object",
+			"properties": {
+				"panels": {
+					"type": "array",
+					"title": "panels",
+					"items": {
+						"$ref": "#/$defs/panel"
+					}
+				}
+			}
+		},
+		"zag": {
+			"type": "object",
+			"properties": {
+				"panels": {
+					"type": "array",
+					"title": "panels",
+					"items": {
+						"$ref": "#/$defs/panel"
+					}
+				}
+			}
+		}
+	},
+	"$defs": {
+		"panel": {
+			"type": "object",
+			"required": [
+				"direction",
+				"anchor",
+				"entries"
+			],
+			"additionalProperties": false,
+			"properties": {
+				"direction": {
+					"type": "string",
+					"enum": [
+						"north-east",
+						"north-west",
+						"south-east",
+						"south-west"
+					]
+				},
+				"section": {
+					"type": "string"
+				},
+				"anchor": {
+					"type": "string"
+				},
+				"entries": {
+					"type": "array",
+					"title": "entries",
+					"items": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	}
+}
